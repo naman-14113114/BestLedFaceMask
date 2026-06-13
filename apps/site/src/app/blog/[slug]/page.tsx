@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import Layout from "@/components/Layout";
+import { articles } from "@/data/articles";
+import { blogMetadata } from "@/lib/metadata";
+import Article from "@/legacy-pages/Article";
+
+export function generateStaticParams() {
+  return articles.map((article) => ({ slug: article.slug }));
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  return blogMetadata(slug);
+}
+
+export default function Page() {
+  return (
+    <Layout>
+      <Article />
+    </Layout>
+  );
+}

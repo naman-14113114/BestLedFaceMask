@@ -1,0 +1,7 @@
+{
+  "extends": "@trustpilotreview/tsconfig/react-library.json",
+  "compilerOptions": {
+    "rootDir": "."
+  },
+  "include": ["src"]
+}
