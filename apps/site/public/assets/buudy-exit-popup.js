@@ -1,6 +1,8 @@
 (function () {
   var ELIGIBLE_PATHS = [
     "/best-led-face-mask-in-uk",
+    "/best-led-face-mask-au-2026",
+    "/best-led-face-mask-ca-2026",
     "/best-led-face-mask-uk-2026",
     "/best-red-light-therapy-mask",
     "/blog",
@@ -22,7 +24,38 @@
   var STORAGE_KEY = "buudy_exit_popup_seen_v1";
   var SHOW_DELAY_MS = 7000;
   var MOBILE_DELAY_MS = 14000;
-  var CTA_URL = "https://uk.buudy.com/products/buudy-led-mask?utm_source=trustpilotreview.shop&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
+  var MARKET_OFFERS = [
+    {
+      path: "/best-led-face-mask-au-2026",
+      url: "https://au.buudy.com/products/buudy-led-mask",
+      offer: "AUD 299 instead of AUD 498"
+    },
+    {
+      path: "/best-led-face-mask-ca-2026",
+      url: "https://ca.buudy.com/products/buudy-led-mask",
+      offer: "CAD 279 instead of CAD 559"
+    },
+    {
+      path: "/best-led-face-mask-uk-2026",
+      url: "https://uk.buudy.com/products/buudy-led-mask",
+      offer: "GBP 179 instead of GBP 449"
+    }
+  ];
+  var DEFAULT_MARKET_OFFER = MARKET_OFFERS[2];
+  var EXIT_POPUP_ATTRIBUTION = "?utm_source=trustpilotreview.shop&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
+
+  function getMarketOffer(pathname) {
+    for (var i = 0; i < MARKET_OFFERS.length; i += 1) {
+      if (pathname === MARKET_OFFERS[i].path || pathname.indexOf(MARKET_OFFERS[i].path + "/") === 0) {
+        return MARKET_OFFERS[i];
+      }
+    }
+
+    return DEFAULT_MARKET_OFFER;
+  }
+
+  var CURRENT_MARKET_OFFER = getMarketOffer(window.location.pathname);
+  var CTA_URL = CURRENT_MARKET_OFFER.url + EXIT_POPUP_ATTRIBUTION;
 
   function isEligiblePath(pathname) {
     return ELIGIBLE_PATHS.some(function (eligiblePath) {
@@ -102,7 +135,7 @@
       "<div class='buudy-exit-kicker'>Before you go</div>",
       "<h2 class='buudy-exit-title' id='buudy-exit-title'>The #1 pick is still 60% off.</h2>",
       "<p class='buudy-exit-copy'>If you were comparing LED masks, do not leave without checking the Buudy 7-color mask. It covers red, blue, green, cyan, yellow, purple and white routines in one device.</p>",
-      "<div class='buudy-exit-offer'><div><span>Today on Buudy</span><strong>GBP 179 instead of GBP 449</strong></div><span>Last check</span></div>",
+      "<div class='buudy-exit-offer'><div><span>Today on Buudy</span><strong>" + CURRENT_MARKET_OFFER.offer + "</strong></div><span>Last check</span></div>",
       "<div class='buudy-exit-actions'>",
       "<a class='buudy-exit-cta' href='" + CTA_URL + "'>Claim 60% Off</a>",
       "<button class='buudy-exit-secondary' type='button' data-buudy-exit-close='true'>Keep Reading</button>",

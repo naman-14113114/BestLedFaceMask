@@ -2,6 +2,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, Play } from 'lucide-react';
 import { motion } from 'motion/react';
+import {
+  getAdvertorialMarket,
+  type AdvertorialMarket,
+  type AdvertorialMarketKey,
+  type ProductPriceKey
+} from '@/lib/advertorialMarkets';
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",
@@ -16,7 +22,24 @@ const criteria = [
   "Affordability and post-purchase customer support"
 ];
 
-const products = [
+type Product = {
+  id: number;
+  rank: string;
+  name: string;
+  image: string;
+  price: string;
+  originalPrice?: string;
+  rating: string;
+  link: string;
+  isWinner: boolean;
+  siliconWarning?: boolean;
+  description: string[];
+  pros: string[];
+  cons: string[];
+  metrics: Array<{ label: string; value: number }>;
+};
+
+const baseProducts: Product[] = [
   {
     id: 1,
     rank: "#1",
@@ -209,9 +232,282 @@ const products = [
   }
 ];
 
+const canadaCompetitorProducts: Product[] = [
+  {
+    id: 3,
+    rank: "#3",
+    name: "Kala Red Light Face Mask",
+    image: "https://kalaredlight.com/cdn/shop/files/Kala_Therapy_Face_Mask_1.webp?v=1770194802",
+    price: "$382.49",
+    rating: "4.5 / 5",
+    link: "#",
+    isWinner: false,
+    siliconWarning: true,
+    description: [
+      "Kala Red Light Face Mask earns the third spot in the Canada ranking because it brings a credible, skin-focused LED setup at a mid-premium price. The device combines red, near-infrared, and blue light in a lightweight silicone mask, giving Canadian buyers a practical option for anti-aging support, blemish-prone skin, and general tone improvement.",
+      "Its official specifications list 198 LED lights, 630nm red light, 830nm near-infrared light, 465nm blue light, 10-20 minute treatment sessions, USB-C charging, a 348g weight, and a 2-year warranty. The brand also highlights FDA-cleared and Health Canada positioning, which helps it feel more trustworthy than many generic marketplace masks.",
+      "The reason it does not rank higher is coverage and versatility. At $382.49, Kala is still a face-only mask with a narrower three-wavelength setup, so it does not cover the neck or offer the broader colour range included with our top pick."
+    ],
+    pros: [
+      "Triple-Wavelength Coverage: Uses red, near-infrared, and blue LED light, giving it a more rounded routine than red-only masks.",
+      "Clear Technical Specs: Lists 198 LED lights, treatment time, wavelengths, power density, weight, charging time, and warranty details.",
+      "Trust Signals: The product page highlights FDA-cleared, dermatologist-recommended, and Health Canada positioning.",
+      "Lightweight Silicone Fit: At 348g, it is lighter than rigid premium masks and easier to fit into a regular skincare routine.",
+      "2-Year Warranty: A longer warranty helps reduce purchase anxiety at this price point."
+    ],
+    cons: [
+      "No Neck Coverage: It treats the face only, leaving the neck and jawline untreated unless a separate device is used.",
+      "Limited Colour Range: Red, near-infrared, and blue are useful, but it lacks Green, Cyan, Yellow, Purple, and White modes for broader skin concerns.",
+      "Moderate Output: The listed optical power density is practical but not the strongest in the category.",
+      "Long Charging Time: A 4-hour charging time is less convenient than shorter-charge or longer-runtime systems.",
+      "Price Still Adds Up: At $382.49, it costs more than the reviewed Buudy Canada offer while covering less skin area."
+    ],
+    metrics: [
+      { label: "Light Effectiveness", value: 78 },
+      { label: "Skin Comfort and Fit", value: 84 },
+      { label: "Ease of Use", value: 82 },
+      { label: "Material Quality", value: 86 },
+      { label: "Affordability", value: 64 }
+    ]
+  },
+  {
+    id: 4,
+    rank: "#4",
+    name: "TheraFace Mask",
+    image: "https://img.thesitebase.net/10677/10677322/themes/177107817340059938e3.jpeg",
+    price: "$799.99",
+    rating: "4.3 / 5",
+    link: "#",
+    isWinner: false,
+    description: [
+      "TheraFace Mask takes fourth place in the Canada guide. It is the most premium-feeling competitor on this list, backed by Therabody's wellness-tech reputation and built around 648 LEDs plus VibraWave massage therapy for facial tension.",
+      "The mask includes Red, Blue, and Yellow light therapies, cordless use, and short 9-minute sessions. For buyers who already trust Therabody and want a high-end, hard-shell device, it has obvious appeal.",
+      "The tradeoff is value. At $799.99, it is dramatically more expensive than the other masks here, still focuses on the face only, and uses a rigid, heavier headset that can feel less comfortable across different face shapes."
+    ],
+    pros: [
+      "Massive LED Count: Uses 648 LEDs, one of the highest counts in the category.",
+      "Vibration Therapy: VibraWave motors add a massage-style feature for facial tension relief.",
+      "Cordless Design: Short 9-minute routines and no cord make sessions easy to start.",
+      "Brand Reputation: Backed by Therabody, a major name in wellness technology."
+    ],
+    cons: [
+      "Eye-Watering Price: At $799.99, it is the most expensive product in this Canada ranking.",
+      "Zero Neck Coverage: The device treats the face only and ignores the neck and chest area.",
+      "Heavy and Rigid: The hard-shell format can feel less forgiving and may not sit evenly on every face shape.",
+      "Limited Spectrum: It focuses on Red, Blue, and Yellow while missing Green, Cyan, Purple, and White light modes.",
+      "Risk of Floating Head Syndrome: Treating only the face can leave a visible mismatch around the jawline and neck.",
+      "Short Battery Life: LED-only battery runtime is limited compared with simpler external-controller designs.",
+      "Bulky Storage: The rigid premium shell takes more room to store and travel with."
+    ],
+    metrics: [
+      { label: "Light Effectiveness", value: 88 },
+      { label: "Skin Comfort and Fit", value: 74 },
+      { label: "Ease of Use", value: 84 },
+      { label: "Material Quality", value: 94 },
+      { label: "Affordability", value: 18 }
+    ]
+  },
+  {
+    id: 5,
+    rank: "#5",
+    name: "Equinox LED Mask",
+    image: "https://img.thesitebase.net/10677/10677322/themes/177107760726eeda427f.jpeg",
+    price: "$385",
+    rating: "4.2 / 5",
+    link: "#",
+    isWinner: false,
+    siliconWarning: true,
+    description: [
+      "Equinox LED Mask rounds out the Canada top five as a technically interesting silicone option with strong spec-sheet appeal. The face-only version lists 336 LEDs, while the full face, neck, and chest kit increases the total LED count when purchased as a larger bundle.",
+      "Its Glow Core-style setup uses six treatment modes built around Red, Blue, Yellow, and Near-Infrared wavelengths, including 633nm red, 415nm blue, 590nm yellow, and 830nm near-infrared. The official product information also highlights Health Canada approval, CE, FCC, ROHS, and a 2-year warranty.",
+      "It ranks fifth because the $385 face-only model still leaves out neck coverage, has fewer colour options than the top pick, and asks users to manage a more complex controller setup. It is credible, but the overall value is weaker for Canadian buyers focused on full-face and neck treatment."
+    ],
+    pros: [
+      "High Face LED Count: The face-only mask lists 336 LEDs for dense facial coverage.",
+      "Six Treatment Modes: Includes combinations such as Red + NIR, Red + Blue, and Yellow + NIR.",
+      "Ultra-Thin Comfort: The product positioning highlights a thinner silicone fit than many standard masks.",
+      "Certification and Warranty Signals: Lists Health Canada approval, CE, FCC, ROHS, and a 2-year warranty."
+    ],
+    cons: [
+      "Face-Only at This Price: The $385 model does not include neck and chest treatment.",
+      "Limited Colour Spectrum: It uses four wavelengths and lacks Green, Cyan, Purple, and White modes.",
+      "Complex Controller: Multiple modes and intensity choices can feel less simple for daily use.",
+      "Inconvenient Wired Remote: The controller setup is less seamless than tap-style or fully cordless routines.",
+      "Lower Overall Value: It costs more than the reviewed Buudy Canada offer while delivering less included coverage.",
+      "Incomplete Anti-Aging Coverage: Without neck treatment in the face-only model, the jawline and neck can be left behind."
+    ],
+    metrics: [
+      { label: "Light Effectiveness", value: 72 },
+      { label: "Skin Comfort and Fit", value: 80 },
+      { label: "Ease of Use", value: 76 },
+      { label: "Material Quality", value: 84 },
+      { label: "Affordability", value: 54 }
+    ]
+  }
+];
+
+const productPriceKeys: Record<number, ProductPriceKey> = {
+  1: "buudy",
+  2: "currentbody",
+  3: "omnilux",
+  4: "shark",
+  5: "drdenis"
+};
+
+const legacyPound = String.fromCharCode(163);
+
+function replaceMarketLanguage(text: string, market: AdvertorialMarket) {
+  return text
+    .replaceAll("United Kingdom", market.countryName)
+    .replaceAll("UK buyers", market.buyerLabel)
+    .replaceAll("the UK market", `the ${market.marketLabel}`)
+    .replaceAll("UK market", market.marketLabel)
+    .replaceAll("in the UK", `in ${market.titleCountry}`);
+}
+
+function replaceMarketPrices(text: string, market: AdvertorialMarket) {
+  const prices = market.productPrices;
+
+  return text
+    .replaceAll(`${legacyPound}679.99`, prices.currentbody.fullCoveragePrice ?? prices.currentbody.price)
+    .replaceAll(`${legacyPound}399.99`, prices.currentbody.price)
+    .replaceAll(`${legacyPound}400`, prices.currentbody.roundedPrice ?? prices.currentbody.price)
+    .replaceAll(`${legacyPound}348`, prices.omnilux.price)
+    .replaceAll(`${legacyPound}299.99`, prices.shark.price)
+    .replaceAll(`${legacyPound}455`, prices.drdenis.price)
+    .replaceAll(`${legacyPound}500`, prices.drdenis.premiumPriceLabel ?? prices.drdenis.price)
+    .replaceAll(`${legacyPound}696`, prices.omnilux.fullCoveragePrice ?? prices.omnilux.price)
+    .replaceAll(`${legacyPound}449`, prices.buudy.originalPrice ?? prices.buudy.price)
+    .replaceAll(`${legacyPound}179`, prices.buudy.price)
+    .replaceAll(`${legacyPound}40`, prices.currentbody.restockingFee ?? prices.currentbody.price);
+}
+
+function localizeProductCopy(text: string, market: AdvertorialMarket, productKey: ProductPriceKey) {
+  if (market.key === "uk") return text;
+
+  const prices = market.productPrices;
+
+  if (productKey === "buudy") {
+    if (text.startsWith("Trusted by over 16,000 customers")) {
+      return `Trusted by over 16,000 customers with a 4.9-star rating, this mask delivers visible improvements in as few as ten uses. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced eye protection, and a 90-day money-back guarantee for a safer, lower-risk trial.`;
+    }
+
+    if (text.startsWith("Cost-effective:")) {
+      return `Cost-effective: Currently priced at ${prices.buudy.price}, which is a 60% discount from its regular price of ${prices.buudy.originalPrice}.`;
+    }
+
+    if (text.startsWith("Limited Availability:")) {
+      return `Limited Availability: Available for purchase online only in ${market.countryName}.`;
+    }
+  }
+
+  if (productKey === "currentbody") {
+    if (text.startsWith("Extremely High Price:")) {
+      return `Extremely High Price: At ${prices.currentbody.price}, it is drastically more expensive than the Buudy mask (which is ${prices.buudy.price}).`;
+    }
+
+    if (text.startsWith("No Neck Coverage:")) {
+      return "No Neck Coverage: The standard mask is for the face only. You must purchase the \"Face & Neck Kit\" for neck coverage, which comes standard with the Buudy mask.";
+    }
+
+    if (text.startsWith("Costly Money-Back Guarantee:")) {
+      return `Costly Money-Back Guarantee: The 60-day money-back guarantee is not 100% free. Customers are charged a 10% restocking fee to return it, which would be about ${prices.currentbody.restockingFee} on a ${prices.currentbody.roundedPrice} mask.`;
+    }
+  }
+
+  if (productKey === "omnilux") {
+    if (text.startsWith("While it carries a premium price point")) {
+      return `While it carries a premium price point of ${prices.omnilux.price}, the mask is highly regarded for its ergonomic design, offering a comfortable fit that ensures a seamless user experience. Favored by dermatological experts and skincare enthusiasts alike, the device has earned significant praise for delivering high-quality results that rival in-clinic treatments.`;
+    }
+
+    if (text.startsWith("Extremely High Price:")) {
+      return `Extremely High Price: At ${prices.omnilux.price}, it is significantly more expensive than the Buudy mask (${prices.buudy.price}).`;
+    }
+
+    if (text.startsWith("No Neck Coverage:")) {
+      return `No Neck Coverage: The ${prices.omnilux.price} price is for the face mask only. A separate neck and chest piece must be purchased for an additional cost, making the total cost for full coverage around ${prices.omnilux.fullCoveragePrice}.`;
+    }
+  }
+
+  if (productKey === "shark" && text.startsWith("Extremely High Price:")) {
+    return `Extremely High Price: At ${prices.shark.price}, it is significantly more expensive than the Buudy mask (${prices.buudy.price}) for what is arguably less technology.`;
+  }
+
+  if (productKey === "drdenis") {
+    if (text.startsWith("However, the staggering")) {
+      return `However, the staggering ${prices.drdenis.price} price point makes it an incredibly expensive investment, especially given its limitations. With a rigid, unyielding hard plastic shell, many users report significant discomfort on the bridge of the nose and uneven light coverage across different bone structures.`;
+    }
+
+    if (text.startsWith("Astronomical Price Point:")) {
+      return `Astronomical Price Point: At ${prices.drdenis.price}, you are paying a massive premium for the brand name. It costs more than double the price of top-tier, multi-functional alternatives.`;
+    }
+
+    if (text.startsWith("Zero Neck & Chest Coverage:")) {
+      return `Zero Neck & Chest Coverage: For ${prices.drdenis.premiumPriceLabel}, the lack of a neck attachment is a glaring omission. Users risk the "floating head" aging effect, whereas better-value masks include neck and dÃ©colletage treatment as a standard feature.`;
+    }
+  }
+
+  return replaceMarketPrices(replaceMarketLanguage(text, market), market);
+}
+
+function localizeBaseProduct(product: Product, market: AdvertorialMarket) {
+  const productKey = productPriceKeys[product.id];
+  const productPrice = market.productPrices[productKey];
+
+  return {
+    ...product,
+    price: productPrice.price,
+    originalPrice: productPrice.originalPrice,
+    link: product.isWinner ? market.buudyUrl : product.link,
+    description: product.description.map((copy) => localizeProductCopy(copy, market, productKey)),
+    pros: product.pros.map((copy) => localizeProductCopy(copy, market, productKey)),
+    cons: product.cons.map((copy) => localizeProductCopy(copy, market, productKey))
+  };
+}
+
+function getCanadaProducts(market: AdvertorialMarket) {
+  const buudy = localizeBaseProduct(baseProducts[0], market);
+  const currentBody = {
+    ...localizeBaseProduct(baseProducts[1], market),
+    link: "#"
+  };
+
+  return [buudy, currentBody, ...canadaCompetitorProducts];
+}
+
+function getProductsForMarket(market: AdvertorialMarket) {
+  if (market.key === "uk") return baseProducts;
+  if (market.key === "ca") return getCanadaProducts(market);
+
+  return baseProducts.map((product) => localizeBaseProduct(product, market));
+}
+
+function formatUpdatedDate(date: Date, market: AdvertorialMarket) {
+  if (market.key === "ca") {
+    return date.toLocaleDateString(market.locale, {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = date.toLocaleString(market.locale, { month: 'long' });
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+
+function preventPlaceholderNavigation(event: React.MouseEvent<HTMLAnchorElement>, href: string) {
+  if (href === "#") {
+    event.preventDefault();
+  }
+}
+
 export const CTAButton = ({ href, text, className = "" }: { href: string, text: string, className?: string }) => (
   <a 
     href={href}
+    onClick={(event) => preventPlaceholderNavigation(event, href)}
+    aria-disabled={href === "#" ? true : undefined}
     className={`relative inline-flex justify-center items-center px-8 py-4 text-lg md:text-xl font-bold text-white bg-emerald-500 rounded-full overflow-hidden group hover:scale-[1.02] transition-transform duration-300 shadow-xl shadow-emerald-500/30 ${className}`}
   >
     <span className="relative z-10 flex items-center gap-2">
@@ -239,18 +535,17 @@ export const MetricBar: React.FC<{ label: string, value: number }> = ({ label, v
   </div>
 );
 
-export default function Home() {
+export default function Home({ market: marketKey = "uk" }: { market?: AdvertorialMarketKey }) {
+  const market = getAdvertorialMarket(marketKey);
+  const products = getProductsForMarket(market);
   const [date, setDate] = useState('');
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const d = new Date();
-    const day = d.getDate().toString().padStart(2, '0');
-    const month = d.toLocaleString('en-GB', { month: 'long' });
-    const year = d.getFullYear();
-    setDate(`${day} ${month} ${year}`);
-  }, []);
+    setDate(formatUpdatedDate(d, market));
+  }, [market]);
 
   const playVerdictVideo = () => {
     const video = verdictVideoRef.current;
@@ -267,7 +562,7 @@ export default function Home() {
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            Best LED Face Masks of 2026 in the UK: Tested & Reviewed Comparisons
+            Best LED Face Masks of 2026 in {market.titleCountry}: Tested & Reviewed Comparisons
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
@@ -306,10 +601,10 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-4 py-12">
         {/* Intro */}
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
-          <p>LED face masks have exploded in the UK, but the market is confusing. Prices range from <strong>£100 to £600+</strong>, and many brands make almost identical claims about collagen, acne, redness, and anti-ageing results.</p>
+          <p>LED face masks have exploded in {market.titleCountry}, but the market is confusing. Prices range from <strong>{market.priceRange}</strong>, and many brands make almost identical claims about collagen, acne, redness, and anti-ageing results.</p>
           <p>So we tested <strong>18 of the most popular LED masks</strong> over <strong>200+ hours</strong>, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, ease of use, reviews, price, and guarantees.</p>
           <p>The biggest finding was simple: a higher price did not always mean better results. The best masks used the right wavelengths, gave even face and neck coverage, and were easy enough to use consistently at home.</p>
-          <p>Below, we rank the LED masks that actually stood out, including the one we believe offers the strongest balance of results, safety, comfort, and value for UK buyers.</p>
+          <p>Below, we rank the LED masks that actually stood out, including the one we believe offers the strongest balance of results, safety, comfort, and value for {market.buyerLabel}.</p>
         </div>
 
         {/* Criteria */}
@@ -352,7 +647,11 @@ export default function Home() {
                       {product.rank} {product.name}
                     </h2>
                     
-                    <a href={product.link} className="block w-full mb-6 group">
+                    <a
+                      href={product.link}
+                      onClick={(event) => preventPlaceholderNavigation(event, product.link)}
+                      className="block w-full mb-6 group"
+                    >
                       <img 
                         src={product.image} 
                         alt={product.name} 
@@ -375,18 +674,20 @@ export default function Home() {
                       <p className="text-sm font-medium text-slate-500">Overall rating {product.rating}</p>
                     </div>
 
-                    {(product.isWinner || product.link !== '#') && (
-                      <div className="w-full hidden lg:block">
-                        <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
-                      </div>
-                    )}
+                    <div className="w-full hidden lg:block">
+                      <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
+                    </div>
                   </div>
                 </div>
 
                 {/* Right Column: Details */}
                 <div className="lg:col-span-8">
                   <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
-                    <a href={product.link} className="hover:text-emerald-600 transition-colors">
+                    <a
+                      href={product.link}
+                      onClick={(event) => preventPlaceholderNavigation(event, product.link)}
+                      className="hover:text-emerald-600 transition-colors"
+                    >
                       {product.rank} {product.name}
                     </a>
                   </h2>
@@ -464,7 +765,7 @@ export default function Home() {
                         </div>
                         
                         <h4 className="font-extrabold text-2xl md:text-3xl text-gray-900 mb-4 leading-tight">
-                          We found an active sale for <span className="text-blue-600 bg-blue-100 px-2 rounded-md inline-block transform -rotate-1">FREE GIFTS</span> worth £128!
+                          We found an active sale for <span className="text-blue-600 bg-blue-100 px-2 rounded-md inline-block transform -rotate-1">FREE GIFTS</span> worth {market.giftValues.total}!
                         </h4>
                         
                         <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
@@ -478,7 +779,7 @@ export default function Home() {
                               FREE
                             </div>
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally £39</span>
+                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.travelBox}</span>
                               <img 
                                 src="https://img.thesitebase.net/10650/10650730/themes/17682450181b5f55beb5.png?width=640&height=0&min_height=0" 
                                 alt="Premium Travel Box" 
@@ -494,7 +795,7 @@ export default function Home() {
                               FREE
                             </div>
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally £70</span>
+                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.ledTorch}</span>
                               <img 
                                 src="https://img.thesitebase.net/10650/10650730/products/ver_1/176738038817f3610740.png?width=640&height=0&min_height=0" 
                                 alt="Buudy LED Torch" 
@@ -510,7 +811,7 @@ export default function Home() {
                               FREE
                             </div>
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally £19</span>
+                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.skincareGuide}</span>
                               <img 
                                 src="https://img.thesitebase.net/10650/10650730/themes/17682431737d583cc2df.png?width=640&height=0&min_height=0" 
                                 alt="Skincare E-Book" 
@@ -522,7 +823,7 @@ export default function Home() {
                         </div>
 
                         <a 
-                          href="https://uk.buudy.com/products/buudy-led-mask"
+                          href={market.buudyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg md:text-xl text-center py-4 md:py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] relative overflow-hidden group border-2 border-blue-500"
@@ -536,11 +837,9 @@ export default function Home() {
                     </motion.div>
                   )}
 
-                  {(product.isWinner || product.link !== '#') && (
-                    <div className="w-full mt-8 lg:hidden">
-                      <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
-                    </div>
-                  )}
+                  <div className="w-full mt-8 lg:hidden">
+                    <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -624,7 +923,7 @@ export default function Home() {
                 </div>
 
                 <a 
-                  href="https://uk.buudy.com/products/buudy-led-mask" 
+                  href={market.buudyUrl}
                   className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   CHECK AVAILABILITY
@@ -642,7 +941,7 @@ export default function Home() {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF — Limited Time</span>
         </div>
         <a 
-          href="https://uk.buudy.com/products/buudy-led-mask" 
+          href={market.buudyUrl}
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

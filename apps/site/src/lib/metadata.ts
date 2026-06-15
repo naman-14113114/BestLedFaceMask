@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { articles } from "@/data/articles";
+import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
 
 const siteUrl = "https://www.trustpilotreview.shop";
 const ogImage = "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp";
@@ -52,7 +53,42 @@ export const defaultAdvertorialMetadata: Metadata = {
   }
 };
 
-export function advertorialMetadata(pathname: string): Metadata {
+export function advertorialMetadata(pathname: string, marketKey: AdvertorialMarketKey = "uk"): Metadata {
+  const market = advertorialMarkets[marketKey];
+
+  if (marketKey !== "uk") {
+    const title = `Best LED Face Mask ${market.countryName} (2026) | Best LED Light Therapy Mask Reviews`;
+    const description = `Looking for the best LED face mask in ${market.countryName}? Compare the best LED light therapy masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.`;
+    const socialDescription = `Compare the best LED face masks in ${market.countryName} for wrinkles, red light therapy, at-home use, comfort, coverage, and overall value.`;
+
+    return {
+      ...defaultAdvertorialMetadata,
+      title,
+      description,
+      keywords:
+        `best led face mask, best led face mask ${market.countryName.toLowerCase()}, best led light therapy mask, best led mask for wrinkles, best red light therapy mask, best at home led face mask, best led light mask, best face led mask, best infrared face mask, top rated led face mask`,
+      alternates: {
+        canonical: `${siteUrl}${pathname}`,
+        languages: {
+          [market.languageName]: `${siteUrl}${pathname}`,
+          "x-default": `${siteUrl}${pathname}`
+        }
+      },
+      openGraph: {
+        ...defaultAdvertorialMetadata.openGraph,
+        title,
+        description: socialDescription,
+        url: `${siteUrl}${pathname}`,
+        locale: market.locale.replace("-", "_")
+      },
+      twitter: {
+        ...defaultAdvertorialMetadata.twitter,
+        title,
+        description: `Compare the best LED face masks in ${market.countryName} for wrinkles, acne, red light therapy, neck coverage, and value.`
+      }
+    };
+  }
+
   return {
     ...defaultAdvertorialMetadata,
     alternates: {

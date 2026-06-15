@@ -15,6 +15,8 @@ function assert(condition, message) {
 const canonicalRoutes = [
   "/",
   "/best-led-face-mask-uk-2026",
+  "/best-led-face-mask-au-2026",
+  "/best-led-face-mask-ca-2026",
   "/currentbody-vs-buudy",
   "/theraface-vs-other-masks",
   "/deluxeskin-vs-buudy",

@@ -10,7 +10,14 @@
   var OLD_BUUDY_FACE_MASK_URL = "https://buudy.com" + "/pages/buudy-led-face-mask";
   var OLD_BUUDY_LED_MASK_URL = "https://buudy.com" + "/pages/buudy-led-mask";
   var UK_BUUDY_LED_MASK_URL = "https://uk.buudy.com/products/buudy-led-mask";
-  var FALLBACK_BUUDY_URL = UK_BUUDY_LED_MASK_URL;
+  var AU_BUUDY_LED_MASK_URL = "https://au.buudy.com/products/buudy-led-mask";
+  var CA_BUUDY_LED_MASK_URL = "https://ca.buudy.com/products/buudy-led-mask";
+  var MARKET_BUUDY_URLS = [
+    { path: "/best-led-face-mask-au-2026", url: AU_BUUDY_LED_MASK_URL },
+    { path: "/best-led-face-mask-ca-2026", url: CA_BUUDY_LED_MASK_URL },
+    { path: "/best-led-face-mask-uk-2026", url: UK_BUUDY_LED_MASK_URL }
+  ];
+  var FALLBACK_BUUDY_URL = getMarketBuudyUrl(window.location.pathname);
   var BUUDY_IMAGE_RE = /buudy|57-w-1\.webp|176943060543a303d043|10650730\/products/i;
   var BUUDY_CARD_TEXT_RE = /buudy\s*(7\s*color|led|mask)|official website|check availability|free gifts/i;
 
@@ -24,12 +31,32 @@
     try {
       var url = new URL(rawHref, window.location.href);
       if (!BUUDY_HOST_RE.test(url.hostname)) return null;
-      return url.href
-        .replace(OLD_BUUDY_FACE_MASK_URL, UK_BUUDY_LED_MASK_URL)
-        .replace(OLD_BUUDY_LED_MASK_URL, UK_BUUDY_LED_MASK_URL);
+
+      if (
+        url.href.indexOf(OLD_BUUDY_FACE_MASK_URL) === 0 ||
+        url.href.indexOf(OLD_BUUDY_LED_MASK_URL) === 0 ||
+        url.pathname === "/products/buudy-led-mask"
+      ) {
+        var marketUrl = new URL(FALLBACK_BUUDY_URL);
+        marketUrl.search = url.search;
+        marketUrl.hash = url.hash;
+        return marketUrl.href;
+      }
+
+      return url.href;
     } catch (error) {
       return null;
     }
+  }
+
+  function getMarketBuudyUrl(pathname) {
+    for (var i = 0; i < MARKET_BUUDY_URLS.length; i += 1) {
+      if (pathname === MARKET_BUUDY_URLS[i].path || pathname.indexOf(MARKET_BUUDY_URLS[i].path + "/") === 0) {
+        return MARKET_BUUDY_URLS[i].url;
+      }
+    }
+
+    return UK_BUUDY_LED_MASK_URL;
   }
 
   function getExplicitTrackedHref(target) {
@@ -281,19 +308,26 @@
     true
   );
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      normalizeBuudyLinks(document);
-    });
-  } else {
-    normalizeBuudyLinks(document);
-  }
+  function observeBuudyLinks() {
+    var observerTarget = document.documentElement || document.body;
+    if (!observerTarget || !observerTarget.nodeType) return;
 
-  new MutationObserver(function (mutations) {
+    new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
       mutation.addedNodes.forEach(function (node) {
         if (node.nodeType === 1) normalizeBuudyLinks(node);
       });
     });
-  }).observe(document.documentElement, { childList: true, subtree: true });
+    }).observe(observerTarget, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      normalizeBuudyLinks(document);
+      observeBuudyLinks();
+    });
+  } else {
+    normalizeBuudyLinks(document);
+    observeBuudyLinks();
+  }
 })();

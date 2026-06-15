@@ -1,11 +1,12 @@
 import { AdvertorialNoscriptContent } from "@/components/seo/NoscriptContent";
 import { AdvertorialStructuredData } from "@/components/seo/StructuredData";
+import type { AdvertorialMarketKey } from "@/lib/advertorialMarkets";
 
-export function AdvertorialSeo() {
+export function AdvertorialSeo({ market = "uk" }: { market?: AdvertorialMarketKey }) {
   return (
     <>
-      <AdvertorialStructuredData />
-      <AdvertorialNoscriptContent />
+      <AdvertorialStructuredData market={market} />
+      <AdvertorialNoscriptContent market={market} />
     </>
   );
 }

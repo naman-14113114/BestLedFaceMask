@@ -19,6 +19,9 @@ const exitPopup = read(path.join(publicAssets, "buudy-exit-popup.js"));
 const outboundFailsafe = read(path.join(publicAssets, "buudy-outbound-failsafe.js"));
 const layout = read(path.join(siteRoot, "src", "app", "layout.tsx"));
 const advertorial = read(path.join(siteRoot, "src", "legacy-pages", "NewAdvertorial.tsx"));
+const advertorialMarkets = read(path.join(siteRoot, "src", "lib", "advertorialMarkets.ts"));
+const auPage = read(path.join(siteRoot, "src", "app", "best-led-face-mask-au-2026", "page.tsx"));
+const caPage = read(path.join(siteRoot, "src", "app", "best-led-face-mask-ca-2026", "page.tsx"));
 
 function isEligible(pathname) {
   const match = exitPopup.match(/ELIGIBLE_PATHS\s*=\s*(\[[\s\S]*?\]);/);
@@ -28,6 +31,8 @@ function isEligible(pathname) {
 }
 
 assert(isEligible("/best-led-face-mask-uk-2026"), "canonical advertorial page must be exit-popup eligible");
+assert(isEligible("/best-led-face-mask-au-2026"), "AU advertorial page must be exit-popup eligible");
+assert(isEligible("/best-led-face-mask-ca-2026"), "CA advertorial page must be exit-popup eligible");
 assert(isEligible("/top-5-led-mask"), "legacy top-5 path must remain exit-popup eligible before redirect");
 assert(isEligible("/blog/red-light-mask-guide"), "article/blog pages must be exit-popup eligible");
 assert(!isEligible("/privacy"), "privacy page must not be exit-popup eligible");
@@ -35,12 +40,18 @@ assert(!isEligible("/contact"), "contact page must not be exit-popup eligible");
 assert(!isEligible("/pages/buudy-led-mask-product-redesign"), "product redesign page must not be exit-popup eligible");
 
 assert(exitPopup.includes("https://uk.buudy.com/products/buudy-led-mask"), "exit popup CTA must use the current UK Buudy product page");
+assert(exitPopup.includes("https://au.buudy.com/products/buudy-led-mask"), "exit popup CTA must support the AU Buudy product page");
+assert(exitPopup.includes("https://ca.buudy.com/products/buudy-led-mask"), "exit popup CTA must support the CA Buudy product page");
+assert(exitPopup.includes("AUD 299 instead of AUD 498"), "exit popup must include the AU offer text");
+assert(exitPopup.includes("CAD 279 instead of CAD 559"), "exit popup must include the CA offer text");
 assert(exitPopup.includes("utm_medium=exit_popup"), "exit popup CTA must include attribution");
 assert(exitPopup.includes("sessionStorage"), "exit popup must use sessionStorage frequency capping");
 assert(exitPopup.includes("data-buudy-exit-close"), "exit popup close controls must have explicit close attributes");
 assert(exitPopup.includes('"pointerdown"'), "exit popup must close from pointer/touch starts, not click only");
 
 assert(outboundFailsafe.includes("https://uk.buudy.com/products/buudy-led-mask"), "outbound fallback route must use the UK Buudy product page");
+assert(outboundFailsafe.includes("https://au.buudy.com/products/buudy-led-mask"), "outbound fallback route must support the AU Buudy product page");
+assert(outboundFailsafe.includes("https://ca.buudy.com/products/buudy-led-mask"), "outbound fallback route must support the CA Buudy product page");
 assert(outboundFailsafe.includes("CONVERSION_VALUE = 330"), "Microsoft Ads conversion value must stay 330 INR");
 assert(outboundFailsafe.includes("CONVERSION_CURRENCY = \"INR\""), "Microsoft Ads conversion currency must stay INR");
 assert(outboundFailsafe.includes("buudy_outbound_click"), "primary outbound conversion event must be pushed");
@@ -59,5 +70,19 @@ assert(layout.includes("currency: 'INR'"), "root layout must preserve outbound c
 assert(advertorial.includes('poster="/assets/buudy-dermatologist-verdict-poster.jpg"'), "advertorial must use the dermatologist video poster");
 assert(advertorial.includes('<source src="/assets/buudy-dermatologist-verdict.mp4" type="video/mp4" />'), "advertorial must use the dermatologist MP4");
 assert(advertorial.includes("£179"), "Buudy UK price copy must remain consistent");
+assert(advertorial.includes("getProductsForMarket"), "advertorial must render market-specific product data");
+assert(advertorial.includes("market.giftValues.total"), "advertorial must render market-specific gift values");
+assert(auPage.includes('market="au"'), "AU page must render the AU advertorial market");
+assert(caPage.includes('market="ca"'), "CA page must render the CA advertorial market");
+assert(advertorialMarkets.includes('route: "/best-led-face-mask-au-2026"'), "AU market route must be configured");
+assert(advertorialMarkets.includes('route: "/best-led-face-mask-ca-2026"'), "CA market route must be configured");
+assert(advertorialMarkets.includes('buudyUrl: "https://au.buudy.com/products/buudy-led-mask"'), "AU Buudy URL must be configured");
+assert(advertorialMarkets.includes('buudyUrl: "https://ca.buudy.com/products/buudy-led-mask"'), "CA Buudy URL must be configured");
+assert(advertorialMarkets.includes('price: "$299"'), "AU Buudy price must be configured");
+assert(advertorialMarkets.includes('originalPrice: "$498"'), "AU Buudy compare-at price must be configured");
+assert(advertorialMarkets.includes('price: "$279"'), "CA Buudy price must be configured");
+assert(advertorialMarkets.includes('originalPrice: "$559"'), "CA Buudy compare-at price must be configured");
+assert(advertorialMarkets.includes('total: "$207"'), "AU gift total must be configured");
+assert(advertorialMarkets.includes('total: "$128"'), "CA gift total must be configured");
 
 console.log("Tracking, exit popup, and Buudy conversion verification passed");

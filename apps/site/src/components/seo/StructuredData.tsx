@@ -1,3 +1,7 @@
+import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
+
+const siteUrl = "https://www.trustpilotreview.shop";
+
 const homeSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -302,6 +306,166 @@ const advertorialSchema = {
   ]
 };
 
+type SchemaNode = Record<string, unknown>;
+
+function setNestedObjectValue(node: SchemaNode, key: string, value: unknown) {
+  const nested = node[key];
+  if (nested && typeof nested === "object" && !Array.isArray(nested)) {
+    (nested as SchemaNode).name = value;
+  }
+}
+
+function getCanadaItemListElement(buudyUrl: string) {
+  return [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Buudy 7 Colour LED Mask",
+      url: buudyUrl
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "CurrentBody LED Mask"
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Kala Red Light Face Mask"
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "TheraFace Mask"
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      name: "Equinox LED Mask"
+    }
+  ];
+}
+
+function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
+  if (marketKey === "uk") {
+    return advertorialSchema;
+  }
+
+  const market = advertorialMarkets[marketKey];
+  const routeUrl = `${siteUrl}${market.route}`;
+  const countryLower = market.countryName.toLowerCase();
+  const schema = JSON.parse(JSON.stringify(advertorialSchema)) as {
+    "@context": string;
+    "@graph": SchemaNode[];
+  };
+
+  const graph = schema["@graph"];
+  const organizationNodes = graph.filter((node) => node["@type"] === "Organization");
+  for (const node of organizationNodes) {
+    node.description = `Trustpilot Review Shop publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
+    setNestedObjectValue(node, "areaServed", market.countryName);
+  }
+
+  const website = graph.find((node) => node["@type"] === "WebSite");
+  if (website) {
+    website.inLanguage = market.languageName;
+  }
+
+  const webpage = graph.find((node) => node["@type"] === "WebPage");
+  if (webpage) {
+    webpage["@id"] = `${routeUrl}#webpage`;
+    webpage.url = routeUrl;
+    webpage.name = `Best LED Face Mask ${market.countryName} (2026)`;
+    webpage.about = [
+      `best LED face mask ${market.countryName}`,
+      "red light therapy mask",
+      "LED mask with neck coverage",
+      "at-home LED light therapy"
+    ];
+    webpage.inLanguage = market.languageName;
+  }
+
+  const article = graph.find((node) => node["@type"] === "Article");
+  if (article) {
+    article["@id"] = `${routeUrl}#article`;
+    article.mainEntityOfPage = { "@id": `${routeUrl}#webpage` };
+    article.headline = `Best LED Face Mask ${market.countryName} (2026) | Best LED Light Therapy Mask Reviews`;
+    article.description = `A ${market.countryAdjective} comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.`;
+    article.keywords = [
+      "best led face mask",
+      `best led face mask ${countryLower}`,
+      "best led light therapy mask",
+      "best red light therapy mask",
+      "best led mask for wrinkles",
+      "best at home led face mask",
+      "LED mask with neck coverage",
+      "7 colour LED mask"
+    ];
+    article.hasPart = [
+      { "@id": `${routeUrl}#itemlist` },
+      { "@id": `${routeUrl}#faq` }
+    ];
+  }
+
+  const itemList = graph.find((node) => node["@type"] === "ItemList");
+  if (itemList) {
+    itemList["@id"] = `${routeUrl}#itemlist`;
+    itemList.name = `Best LED Face Masks ${market.countryName} 2026 Ranking`;
+    if (market.key === "ca") {
+      itemList.itemListElement = getCanadaItemListElement(market.buudyUrl);
+    } else {
+      const items = itemList.itemListElement;
+      if (Array.isArray(items) && items[0] && typeof items[0] === "object") {
+        (items[0] as SchemaNode).url = market.buudyUrl;
+      }
+    }
+  }
+
+  const product = graph.find((node) => node["@type"] === "Product");
+  if (product) {
+    product["@id"] = `${routeUrl}#buudy-product`;
+    const offers = product.offers;
+    if (offers && typeof offers === "object" && !Array.isArray(offers)) {
+      const productOffer = offers as SchemaNode;
+      productOffer.url = market.buudyUrl;
+      productOffer.price = market.productPrices.buudy.schemaPrice;
+      productOffer.priceCurrency = market.currencyCode;
+    }
+  }
+
+  const video = graph.find((node) => node["@type"] === "VideoObject");
+  if (video) {
+    video["@id"] = `${routeUrl}#dermatologist-video`;
+  }
+
+  const faq = graph.find((node) => node["@type"] === "FAQPage");
+  if (faq) {
+    faq["@id"] = `${routeUrl}#faq`;
+    const questions = faq.mainEntity;
+    if (Array.isArray(questions) && questions[0] && typeof questions[0] === "object") {
+      const question = questions[0] as SchemaNode;
+      question.name = `What is the best LED face mask in ${market.countryName} for value?`;
+      const answer = question.acceptedAnswer;
+      if (answer && typeof answer === "object" && !Array.isArray(answer)) {
+        (answer as SchemaNode).text = `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at ${market.productPrices.buudy.price}.`;
+      }
+    }
+  }
+
+  const breadcrumb = graph.find((node) => node["@type"] === "BreadcrumbList");
+  if (breadcrumb) {
+    breadcrumb["@id"] = `${routeUrl}#breadcrumb`;
+    const breadcrumbItems = breadcrumb.itemListElement;
+    if (Array.isArray(breadcrumbItems) && breadcrumbItems[1] && typeof breadcrumbItems[1] === "object") {
+      const secondItem = breadcrumbItems[1] as SchemaNode;
+      secondItem.name = market.primaryGuideLabel;
+      secondItem.item = routeUrl;
+    }
+  }
+
+  return schema;
+}
+
 function JsonLd({ data }: { data: unknown }) {
   return (
     <script
@@ -315,6 +479,6 @@ export function HomeStructuredData() {
   return <JsonLd data={homeSchema} />;
 }
 
-export function AdvertorialStructuredData() {
-  return <JsonLd data={advertorialSchema} />;
+export function AdvertorialStructuredData({ market = "uk" }: { market?: AdvertorialMarketKey }) {
+  return <JsonLd data={createAdvertorialSchema(market)} />;
 }

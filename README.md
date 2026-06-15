@@ -97,6 +97,8 @@ The deployable canonical site surface is intentionally limited to the routes fro
 ```text
 /
 /best-led-face-mask-uk-2026
+/best-led-face-mask-au-2026
+/best-led-face-mask-ca-2026
 /currentbody-vs-buudy
 /theraface-vs-other-masks
 /deluxeskin-vs-buudy
@@ -162,7 +164,19 @@ Only the referenced local public assets are kept:
 /llms-full.txt
 ```
 
-The SEO/GEO text files are served from `apps/site/public` and should remain byte-for-byte stable unless the content strategy changes intentionally.
+The SEO/GEO text files are served from `apps/site/public` and should remain stable unless the content strategy changes intentionally.
+
+## Advertorial Markets
+
+The main advertorial is market-driven from `apps/site/src/lib/advertorialMarkets.ts`:
+
+```text
+UK  -> /best-led-face-mask-uk-2026 -> https://uk.buudy.com/products/buudy-led-mask
+AU  -> /best-led-face-mask-au-2026 -> https://au.buudy.com/products/buudy-led-mask
+CA  -> /best-led-face-mask-ca-2026 -> https://ca.buudy.com/products/buudy-led-mask
+```
+
+AU keeps the same ranking, design, sections, media, and conversion flow as the UK source page while localizing country wording, prices, gift values, canonical metadata, JSON-LD, noscript content, sitemap entries, and LLM/GEO files. CA keeps the same design and conversion flow, but uses a Canada-specific top five: Buudy, CurrentBody, Kala, TheraFace, and Equinox.
 
 ## SEO, GEO, And Tracking
 
@@ -179,6 +193,7 @@ The Next app preserves:
 - Microsoft consent script
 - Buudy outbound failsafe script
 - Buudy exit popup script
+- Route-based Buudy destination handling for UK, AU, and CA advertorial pages
 - Google Tag Manager script
 - Tawk.to widget script
 
