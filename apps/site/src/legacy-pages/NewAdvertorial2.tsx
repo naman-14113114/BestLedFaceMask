@@ -515,12 +515,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img
-                src="https://img.thesitebase.net/10677/10677322/themes/1770302958c850cb975e.png"
-                alt="Dr. Elizabeth Vance"
+                src="/img/dr-megan-vincze.png"
+                alt="Dr. Megan Vincze"
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Elizabeth Vance</p>
+                <p className="font-bold text-slate-900 leading-tight">Dr. Megan Vincze</p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Certified Dermatologist</p>
               </div>
             </div>
@@ -533,7 +533,7 @@ export default function Home() {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">Dr. Elizabeth Vance</strong> is a certified dermatologist and beauty technology expert with over 12 years of experience evaluating skincare devices. She has been featured in Allure, Harper&apos;s Bazaar, and Dermatology Times, where she shares her expertise on the latest beauty innovations. Having tested hundreds of beauty devices in clinical and real-world settings, she specializes in helping consumers find safe, effective at-home beauty technology that delivers genuine results and exceptional value.
+              <strong className="text-slate-900">Dr. Megan Vincze</strong>, a certified dermatologist and beauty technology expert, reviewed 18 popular UK LED Face Mask options over 200+ hours, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, usability, reviews, price, and guarantees. Her biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-neck coverage, and were easy enough to use consistently at home.
             </p>
           </div>
 
