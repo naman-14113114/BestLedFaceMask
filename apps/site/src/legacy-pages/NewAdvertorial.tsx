@@ -359,7 +359,6 @@ const canadaCompetitorProducts: Product[] = [
     ],
     pros: [
       "Triple-Wavelength Coverage: Uses red, near-infrared, and blue LED light, giving it a more rounded routine than red-only masks.",
-      "Lists 198 LED lights, treatment time, wavelengths, power density, weight, charging time, and warranty details.",
       "Trust Signals: The product page highlights FDA-cleared, dermatologist-recommended, and Health Canada positioning.",
       "Lightweight Silicone Fit: At 348g, it is lighter than rigid premium masks and easier to fit into a regular skincare routine.",
       "2-Year Warranty: A longer warranty helps reduce purchase anxiety at this price point."
