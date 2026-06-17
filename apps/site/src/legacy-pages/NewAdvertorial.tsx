@@ -1062,16 +1062,12 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
       </main>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-between gap-3">
-        <div className="flex flex-col">
-          <span className="font-bold text-sm text-slate-900 leading-tight">Buudy LED Mask</span>
-          <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF — Limited Time</span>
-        </div>
+      <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-center">
         <a 
           href={market.buudyUrl}
-          className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
+          className="w-full text-center bg-emerald-500 text-white px-2 py-3.5 rounded-full font-bold text-[13px] sm:text-base shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
-          <span className="relative z-10">Shop Now</span>
+          <span className="relative z-10">Take me to the winning LED Mask</span>
           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
         </a>
       </div>
