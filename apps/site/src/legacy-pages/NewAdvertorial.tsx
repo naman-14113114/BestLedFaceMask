@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, Play } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check, Play } from 'lucide-react';
 import { motion } from 'motion/react';
 import {
   getAdvertorialMarket,
@@ -8,6 +8,115 @@ import {
   type AdvertorialMarketKey,
   type ProductPriceKey
 } from '@/lib/advertorialMarkets';
+
+
+const trustpilotStarTiles = [0, 1, 2, 3, 4];
+const trustpilotStarPoints = "12 1.6 15.15 8.25 22.35 8.95 17.02 13.72 18.62 20.84 12 17.16 5.38 20.84 6.98 13.72 1.65 8.95 8.85 8.25";
+
+function TrustpilotStars({ className = "", tileClassName = "h-6 w-6", iconSize = 16 }: { className?: string; tileClassName?: string; iconSize?: number }) {
+  return (
+    <div className={`flex items-center justify-center gap-1 ${className}`} aria-label="5 out of 5 stars">
+      {trustpilotStarTiles.map((tile) => (
+        <svg
+          key={tile}
+          viewBox="0 0 24 24"
+          width={iconSize}
+          height={iconSize}
+          className={`text-[#00b67a] ${tileClassName}`}
+          aria-hidden="true"
+        >
+          <polygon points={trustpilotStarPoints} fill="currentColor" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function TrustpilotSingleStar({ className = "h-5 w-5", iconSize = 14 }: { className?: string; iconSize?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={iconSize}
+      height={iconSize}
+      className={`inline-block align-middle text-[#00b67a] ${className}`}
+      aria-label="Trustpilot star"
+    >
+      <polygon points={trustpilotStarPoints} fill="currentColor" />
+    </svg>
+  );
+}
+
+function stripInlineHtml(text: string) {
+  return text
+    .replace(/<a\b[^>]*>(.*?)<\/a>/gi, "$1")
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function removeBulletHeading(text: string) {
+  const clean = stripInlineHtml(text);
+  const colonIndex = clean.indexOf(":");
+
+  if (colonIndex > -1 && colonIndex < 70) {
+    return clean.slice(colonIndex + 1).trim();
+  }
+
+  return clean;
+}
+
+function trimWords(text: string, wordLimit = 14) {
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length <= wordLimit) return text;
+
+  return `${words.slice(0, wordLimit).join(" ").replace(/[,:;]+$/, "")}.`;
+}
+
+function summarizeMobilePoint(point: string) {
+  const body = removeBulletHeading(point);
+  const firstSentence = body.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim();
+  const compact = firstSentence && firstSentence.length <= 130 ? firstSentence : body;
+
+  return trimWords(compact);
+}
+
+function MobileProsCons({ pros, cons }: { pros: string[], cons: string[] }) {
+  return (
+    <div className="md:hidden grid grid-cols-1 gap-3 mb-8">
+      <div className="bg-emerald-50/50 rounded-2xl p-4 border border-emerald-100">
+        <h4 className="mb-3 text-sm font-extrabold uppercase tracking-wide text-emerald-700">
+          Pros
+        </h4>
+        <ul className="space-y-2.5">
+          {pros.map((pro, idx) => (
+            <li key={idx} className="flex items-start gap-2.5 text-sm leading-snug text-slate-700">
+              <Check size={16} className="mt-0.5 shrink-0 text-emerald-500" />
+              <span>{summarizeMobilePoint(pro)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="bg-red-50/50 rounded-2xl p-4 border border-red-100">
+        <h4 className="mb-3 text-sm font-extrabold uppercase tracking-wide text-red-700">
+          Cons
+        </h4>
+        <ul className="space-y-2.5">
+          {cons.map((con, idx) => (
+            <li key={idx} className="flex items-start gap-2.5 text-sm leading-snug text-slate-700">
+              <XCircle size={16} className="mt-0.5 shrink-0 text-red-500" />
+              <span>{summarizeMobilePoint(con)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function shouldShowProductCta(product: Product) {
+  return product.isWinner || product.link !== "#";
+}
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",
@@ -44,7 +153,7 @@ const baseProducts: Product[] = [
     id: 1,
     rank: "#1",
     name: "Buudy 7 Colour LED Mask",
-    image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+    image: "/img/57-w.webp",
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
@@ -83,7 +192,7 @@ const baseProducts: Product[] = [
     id: 2,
     rank: "#2",
     name: "CurrentBody LED Mask",
-    image: "https://img.thesitebase.net/10677/10677322/themes/176872504642f0322d65.jpeg",
+    image: "/img/Untitled design.png",
     price: "£399.99",
     rating: "4.7 / 5",
     link: "https://amzn.to/4beNXsm",
@@ -237,10 +346,10 @@ const canadaCompetitorProducts: Product[] = [
     id: 3,
     rank: "#3",
     name: "Kala Red Light Face Mask",
-    image: "https://kalaredlight.com/cdn/shop/files/Kala_Therapy_Face_Mask_1.webp?v=1770194802",
+    image: "/img/kala-1.jpg",
     price: "$382.49",
     rating: "4.5 / 5",
-    link: "#",
+    link: "https://amzn.to/4eosr5R",
     isWinner: false,
     siliconWarning: true,
     description: [
@@ -250,7 +359,7 @@ const canadaCompetitorProducts: Product[] = [
     ],
     pros: [
       "Triple-Wavelength Coverage: Uses red, near-infrared, and blue LED light, giving it a more rounded routine than red-only masks.",
-      "Clear Technical Specs: Lists 198 LED lights, treatment time, wavelengths, power density, weight, charging time, and warranty details.",
+      "Lists 198 LED lights, treatment time, wavelengths, power density, weight, charging time, and warranty details.",
       "Trust Signals: The product page highlights FDA-cleared, dermatologist-recommended, and Health Canada positioning.",
       "Lightweight Silicone Fit: At 348g, it is lighter than rigid premium masks and easier to fit into a regular skincare routine.",
       "2-Year Warranty: A longer warranty helps reduce purchase anxiety at this price point."
@@ -274,10 +383,10 @@ const canadaCompetitorProducts: Product[] = [
     id: 4,
     rank: "#4",
     name: "TheraFace Mask",
-    image: "https://img.thesitebase.net/10677/10677322/themes/177107817340059938e3.jpeg",
+    image: "/img/WhatsApp Image 2026-02-08 at 12.18.58 AM.jpeg",
     price: "$799.99",
     rating: "4.3 / 5",
-    link: "#",
+    link: "https://amzn.to/4a6g1yt",
     isWinner: false,
     description: [
       "TheraFace Mask takes fourth place in the Canada guide. It is the most premium-feeling competitor on this list, backed by Therabody's wellness-tech reputation and built around 648 LEDs plus VibraWave massage therapy for facial tension.",
@@ -311,10 +420,10 @@ const canadaCompetitorProducts: Product[] = [
     id: 5,
     rank: "#5",
     name: "Equinox LED Mask",
-    image: "https://img.thesitebase.net/10677/10677322/themes/177107760726eeda427f.jpeg",
+    image: "/img/WhatsApp Image 2026-02-08 at 12.16.22 AM.jpeg",
     price: "$385",
     rating: "4.2 / 5",
-    link: "#",
+    link: "https://amzn.to/3S4qDYu",
     isWinner: false,
     siliconWarning: true,
     description: [
@@ -469,7 +578,7 @@ function getCanadaProducts(market: AdvertorialMarket) {
   const buudy = localizeBaseProduct(baseProducts[0], market);
   const currentBody = {
     ...localizeBaseProduct(baseProducts[1], market),
-    link: "#"
+    link: "https://amzn.to/4fL0JCN"
   };
 
   return [buudy, currentBody, ...canadaCompetitorProducts];
@@ -538,6 +647,9 @@ export const MetricBar: React.FC<{ label: string, value: number }> = ({ label, v
 export default function Home({ market: marketKey = "uk" }: { market?: AdvertorialMarketKey }) {
   const market = getAdvertorialMarket(marketKey);
   const products = getProductsForMarket(market);
+  const heroImage = market.key === "ca"
+    ? "/img/TOP 5 LED Mask CA.png"
+    : "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png";
   const [date, setDate] = useState('');
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -559,10 +671,11 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
       {/* Header / Hero */}
-      <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
+      <header className="bg-white border-b border-slate-200 pt-10 pb-12 px-4 md:pt-12 md:pb-16">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            Best LED Face Masks of 2026 in {market.titleCountry}: Tested & Reviewed Comparisons
+          <h1 className="mx-[-0.25rem] text-[clamp(1.12rem,5.6vw,1.58rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08] mb-7 md:mb-8 font-serif text-center">
+            <span className="block whitespace-nowrap md:inline">Best LED Face Masks of 2026 in </span>
+            <span className="block md:inline md:ml-2">{market.titleCountry}</span>
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
@@ -591,9 +704,12 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
           </div>
 
           <img 
-            src="https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png" 
-            alt="LED Masks Comparison" 
-            className="w-full max-w-5xl mx-auto rounded-3xl shadow-xl border border-slate-100"
+            src={heroImage}
+            alt={`Top LED masks comparison for ${market.titleCountry}`}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="w-full max-w-5xl mx-auto aspect-[1536/461] object-cover rounded-3xl shadow-xl border border-slate-100"
           />
         </div>
       </header>
@@ -608,17 +724,20 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
         </div>
 
         {/* Criteria */}
-        <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 mb-16 max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center font-serif">We evaluated LED face masks based on 10 criteria</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-3.5 min-[360px]:p-4 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 max-w-4xl mx-auto">
+          <h2 className="text-[1.25rem] md:text-3xl font-bold text-slate-900 mb-3.5 md:mb-8 text-center font-serif leading-tight">We evaluated LED face masks based on 10 criteria</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 md:gap-4 mb-3.5 md:mb-8">
             {criteria.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <ShieldCheck className="text-emerald-500 shrink-0 mt-0.5" size={20} />
-                <span className="font-medium text-slate-700">{item}</span>
+              <div key={idx} className="flex items-start gap-2 md:gap-3">
+                <ShieldCheck className="text-emerald-500 shrink-0 mt-0.5 h-3.5 w-3.5 md:h-5 md:w-5" />
+                <span className="font-medium text-slate-700 text-[15px] md:text-base leading-[1.18] md:leading-snug">{item}</span>
               </div>
             ))}
           </div>
-          <p className="text-center text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <p className="md:hidden text-center text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-[15px] leading-[1.18]">
+            We tested 18 LED masks across dermatologist input, real reviews, comfort, safety, value, and skincare performance.
+          </p>
+          <p className="hidden md:block text-center text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100 text-base leading-relaxed">
             Over the past three months, we have thoroughly tested 18 different LED face masks. Based on hands-on evaluations, insights from board-certified dermatologists, and thousands of consumer reviews, the following five models stood out as the best in terms of performance, comfort, safety, and affordability.
           </p>
         </div>
@@ -655,7 +774,9 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                       <img 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full aspect-square object-cover rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
                       />
                     </a>
 
@@ -666,17 +787,15 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                           <span className="text-lg text-slate-400 line-through font-medium">{product.originalPrice}</span>
                         )}
                       </div>
-                      <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={20} fill="currentColor" />
-                        ))}
-                      </div>
+                      <TrustpilotStars className="mb-2" tileClassName="h-6 w-6" iconSize={16} />
                       <p className="text-sm font-medium text-slate-500">Overall rating {product.rating}</p>
                     </div>
 
-                    <div className="w-full hidden lg:block">
-                      <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
-                    </div>
+                    {shouldShowProductCta(product) && (
+                      <div className="w-full hidden lg:block">
+                        <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -698,7 +817,20 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Metrics */}
+                  <div className="bg-slate-50 rounded-2xl p-5 md:p-6 border border-slate-100 mb-8">
+                    <h4 className="font-bold text-slate-900 mb-6 text-lg">Performance Metrics</h4>
+                    <div className="space-y-3">
+                      {product.metrics.map((metric, idx) => (
+                        <MetricBar key={idx} label={metric.label} value={metric.value} />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Mobile Pros & Cons */}
+                  <MobileProsCons pros={product.pros} cons={product.cons} />
+
+                  <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     {/* Pros */}
                     <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
                       <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
@@ -736,15 +868,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                     </div>
                   </div>
 
-                  {/* Metrics */}
-                  <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <h4 className="font-bold text-slate-900 mb-6 text-lg">Performance Metrics</h4>
-                    <div className="space-y-3">
-                      {product.metrics.map((metric, idx) => (
-                        <MetricBar key={idx} label={metric.label} value={metric.value} />
-                      ))}
-                    </div>
-                  </div>
+                  
 
                   {/* Editor's Tip - Free Gifts Discovery (Buudy only) */}
                   {product.isWinner && (
@@ -781,8 +905,10 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
                               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.travelBox}</span>
                               <img 
-                                src="https://img.thesitebase.net/10650/10650730/themes/17682450181b5f55beb5.png?width=640&height=0&min_height=0" 
+                                src="/img/93-w.webp" 
                                 alt="Premium Travel Box" 
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
@@ -797,8 +923,10 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
                               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.ledTorch}</span>
                               <img 
-                                src="https://img.thesitebase.net/10650/10650730/products/ver_1/176738038817f3610740.png?width=640&height=0&min_height=0" 
+                                src="/img/35-w.webp" 
                                 alt="Buudy LED Torch" 
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
@@ -813,8 +941,10 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                             <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
                               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.skincareGuide}</span>
                               <img 
-                                src="https://img.thesitebase.net/10650/10650730/themes/17682431737d583cc2df.png?width=640&height=0&min_height=0" 
+                                src="/img/94-w.webp" 
                                 alt="Skincare E-Book" 
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
@@ -837,9 +967,11 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                     </motion.div>
                   )}
 
-                  <div className="w-full mt-8 lg:hidden">
-                    <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
-                  </div>
+                  {shouldShowProductCta(product) && (
+                    <div className="w-full mt-8 lg:hidden">
+                      <CTAButton href={product.link} text={product.isWinner ? "Official Website" : "Shop Now"} className="w-full" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -847,18 +979,18 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
         </div>
 
         {/* Bottom Verdict Section - Elegant Design */}
-        <div className="mt-24 mb-12 relative max-w-5xl mx-auto">
-          <div className="bg-[#f8f4e6] rounded-[2rem] p-8 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
+        <div className="mt-20 md:mt-24 mb-10 md:mb-12 relative max-w-sm md:max-w-5xl mx-auto">
+          <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
             
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#8b1528] mb-10 font-serif tracking-wide">
+            <h2 className="text-2xl md:text-4xl font-bold text-center text-[#8b1528] mb-6 md:mb-10 font-serif tracking-wide">
               Dermatologist's Verdict
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
               
               {/* Left Video Area */}
               <div className="relative">
-                <div className="relative mx-auto max-w-[260px] sm:max-w-[280px] md:max-w-[300px] overflow-hidden rounded-[1.75rem] border border-[#dfd1bd] bg-black shadow-xl">
+                <div className="relative mx-auto max-w-[190px] min-[380px]:max-w-[210px] sm:max-w-[240px] md:max-w-[300px] overflow-hidden rounded-[1.35rem] md:rounded-[1.75rem] border border-[#dfd1bd] bg-black shadow-xl">
                   <video
                     ref={verdictVideoRef}
                     className="block w-full"
@@ -888,43 +1020,37 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                     2 min demo
                   </div>
                 </div>
-                <p className="mt-4 text-center text-sm font-medium text-gray-600">
+                <p className="mt-4 text-center text-xs md:text-sm font-medium text-gray-600 leading-snug max-w-[240px] md:max-w-none mx-auto">
                   See the light modes, fit, eye area, and full-face coverage in a real product walkthrough.
                 </p>
               </div>
               
               {/* Right Content Area */}
               <div className="flex flex-col justify-center text-center">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 font-serif tracking-tight">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-black mb-3 md:mb-4 font-serif tracking-tight">
                   Buudy 7 Colour LED Mask
                 </h3>
                 
-                <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>
+                <div className="w-28 md:w-32 h-[1px] bg-[#d4af37] mx-auto mb-5 md:mb-6"></div>
                 
-                <div className="text-3xl md:text-4xl font-bold text-[#8b1528] mb-8 font-sans">
+                <div className="text-2xl md:text-4xl font-bold text-[#8b1528] mb-5 md:mb-8 font-sans">
                   Now at 60% off
                 </div>
 
                 {/* Trustpilot-style Badge */}
-                <div className="border border-gray-200 bg-white/60 rounded-xl p-4 mx-auto mb-8 inline-block shadow-sm">
+                <div className="border border-gray-200 bg-white/70 rounded-xl p-3 md:p-4 mx-auto mb-6 md:mb-8 inline-block shadow-sm">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="font-bold text-lg text-black font-sans">Excellent</span>
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="bg-[#00b67a] p-1 rounded-sm">
-                          <Star size={16} className="text-white fill-white" />
-                        </div>
-                      ))}
-                    </div>
+                    <span className="font-bold text-base md:text-lg text-black font-sans">Excellent</span>
+                    <TrustpilotStars tileClassName="h-5 w-5 md:h-6 md:w-6" iconSize={18} />
                   </div>
-                  <div className="text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
-                    Rated 4.9 / 5 on <Star size={16} className="text-[#00b67a] fill-[#00b67a]" /> <span className="font-bold text-black">Trustpilot</span>
+                  <div className="text-xs md:text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
+                    Rated 4.9 / 5 on <TrustpilotSingleStar className="h-4 w-4 md:h-5 md:w-5" iconSize={15} /> <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>
 
                 <a 
                   href={market.buudyUrl}
-                  className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                  className="mx-auto w-full max-w-[240px] md:w-auto md:max-w-none bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-sm md:text-xl font-bold font-sans tracking-wide py-3.5 md:py-4 px-6 md:px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   CHECK AVAILABILITY
                 </a>

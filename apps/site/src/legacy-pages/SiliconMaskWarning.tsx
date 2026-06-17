@@ -1,8 +1,16 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, AlertTriangle, ThermometerSun, Bug, Droplets, Zap, ShieldAlert, Eye } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check, AlertTriangle, ThermometerSun, Bug, Droplets, Zap, ShieldAlert, Eye } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CTAButton, MetricBar } from './NewAdvertorial';
+
+function SharpStar({ size = 16, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="#00b67a" className={className} aria-hidden="true">
+      <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
+    </svg>
+  );
+}
 
 const siliconeDangers = [
   {
@@ -95,7 +103,7 @@ export default function SiliconMaskWarning() {
             CONSUMER HEALTH ALERT
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
+          <h1 className="text-[1.7rem] min-[360px]:text-[1.85rem] min-[430px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif text-center">
             Why Silicone LED Masks Are Damaging Your Skin: The Hidden Dangers No One Talks About
           </h1>
           
@@ -200,9 +208,9 @@ export default function SiliconMaskWarning() {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100"
               >
-                <div className="flex items-center gap-1 mb-4 text-amber-400">
+                <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
+                    <SharpStar key={i} size={16} />
                   ))}
                 </div>
                 <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed italic mb-4">
@@ -300,9 +308,9 @@ export default function SiliconMaskWarning() {
                       <span className="text-3xl font-extrabold text-slate-900">£179</span>
                       <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                     </div>
-                    <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
+                    <div className="flex items-center justify-center gap-1 mb-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={20} fill="currentColor" />
+                        <SharpStar key={i} size={30} />
                       ))}
                     </div>
                     <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
@@ -436,19 +444,21 @@ export default function SiliconMaskWarning() {
                   Now at 60% off
                 </div>
 
-                <div className="border border-gray-200 bg-white/60 rounded-xl p-4 mx-auto mb-8 inline-block shadow-sm">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="font-bold text-lg text-black font-sans">Excellent</span>
-                    <div className="flex gap-1">
+                <div className="border border-gray-200 bg-white/60 rounded-xl p-5 mx-auto mb-8 inline-block shadow-sm">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <span className="font-extrabold text-xl md:text-2xl text-black font-sans">Excellent</span>
+                    <div className="flex items-center gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <div key={i} className="bg-[#00b67a] p-1 rounded-sm">
-                          <Star size={16} className="text-white fill-white" />
-                        </div>
+                        <span key={i} className="flex items-center justify-center bg-[#00b67a] w-7 h-7 md:w-8 md:h-8">
+                          <svg width={18} height={18} viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                            <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
+                          </svg>
+                        </span>
                       ))}
                     </div>
                   </div>
-                  <div className="text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
-                    Rated 4.9 / 5 on <Star size={16} className="text-[#00b67a] fill-[#00b67a]" /> <span className="font-bold text-black">Trustpilot</span>
+                  <div className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-1.5 font-sans">
+                    Rated <span className="font-bold text-black">4.9 / 5</span> on <SharpStar size={20} /> <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>
 

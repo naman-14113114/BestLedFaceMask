@@ -1,8 +1,17 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CTAButton, MetricBar } from './NewAdvertorial'; // We can export these from Home or redefine them
+import { ResponsiveProsCons } from './ResponsiveProsCons';
+
+function SharpStar({ size = 16, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="#00b67a" className={className} aria-hidden="true">
+      <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
+    </svg>
+  );
+}
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",
@@ -215,7 +224,7 @@ export default function TherafaceComparison() {
       {/* Header / Hero */}
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
+          <h1 className="text-[1.7rem] min-[360px]:text-[1.85rem] min-[430px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif text-center">
             Best LED Face Masks of 2026 in the UK: Tested & Reviewed Comparisons
           </h1>
           
@@ -263,17 +272,17 @@ export default function TherafaceComparison() {
         </div>
 
         {/* Criteria */}
-        <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 mb-16 max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center font-serif">We evaluated LED face masks based on 10 criteria</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 md:mb-8 text-center font-serif">We evaluated LED face masks based on 10 criteria</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-8">
             {criteria.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3">
+              <div key={idx} className="flex items-start gap-2 md:gap-3">
                 <ShieldCheck className="text-emerald-500 shrink-0 mt-0.5" size={20} />
                 <span className="font-medium text-slate-700">{item}</span>
               </div>
             ))}
           </div>
-          <p className="text-center text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <p className="text-center text-slate-600 bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100">
             As LED technology becomes a staple in home skincare, the variety of choices in the UK market can be overwhelming. We evaluated 18 popular models based on wavelength precision, ease of use, and overall value to help you find the right fit for your skincare goals.
           </p>
         </div>
@@ -315,9 +324,9 @@ export default function TherafaceComparison() {
                           <span className="text-lg text-slate-400 line-through font-medium">{product.originalPrice}</span>
                         )}
                       </div>
-                      <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
+                      <div className="flex items-center justify-center gap-1 mb-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={20} fill="currentColor" />
+                          <SharpStar key={i} size={30} />
                         ))}
                       </div>
                       <p className="text-sm font-medium text-slate-500">Overall rating {product.rating}</p>
@@ -345,43 +354,7 @@ export default function TherafaceComparison() {
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    {/* Pros */}
-                    <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
-                      <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
-                        <CheckCircle2 className="text-emerald-500" /> Pros
-                      </h4>
-                      <ul className="space-y-4">
-                        {product.pros.map((pro, idx) => {
-                          const [bold, ...rest] = pro.split(':');
-                          return (
-                            <li key={idx} className="text-base text-slate-700 flex items-start gap-3">
-                              <Check size={20} className="text-emerald-500 shrink-0 mt-0.5" />
-                              <span><strong className="text-slate-900">{bold}:</strong>{rest.join(':')}</span>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-
-                    {/* Cons */}
-                    <div className="bg-red-50/50 rounded-2xl p-6 border border-red-100">
-                      <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 text-lg">
-                        <XCircle className="text-red-500" /> Cons
-                      </h4>
-                      <ul className="space-y-4">
-                        {product.cons.map((con, idx) => {
-                          const [bold, ...rest] = con.split(':');
-                          return (
-                            <li key={idx} className="text-base text-slate-700 flex items-start gap-3">
-                              <XCircle size={20} className="text-red-500 shrink-0 mt-0.5" />
-                              <span><strong className="text-slate-900">{bold}:</strong>{rest.join(':')}</span>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </div>
+                  <ResponsiveProsCons pros={product.pros} cons={product.cons} />
 
                   {/* Metrics */}
                   <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
@@ -438,19 +411,21 @@ export default function TherafaceComparison() {
                 </div>
 
                 {/* Trustpilot-style Badge */}
-                <div className="border border-gray-200 bg-white/60 rounded-xl p-4 mx-auto mb-8 inline-block shadow-sm">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="font-bold text-lg text-black font-sans">Excellent</span>
-                    <div className="flex gap-1">
+                <div className="border border-gray-200 bg-white/60 rounded-xl p-5 mx-auto mb-8 inline-block shadow-sm">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <span className="font-extrabold text-xl md:text-2xl text-black font-sans">Excellent</span>
+                    <div className="flex items-center gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <div key={i} className="bg-[#00b67a] p-1 rounded-sm">
-                          <Star size={16} className="text-white fill-white" />
-                        </div>
+                        <span key={i} className="flex items-center justify-center bg-[#00b67a] w-7 h-7 md:w-8 md:h-8">
+                          <svg width={18} height={18} viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                            <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
+                          </svg>
+                        </span>
                       ))}
                     </div>
                   </div>
-                  <div className="text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
-                    Rated 4.9 / 5 on <Star size={16} className="text-[#00b67a] fill-[#00b67a]" /> <span className="font-bold text-black">Trustpilot</span>
+                  <div className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-1.5 font-sans">
+                    Rated <span className="font-bold text-black">4.9 / 5</span> on <SharpStar size={20} /> <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>
 

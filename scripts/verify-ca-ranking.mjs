@@ -40,6 +40,23 @@ const llms = read(path.join(siteRoot, "public", "llms.txt"));
 const llmsFull = read(path.join(siteRoot, "public", "llms-full.txt"));
 
 const caProductsBlock = sliceBetween(advertorial, "const canadaCompetitorProducts", "const productPriceKeys");
+assert(advertorial.includes('image: "/img/57-w.webp"'), "Buudy product image must use the local provided asset");
+assert(advertorial.includes('image: "/img/Untitled design.png"'), "CurrentBody product image must use the local provided asset");
+assert(advertorial.includes('image: "/img/kala-1.jpg"'), "Kala CA image must use the provided local asset");
+assert(advertorial.includes('"/img/TOP 5 LED Mask CA.png"'), "CA hero image must use the provided top-five landscape asset");
+assert(advertorial.includes('src="/img/93-w.webp"'), "Premium Travel Box gift must use the provided local asset");
+assert(advertorial.includes('src="/img/35-w.webp"'), "Buudy LED Torch gift must use the provided local asset");
+assert(advertorial.includes('src="/img/94-w.webp"'), "Skincare guide gift must use the provided local asset");
+assert(advertorial.includes("function TrustpilotStars"), "advertorial must render Trustpilot-style bare green stars");
+assert(advertorial.includes("trustpilotStarPoints"), "Trustpilot stars must use a sharp custom SVG shape");
+assert(advertorial.includes("function MobileProsCons"), "advertorial must render compact mobile pros and cons");
+assert(advertorial.includes("summarizeMobilePoint"), "mobile pros and cons must be summarized bullet-by-bullet");
+assert(advertorial.includes("removeBulletHeading"), "mobile pros and cons must remove bullet subheadings, not render only the subheading");
+assert(!advertorial.includes("return point.split(':')[0] + '.'"), "mobile summary must not display only the old pros/cons subheading");
+assert(!advertorial.includes("text-amber-400"), "advertorial product ratings must not use the old gold star style");
+assert(!advertorial.includes("bg-[#00b67a]"), "advertorial Trustpilot stars must not use green tile backgrounds");
+assert(advertorial.includes("shouldShowProductCta(product)"), "product CTA visibility must be driven by available links");
+assert(!advertorial.includes("Tested & Reviewed Comparisons"), "advertorial H1 must not include the old tested-and-reviewed suffix");
 assertInOrder(
   caProductsBlock,
   ["Kala Red Light Face Mask", "TheraFace Mask", "Equinox LED Mask"],
@@ -48,18 +65,30 @@ assertInOrder(
 assert(caProductsBlock.includes('price: "$382.49"'), "Kala CA price must be $382.49");
 assert(caProductsBlock.includes('price: "$799.99"'), "TheraFace CA price must be $799.99");
 assert(caProductsBlock.includes('price: "$385"'), "Equinox CA price must be $385");
+assert(caProductsBlock.includes('image: "/img/WhatsApp Image 2026-02-08 at 12.18.58 AM.jpeg"'), "TheraFace CA image must use the provided local asset");
+assert(caProductsBlock.includes('image: "/img/WhatsApp Image 2026-02-08 at 12.16.22 AM.jpeg"'), "Equinox CA image must use the provided local asset");
+assert(caProductsBlock.includes('link: "https://amzn.to/4eosr5R"'), "Kala CA link must point to the provided affiliate URL");
+assert(caProductsBlock.includes('link: "https://amzn.to/4a6g1yt"'), "TheraFace CA link must point to the provided affiliate URL");
+assert(caProductsBlock.includes('link: "https://amzn.to/3S4qDYu"'), "Equinox CA link must point to the provided affiliate URL");
 assert(caProductsBlock.includes('{ label: "Light Effectiveness", value: 78 }'), "Kala metrics must be configured");
 assert(caProductsBlock.includes('{ label: "Affordability", value: 18 }'), "TheraFace affordability metric must be configured");
 assert(caProductsBlock.includes('{ label: "Material Quality", value: 84 }'), "Equinox metrics must be configured");
-assert(caProductsBlock.includes('link: "#"'), "CA competitor product links must be non-outbound placeholders");
+assert(!caProductsBlock.includes('link: "#"'), "CA competitor product links must no longer be non-outbound placeholders");
+
+const detailsBlock = sliceBetween(advertorial, "{/* Right Column: Details */}", "{/* Editor's Tip - Free Gifts Discovery (Buudy only) */}");
+assertInOrder(
+  detailsBlock,
+  ["{/* Metrics */}", "{/* Mobile Pros & Cons */}", "{/* Pros */}"],
+  "the product detail content flow"
+);
 
 const caSelectorBlock = sliceBetween(advertorial, "function getCanadaProducts", "function getProductsForMarket");
 assert(caSelectorBlock.includes("baseProducts[0]"), "CA list must preserve Buudy from the shared source product");
 assert(caSelectorBlock.includes("baseProducts[1]"), "CA list must preserve CurrentBody from the shared source product");
-assert(caSelectorBlock.includes('link: "#"'), "CA CurrentBody link must be disabled");
+assert(caSelectorBlock.includes('link: "https://amzn.to/4fL0JCN"'), "CA CurrentBody link must point to the provided affiliate URL");
 assert(advertorial.includes('if (market.key === "ca") return getCanadaProducts(market);'), "CA route must use the CA-only product override");
 assert(advertorial.includes("preventPlaceholderNavigation"), "placeholder links must be prevented from navigating");
-assert(advertorial.includes("aria-disabled={href === \"#\" ? true : undefined}"), "disabled competitor CTAs must be marked for assistive tech");
+assert(advertorial.includes("aria-disabled={href === \"#\" ? true : undefined}"), "any future disabled CTAs must be marked for assistive tech");
 
 assert(advertorialMarkets.includes('priceRange: "$100 to $800+"'), "CA market price range must include the TheraFace ceiling");
 assert(advertorialMarkets.includes('price: "$639.99"'), "CA CurrentBody price must remain $639.99");

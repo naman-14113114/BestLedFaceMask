@@ -22,10 +22,20 @@ const requiredPublicFiles = [
   "assets/buudy-exit-popup.js",
   "assets/buudy-dermatologist-verdict-poster.jpg",
   "assets/buudy-dermatologist-verdict.mp4",
+  "img/35-w.webp",
+  "img/57-w.webp",
+  "img/93-w.webp",
+  "img/94-w.webp",
   "img/dense_led_macro_1774237501628.png",
+  "img/dr-megan-vincze.png",
+  "img/kala-1.jpg",
   "img/luxury_mask_markup_1774237538064.png",
   "img/neck_led_mask_1774237229811.png",
-  "img/seven_colors_mask_1774237479088.png"
+  "img/seven_colors_mask_1774237479088.png",
+  "img/TOP 5 LED Mask CA.png",
+  "img/Untitled design.png",
+  "img/WhatsApp Image 2026-02-08 at 12.16.22 AM.jpeg",
+  "img/WhatsApp Image 2026-02-08 at 12.18.58 AM.jpeg"
 ];
 
 for (const file of requiredPublicFiles) {
