@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, Play, ChevronDown, Zap, Clock, Shield, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { getMobileProsCons } from './mobileProsCons';
 
 const BUUDY_LINK = "https://uk.buudy.com/products/buudy-led-mask";
 
@@ -782,7 +783,44 @@ export default function Home() {
                 </div>
 
                 {/* Pros & Cons */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                {/* Mobile-only: uses separate mobile data */}
+                {(() => {
+                  const mobileData = getMobileProsCons('uk', winnerProduct.id);
+                  const mobilePros = mobileData?.pros ?? winnerProduct.pros;
+                  const mobileCons = mobileData?.cons ?? winnerProduct.cons;
+                  return (
+                    <div className="md:hidden grid grid-cols-1 gap-3 mb-8">
+                      <div className="bg-emerald-50/50 rounded-2xl p-4 border border-emerald-100">
+                        <h4 className="font-bold text-emerald-800 mb-3 flex items-center gap-2 text-base">
+                          <CheckCircle2 className="text-emerald-500" size={18} /> Pros
+                        </h4>
+                        <ul className="space-y-2.5">
+                          {mobilePros.map((pro, idx) => (
+                            <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                              <Check size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                              <span dangerouslySetInnerHTML={{ __html: pro }} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-red-50/50 rounded-2xl p-4 border border-red-100">
+                        <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2 text-base">
+                          <XCircle className="text-red-500" size={18} /> Cons
+                        </h4>
+                        <ul className="space-y-2.5">
+                          {mobileCons.map((con, idx) => (
+                            <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                              <XCircle size={16} className="text-red-500 shrink-0 mt-0.5" />
+                              <span dangerouslySetInnerHTML={{ __html: con }} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })()}
+                {/* Desktop-only: uses original product data */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
                     <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
                       <CheckCircle2 className="text-emerald-500" /> Pros
@@ -1102,7 +1140,44 @@ export default function Home() {
                       <p key={idx} className="text-slate-600 leading-relaxed">{p}</p>
                     ))}
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Mobile-only: uses separate mobile data */}
+                  {(() => {
+                    const mobileData = getMobileProsCons('uk', product.id);
+                    const mobilePros = mobileData?.pros ?? product.pros;
+                    const mobileCons = mobileData?.cons ?? product.cons;
+                    return (
+                      <div className="md:hidden grid grid-cols-1 gap-3 mb-8">
+                        <div className="bg-emerald-50/50 rounded-2xl p-4 border border-emerald-100">
+                          <h4 className="font-bold text-emerald-800 mb-3 flex items-center gap-2 text-base">
+                            <CheckCircle2 className="text-emerald-500" size={18} /> Pros
+                          </h4>
+                          <ul className="space-y-2.5">
+                            {mobilePros.map((pro, idx) => (
+                              <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                                <Check size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                                <span dangerouslySetInnerHTML={{ __html: pro }} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="bg-red-50/50 rounded-2xl p-4 border border-red-100">
+                          <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2 text-base">
+                            <XCircle className="text-red-500" size={18} /> Cons
+                          </h4>
+                          <ul className="space-y-2.5">
+                            {mobileCons.map((con, idx) => (
+                              <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                                <XCircle size={16} className="text-red-500 shrink-0 mt-0.5" />
+                                <span dangerouslySetInnerHTML={{ __html: con }} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                  {/* Desktop-only: uses original product data */}
+                  <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
                       <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
                         <CheckCircle2 className="text-emerald-500" /> Pros
@@ -1215,7 +1290,44 @@ export default function Home() {
                               <p key={idx} className="text-slate-600 leading-relaxed">{p}</p>
                             ))}
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                          {/* Mobile-only: uses separate mobile data */}
+                          {(() => {
+                            const mobileData = getMobileProsCons('uk', product.id);
+                            const mobilePros = mobileData?.pros ?? product.pros;
+                            const mobileCons = mobileData?.cons ?? product.cons;
+                            return (
+                              <div className="md:hidden grid grid-cols-1 gap-3 mb-8">
+                                <div className="bg-emerald-50/50 rounded-2xl p-4 border border-emerald-100">
+                                  <h4 className="font-bold text-emerald-800 mb-3 flex items-center gap-2 text-base">
+                                    <CheckCircle2 className="text-emerald-500" size={18} /> Pros
+                                  </h4>
+                                  <ul className="space-y-2.5">
+                                    {mobilePros.map((pro, idx) => (
+                                      <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                                        <Check size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                                        <span dangerouslySetInnerHTML={{ __html: pro }} />
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div className="bg-red-50/50 rounded-2xl p-4 border border-red-100">
+                                  <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2 text-base">
+                                    <XCircle className="text-red-500" size={18} /> Cons
+                                  </h4>
+                                  <ul className="space-y-2.5">
+                                    {mobileCons.map((con, idx) => (
+                                      <li key={idx} className="text-sm text-slate-700 flex items-start gap-2.5 leading-snug">
+                                        <XCircle size={16} className="text-red-500 shrink-0 mt-0.5" />
+                                        <span dangerouslySetInnerHTML={{ __html: con }} />
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            );
+                          })()}
+                          {/* Desktop-only: uses original product data */}
+                          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
                               <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
                                 <CheckCircle2 className="text-emerald-500" /> Pros

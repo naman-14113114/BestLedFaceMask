@@ -8,6 +8,7 @@ import {
   type AdvertorialMarketKey,
   type ProductPriceKey
 } from '@/lib/advertorialMarkets';
+import { getMobileProsCons } from './mobileProsCons';
 
 
 const trustpilotStarTiles = [0, 1, 2, 3, 4];
@@ -80,7 +81,11 @@ function summarizeMobilePoint(point: string) {
   return trimWords(compact);
 }
 
-function MobileProsCons({ pros, cons }: { pros: string[], cons: string[] }) {
+function MobileProsCons({ productId, marketKey, fallbackPros, fallbackCons }: { productId: number, marketKey: string, fallbackPros: string[], fallbackCons: string[] }) {
+  const mobileData = getMobileProsCons(marketKey, productId);
+  const pros = mobileData?.pros ?? fallbackPros.map(summarizeMobilePoint);
+  const cons = mobileData?.cons ?? fallbackCons.map(summarizeMobilePoint);
+
   return (
     <div className="md:hidden grid grid-cols-1 gap-3 mb-8">
       <div className="bg-emerald-50/50 rounded-2xl p-4 border border-emerald-100">
@@ -91,7 +96,7 @@ function MobileProsCons({ pros, cons }: { pros: string[], cons: string[] }) {
           {pros.map((pro, idx) => (
             <li key={idx} className="flex items-start gap-2.5 text-sm leading-snug text-slate-700">
               <Check size={16} className="mt-0.5 shrink-0 text-emerald-500" />
-              <span>{summarizeMobilePoint(pro)}</span>
+              <span dangerouslySetInnerHTML={{ __html: pro }} />
             </li>
           ))}
         </ul>
@@ -105,7 +110,7 @@ function MobileProsCons({ pros, cons }: { pros: string[], cons: string[] }) {
           {cons.map((con, idx) => (
             <li key={idx} className="flex items-start gap-2.5 text-sm leading-snug text-slate-700">
               <XCircle size={16} className="mt-0.5 shrink-0 text-red-500" />
-              <span>{summarizeMobilePoint(con)}</span>
+              <span dangerouslySetInnerHTML={{ __html: con }} />
             </li>
           ))}
         </ul>
@@ -723,21 +728,18 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
         </div>
 
         {/* Criteria */}
-        <div className="bg-white rounded-2xl md:rounded-3xl p-3.5 min-[360px]:p-4 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 max-w-4xl mx-auto">
-          <h2 className="text-[1.25rem] md:text-3xl font-bold text-slate-900 mb-3.5 md:mb-8 text-center font-serif leading-tight">We evaluated LED face masks based on 10 criteria</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 md:gap-4 mb-3.5 md:mb-8">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-5 min-[360px]:p-5 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 max-w-4xl mx-auto">
+          <h2 className="text-[1.35rem] md:text-3xl font-bold text-slate-900 mb-5 md:mb-8 text-center font-serif leading-tight">We evaluated LED face masks based on 10 criteria</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mb-5 md:mb-8">
             {criteria.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2 md:gap-3">
-                <ShieldCheck className="text-emerald-500 shrink-0 mt-0.5 h-3.5 w-3.5 md:h-5 md:w-5" />
-                <span className="font-medium text-slate-700 text-[15px] md:text-base leading-[1.18] md:leading-snug">{item}</span>
+              <div key={idx} className="flex items-start gap-2.5 md:gap-3">
+                <ShieldCheck className="text-emerald-500 shrink-0 mt-0.5 h-[18px] w-[18px] md:h-5 md:w-5" />
+                <span className="font-semibold text-slate-700 text-[15px] md:text-base leading-snug">{item}</span>
               </div>
             ))}
           </div>
-          <p className="md:hidden text-center text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-[15px] leading-[1.18]">
-            We tested 18 LED masks across dermatologist input, real reviews, comfort, safety, value, and skincare performance.
-          </p>
-          <p className="hidden md:block text-center text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100 text-base leading-relaxed">
-            Over the past three months, we have thoroughly tested 18 different LED face masks. Based on hands-on evaluations, insights from board-certified dermatologists, and thousands of consumer reviews, the following five models stood out as the best in terms of performance, comfort, safety, and affordability.
+          <p className="text-center text-slate-600 bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-[14px] md:text-base leading-snug md:leading-relaxed">
+            Over the past three months, we have thoroughly tested <strong>18 different LED face masks</strong>. Based on <strong>hands-on evaluations</strong>, insights from <strong>board-certified dermatologists</strong>, and <strong>thousands of consumer reviews</strong>, the following five models stood out as the best in terms of <strong>performance, comfort, safety, and affordability</strong>.
           </p>
         </div>
 
@@ -757,7 +759,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
 
 
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
                 {/* Left Column: Image & Quick Stats */}
                 <div className="lg:col-span-4 flex flex-col items-center">
                   <div className="lg:sticky lg:top-8 w-full flex flex-col items-center">
@@ -779,7 +781,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                       />
                     </a>
 
-                    <div className="text-center mb-6 w-full">
+                    <div className="text-center mb-2 lg:mb-6 w-full">
                       <div className="flex items-center justify-center gap-3 mb-2">
                         <span className="text-3xl font-extrabold text-slate-900">{product.price}</span>
                         {product.originalPrice && (
@@ -827,7 +829,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                   </div>
 
                   {/* Mobile Pros & Cons */}
-                  <MobileProsCons pros={product.pros} cons={product.cons} />
+                  <MobileProsCons productId={product.id} marketKey={market.key} fallbackPros={product.pros} fallbackCons={product.cons} />
 
                   <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     {/* Pros */}
@@ -895,14 +897,14 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                           While doing our research, we found that Buudy is currently running a limited-time sale where you can get these premium accessories bundled for free with every mask purchase.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-8">
                           {/* Travel Box */}
-                          <div className="bg-white rounded-2xl p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
-                            <div className="absolute -top-4 -right-2 bg-blue-600 text-white font-black text-sm md:text-base px-4 py-1.5 rounded-full shadow-lg z-20 animate-bounce">
+                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                            <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce">
                               FREE
                             </div>
-                            <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.travelBox}</span>
+                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">Normally {market.giftValues.travelBox}</span>
                               <img 
                                 src="/img/93-w.webp" 
                                 alt="Premium Travel Box" 
@@ -911,16 +913,16 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
-                            <p className="font-extrabold text-gray-900 text-lg">Premium Travel Box</p>
+                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">Premium Travel Box</p>
                           </div>
 
                           {/* LED Torch */}
-                          <div className="bg-white rounded-2xl p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative mt-4 sm:mt-0">
-                            <div className="absolute -top-4 -right-2 bg-blue-600 text-white font-black text-sm md:text-base px-4 py-1.5 rounded-full shadow-lg z-20 animate-bounce" style={{ animationDelay: '0.2s' }}>
+                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                            <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce" style={{ animationDelay: '0.2s' }}>
                               FREE
                             </div>
-                            <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.ledTorch}</span>
+                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">Normally {market.giftValues.ledTorch}</span>
                               <img 
                                 src="/img/35-w.webp" 
                                 alt="Buudy LED Torch" 
@@ -929,16 +931,16 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
-                            <p className="font-extrabold text-gray-900 text-lg">Buudy LED Torch</p>
+                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">Buudy LED Torch</p>
                           </div>
 
                           {/* E-Book */}
-                          <div className="bg-white rounded-2xl p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative mt-4 sm:mt-0">
-                            <div className="absolute -top-4 -right-2 bg-blue-600 text-white font-black text-sm md:text-base px-4 py-1.5 rounded-full shadow-lg z-20 animate-bounce" style={{ animationDelay: '0.4s' }}>
+                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                            <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce" style={{ animationDelay: '0.4s' }}>
                               FREE
                             </div>
-                            <div className="relative mb-3 rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 font-bold line-through z-10 bg-white/90 px-3 py-1 rounded-full text-xs shadow-sm">Normally {market.giftValues.skincareGuide}</span>
+                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">Normally {market.giftValues.skincareGuide}</span>
                               <img 
                                 src="/img/94-w.webp" 
                                 alt="Skincare E-Book" 
@@ -947,7 +949,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                                 className="w-full aspect-square object-cover"
                               />
                             </div>
-                            <p className="font-extrabold text-gray-900 text-lg">Expert Skincare Guide</p>
+                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">Expert Skincare Guide</p>
                           </div>
                         </div>
 
@@ -955,10 +957,10 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                           href={market.buudyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg md:text-xl text-center py-4 md:py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] relative overflow-hidden group border-2 border-blue-500"
+                          className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base sm:text-lg md:text-xl text-center py-3.5 sm:py-4 md:py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] relative overflow-hidden group border-2 border-blue-500"
                         >
-                          <span className="relative z-10 flex items-center justify-center gap-2">
-                            Check If Free Gifts Are Still Available <ChevronRight size={24} />
+                          <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
+                            Check Availability <ChevronRight size={20} className="sm:hidden" /><ChevronRight size={24} className="hidden sm:block" />
                           </span>
                           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
                         </a>
