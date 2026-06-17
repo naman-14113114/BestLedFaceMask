@@ -43,7 +43,7 @@ const caProductsBlock = sliceBetween(advertorial, "const canadaCompetitorProduct
 assert(advertorial.includes('image: "/img/57-w.webp"'), "Buudy product image must use the local provided asset");
 assert(advertorial.includes('image: "/img/Untitled design.png"'), "CurrentBody product image must use the local provided asset");
 assert(advertorial.includes('image: "/img/kala-1.jpg"'), "Kala CA image must use the provided local asset");
-assert(advertorial.includes('"/img/TOP 5 LED Mask CA.png"'), "CA hero image must use the provided top-five landscape asset");
+assert(advertorial.includes('"/img/TOP 5 LED Mask.png"'), "CA hero image must use the provided top-five landscape asset");
 assert(advertorial.includes('src="/img/93-w.webp"'), "Premium Travel Box gift must use the provided local asset");
 assert(advertorial.includes('src="/img/35-w.webp"'), "Buudy LED Torch gift must use the provided local asset");
 assert(advertorial.includes('src="/img/94-w.webp"'), "Skincare guide gift must use the provided local asset");

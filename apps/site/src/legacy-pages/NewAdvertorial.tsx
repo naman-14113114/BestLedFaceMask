@@ -647,7 +647,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
   const market = getAdvertorialMarket(marketKey);
   const products = getProductsForMarket(market);
   const heroImage = market.key === "ca"
-    ? "/img/TOP 5 LED Mask CA.png"
+    ? "/img/TOP 5 LED Mask.png"
     : "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png";
   const [date, setDate] = useState('');
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
