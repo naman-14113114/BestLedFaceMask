@@ -691,52 +691,62 @@ export default function Home({
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
       {/* Header / Hero */}
-      <header className="bg-white border-b border-slate-200 pt-10 pb-12 px-4 md:pt-12 md:pb-16">
+      <div className="bg-emerald-500 border-b border-emerald-600 pt-5 pb-6 px-4 md:pt-6 md:pb-8">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="mx-[-0.25rem] text-[clamp(1.12rem,5.6vw,1.58rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08] mb-7 md:mb-8 font-serif text-center">
+          <h1 className="mx-[-0.25rem] text-[clamp(1.12rem,5.6vw,1.58rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 md:mb-6 font-serif text-center">
             <span className="block whitespace-nowrap md:inline">Best LED Face Masks of 2026 in </span>
             <span className="block md:inline md:ml-2">{market.titleCountry}</span>
           </h1>
           
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
-            <div className="flex items-center gap-3">
-              <img 
-                src="/img/dr-megan-vincze.png" 
-                alt="Dr. Megan Vincze" 
-                className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
-              />
-              <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Megan Vincze</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Certified Dermatologist</p>
-              </div>
-            </div>
-            <div className="hidden md:block w-px h-8 bg-slate-200"></div>
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <Calendar size={16} className="text-emerald-500" />
-              Last updated – {context.updatedDate}
-            </div>
+          <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">
+            <CheckCircle2 size={20} className="text-white shrink-0" />
+            Last updated – {context.updatedDate}
           </div>
+        </div>
+      </div>
 
-          <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
-            <p>
-              <strong className="text-slate-900">Dr. Megan Vincze</strong>, a certified dermatologist and beauty technology expert, reviewed 18 popular {market.titleCountry} LED Face Mask options over 200+ hours, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, usability, reviews, price, and guarantees. Her biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-neck coverage, and were easy enough to use consistently at home.
-            </p>
-          </div>
-
+      <header className="bg-white border-b border-slate-200 pt-10 pb-12 px-4 md:pt-12 md:pb-16">
+        <div className="max-w-6xl mx-auto text-center">
           <img 
             src={heroImage}
             alt={`Top LED masks comparison for ${market.titleCountry}`}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full max-w-5xl mx-auto aspect-[1536/461] object-cover rounded-3xl shadow-xl border border-slate-100"
+            className="w-full max-w-5xl mx-auto aspect-[1536/461] object-cover rounded-3xl shadow-xl border border-slate-100 mb-10 md:mb-12"
           />
+
+          <div className="bg-white p-6 md:p-8 rounded-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)] max-w-5xl mx-auto border border-slate-100 text-slate-800">
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src="/img/dr-megan-vincze.png" 
+                alt="Dr. Megan Vincze" 
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
+              />
+              <div className="text-left">
+                <h3 className="font-bold text-xl md:text-2xl underline text-slate-900">Dr. Megan Vincze</h3>
+                <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-semibold mt-1">Certified Dermatologist</p>
+              </div>
+            </div>
+            
+            <div className="text-left text-sm md:text-base text-slate-700 leading-relaxed mb-6">
+              <p>
+                With over 10 years of experience in skincare and beauty technology, <strong className="text-slate-900">Dr. Megan Vincze</strong> is a certified dermatologist and beauty technology expert. She reviewed 18 popular {market.titleCountry} LED Face Mask options over 200+ hours, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, usability, reviews, price, and guarantees. Her biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-neck coverage, and were easy enough to use consistently at home.
+              </p>
+            </div>
+            
+            <hr className="border-slate-200 mb-4" />
+            
+            <div className="text-right text-xs md:text-sm italic text-slate-600">
+              * Recommended by over 1,000 {market.buyerLabel} skincare users.
+            </div>
+          </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-12">
         {/* Intro */}
-        <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
+        <div className="prose prose-lg prose-slate w-full max-w-none mb-16 space-y-6">
           <p>LED face masks have exploded in {market.titleCountry}, but the market is confusing. Prices range from <strong>{market.priceRange}</strong>, and many brands make almost identical claims about collagen, acne, redness, and anti-ageing results.</p>
           <p>So we tested <strong>18 of the most popular LED masks</strong> over <strong>200+ hours</strong>, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, ease of use, reviews, price, and guarantees.</p>
           <p>The biggest finding was simple: a higher price did not always mean better results. The best masks used the right wavelengths, gave even face and neck coverage, and were easy enough to use consistently at home.</p>
@@ -744,7 +754,7 @@ export default function Home({
         </div>
 
         {/* Criteria */}
-        <div className="bg-white rounded-2xl md:rounded-3xl p-5 min-[360px]:p-5 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-5 min-[360px]:p-5 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 w-full">
           <h2 className="text-[1.35rem] md:text-3xl font-bold text-slate-900 mb-5 md:mb-8 text-center font-serif leading-tight">We evaluated LED face masks based on 10 criteria</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mb-5 md:mb-8">
             {criteria.map((item, idx) => (
