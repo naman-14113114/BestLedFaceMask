@@ -71,7 +71,7 @@ export const articles: Article[] = [
     seoKeywords: "led mask for mature skin, led mask wrinkles, red light mature skin care, infrared light skin uk",
     author: "Trustpilot Review Shop Editorial",
     date: "February 28, 2026",
-    image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+    image: "/img/57-w.webp",
     excerpt: "Red and near-infrared LED light have been the subject of numerous studies exploring their effects on skin. If you have mature skin and are considering adding an LED mask to your routine, here is a balanced look at what is out there.",
     content: [
       "As we get older, our skin naturally changes. Collagen production slows, the skin becomes thinner, and fine lines become more noticeable. These are completely normal biological processes. Many people look for ways to support their skin as it changes, and LED light therapy has become one of the options that people explore.",

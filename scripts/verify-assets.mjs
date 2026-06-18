@@ -5,6 +5,7 @@ const root = process.cwd();
 const siteRoot = path.join(root, "apps", "site");
 const publicRoot = path.join(siteRoot, "public");
 const sourceRoot = path.join(siteRoot, "src");
+const bannedHost = ["lawngreen-kingfisher-468763", "hostingersite.com"].join(".");
 
 function assert(condition, message) {
   if (!condition) {
@@ -18,11 +19,13 @@ const requiredPublicFiles = [
   "llms.txt",
   "llms-full.txt",
   "assets/microsoft-consent-mode.js",
-  "assets/buudy-outbound-failsafe.js",
+  "assets/outbound-interactions-v2.js",
   "assets/buudy-exit-popup.js",
+  "assets/outbound-button-loader.json",
   "assets/buudy-dermatologist-verdict-poster.jpg",
   "assets/buudy-dermatologist-verdict.mp4",
   "img/35-w.webp",
+  "img/39-w.webp",
   "img/57-w.webp",
   "img/93-w.webp",
   "img/94-w.webp",
@@ -44,6 +47,7 @@ for (const file of requiredPublicFiles) {
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory() && [".next", ".turbo", "node_modules"].includes(entry.name)) return [];
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) return walk(fullPath);
     return fullPath;
@@ -62,6 +66,13 @@ for (const file of walk(sourceRoot)) {
 for (const ref of localAssetRefs) {
   const assetPath = path.join(publicRoot, ref.slice(1));
   assert(fs.existsSync(assetPath), `${ref} is referenced but missing from public`);
+}
+
+const textExtensions = new Set([".css", ".js", ".json", ".md", ".mjs", ".ts", ".tsx", ".txt", ".xml"]);
+for (const file of walk(siteRoot)) {
+  if (!textExtensions.has(path.extname(file).toLowerCase())) continue;
+  const text = fs.readFileSync(file, "utf8");
+  assert(!text.includes(bannedHost), `${path.relative(root, file)} must not reference the removed external host`);
 }
 
 const publicEntries = walk(publicRoot).map((file) => path.relative(publicRoot, file).replaceAll("\\", "/")).sort();

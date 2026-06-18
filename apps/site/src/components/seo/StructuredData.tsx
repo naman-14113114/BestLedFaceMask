@@ -132,7 +132,7 @@ const advertorialSchema = {
       },
       headline: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
       description: "A UK comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
-      image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+      image: "https://www.trustpilotreview.shop/img/57-w.webp",
       datePublished: "2026-06-12",
       dateModified: "2026-06-13",
       author: {
@@ -208,7 +208,7 @@ const advertorialSchema = {
       "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
       description: "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
-      image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+      image: "https://www.trustpilotreview.shop/img/57-w.webp",
       brand: {
         "@type": "Brand",
         name: "Buudy"

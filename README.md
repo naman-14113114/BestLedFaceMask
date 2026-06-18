@@ -150,7 +150,7 @@ Only the referenced local public assets are kept:
 
 ```text
 /assets/microsoft-consent-mode.js
-/assets/buudy-outbound-failsafe.js
+/assets/outbound-interactions-v2.js
 /assets/buudy-exit-popup.js
 /assets/buudy-dermatologist-verdict-poster.jpg
 /assets/buudy-dermatologist-verdict.mp4

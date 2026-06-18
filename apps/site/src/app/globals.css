@@ -14,6 +14,30 @@
   }
 }
 
+@keyframes outbound-loader-bounce {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-7px);
+  }
+}
+
+[data-outbound-button="true"][data-loading="true"] [data-outbound-content="true"] {
+  visibility: hidden;
+}
+
+[data-outbound-button="true"][data-loading="true"] [data-outbound-loader="true"] {
+  display: flex;
+}
+
+.outbound-loader-dot {
+  animation: outbound-loader-bounce 1.34s ease-in-out infinite;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: #f8fafc;

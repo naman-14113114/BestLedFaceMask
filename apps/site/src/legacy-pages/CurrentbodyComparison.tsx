@@ -22,7 +22,7 @@ const products = [
     id: 1,
     rank: "#1",
     name: "Buudy 7 Color LED Therapy Mask",
-    image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+    image: "/img/57-w.webp",
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",

@@ -106,14 +106,14 @@ export default function Home() {
               {
                 title: "Deluxeskin vs Buudy",
                 description: "A detailed breakdown of how the Deluxeskin LED mask compares to the Buudy 7-Color in every category.",
-                image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+                image: "/img/57-w.webp",
                 link: "/deluxeskin-vs-buudy",
                 badge: "Comparison"
               },
               {
                 title: "Qureskincare vs Buudy",
                 description: "Can Qureskincare's LED mask compete with Buudy's 7 wavelengths and built-in neck coverage?",
-                image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+                image: "/img/57-w.webp",
                 link: "/qureskincare-vs-buudy",
                 badge: "Comparison"
               },

@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "img.thesitebase.net" },
       { protocol: "https", hostname: "img.shopbase.com" },
       { protocol: "https", hostname: "assets.thesitebase.net" },
-      { protocol: "https", hostname: "lawngreen-kingfisher-468763.hostingersite.com" },
       { protocol: "https", hostname: "m.media-amazon.com" }
     ]
   },
@@ -34,6 +33,10 @@ const nextConfig: NextConfig = {
       {
         source: "/assets/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }]
+      },
+      {
+        source: "/assets/:path*.js",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }]
       },
       {
         source: "/robots.txt",

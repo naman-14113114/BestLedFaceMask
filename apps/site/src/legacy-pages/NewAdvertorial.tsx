@@ -616,18 +616,66 @@ function preventPlaceholderNavigation(event: React.MouseEvent<HTMLAnchorElement>
   }
 }
 
+const outboundLoaderDots = [0, 1, 2, 3, 4];
+
+function OutboundLoader() {
+  return (
+    <span className="flex h-6 items-center justify-center gap-1.5" aria-hidden="true">
+      {outboundLoaderDots.map((dot) => (
+        <span
+          key={dot}
+          className="outbound-loader-dot h-2.5 w-2.5 rounded-full bg-white"
+          style={{ animationDelay: `${dot * 0.167}s` }}
+        />
+      ))}
+    </span>
+  );
+}
+
+type OutboundButtonProps = {
+  href: string;
+  className: string;
+  ariaLabel: string;
+  children: React.ReactNode;
+};
+
+function OutboundButton({ href, className, ariaLabel, children }: OutboundButtonProps) {
+  return (
+    <a
+      href={href === "#" ? undefined : href}
+      aria-label={ariaLabel}
+      aria-busy="false"
+      aria-disabled={href === "#" ? true : undefined}
+      data-outbound-button="true"
+      data-loading="false"
+      className={`relative ${className}`}
+    >
+      <span data-outbound-content="true">
+        {children}
+      </span>
+      <span
+        data-outbound-loader="true"
+        className="absolute inset-0 z-20 hidden items-center justify-center"
+        role="status"
+      >
+        <OutboundLoader />
+        <span className="sr-only">Opening website</span>
+      </span>
+    </a>
+  );
+}
+
 export const CTAButton = ({ href, text, className = "" }: { href: string, text: string, className?: string }) => (
-  <a 
+  <OutboundButton
     href={href}
-    onClick={(event) => preventPlaceholderNavigation(event, href)}
-    aria-disabled={href === "#" ? true : undefined}
+    ariaLabel={text}
     className={`relative inline-flex justify-center items-center px-8 py-4 text-lg md:text-xl font-bold text-white bg-emerald-500 rounded-full overflow-hidden group hover:scale-[1.02] transition-transform duration-300 shadow-xl shadow-emerald-500/30 ${className}`}
   >
     <span className="relative z-10 flex items-center gap-2">
       {text} <ChevronRight size={24} />
     </span>
-    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
-  </a>
+    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+  </OutboundButton>
 );
 
 export const MetricBar: React.FC<{ label: string, value: number }> = ({ label, value }) => (
@@ -953,17 +1001,16 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                           </div>
                         </div>
 
-                        <a 
+                        <OutboundButton
                           href={market.buudyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          ariaLabel="Check Availability"
                           className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base sm:text-lg md:text-xl text-center py-3.5 sm:py-4 md:py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] relative overflow-hidden group border-2 border-blue-500"
                         >
                           <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
                             Check Availability <ChevronRight size={20} className="sm:hidden" /><ChevronRight size={24} className="hidden sm:block" />
                           </span>
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
-                        </a>
+                          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+                        </OutboundButton>
                       </div>
                     </motion.div>
                   )}
@@ -1049,12 +1096,13 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                   </div>
                 </div>
 
-                <a 
+                <OutboundButton
                   href={market.buudyUrl}
+                  ariaLabel="Check Availability"
                   className="mx-auto w-full max-w-[240px] md:w-auto md:max-w-none bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-sm md:text-xl font-bold font-sans tracking-wide py-3.5 md:py-4 px-6 md:px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   CHECK AVAILABILITY
-                </a>
+                </OutboundButton>
               </div>
             </div>
           </div>
@@ -1063,13 +1111,14 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
 
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-center">
-        <a 
+        <OutboundButton
           href={market.buudyUrl}
+          ariaLabel="Take me to the winning LED Mask"
           className="w-full text-center bg-emerald-500 text-white px-2 py-3.5 rounded-full font-bold text-[13px] sm:text-base shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Take me to the winning LED Mask</span>
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
-        </a>
+          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
+        </OutboundButton>
       </div>
     </div>
   );

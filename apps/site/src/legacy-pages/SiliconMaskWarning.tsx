@@ -297,7 +297,7 @@ export default function SiliconMaskWarning() {
                   
                   <a href="https://buudy.com/pages/buudy-led-mask" className="block w-full mb-6 group">
                     <img 
-                      src="https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp" 
+                      src="/img/57-w.webp"
                       alt="Buudy 7 Color LED Therapy Mask" 
                       className="w-full rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
                     />

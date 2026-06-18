@@ -1,11 +1,8 @@
 (function () {
-  var TRUSTPILOT_HOST_RE = /(^|\.)trustpilotreview\.shop$/i;
   var BUUDY_HOST_RE = /(^|\.)buudy\.com$/i;
   var CONVERSION_VALUE = 330;
   var CONVERSION_CURRENCY = "INR";
   var CONVERSION_EVENT_NAMES = ["buudy_outbound_click", "affiliate_click"];
-  var MICROSOFT_UET_TAG_ID = "211072489";
-  var REDIRECT_DELAY_MS = 180;
   var DEDUPE_WINDOW_MS = 1200;
   var OLD_BUUDY_FACE_MASK_URL = "https://buudy.com" + "/pages/buudy-led-face-mask";
   var OLD_BUUDY_LED_MASK_URL = "https://buudy.com" + "/pages/buudy-led-mask";
@@ -20,9 +17,26 @@
   var FALLBACK_BUUDY_URL = getMarketBuudyUrl(window.location.pathname);
   var BUUDY_IMAGE_RE = /buudy|57-w-1\.webp|176943060543a303d043|10650730\/products/i;
   var BUUDY_CARD_TEXT_RE = /buudy\s*(7\s*color|led|mask)|official website|check availability|free gifts/i;
+  var LOADING_RESET_MS = 3000;
 
   function isModifiedClick(event) {
     return event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+  }
+
+  function markOutboundButtonLoading(target) {
+    if (!target || !target.closest) return;
+
+    var link = target.closest('a[data-outbound-button="true"][href]');
+    if (!link || link.getAttribute("href") === "#") return;
+
+    link.setAttribute("data-loading", "true");
+    link.setAttribute("aria-busy", "true");
+
+    window.setTimeout(function () {
+      if (!link.isConnected) return;
+      link.setAttribute("data-loading", "false");
+      link.setAttribute("aria-busy", "false");
+    }, LOADING_RESET_MS);
   }
 
   function toBuudyHref(rawHref) {
@@ -191,46 +205,6 @@
     });
   }
 
-  function pushFreshMicrosoftEvents(payload) {
-    function send() {
-      pushMicrosoftEvents(payload);
-    }
-
-    if (typeof window.tprLoadMicrosoftUet === "function") {
-      window.tprLoadMicrosoftUet(function () {
-        window.setTimeout(send, 80);
-      });
-      return;
-    }
-
-    if (typeof window.UET === "function" && !Array.isArray(window.uetq)) {
-      send();
-      return;
-    }
-
-    window.uetq = window.uetq || [];
-    var script = document.createElement("script");
-    script.async = true;
-    script.src = "https://bat.bing.net/bat.js?ti=" + MICROSOFT_UET_TAG_ID;
-    script.onload = function () {
-      try {
-        var queued = window.uetq;
-        window.uetq = new UET({
-          ti: MICROSOFT_UET_TAG_ID,
-          enableAutoSpaTracking: false,
-          q: queued
-        });
-        window.uetq.push("pageLoad");
-      } catch (error) {}
-
-      window.setTimeout(send, 80);
-    };
-    script.onerror = function () {
-      pushMicrosoftEvents(payload);
-    };
-    (document.head || document.documentElement).appendChild(script);
-  }
-
   function trackBuudyOutbound(href) {
     if (!href || wasRecentlyTracked(href)) return false;
 
@@ -245,39 +219,6 @@
     return true;
   }
 
-  function trackBuudyOutboundAfterGrant(href) {
-    if (!href || wasRecentlyTracked(href)) return false;
-
-    var payload = buildPayload(href);
-    pushDataLayerEvents(href, payload);
-    pushFreshMicrosoftEvents(payload);
-
-    if (typeof window.clarity === "function") {
-      window.clarity("event", "buudy_outbound_click");
-    }
-
-    return true;
-  }
-
-  function redirectToBuudy(href) {
-    if (!TRUSTPILOT_HOST_RE.test(window.location.hostname)) return;
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "buudy_outbound_failsafe_redirect",
-      outbound_url: href
-    });
-
-    window.location.assign(href);
-  }
-
-  function trackAndRedirect(href, delay) {
-    trackBuudyOutbound(href);
-    window.setTimeout(function () {
-      redirectToBuudy(href);
-    }, delay == null ? REDIRECT_DELAY_MS : delay);
-  }
-
   window.tprTrackBuudyOutbound = function (href) {
     try {
       var trackedHref = toBuudyHref(href);
@@ -287,26 +228,35 @@
     }
   };
 
+  document.addEventListener("pointerdown", function (event) {
+    if (isModifiedClick(event)) return;
+    markOutboundButtonLoading(event.target);
+  }, true);
+
   document.addEventListener(
     "click",
     function (event) {
+      if (!isModifiedClick(event)) {
+        markOutboundButtonLoading(event.target);
+      }
+
       var href = getTrackedHref(event);
       if (!href) return;
       if (isModifiedClick(event)) return;
-
-      if (event.defaultPrevented) return;
-      event.preventDefault();
-      event.stopPropagation();
-      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
 
       if (!hasMicrosoftAdsConsent()) {
         setMicrosoftAdsConsent("granted");
       }
 
-      trackAndRedirect(href);
+      trackBuudyOutbound(href);
     },
     true
   );
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    markOutboundButtonLoading(event.target);
+  }, true);
 
   function observeBuudyLinks() {
     var observerTarget = document.documentElement || document.body;

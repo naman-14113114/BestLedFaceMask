@@ -3,7 +3,7 @@ import { articles } from "@/data/articles";
 import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
 
 const siteUrl = "https://www.trustpilotreview.shop";
-const ogImage = "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp";
+const ogImage = `${siteUrl}/img/57-w.webp`;
 const favicon = "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png";
 const robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 

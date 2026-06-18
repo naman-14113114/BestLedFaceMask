@@ -31,7 +31,7 @@ const products = [
     id: 1,
     rank: "#1",
     name: "Buudy 7 Color LED Therapy Mask",
-    image: "https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp",
+    image: "/img/57-w.webp",
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
@@ -391,7 +391,7 @@ export default function QureskincareComparison() {
               <div className="relative group">
                 <a href="https://buudy.com/pages/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
-                    src="https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/39-w.webp" 
+                    src="/img/39-w.webp"
                     alt="Buudy LED Mask" 
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />

@@ -236,7 +236,7 @@ export default function FloatingHeadWarning() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4 flex flex-col items-center">
                 <img 
-                  src="https://lawngreen-kingfisher-468763.hostingersite.com/wp-content/uploads/2026/02/57-w-1.webp" 
+                  src="/img/57-w.webp"
                   alt="Buudy 7 Color LED Therapy Mask" 
                   className="w-full rounded-2xl shadow-md border border-slate-100 mb-6"
                 />
