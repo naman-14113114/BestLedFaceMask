@@ -1,4 +1,7 @@
-import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
+import {
+  advertorialMarkets,
+  type AdvertorialMarketKey,
+} from "@/lib/advertorialMarkets";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
 const siteUrl = SITE_URL;
@@ -13,20 +16,20 @@ const homeSchema = {
       url: "https://www.trustpilotreview.shop/",
       logo: {
         "@type": "ImageObject",
-        url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png"
+        url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
       description: `${SITE_NAME} publishes UK-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`,
       areaServed: {
         "@type": "Country",
-        name: "United Kingdom"
+        name: "United Kingdom",
       },
       knowsAbout: [
         "LED face masks",
         "red light therapy masks",
         "LED mask safety",
         "LED mask wavelengths",
-        "at-home skincare technology"
-      ]
+        "at-home skincare technology",
+      ],
     },
     {
       "@type": "WebSite",
@@ -34,9 +37,9 @@ const homeSchema = {
       name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization"
+        "@id": "https://www.trustpilotreview.shop/#organization",
       },
-      inLanguage: "en-GB"
+      inLanguage: "en-GB",
     },
     {
       "@type": "CollectionPage",
@@ -44,16 +47,16 @@ const homeSchema = {
       url: "https://www.trustpilotreview.shop/",
       name: "LED Face Mask Reviews & Buyer Guides",
       isPartOf: {
-        "@id": "https://www.trustpilotreview.shop/#website"
+        "@id": "https://www.trustpilotreview.shop/#website",
       },
       about: [
         "LED face mask reviews",
         "red light therapy masks",
         "best LED face mask UK",
-        "LED mask with neck coverage"
-      ]
-    }
-  ]
+        "LED mask with neck coverage",
+      ],
+    },
+  ],
 };
 
 const advertorialSchema = {
@@ -66,12 +69,12 @@ const advertorialSchema = {
       url: "https://www.trustpilotreview.shop/",
       logo: {
         "@type": "ImageObject",
-        url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png"
+        url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
       description: `${SITE_NAME} publishes UK-focused beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
       areaServed: {
         "@type": "Country",
-        name: "United Kingdom"
+        name: "United Kingdom",
       },
       knowsAbout: [
         "LED face masks",
@@ -79,8 +82,8 @@ const advertorialSchema = {
         "blue light therapy for blemish-prone skin",
         "near-infrared light therapy",
         "at-home skincare devices",
-        "LED mask safety and certifications"
-      ]
+        "LED mask safety and certifications",
+      ],
     },
     {
       "@type": "WebSite",
@@ -88,9 +91,9 @@ const advertorialSchema = {
       name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization"
+        "@id": "https://www.trustpilotreview.shop/#organization",
       },
-      inLanguage: "en-GB"
+      inLanguage: "en-GB",
     },
     {
       "@type": "Person",
@@ -102,45 +105,50 @@ const advertorialSchema = {
         "red light therapy",
         "LED phototherapy",
         "skin rejuvenation",
-        "acne and blemish-prone skin"
+        "acne and blemish-prone skin",
       ],
       worksFor: {
-        "@id": "https://www.trustpilotreview.shop/#organization"
-      }
+        "@id": "https://www.trustpilotreview.shop/#organization",
+      },
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage",
       url: "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026",
       name: "Best LED Face Mask UK (2026)",
       isPartOf: {
-        "@id": "https://www.trustpilotreview.shop/#website"
+        "@id": "https://www.trustpilotreview.shop/#website",
       },
       about: [
         "best LED face mask UK",
         "red light therapy mask",
         "LED mask with neck coverage",
-        "at-home LED light therapy"
+        "at-home LED light therapy",
       ],
       inLanguage: "en-GB",
-      dateModified: "2026-06-13"
+      dateModified: "2026-06-13",
     },
     {
       "@type": "Article",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#article",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#article",
       mainEntityOfPage: {
-        "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage"
+        "@id":
+          "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage",
       },
-      headline: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
-      description: "A UK comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
+      headline:
+        "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
+      description:
+        "A UK comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
       image: "https://www.trustpilotreview.shop/img/57-w.webp",
       datePublished: "2026-06-12",
       dateModified: "2026-06-13",
       author: {
-        "@id": "https://www.trustpilotreview.shop/#author-gabriella-vasili"
+        "@id": "https://www.trustpilotreview.shop/#author-gabriella-vasili",
       },
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization"
+        "@id": "https://www.trustpilotreview.shop/#organization",
       },
       keywords: [
         "best led face mask",
@@ -150,28 +158,27 @@ const advertorialSchema = {
         "best led mask for wrinkles",
         "best at home led face mask",
         "LED mask with neck coverage",
-        "7 colour LED mask"
+        "7 colour LED mask",
       ],
       speakable: {
         "@type": "SpeakableSpecification",
-        cssSelector: [
-          "#geo-summary",
-          "#geo-ranking",
-          "#geo-faq"
-        ]
+        cssSelector: ["#geo-summary", "#geo-ranking", "#geo-faq"],
       },
       hasPart: [
         {
-          "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist"
+          "@id":
+            "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist",
         },
         {
-          "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#faq"
-        }
-      ]
+          "@id":
+            "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#faq",
+        },
+      ],
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist",
       name: "Best LED Face Masks UK 2026 Ranking",
       itemListOrder: "https://schema.org/ItemListOrderAscending",
       numberOfItems: 5,
@@ -180,81 +187,87 @@ const advertorialSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Buudy 7 Colour LED Mask",
-          url: "https://uk.buudy.com/products/buudy-led-mask"
+          url: "https://buudy.co.uk/products/buudy-led-mask",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "CurrentBody LED Mask"
+          name: "CurrentBody LED Mask",
         },
         {
           "@type": "ListItem",
           position: 3,
-          name: "Shark CryoGlow LED Mask"
+          name: "Shark CryoGlow LED Mask",
         },
         {
           "@type": "ListItem",
           position: 4,
-          name: "Omnilux Contour Face"
+          name: "Omnilux Contour Face",
         },
         {
           "@type": "ListItem",
           position: 5,
-          name: "Dr. Dennis Gross DRx SpectraLite FaceWare Pro"
-        }
-      ]
+          name: "Dr. Dennis Gross DRx SpectraLite FaceWare Pro",
+        },
+      ],
     },
     {
       "@type": "Product",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#buudy-product",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
-      description: "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
+      description:
+        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
       image: "https://www.trustpilotreview.shop/img/57-w.webp",
       brand: {
         "@type": "Brand",
-        name: "Buudy"
+        name: "Buudy",
       },
       category: "At-home LED light therapy mask",
       offers: {
         "@type": "Offer",
-        url: "https://uk.buudy.com/products/buudy-led-mask",
+        url: "https://buudy.co.uk/products/buudy-led-mask",
         price: "179.00",
         priceCurrency: "GBP",
-        availability: "https://schema.org/InStock"
+        availability: "https://schema.org/InStock",
       },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
         bestRating: "5",
-        reviewCount: "16000"
+        reviewCount: "16000",
       },
       additionalProperty: [
         {
           "@type": "PropertyValue",
           name: "Visible light modes",
-          value: "7 colours"
+          value: "7 colours",
         },
         {
           "@type": "PropertyValue",
           name: "Near-infrared wavelength",
-          value: "830nm"
+          value: "830nm",
         },
         {
           "@type": "PropertyValue",
           name: "Guarantee",
-          value: "90-day money-back guarantee"
-        }
-      ]
+          value: "90-day money-back guarantee",
+        },
+      ],
     },
     {
       "@type": "VideoObject",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#dermatologist-video",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#dermatologist-video",
       name: "Dermatologist walkthrough of the Buudy 7 Colour LED Mask",
-      description: "A short product walkthrough showing the Buudy LED mask fit, light modes, eye area, and full-face coverage.",
-      thumbnailUrl: "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict-poster.jpg",
-      contentUrl: "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict.mp4",
+      description:
+        "A short product walkthrough showing the Buudy LED mask fit, light modes, eye area, and full-face coverage.",
+      thumbnailUrl:
+        "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict-poster.jpg",
+      contentUrl:
+        "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict.mp4",
       uploadDate: "2026-06-12",
-      duration: "PT2M6S"
+      duration: "PT2M6S",
     },
     {
       "@type": "FAQPage",
@@ -265,46 +278,47 @@ const advertorialSchema = {
           name: "What is the best LED face mask in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at Â£179."
-          }
+            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at Â£179.",
+          },
         },
         {
           "@type": "Question",
           name: "Do more expensive LED masks always perform better?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. The comparison found that higher price did not always mean better results. Wavelength quality, even coverage, treatment consistency, comfort, and safety mattered more than brand prestige."
-          }
+            text: "No. The comparison found that higher price did not always mean better results. Wavelength quality, even coverage, treatment consistency, comfort, and safety mattered more than brand prestige.",
+          },
         },
         {
           "@type": "Question",
           name: "Which LED wavelengths are highlighted for the Buudy mask?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The Buudy mask is described as using 7 visible colours plus 830nm near-infrared support, including red, blue, green, cyan, yellow, purple, and white light modes."
-          }
-        }
-      ]
+            text: "The Buudy mask is described as using 7 visible colours plus 830nm near-infrared support, including red, blue, green, cyan, yellow, purple, and white light modes.",
+          },
+        },
+      ],
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#breadcrumb",
+      "@id":
+        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://www.trustpilotreview.shop/"
+          item: "https://www.trustpilotreview.shop/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Best LED Face Mask UK 2026",
-          item: "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026"
-        }
-      ]
-    }
-  ]
+          item: "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026",
+        },
+      ],
+    },
+  ],
 };
 
 type SchemaNode = Record<string, unknown>;
@@ -322,28 +336,28 @@ function getCanadaItemListElement(buudyUrl: string) {
       "@type": "ListItem",
       position: 1,
       name: "Buudy 7 Colour LED Mask",
-      url: buudyUrl
+      url: buudyUrl,
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "CurrentBody LED Mask"
+      name: "CurrentBody LED Mask",
     },
     {
       "@type": "ListItem",
       position: 3,
-      name: "Kala Red Light Face Mask"
+      name: "Kala Red Light Face Mask",
     },
     {
       "@type": "ListItem",
       position: 4,
-      name: "TheraFace Mask"
+      name: "TheraFace Mask",
     },
     {
       "@type": "ListItem",
       position: 5,
-      name: "Equinox LED Mask"
-    }
+      name: "Equinox LED Mask",
+    },
   ];
 }
 
@@ -361,7 +375,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   };
 
   const graph = schema["@graph"];
-  const organizationNodes = graph.filter((node) => node["@type"] === "Organization");
+  const organizationNodes = graph.filter(
+    (node) => node["@type"] === "Organization",
+  );
   for (const node of organizationNodes) {
     node.description = `${SITE_NAME} publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
     setNestedObjectValue(node, "areaServed", market.countryName);
@@ -381,7 +397,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       `best LED face mask ${market.countryName}`,
       "red light therapy mask",
       "LED mask with neck coverage",
-      "at-home LED light therapy"
+      "at-home LED light therapy",
     ];
     webpage.inLanguage = market.languageName;
   }
@@ -400,11 +416,11 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       "best led mask for wrinkles",
       "best at home led face mask",
       "LED mask with neck coverage",
-      "7 colour LED mask"
+      "7 colour LED mask",
     ];
     article.hasPart = [
       { "@id": `${routeUrl}#itemlist` },
-      { "@id": `${routeUrl}#faq` }
+      { "@id": `${routeUrl}#faq` },
     ];
   }
 
@@ -443,12 +459,17 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   if (faq) {
     faq["@id"] = `${routeUrl}#faq`;
     const questions = faq.mainEntity;
-    if (Array.isArray(questions) && questions[0] && typeof questions[0] === "object") {
+    if (
+      Array.isArray(questions) &&
+      questions[0] &&
+      typeof questions[0] === "object"
+    ) {
       const question = questions[0] as SchemaNode;
       question.name = `What is the best LED face mask in ${market.countryName} for value?`;
       const answer = question.acceptedAnswer;
       if (answer && typeof answer === "object" && !Array.isArray(answer)) {
-        (answer as SchemaNode).text = `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at ${market.productPrices.buudy.price}.`;
+        (answer as SchemaNode).text =
+          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at ${market.productPrices.buudy.price}.`;
       }
     }
   }
@@ -457,7 +478,11 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   if (breadcrumb) {
     breadcrumb["@id"] = `${routeUrl}#breadcrumb`;
     const breadcrumbItems = breadcrumb.itemListElement;
-    if (Array.isArray(breadcrumbItems) && breadcrumbItems[1] && typeof breadcrumbItems[1] === "object") {
+    if (
+      Array.isArray(breadcrumbItems) &&
+      breadcrumbItems[1] &&
+      typeof breadcrumbItems[1] === "object"
+    ) {
       const secondItem = breadcrumbItems[1] as SchemaNode;
       secondItem.name = market.primaryGuideLabel;
       secondItem.item = routeUrl;
@@ -480,6 +505,10 @@ export function HomeStructuredData() {
   return <JsonLd data={homeSchema} />;
 }
 
-export function AdvertorialStructuredData({ market = "uk" }: { market?: AdvertorialMarketKey }) {
+export function AdvertorialStructuredData({
+  market = "uk",
+}: {
+  market?: AdvertorialMarketKey;
+}) {
   return <JsonLd data={createAdvertorialSchema(market)} />;
 }

@@ -4,21 +4,29 @@
   var CONVERSION_CURRENCY = "INR";
   var CONVERSION_EVENT_NAMES = ["buudy_outbound_click", "affiliate_click"];
   var DEDUPE_WINDOW_MS = 1200;
-  var UK_BUUDY_LED_MASK_URL = "https://uk.buudy.com/products/buudy-led-mask";
+  var UK_BUUDY_LED_MASK_URL = "https://buudy.co.uk/products/buudy-led-mask";
   var AU_BUUDY_LED_MASK_URL = "https://au.buudy.com/products/buudy-led-mask";
   var CA_BUUDY_LED_MASK_URL = "https://ca.buudy.com/products/buudy-led-mask";
   var MARKET_BUUDY_URLS = [
     { path: "/best-led-face-mask-au-2026", url: AU_BUUDY_LED_MASK_URL },
     { path: "/best-led-face-mask-ca-2026", url: CA_BUUDY_LED_MASK_URL },
-    { path: "/best-led-face-mask-uk-2026", url: UK_BUUDY_LED_MASK_URL }
+    { path: "/best-led-face-mask-uk-2026", url: UK_BUUDY_LED_MASK_URL },
   ];
   var FALLBACK_BUUDY_URL = getMarketBuudyUrl(window.location.pathname);
-  var BUUDY_IMAGE_RE = /buudy|57-w-1\.webp|176943060543a303d043|10650730\/products/i;
-  var BUUDY_CARD_TEXT_RE = /buudy\s*(7\s*color|led|mask)|official website|check availability|free gifts/i;
+  var BUUDY_IMAGE_RE =
+    /buudy|57-w-1\.webp|176943060543a303d043|10650730\/products/i;
+  var BUUDY_CARD_TEXT_RE =
+    /buudy\s*(7\s*color|led|mask)|official website|check availability|free gifts/i;
   var LOADING_RESET_MS = 3000;
 
   function isModifiedClick(event) {
-    return event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+    return (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    );
   }
 
   function markOutboundButtonLoading(target) {
@@ -59,7 +67,10 @@
 
   function getMarketBuudyUrl(pathname) {
     for (var i = 0; i < MARKET_BUUDY_URLS.length; i += 1) {
-      if (pathname === MARKET_BUUDY_URLS[i].path || pathname.indexOf(MARKET_BUUDY_URLS[i].path + "/") === 0) {
+      if (
+        pathname === MARKET_BUUDY_URLS[i].path ||
+        pathname.indexOf(MARKET_BUUDY_URLS[i].path + "/") === 0
+      ) {
         return MARKET_BUUDY_URLS[i].url;
       }
     }
@@ -69,7 +80,7 @@
 
   function getPageBuudyUrl() {
     var regionalLink = document.querySelector(
-      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]'
+      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]',
     );
     return regionalLink ? regionalLink.href : FALLBACK_BUUDY_URL;
   }
@@ -77,10 +88,15 @@
   function getExplicitTrackedHref(target) {
     if (!target || !target.closest) return null;
 
-    var source = target.closest('a[href], [data-buudy-outbound-url], [data-buudy-outbound]');
+    var source = target.closest(
+      "a[href], [data-buudy-outbound-url], [data-buudy-outbound]",
+    );
     if (!source) return null;
 
-    var rawHref = source.href || source.getAttribute("data-buudy-outbound-url") || source.getAttribute("data-buudy-outbound");
+    var rawHref =
+      source.href ||
+      source.getAttribute("data-buudy-outbound-url") ||
+      source.getAttribute("data-buudy-outbound");
     return toBuudyHref(rawHref);
   }
 
@@ -93,7 +109,10 @@
 
     var image = target.closest("img, picture, figure");
     if (image) {
-      var img = image.tagName === "IMG" ? image : image.querySelector && image.querySelector("img");
+      var img =
+        image.tagName === "IMG"
+          ? image
+          : image.querySelector && image.querySelector("img");
       if (img) {
         var imageMeta = [img.alt, img.currentSrc, img.src].join(" ");
         if (BUUDY_IMAGE_RE.test(imageMeta)) return true;
@@ -104,12 +123,21 @@
     if (!card) return false;
 
     var cardImage = card.querySelector && card.querySelector("img");
-    var cardImageMeta = cardImage ? [cardImage.alt, cardImage.currentSrc, cardImage.src].join(" ") : "";
-    return BUUDY_IMAGE_RE.test(cardImageMeta) && BUUDY_CARD_TEXT_RE.test(getText(card));
+    var cardImageMeta = cardImage
+      ? [cardImage.alt, cardImage.currentSrc, cardImage.src].join(" ")
+      : "";
+    return (
+      BUUDY_IMAGE_RE.test(cardImageMeta) &&
+      BUUDY_CARD_TEXT_RE.test(getText(card))
+    );
   }
 
   function getPointTarget(event) {
-    if (!event || typeof event.clientX !== "number" || typeof document.elementFromPoint !== "function") {
+    if (
+      !event ||
+      typeof event.clientX !== "number" ||
+      typeof document.elementFromPoint !== "function"
+    ) {
       return null;
     }
     return document.elementFromPoint(event.clientX, event.clientY);
@@ -138,14 +166,15 @@
       outbound_url: href,
       event_value: CONVERSION_VALUE,
       revenue_value: CONVERSION_VALUE,
-      currency: CONVERSION_CURRENCY
+      currency: CONVERSION_CURRENCY,
     };
   }
 
   function hasMicrosoftAdsConsent() {
     return (
       window.__tprMicrosoftAdsConsent === "granted" ||
-      (typeof window.tprHasMicrosoftAdsConsent === "function" && window.tprHasMicrosoftAdsConsent())
+      (typeof window.tprHasMicrosoftAdsConsent === "function" &&
+        window.tprHasMicrosoftAdsConsent())
     );
   }
 
@@ -163,7 +192,7 @@
     if (value === "granted") {
       window.uetq = window.uetq || [];
       window.uetq.push("consent", "update", {
-        ad_storage: "granted"
+        ad_storage: "granted",
       });
 
       if (typeof window.tprLoadMicrosoftUet === "function") {
@@ -179,7 +208,7 @@
 
     window.__tprBuudyOutboundLast = {
       href: href,
-      time: now
+      time: now,
     };
     return false;
   }
@@ -221,10 +250,14 @@
     }
   };
 
-  document.addEventListener("pointerdown", function (event) {
-    if (isModifiedClick(event)) return;
-    markOutboundButtonLoading(event.target);
-  }, true);
+  document.addEventListener(
+    "pointerdown",
+    function (event) {
+      if (isModifiedClick(event)) return;
+      markOutboundButtonLoading(event.target);
+    },
+    true,
+  );
 
   document.addEventListener(
     "click",
@@ -243,12 +276,22 @@
 
       trackBuudyOutbound(href);
     },
-    true
+    true,
   );
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key !== "Enter" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    markOutboundButtonLoading(event.target);
-  }, true);
-
+  document.addEventListener(
+    "keydown",
+    function (event) {
+      if (
+        event.key !== "Enter" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      markOutboundButtonLoading(event.target);
+    },
+    true,
+  );
 })();

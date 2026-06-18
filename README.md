@@ -171,7 +171,7 @@ The SEO/GEO text files are served from `apps/site/public` and should remain stab
 The main advertorial is market-driven from `apps/site/src/lib/advertorialMarkets.ts`:
 
 ```text
-UK  -> /best-led-face-mask-uk-2026 -> https://uk.buudy.com/products/buudy-led-mask
+UK  -> /best-led-face-mask-uk-2026 -> https://buudy.co.uk/products/buudy-led-mask
 AU  -> /best-led-face-mask-au-2026 -> https://au.buudy.com/products/buudy-led-mask
 CA  -> /best-led-face-mask-ca-2026 -> https://ca.buudy.com/products/buudy-led-mask
 ```

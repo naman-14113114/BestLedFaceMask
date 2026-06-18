@@ -18,7 +18,7 @@
     "/silicone-led-mask-dangers",
     "/therabody-vs-buudy",
     "/theraface-vs-other-masks",
-    "/top-5-led-mask"
+    "/top-5-led-mask",
   ];
 
   var STORAGE_KEY = "buudy_exit_popup_seen_v1";
@@ -28,31 +28,35 @@
     {
       path: "/best-led-face-mask-au-2026",
       url: "https://au.buudy.com/products/buudy-led-mask",
-      offer: "AUD 299 instead of AUD 498"
+      offer: "AUD 299 instead of AUD 498",
     },
     {
       path: "/best-led-face-mask-ca-2026",
       url: "https://ca.buudy.com/products/buudy-led-mask",
-      offer: "CAD 279 instead of CAD 559"
+      offer: "CAD 279 instead of CAD 559",
     },
     {
       path: "/best-led-face-mask-uk-2026",
-      url: "https://uk.buudy.com/products/buudy-led-mask",
-      offer: "GBP 179 instead of GBP 449"
-    }
+      url: "https://buudy.co.uk/products/buudy-led-mask",
+      offer: "GBP 179 instead of GBP 449",
+    },
   ];
   var DEFAULT_MARKET_OFFER = MARKET_OFFERS[2];
-  var EXIT_POPUP_ATTRIBUTION = "?utm_source=trustpilotreview.shop&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
+  var EXIT_POPUP_ATTRIBUTION =
+    "?utm_source=trustpilotreview.shop&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
 
   function getMarketOffer(pathname) {
     for (var i = 0; i < MARKET_OFFERS.length; i += 1) {
-      if (pathname === MARKET_OFFERS[i].path || pathname.indexOf(MARKET_OFFERS[i].path + "/") === 0) {
+      if (
+        pathname === MARKET_OFFERS[i].path ||
+        pathname.indexOf(MARKET_OFFERS[i].path + "/") === 0
+      ) {
         return MARKET_OFFERS[i];
       }
     }
 
     var regionalLink = document.querySelector(
-      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]'
+      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]',
     );
 
     if (regionalLink) {
@@ -71,7 +75,9 @@
 
   function isEligiblePath(pathname) {
     return ELIGIBLE_PATHS.some(function (eligiblePath) {
-      return pathname === eligiblePath || pathname.indexOf(eligiblePath + "/") === 0;
+      return (
+        pathname === eligiblePath || pathname.indexOf(eligiblePath + "/") === 0
+      );
     });
   }
 
@@ -91,7 +97,10 @@
     }
   }
 
-  if (!isEligiblePath(window.location.pathname) || storageGet(STORAGE_KEY) === "1") {
+  if (
+    !isEligiblePath(window.location.pathname) ||
+    storageGet(STORAGE_KEY) === "1"
+  ) {
     return;
   }
 
@@ -104,7 +113,7 @@
     window.dataLayer.push({
       event: eventName,
       source: "trustpilotreview_exit_popup",
-      target_url: CTA_URL
+      target_url: CTA_URL,
     });
   }
 
@@ -147,17 +156,25 @@
       "<div class='buudy-exit-kicker'>Before you go</div>",
       "<h2 class='buudy-exit-title' id='buudy-exit-title'>The #1 pick is still 60% off.</h2>",
       "<p class='buudy-exit-copy'>If you were comparing LED masks, do not leave without checking the Buudy 7-color mask. It covers red, blue, green, cyan, yellow, purple and white routines in one device.</p>",
-      "<div class='buudy-exit-offer'><div><span>Today on Buudy</span><strong>" + CURRENT_MARKET_OFFER.offer + "</strong></div><span>Last check</span></div>",
+      "<div class='buudy-exit-offer'><div><span>Today on Buudy</span><strong>" +
+        CURRENT_MARKET_OFFER.offer +
+        "</strong></div><span>Last check</span></div>",
       "<div class='buudy-exit-actions'>",
       "<a class='buudy-exit-cta' href='" + CTA_URL + "'>Claim 60% Off</a>",
       "<button class='buudy-exit-secondary' type='button' data-buudy-exit-close='true'>Keep Reading</button>",
       "</div>",
       "</div>",
-      "</section>"
+      "</section>",
     ].join("");
 
     function shouldClose(event) {
-      return event.target === overlay || (event.target.closest && event.target.closest("[data-buudy-exit-close], .buudy-exit-secondary, .buudy-exit-close"));
+      return (
+        event.target === overlay ||
+        (event.target.closest &&
+          event.target.closest(
+            "[data-buudy-exit-close], .buudy-exit-secondary, .buudy-exit-close",
+          ))
+      );
     }
 
     function onCloseIntent(event) {
@@ -173,10 +190,12 @@
       overlay.addEventListener(eventName, onCloseIntent, true);
     });
 
-    overlay.querySelector(".buudy-exit-cta").addEventListener("click", function () {
-      track("buudy_exit_popup_cta_click");
-      storageSet(STORAGE_KEY, "1");
-    });
+    overlay
+      .querySelector(".buudy-exit-cta")
+      .addEventListener("click", function () {
+        track("buudy_exit_popup_cta_click");
+        storageSet(STORAGE_KEY, "1");
+      });
 
     return overlay;
   }
