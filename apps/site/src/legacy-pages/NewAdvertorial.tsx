@@ -856,13 +856,13 @@ export default function Home({
                     </div>
                   </div>
 
-                  {/* Mobile Pros & Cons */}
-                  <MobileProsCons productId={product.id} marketKey={market.key} fallbackPros={product.pros} fallbackCons={product.cons} />
+                  {/* Mobile Pros & Cons disabled - using unified layout */}
+                  {/* <MobileProsCons productId={product.id} marketKey={market.key} fallbackPros={product.pros} fallbackCons={product.cons} /> */}
 
-                  <div className="hidden md:flex flex-col gap-6 mb-8">
+                  <div className="flex flex-col gap-6 mb-8">
                     {/* Pros */}
-                    <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
-                      <h4 className="bg-emerald-500 text-white font-bold text-center text-2xl py-3 px-6 -mt-6 -mx-6 mb-6 rounded-t-2xl">
+                    <div className="bg-emerald-50/50 rounded-2xl px-3 py-5 md:p-6 border border-emerald-100">
+                      <h4 className="bg-emerald-500 text-white font-bold text-center text-2xl py-3 px-3 md:px-6 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-t-2xl">
                         Pros
                       </h4>
                       <ul className="space-y-4">
@@ -879,8 +879,8 @@ export default function Home({
                     </div>
 
                     {/* Cons */}
-                    <div className="bg-red-50/50 rounded-2xl p-6 border border-red-100">
-                      <h4 className="bg-red-500 text-white font-bold text-center text-2xl py-3 px-6 -mt-6 -mx-6 mb-6 rounded-t-2xl">
+                    <div className="bg-red-50/50 rounded-2xl px-3 py-5 md:p-6 border border-red-100">
+                      <h4 className="bg-red-500 text-white font-bold text-center text-2xl py-3 px-3 md:px-6 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-t-2xl">
                         Cons
                       </h4>
                       <ul className="space-y-4">
