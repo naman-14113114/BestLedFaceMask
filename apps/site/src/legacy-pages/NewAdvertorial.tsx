@@ -859,11 +859,11 @@ export default function Home({
                   {/* Mobile Pros & Cons */}
                   <MobileProsCons productId={product.id} marketKey={market.key} fallbackPros={product.pros} fallbackCons={product.cons} />
 
-                  <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div className="hidden md:flex flex-col gap-6 mb-8">
                     {/* Pros */}
                     <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
-                      <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
-                        <CheckCircle2 className="text-emerald-500" /> Pros
+                      <h4 className="bg-emerald-500 text-white font-bold text-center text-2xl py-3 px-6 -mt-6 -mx-6 mb-6 rounded-t-2xl">
+                        Pros
                       </h4>
                       <ul className="space-y-4">
                         {product.pros.map((pro, idx) => {
@@ -880,8 +880,8 @@ export default function Home({
 
                     {/* Cons */}
                     <div className="bg-red-50/50 rounded-2xl p-6 border border-red-100">
-                      <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 text-lg">
-                        <XCircle className="text-red-500" /> Cons
+                      <h4 className="bg-red-500 text-white font-bold text-center text-2xl py-3 px-6 -mt-6 -mx-6 mb-6 rounded-t-2xl">
+                        Cons
                       </h4>
                       <ul className="space-y-4">
                         {product.cons.map((con, idx) => {
@@ -918,7 +918,7 @@ export default function Home({
                         </div>
                         
                         <h4 className="font-extrabold text-2xl md:text-3xl text-gray-900 mb-4 leading-tight">
-                          We found an active sale for <span className="text-blue-600 bg-blue-100 px-2 rounded-md inline-block transform -rotate-1">FREE GIFTS</span> worth {market.giftValues.total}!
+                          Active Offer Found: {market.giftValues.total} in <span className="text-blue-600 bg-blue-100 px-2 rounded-md inline-block transform -rotate-1">FREE GIFTS</span>
                         </h4>
                         
                         <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
