@@ -1,9 +1,11 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CTAButton, MetricBar } from './NewAdvertorial';
 import { ResponsiveProsCons } from './ResponsiveProsCons';
+import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import type { MarketContextProps } from '@/lib/marketContext';
 
 function SharpStar({ size = 16, className = "" }: { size?: number; className?: string }) {
   return (
@@ -208,18 +210,9 @@ const products = [
   }
 ];
 
-export default function QureskincareComparison() {
-  const [date, setDate] = useState('');
-
-  useEffect(() => {
-    const d = new Date();
-    const day = d.getDate().toString().padStart(2, '0');
-    const month = d.toLocaleString('en-GB', { month: 'long' });
-    const year = d.getFullYear();
-    setDate(`${day} ${month} ${year}`);
-  }, []);
-
+export default function QureskincareComparison({ context }: MarketContextProps) {
   return (
+    <MarketLocalizedContent context={context}>
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
       {/* Header / Hero */}
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
@@ -243,7 +236,7 @@ export default function QureskincareComparison() {
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
             <div className="flex items-center gap-2 text-sm font-medium">
               <Calendar size={16} className="text-emerald-500" />
-              Last updated – {date || 'Loading date...'}
+              Last updated – {context.updatedDate}
             </div>
           </div>
 
@@ -456,5 +449,6 @@ export default function QureskincareComparison() {
         </a>
       </div>
     </div>
+    </MarketLocalizedContent>
   );
 }

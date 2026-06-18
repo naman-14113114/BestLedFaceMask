@@ -1,10 +1,11 @@
 import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
+import { SITE_NAME } from "@/lib/brand";
 
 export function HomeNoscriptContent() {
   return (
     <noscript>
       <main>
-        <h1>Trustpilot Review Shop</h1>
+        <h1>{SITE_NAME}</h1>
         <p>UK-focused LED face mask reviews and buyer guides covering red light therapy, light wavelengths, face and neck coverage, safety, price, and value.</p>
         <h2>Important Guides</h2>
         <ul>

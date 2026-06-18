@@ -62,6 +62,9 @@ assert(outboundInteractions.includes("affiliate_click"), "affiliate fallback con
 assert(outboundInteractions.includes("looksLikeBuudyImage"), "image-layer clicks must be handled");
 assert(outboundInteractions.includes("markOutboundButtonLoading"), "outbound buttons must get a pre-navigation loading state");
 assert(outboundInteractions.includes('"pointerdown"'), "the loader must start before native navigation");
+assert(outboundInteractions.includes("getPageBuudyUrl"), "outbound tracking must respect the page's localized Buudy destination");
+assert(!outboundInteractions.includes("normalizeBuudyLinks"), "outbound tracking must not mutate links before hydration");
+assert(!outboundInteractions.includes("observeBuudyLinks"), "outbound tracking must not observe and rewrite React-owned links");
 assert(!outboundInteractions.includes("event.preventDefault()"), "outbound interactions must not cancel native anchor navigation");
 assert(!outboundInteractions.includes("stopImmediatePropagation"), "outbound interactions must not swallow page-level click handlers");
 assert(!outboundInteractions.includes("window.location.assign"), "outbound interactions must not replace native navigation");
@@ -74,6 +77,7 @@ assert(
 
 assert(layout.includes("/assets/microsoft-consent-mode.js"), "root layout must load Microsoft consent mode");
 assert(layout.includes("/assets/outbound-interactions-v2.js"), "root layout must load the current outbound interaction script");
+assert(layout.includes('<Script src="/assets/outbound-interactions-v2.js" strategy="afterInteractive" />'), "outbound interactions must load after React hydration");
 assert(!layout.includes(`/assets/${staleOutboundAsset}`), "root layout must not load the stale cached outbound filename");
 assert(layout.includes("/assets/buudy-exit-popup.js"), "root layout must load the exit popup script");
 assert(layout.includes("GTM-TQ3HRZMJ"), "root layout must preserve the GTM ID");
@@ -93,12 +97,16 @@ assert(advertorial.includes('<source src="/assets/buudy-dermatologist-verdict.mp
 assert(advertorial.includes("£179"), "Buudy UK price copy must remain consistent");
 assert(advertorial.includes("getProductsForMarket"), "advertorial must render market-specific product data");
 assert(advertorial.includes("market.giftValues.total"), "advertorial must render market-specific gift values");
+assert(advertorial.includes("initial={false}"), "the free-gifts panel must be visible on its first render");
+assert(!advertorial.includes("initial={{ opacity: 0, scale: 0.95 }}"), "the free-gifts panel must not depend on an in-view reveal to become visible");
 assert(advertorial.includes("function OutboundButton"), "advertorial must use the shared outbound button");
 assert(advertorial.includes("outboundLoaderDots = [0, 1, 2, 3, 4]"), "outbound buttons must render five loading dots");
 assert(advertorial.includes('className="outbound-loader-dot h-2.5 w-2.5 rounded-full bg-white"'), "outbound button dots must be white");
 assert(advertorial.includes('aria-busy="false"'), "outbound buttons must expose their initial loading state");
 assert(!advertorial.includes("window.location.assign"), "outbound buttons must rely on native anchor navigation");
 assert(!advertorial.includes("OUTBOUND_NAVIGATION_DELAY_MS"), "outbound buttons must not delay or replace native navigation");
+assert(auPage.includes('import NewAdvertorial from "@/legacy-pages/NewAdvertorial"'), "AU must use the shared advertorial with animated outbound buttons");
+assert(caPage.includes('import NewAdvertorial from "@/legacy-pages/NewAdvertorial"'), "CA must use the shared advertorial with animated outbound buttons");
 assert(auPage.includes('market="au"'), "AU page must render the AU advertorial market");
 assert(caPage.includes('market="ca"'), "CA page must render the CA advertorial market");
 assert(advertorialMarkets.includes('route: "/best-led-face-mask-au-2026"'), "AU market route must be configured");

@@ -1,6 +1,6 @@
-# Trustpilot Review Shop
+# Best LED Face Mask
 
-Clean pnpm/Turborepo monorepo for the Trustpilot Review Shop LED face mask review site.
+Clean pnpm/Turborepo monorepo for the Best LED Face Mask review site.
 
 This repository contains one deployable Next.js application, `@trustpilotreview/site`, plus shared workspace packages for TypeScript, ESLint, UI, and shared utilities. The project was refactored from a mixed static/Vite export into a scalable monorepo while preserving the original content, visual output, media, tracking scripts, SEO files, and GEO/LLM files.
 

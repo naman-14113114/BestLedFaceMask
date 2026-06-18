@@ -51,6 +51,18 @@
       }
     }
 
+    var regionalLink = document.querySelector(
+      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]'
+    );
+
+    if (regionalLink) {
+      for (var j = 0; j < MARKET_OFFERS.length; j += 1) {
+        if (regionalLink.hostname === new URL(MARKET_OFFERS[j].url).hostname) {
+          return MARKET_OFFERS[j];
+        }
+      }
+    }
+
     return DEFAULT_MARKET_OFFER;
   }
 

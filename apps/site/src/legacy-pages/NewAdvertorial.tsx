@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check, Play } from 'lucide-react';
 import { motion } from 'motion/react';
 import {
@@ -8,6 +8,7 @@ import {
   type AdvertorialMarketKey,
   type ProductPriceKey
 } from '@/lib/advertorialMarkets';
+import type { MarketContextProps } from '@/lib/marketContext';
 import { getMobileProsCons } from './mobileProsCons';
 
 
@@ -595,21 +596,6 @@ function getProductsForMarket(market: AdvertorialMarket) {
   return baseProducts.map((product) => localizeBaseProduct(product, market));
 }
 
-function formatUpdatedDate(date: Date, market: AdvertorialMarket) {
-  if (market.key === "ca") {
-    return date.toLocaleDateString(market.locale, {
-      month: "long",
-      day: "numeric",
-      year: "numeric"
-    });
-  }
-
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = date.toLocaleString(market.locale, { month: 'long' });
-  const year = date.getFullYear();
-  return `${day} ${month} ${year}`;
-}
-
 function preventPlaceholderNavigation(event: React.MouseEvent<HTMLAnchorElement>, href: string) {
   if (href === "#") {
     event.preventDefault();
@@ -696,20 +682,17 @@ export const MetricBar: React.FC<{ label: string, value: number }> = ({ label, v
   </div>
 );
 
-export default function Home({ market: marketKey = "uk" }: { market?: AdvertorialMarketKey }) {
+export default function Home({
+  market: marketKey = "uk",
+  context
+}: { market?: AdvertorialMarketKey } & MarketContextProps) {
   const market = getAdvertorialMarket(marketKey);
   const products = getProductsForMarket(market);
   const heroImage = market.key === "ca"
     ? "/img/TOP 5 LED Mask.png"
     : "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png";
-  const [date, setDate] = useState('');
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    const d = new Date();
-    setDate(formatUpdatedDate(d, market));
-  }, [market]);
 
   const playVerdictVideo = () => {
     const video = verdictVideoRef.current;
@@ -745,7 +728,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
             <div className="flex items-center gap-2 text-sm font-medium">
               <Calendar size={16} className="text-emerald-500" />
-              Last updated – {date || 'Loading date...'}
+              Last updated – {context.updatedDate}
             </div>
           </div>
 
@@ -922,7 +905,7 @@ export default function Home({ market: marketKey = "uk" }: { market?: Advertoria
                   {/* Editor's Tip - Free Gifts Discovery (Buudy only) */}
                   {product.isWinner && (
                     <motion.div 
-                      initial={{ opacity: 0, scale: 0.95 }}
+                      initial={false}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, type: "spring" }}

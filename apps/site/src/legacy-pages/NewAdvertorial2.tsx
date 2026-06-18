@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, Play, ChevronDown, Zap, Clock, Shield, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { getMobileProsCons } from './mobileProsCons';
+import type { MarketContextProps } from '@/lib/marketContext';
 
 const BUUDY_LINK = "https://uk.buudy.com/products/buudy-led-mask";
 
@@ -464,21 +465,12 @@ const BuudyReminderBanner = () => (
 
 // ========== MAIN PAGE COMPONENT ==========
 
-export default function Home() {
-  const [date, setDate] = useState('');
+export default function Home({ context }: MarketContextProps) {
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
   const [criteriaOpen, setCriteriaOpen] = useState(false);
   const [showAllProducts, setShowAllProducts] = useState(false);
   const buudySectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const d = new Date();
-    const day = d.getDate().toString().padStart(2, '0');
-    const month = d.toLocaleString('en-GB', { month: 'long' });
-    const year = d.getFullYear();
-    setDate(`${day} ${month} ${year}`);
-  }, []);
 
   const playVerdictVideo = () => {
     const video = verdictVideoRef.current;
@@ -528,7 +520,7 @@ export default function Home() {
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
             <div className="flex items-center gap-2 text-sm font-medium">
               <Calendar size={16} className="text-emerald-500" />
-              Last updated – {date || 'Loading date...'}
+              Last updated – {context.updatedDate}
             </div>
           </div>
 
@@ -908,7 +900,7 @@ export default function Home() {
 
                 {/* ===== Free Gifts Section (with CRO #11: Countdown Timer) ===== */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={false}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, type: "spring" }}

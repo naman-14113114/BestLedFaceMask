@@ -10,7 +10,7 @@
     "typecheck": "turbo typecheck",
     "dev:site": "pnpm --filter @trustpilotreview/site dev",
     "build:site": "pnpm --filter @trustpilotreview/site build",
-    "verify": "node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs"
+    "verify": "node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs && node scripts/verify-localization.mjs"
   },
   "devDependencies": {
     "turbo": "^2.8.6",

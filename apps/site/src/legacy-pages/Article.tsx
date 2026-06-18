@@ -3,14 +3,17 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { articles } from '../data/articles';
 import { Calendar, User, Star } from 'lucide-react';
+import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import type { MarketContextProps } from '@/lib/marketContext';
 
-export default function Article() {
+export default function Article({ context }: MarketContextProps) {
   const { slug } = useParams<{ slug: string }>();
   const article = articles.find((a) => a.slug === slug);
 
   if (!article) return <Navigate to="/" replace />;
 
   return (
+    <MarketLocalizedContent context={context}>
     <div className="w-full bg-slate-50 relative pb-16">
       <Helmet>
         <title>{article.seoTitle}</title>
@@ -93,5 +96,6 @@ export default function Article() {
         </div>
       </div>
     </div>
+    </MarketLocalizedContent>
   );
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { articles } from "@/data/articles";
 import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
+import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
-const siteUrl = "https://www.trustpilotreview.shop";
+const siteUrl = SITE_URL;
 const ogImage = `${siteUrl}/img/57-w.webp`;
 const favicon = "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png";
 const robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
@@ -20,7 +21,7 @@ export const defaultAdvertorialMetadata: Metadata = {
   title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
   description:
     "Looking for the best LED face mask in the UK? Compare the best LED light therapy masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
-  authors: [{ name: "Trustpilot Review Shop editorial team" }],
+  authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
     "best led face mask, best led face mask uk, best led light therapy mask, best led mask for wrinkles, best red light therapy mask, best at home led face mask, best led light mask, best face led mask, best infrared face mask, top rated led face mask",
   icons: {
@@ -40,7 +41,7 @@ export const defaultAdvertorialMetadata: Metadata = {
       "Compare the best LED face masks in the UK for wrinkles, red light therapy, at-home use, comfort, coverage, and overall value.",
     type: "article",
     url: `${siteUrl}/best-led-face-mask-uk-2026`,
-    siteName: "Trustpilot Review",
+    siteName: SITE_NAME,
     images: [ogImage],
     publishedTime: "2026-06-12T00:00:00+01:00",
     modifiedTime: "2026-06-13T00:00:00+01:00"
@@ -107,10 +108,10 @@ export function advertorialMetadata(pathname: string, marketKey: AdvertorialMark
 
 export const homeMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Trustpilot Review Shop | LED Face Mask Reviews & Buyer Guides",
+  title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
   description:
     "UK-focused LED face mask reviews, buyer guides, and red light therapy comparisons covering wavelengths, safety, face and neck coverage, and value.",
-  authors: [{ name: "Trustpilot Review Shop editorial team" }],
+  authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
     "led face mask reviews, best led face mask uk, red light therapy mask uk, led mask buyer guide, led mask with neck coverage",
   icons: {
@@ -121,12 +122,12 @@ export const homeMetadata: Metadata = {
   },
   robots,
   openGraph: {
-    title: "Trustpilot Review Shop | LED Face Mask Reviews & Buyer Guides",
+    title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
     description:
       "Compare LED face masks, red light therapy devices, face and neck coverage, wavelengths, safety, and value for UK buyers.",
     type: "website",
     url: `${siteUrl}/`,
-    siteName: "Trustpilot Review Shop",
+    siteName: SITE_NAME,
     images: [ogImage]
   }
 };
@@ -134,7 +135,7 @@ export const homeMetadata: Metadata = {
 export function legalMetadata(title: string): Metadata {
   return {
     metadataBase: new URL(siteUrl),
-    title: `${title} | Trustpilot Review Shop`,
+    title: `${title} | ${SITE_NAME}`,
     robots: "noindex, nofollow"
   };
 }

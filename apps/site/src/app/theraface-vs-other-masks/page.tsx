@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { AdvertorialSeo } from "@/components/seo/AdvertorialSeo";
 import { advertorialMetadata } from "@/lib/metadata";
+import { getRequestPageContext } from "@/lib/marketContext";
 import TherafaceComparison from "@/legacy-pages/TherafaceComparison";
 
 export const metadata: Metadata = advertorialMetadata("/theraface-vs-other-masks");
 
-export default function Page() {
+export default async function Page() {
+  const context = await getRequestPageContext();
+
   return (
     <>
       <AdvertorialSeo />
-      <TherafaceComparison />
+      <TherafaceComparison context={context} />
     </>
   );
 }

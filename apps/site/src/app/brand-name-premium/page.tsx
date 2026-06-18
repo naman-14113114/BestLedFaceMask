@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { AdvertorialSeo } from "@/components/seo/AdvertorialSeo";
 import { advertorialMetadata } from "@/lib/metadata";
+import { getRequestPageContext } from "@/lib/marketContext";
 import BrandNamePremium from "@/legacy-pages/BrandNamePremium";
 
 export const metadata: Metadata = advertorialMetadata("/brand-name-premium");
 
-export default function Page() {
+export default async function Page() {
+  const context = await getRequestPageContext();
+
   return (
     <>
       <AdvertorialSeo />
-      <BrandNamePremium />
+      <BrandNamePremium context={context} />
     </>
   );
 }

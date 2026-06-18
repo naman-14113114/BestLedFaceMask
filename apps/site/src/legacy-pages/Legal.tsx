@@ -2,6 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import { SITE_NAME, SUPPORT_EMAIL } from '@/lib/brand';
 
 export default function Legal() {
   const location = useLocation();
@@ -21,9 +22,9 @@ export default function Legal() {
     title = "Terms of Service";
     content = (
       <>
-        <p className="mb-4">These terms and conditions outline the rules and regulations for the use of Trustpilot Review Shop's Website. By accessing this website we assume you accept these terms and conditions.</p>
+        <p className="mb-4">These terms and conditions outline the rules and regulations for the use of {SITE_NAME}&apos;s website. By accessing this website we assume you accept these terms and conditions.</p>
         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">License</h2>
-        <p className="mb-4">Unless otherwise stated, Trustpilot Review Shop and/or its licensors own the intellectual property rights for all material on Trustpilot Review Shop. All intellectual property rights are reserved.</p>
+        <p className="mb-4">Unless otherwise stated, {SITE_NAME} and/or its licensors own the intellectual property rights for all material on {SITE_NAME}. All intellectual property rights are reserved.</p>
         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">Hyperlinking to our Content</h2>
         <p className="mb-4">The following organizations may link to our Website without prior written approval: Government agencies; Search engines; News organizations.</p>
       </>
@@ -33,7 +34,7 @@ export default function Legal() {
     content = (
       <>
         <p className="mb-4"><strong>Transparency is our priority.</strong> This Affiliate Disclosure is provided to fully disclose any relationship between this site's product reviews and recommendations and the owners of those products.</p>
-        <p className="mb-4">Trustpilot Review Shop is a participant in various affiliate marketing programs, which means we may get paid a commission on editorially chosen products purchased through our links to retailer sites.</p>
+        <p className="mb-4">{SITE_NAME} is a participant in various affiliate marketing programs, which means we may get paid a commission on editorially chosen products purchased through our links to retailer sites.</p>
         <p className="mb-4">When you click on a link to a product on this website and subsequently make a purchase, we may receive a small percentage of the sale price as a commission. This comes at no additional cost to you.</p>
         <p className="mb-4">Our reviews and recommendations are based on our own research and analysis. We strive to provide honest and unbiased information to help you make informed purchasing decisions. However, the potential for commission may influence the products we choose to feature.</p>
       </>
@@ -42,7 +43,7 @@ export default function Legal() {
     title = "Contact Us";
     content = (
       <>
-        <p className="mb-4">If you have any questions about our editorial policies, advertorial disclosures, or product reviews, please contact us at: <strong>support@trustpilotreview.shop</strong>.</p>
+        <p className="mb-4">If you have any questions about our editorial policies, advertorial disclosures, or product reviews, please contact us at: <strong>{SUPPORT_EMAIL}</strong>.</p>
         <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-8">
            <h3 className="font-bold text-slate-800 mb-2">Our Response Time</h3>
            <p className="text-slate-600 text-sm">Our team aims to respond to all inquiries within 48 business hours. Please include your name and the topic of your inquiry in the subject line.</p>
@@ -54,7 +55,7 @@ export default function Legal() {
   return (
     <div className="w-full bg-slate-50 min-h-[60vh] py-16 px-4">
       <Helmet>
-        <title>{title} | Trustpilot Review Shop</title>
+        <title>{title} | {SITE_NAME}</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 

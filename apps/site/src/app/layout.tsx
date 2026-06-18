@@ -155,7 +155,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <Script src="/assets/microsoft-consent-mode.js" strategy="afterInteractive" />
-        <Script src="/assets/outbound-interactions-v2.js" strategy="beforeInteractive" />
+        <Script src="/assets/outbound-interactions-v2.js" strategy="afterInteractive" />
         <Script
           id="tpr-buudy-outbound-conversion"
           strategy="afterInteractive"

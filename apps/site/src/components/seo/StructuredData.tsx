@@ -1,6 +1,7 @@
 import { advertorialMarkets, type AdvertorialMarketKey } from "@/lib/advertorialMarkets";
+import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
-const siteUrl = "https://www.trustpilotreview.shop";
+const siteUrl = SITE_URL;
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -8,13 +9,13 @@ const homeSchema = {
     {
       "@type": "Organization",
       "@id": "https://www.trustpilotreview.shop/#organization",
-      name: "Trustpilot Review Shop",
+      name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       logo: {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png"
       },
-      description: "Trustpilot Review Shop publishes UK-focused LED face mask reviews, red light therapy comparisons, and buyer guides.",
+      description: `${SITE_NAME} publishes UK-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`,
       areaServed: {
         "@type": "Country",
         name: "United Kingdom"
@@ -30,7 +31,7 @@ const homeSchema = {
     {
       "@type": "WebSite",
       "@id": "https://www.trustpilotreview.shop/#website",
-      name: "Trustpilot Review Shop",
+      name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       publisher: {
         "@id": "https://www.trustpilotreview.shop/#organization"
@@ -61,13 +62,13 @@ const advertorialSchema = {
     {
       "@type": "Organization",
       "@id": "https://www.trustpilotreview.shop/#organization",
-      name: "Trustpilot Review Shop",
+      name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       logo: {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png"
       },
-      description: "Trustpilot Review Shop publishes UK-focused beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.",
+      description: `${SITE_NAME} publishes UK-focused beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
       areaServed: {
         "@type": "Country",
         name: "United Kingdom"
@@ -84,7 +85,7 @@ const advertorialSchema = {
     {
       "@type": "WebSite",
       "@id": "https://www.trustpilotreview.shop/#website",
-      name: "Trustpilot Review Shop",
+      name: SITE_NAME,
       url: "https://www.trustpilotreview.shop/",
       publisher: {
         "@id": "https://www.trustpilotreview.shop/#organization"
@@ -362,7 +363,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   const graph = schema["@graph"];
   const organizationNodes = graph.filter((node) => node["@type"] === "Organization");
   for (const node of organizationNodes) {
-    node.description = `Trustpilot Review Shop publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
+    node.description = `${SITE_NAME} publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
     setNestedObjectValue(node, "areaServed", market.countryName);
   }
 

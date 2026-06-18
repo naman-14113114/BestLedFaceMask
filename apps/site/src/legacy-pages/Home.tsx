@@ -3,15 +3,19 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/articles';
 import { Calendar, ChevronRight } from 'lucide-react';
+import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import { SITE_NAME } from '@/lib/brand';
+import type { MarketContextProps } from '@/lib/marketContext';
 
-export default function Home() {
+export default function Home({ context }: MarketContextProps) {
   const featured = articles[0];
   const rest = articles.slice(1);
 
   return (
+    <MarketLocalizedContent context={context}>
     <div className="w-full">
       <Helmet>
-        <title>Trustpilot Review Shop | LED Face Mask Reviews & Buyer Guides</title>
+        <title>{SITE_NAME} | LED Face Mask Reviews & Buyer Guides</title>
         <meta name="description" content="Honest product reviews and buyer guides for LED face masks and light therapy devices available in the UK. Compare features, prices, and real user experiences." />
       </Helmet>
 
@@ -186,5 +190,6 @@ export default function Home() {
       </section>
 
     </div>
+    </MarketLocalizedContent>
   );
 }

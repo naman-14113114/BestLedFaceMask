@@ -1,4 +1,4 @@
-# robots.txt for Trustpilot Review Shop
+# robots.txt for Best LED Face Mask
 # GEO goal: allow major search and AI answer engines to crawl public buyer guides.
 
 User-agent: Googlebot

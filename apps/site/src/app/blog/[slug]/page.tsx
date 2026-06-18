@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Layout from "@/components/Layout";
 import { articles } from "@/data/articles";
 import { blogMetadata } from "@/lib/metadata";
+import { getRequestPageContext } from "@/lib/marketContext";
 import Article from "@/legacy-pages/Article";
 
 export function generateStaticParams() {
@@ -17,10 +18,12 @@ export async function generateMetadata({
   return blogMetadata(slug);
 }
 
-export default function Page() {
+export default async function Page() {
+  const context = await getRequestPageContext();
+
   return (
     <Layout>
-      <Article />
+      <Article context={context} />
     </Layout>
   );
 }
