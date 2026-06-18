@@ -172,15 +172,15 @@ const baseProducts: Product[] = [
       "Trusted by over 16,000 customers with a 4.9-star rating, this mask delivers visible improvements in as few as ten uses. Currently priced at £179, it offers the best value on the market, combining full-face and neck rejuvenation, advanced eye protection, and a 90-day money-back guarantee for a safer, lower-risk trial."
     ],
     pros: [
-      "Proven Results: Has an outstanding rating of 5/5 and 4.9 stars based on over 1,000 reviews and performed well in internal testing.",
-      "7 Colour Medical Grade Spectrum: Unlike competitors that only offer 2 or 3 colours, Buudy features 7 visible colours plus 830nm near-infrared. The exact wavelengths are 633nm red, 415nm blue, 525nm green, 490nm cyan, 590nm yellow, 390nm purple, 510nm white, and 830nm near-infrared for deeper support.",
-      "Dermatologist Proven: Health Canada Approved with CE, FCC, and ROHS certifications. Expert-recommended technology ensures safe, professional-grade results from the comfort of your home.",
-      "Built-in Neck Coverage: Specifically designed to target \"turkey neck\" and sagging skin—a critical feature most expensive brands miss.",
+      "Proven Results: Has an outstanding rating of 5/5 and 4.9 stars based on over 4,000 reviews and performed well in internal testing.",
+      "7 Colour Medical Grade Spectrum: Unlike competitors with just 2–3 colours, Buudy offers 7 LED colours (Red, Blue, Green, Cyan, Yellow, Purple & White) plus 830nm near-infrared.",
+      "Dermatologist Proven: Health Canada Approved with CE, FCC, and ROHS certifications.",
+      "Built-in Neck Coverage: Specifically designed to target \"turkey neck\" and sagging skin, a critical feature most expensive brands miss.",
       "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
       "Cordless, Portable & Guided: A hands-free, rechargeable design with \"Tap Technology\" and Buudy AI guided sessions that help match each routine to your skin concern.",
       "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated eye protection for enhanced safety.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "90-Day Money-Back Guarantee: Buudy offers a generous 90-day trial period to test for results. If you're not satisfied, you get a full refund, which significantly reduces the risk of purchase."
+      "90-Day Money-Back Guarantee: Buudy offers a generous 90-day trial period to test for results. If you're not satisfied, you get a full refund."
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
