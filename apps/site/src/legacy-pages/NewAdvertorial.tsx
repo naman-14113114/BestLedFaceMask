@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check, Play } from 'lucide-react';
 import { motion } from 'motion/react';
+import { OutboundLoader } from '@/components/OutboundLoader';
 import {
   getAdvertorialMarket,
   type AdvertorialMarket,
@@ -600,22 +601,6 @@ function preventPlaceholderNavigation(event: React.MouseEvent<HTMLAnchorElement>
   if (href === "#") {
     event.preventDefault();
   }
-}
-
-const outboundLoaderDots = [0, 1, 2, 3, 4];
-
-function OutboundLoader() {
-  return (
-    <span className="flex h-6 items-center justify-center gap-1.5" aria-hidden="true">
-      {outboundLoaderDots.map((dot) => (
-        <span
-          key={dot}
-          className="outbound-loader-dot h-2.5 w-2.5 rounded-full bg-white"
-          style={{ animationDelay: `${dot * 0.167}s` }}
-        />
-      ))}
-    </span>
-  );
 }
 
 type OutboundButtonProps = {

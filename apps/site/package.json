@@ -12,6 +12,7 @@
   "dependencies": {
     "@trustpilotreview/shared": "workspace:*",
     "@trustpilotreview/ui": "workspace:*",
+    "lottie-react": "2.4.1",
     "lucide-react": "^1.17.0",
     "motion": "^12.23.24",
     "next": "16.2.6",

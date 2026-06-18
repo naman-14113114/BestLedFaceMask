@@ -15,11 +15,31 @@ function assert(condition, message) {
   }
 }
 
+function collectLottieStrokeColors(value, colors = []) {
+  if (!value || typeof value !== "object") return colors;
+
+  if (value.ty === "st" && Array.isArray(value.c?.k)) {
+    colors.push(value.c.k);
+  }
+
+  for (const child of Object.values(value)) {
+    if (Array.isArray(child)) {
+      child.forEach((item) => collectLottieStrokeColors(item, colors));
+    } else if (child && typeof child === "object") {
+      collectLottieStrokeColors(child, colors);
+    }
+  }
+
+  return colors;
+}
+
 const exitPopup = read(path.join(publicAssets, "buudy-exit-popup.js"));
 const outboundInteractions = read(path.join(publicAssets, "outbound-interactions-v2.js"));
 const outboundLoader = JSON.parse(read(path.join(publicAssets, "outbound-button-loader.json")));
 const layout = read(path.join(siteRoot, "src", "app", "layout.tsx"));
 const advertorial = read(path.join(siteRoot, "src", "legacy-pages", "NewAdvertorial.tsx"));
+const advertorial2 = read(path.join(siteRoot, "src", "legacy-pages", "NewAdvertorial2.tsx"));
+const outboundLoaderComponent = read(path.join(siteRoot, "src", "components", "OutboundLoader.tsx"));
 const advertorialMarkets = read(path.join(siteRoot, "src", "lib", "advertorialMarkets.ts"));
 const auPage = read(path.join(siteRoot, "src", "app", "best-led-face-mask-au-2026", "page.tsx"));
 const caPage = read(path.join(siteRoot, "src", "app", "best-led-face-mask-ca-2026", "page.tsx"));
@@ -69,10 +89,12 @@ assert(!outboundInteractions.includes("event.preventDefault()"), "outbound inter
 assert(!outboundInteractions.includes("stopImmediatePropagation"), "outbound interactions must not swallow page-level click handlers");
 assert(!outboundInteractions.includes("window.location.assign"), "outbound interactions must not replace native navigation");
 
-assert(outboundLoader.layers.length === 5, "outbound loader JSON must preserve five animated dots");
+const outboundLoaderStrokeColors = collectLottieStrokeColors(outboundLoader);
+assert(outboundLoader.nm === "Refresh", "outbound loader JSON must use the replacement refresh animation");
+assert(outboundLoaderStrokeColors.length > 0, "outbound loader JSON must contain visible strokes");
 assert(
-  outboundLoader.layers.every((layer) => layer.shapes?.[0]?.it?.[1]?.c?.k?.every((channel) => channel === 1)),
-  "outbound loader JSON dots must be pure white"
+  outboundLoaderStrokeColors.every((color) => color.length === 4 && color.every((channel) => channel === 1)),
+  "outbound loader JSON strokes must be pure white"
 );
 
 assert(layout.includes("/assets/microsoft-consent-mode.js"), "root layout must load Microsoft consent mode");
@@ -100,11 +122,16 @@ assert(advertorial.includes("market.giftValues.total"), "advertorial must render
 assert(advertorial.includes("initial={false}"), "the free-gifts panel must be visible on its first render");
 assert(!advertorial.includes("initial={{ opacity: 0, scale: 0.95 }}"), "the free-gifts panel must not depend on an in-view reveal to become visible");
 assert(advertorial.includes("function OutboundButton"), "advertorial must use the shared outbound button");
-assert(advertorial.includes("outboundLoaderDots = [0, 1, 2, 3, 4]"), "outbound buttons must render five loading dots");
-assert(advertorial.includes('className="outbound-loader-dot h-2.5 w-2.5 rounded-full bg-white"'), "outbound button dots must be white");
+assert(advertorial.includes("import { OutboundLoader }"), "main advertorial buttons must use the shared Lottie loader");
 assert(advertorial.includes('aria-busy="false"'), "outbound buttons must expose their initial loading state");
 assert(!advertorial.includes("window.location.assign"), "outbound buttons must rely on native anchor navigation");
 assert(!advertorial.includes("OUTBOUND_NAVIGATION_DELAY_MS"), "outbound buttons must not delay or replace native navigation");
+assert(outboundLoaderComponent.includes("import Lottie from 'lottie-react'"), "shared outbound loader must render with Lottie");
+assert(outboundLoaderComponent.includes("outboundLoaderAnimation"), "shared outbound loader must use the replacement animation");
+assert(outboundLoaderComponent.includes('className="outbound-lottie-loader h-10 w-10"'), "shared outbound loader must keep its compact button size");
+assert(advertorial2.includes("import { OutboundLoader }"), "alternate advertorial buttons must use the shared Lottie loader");
+assert(advertorial2.includes('data-outbound-button="true"'), "alternate advertorial buttons must participate in the loading interaction");
+assert(advertorial2.includes('data-outbound-loader="true"'), "alternate advertorial buttons must display the shared loader");
 assert(auPage.includes('import NewAdvertorial from "@/legacy-pages/NewAdvertorial"'), "AU must use the shared advertorial with animated outbound buttons");
 assert(caPage.includes('import NewAdvertorial from "@/legacy-pages/NewAdvertorial"'), "CA must use the shared advertorial with animated outbound buttons");
 assert(auPage.includes('market="au"'), "AU page must render the AU advertorial market");

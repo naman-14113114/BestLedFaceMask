@@ -14,18 +14,6 @@
   }
 }
 
-@keyframes outbound-loader-bounce {
-  0%,
-  50%,
-  100% {
-    transform: translateY(0);
-  }
-
-  25% {
-    transform: translateY(-7px);
-  }
-}
-
 [data-outbound-button="true"][data-loading="true"] [data-outbound-content="true"] {
   visibility: hidden;
 }
@@ -34,8 +22,8 @@
   display: flex;
 }
 
-.outbound-loader-dot {
-  animation: outbound-loader-bounce 1.34s ease-in-out infinite;
+.outbound-lottie-loader svg path {
+  stroke: #fff !important;
 }
 
 body {

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle2, XCircle, Star, Award, ChevronRight, Calendar, ShieldCheck, Check, Play, ChevronDown, Zap, Clock, Shield, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { OutboundLoader } from '@/components/OutboundLoader';
 import { getMobileProsCons } from './mobileProsCons';
 import type { MarketContextProps } from '@/lib/marketContext';
 
@@ -269,28 +270,34 @@ const ukNames = ["Sarah", "Emma", "Olivia", "Charlotte", "Amelia", "Sophia", "Ch
 // ========== REUSABLE COMPONENTS ==========
 
 const CTAButton = ({ href, text, className = "", variant = "primary" }: { href: string, text: string, className?: string, variant?: "primary" | "secondary" | "competitor" }) => {
-  if (variant === "competitor") {
-    return (
-      <a
-        href={href}
-        className={`relative inline-flex justify-center items-center px-8 py-4 text-lg md:text-xl font-bold text-slate-600 bg-white border-2 border-slate-300 rounded-full overflow-hidden group hover:scale-[1.02] transition-transform duration-300 shadow-sm ${className}`}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          {text} <ChevronRight size={24} />
-        </span>
-      </a>
-    );
-  }
+  const isCompetitor = variant === "competitor";
 
   return (
     <a
       href={href}
-      className={`relative inline-flex justify-center items-center px-8 py-4 text-lg md:text-xl font-bold text-white bg-emerald-500 rounded-full overflow-hidden group hover:scale-[1.02] transition-transform duration-300 shadow-xl shadow-emerald-500/30 ${className}`}
+      aria-busy="false"
+      data-outbound-button="true"
+      data-loading="false"
+      className={`relative inline-flex justify-center items-center px-8 py-4 text-lg md:text-xl font-bold rounded-full overflow-hidden group hover:scale-[1.02] transition-transform duration-300 ${
+        isCompetitor
+          ? "text-slate-600 bg-white border-2 border-slate-300 shadow-sm"
+          : "text-white bg-emerald-500 shadow-xl shadow-emerald-500/30"
+      } ${className}`}
     >
-      <span className="relative z-10 flex items-center gap-2">
+      <span data-outbound-content="true" className="relative z-10 flex items-center gap-2">
         {text} <ChevronRight size={24} />
       </span>
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+      {!isCompetitor && (
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+      )}
+      <span
+        data-outbound-loader="true"
+        className="absolute inset-0 z-20 hidden items-center justify-center"
+        role="status"
+      >
+        <OutboundLoader />
+        <span className="sr-only">Opening website</span>
+      </span>
     </a>
   );
 };
