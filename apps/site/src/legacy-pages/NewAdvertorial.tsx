@@ -693,7 +693,7 @@ export default function Home({
       {/* Header / Hero */}
       <div className="bg-emerald-500 border-b border-emerald-600 pt-5 pb-6 px-4 md:pt-6 md:pb-8">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="mx-[-0.25rem] text-[clamp(1.12rem,5.6vw,1.58rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 md:mb-6 font-serif text-center">
+          <h1 className="mx-[-0.25rem] text-[clamp(1.3rem,6.6vw,2.5rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 md:mb-6 font-serif text-center">
             <span className="block whitespace-nowrap md:inline">Best LED Face Masks of 2026 in </span>
             <span className="block md:inline md:ml-2">{market.titleCountry}</span>
           </h1>
