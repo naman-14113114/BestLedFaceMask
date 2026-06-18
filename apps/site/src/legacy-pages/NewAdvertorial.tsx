@@ -717,28 +717,30 @@ export default function Home({
           />
 
           <div className="bg-white p-6 md:p-8 rounded-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)] max-w-5xl mx-auto border border-slate-100 text-slate-800">
-            <div className="flex items-center gap-4 mb-6">
-              <img 
-                src="/img/dr-megan-vincze.png" 
-                alt="Dr. Megan Vincze" 
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <h3 className="font-bold text-xl md:text-2xl underline text-slate-900">Dr. Megan Vincze</h3>
-                <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-semibold mt-1">Certified Dermatologist</p>
+            <div className="flex flex-col md:block items-center text-center md:text-left w-full">
+              <div className="flex flex-col md:flex-row items-center gap-4 mb-6">
+                <img 
+                  src="/img/dr-megan-vincze.png" 
+                  alt="Dr. Megan Vincze" 
+                  className="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover mb-2 md:mb-0"
+                />
+                <div>
+                  <h3 className="font-bold text-xl md:text-2xl underline text-slate-900">Dr. Megan Vincze</h3>
+                  <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-semibold mt-1">Certified Dermatologist</p>
+                </div>
               </div>
-            </div>
-            
-            <div className="text-left text-sm md:text-base text-slate-700 leading-relaxed mb-6">
-              <p>
-                With over 10 years of experience in skincare and beauty technology, <strong className="text-slate-900">Dr. Megan Vincze</strong> is a certified dermatologist and beauty technology expert. She reviewed 18 popular {market.titleCountry} LED Face Mask options over 200+ hours, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, usability, reviews, price, and guarantees. Her biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-neck coverage, and were easy enough to use consistently at home.
-              </p>
-            </div>
-            
-            <hr className="border-slate-200 mb-4" />
-            
-            <div className="text-right text-xs md:text-sm italic text-slate-600">
-              * Recommended by over 1,000 {market.buyerLabel} skincare users.
+              
+              <div className="text-sm md:text-base text-slate-700 leading-relaxed mb-6">
+                <p>
+                  With over 10 years of experience in skincare and beauty technology, <strong className="text-slate-900">Dr. Megan Vincze</strong> is a certified dermatologist and beauty technology expert. She reviewed 18 popular {market.titleCountry} LED Face Mask options over 200+ hours, comparing wavelengths, light coverage, comfort, eye safety, neck treatment, usability, reviews, price, and guarantees. Her biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-neck coverage, and were easy enough to use consistently at home.
+                </p>
+              </div>
+              
+              <hr className="border-slate-200 w-full mb-4" />
+              
+              <div className="text-xs md:text-sm italic text-slate-600 md:text-right">
+                * Recommended by over 1,000 {market.buyerLabel} skincare users.
+              </div>
             </div>
           </div>
         </div>
