@@ -11,9 +11,9 @@ const homeSchema = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://www.trustpilotreview.shop/#organization",
+      "@id": "https://www.bestledfacemask.org/#organization",
       name: SITE_NAME,
-      url: "https://www.trustpilotreview.shop/",
+      url: "https://www.bestledfacemask.org/",
       logo: {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
@@ -33,21 +33,21 @@ const homeSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.trustpilotreview.shop/#website",
+      "@id": "https://www.bestledfacemask.org/#website",
       name: SITE_NAME,
-      url: "https://www.trustpilotreview.shop/",
+      url: "https://www.bestledfacemask.org/",
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization",
+        "@id": "https://www.bestledfacemask.org/#organization",
       },
       inLanguage: "en-GB",
     },
     {
       "@type": "CollectionPage",
-      "@id": "https://www.trustpilotreview.shop/#webpage",
-      url: "https://www.trustpilotreview.shop/",
+      "@id": "https://www.bestledfacemask.org/#webpage",
+      url: "https://www.bestledfacemask.org/",
       name: "LED Face Mask Reviews & Buyer Guides",
       isPartOf: {
-        "@id": "https://www.trustpilotreview.shop/#website",
+        "@id": "https://www.bestledfacemask.org/#website",
       },
       about: [
         "LED face mask reviews",
@@ -64,9 +64,9 @@ const advertorialSchema = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://www.trustpilotreview.shop/#organization",
+      "@id": "https://www.bestledfacemask.org/#organization",
       name: SITE_NAME,
-      url: "https://www.trustpilotreview.shop/",
+      url: "https://www.bestledfacemask.org/",
       logo: {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
@@ -87,17 +87,17 @@ const advertorialSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.trustpilotreview.shop/#website",
+      "@id": "https://www.bestledfacemask.org/#website",
       name: SITE_NAME,
-      url: "https://www.trustpilotreview.shop/",
+      url: "https://www.bestledfacemask.org/",
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization",
+        "@id": "https://www.bestledfacemask.org/#organization",
       },
       inLanguage: "en-GB",
     },
     {
       "@type": "Person",
-      "@id": "https://www.trustpilotreview.shop/#author-gabriella-vasili",
+      "@id": "https://www.bestledfacemask.org/#author-gabriella-vasili",
       name: "Dr. Gabriella Vasili, MD",
       jobTitle: "Dermatologist and beauty technology reviewer",
       knowsAbout: [
@@ -108,17 +108,17 @@ const advertorialSchema = {
         "acne and blemish-prone skin",
       ],
       worksFor: {
-        "@id": "https://www.trustpilotreview.shop/#organization",
+        "@id": "https://www.bestledfacemask.org/#organization",
       },
     },
     {
       "@type": "WebPage",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage",
-      url: "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#webpage",
+      url: "https://www.bestledfacemask.org/best-led-face-mask-uk-2026",
       name: "Best LED Face Mask UK (2026)",
       isPartOf: {
-        "@id": "https://www.trustpilotreview.shop/#website",
+        "@id": "https://www.bestledfacemask.org/#website",
       },
       about: [
         "best LED face mask UK",
@@ -132,23 +132,23 @@ const advertorialSchema = {
     {
       "@type": "Article",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#article",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#article",
       mainEntityOfPage: {
         "@id":
-          "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#webpage",
+          "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#webpage",
       },
       headline:
         "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
       description:
         "A UK comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
-      image: "https://www.trustpilotreview.shop/img/57-w.webp",
+      image: "https://www.bestledfacemask.org/img/57-w.webp",
       datePublished: "2026-06-12",
       dateModified: "2026-06-13",
       author: {
-        "@id": "https://www.trustpilotreview.shop/#author-gabriella-vasili",
+        "@id": "https://www.bestledfacemask.org/#author-gabriella-vasili",
       },
       publisher: {
-        "@id": "https://www.trustpilotreview.shop/#organization",
+        "@id": "https://www.bestledfacemask.org/#organization",
       },
       keywords: [
         "best led face mask",
@@ -167,18 +167,18 @@ const advertorialSchema = {
       hasPart: [
         {
           "@id":
-            "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist",
+            "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#itemlist",
         },
         {
           "@id":
-            "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#faq",
+            "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#faq",
         },
       ],
     },
     {
       "@type": "ItemList",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#itemlist",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#itemlist",
       name: "Best LED Face Masks UK 2026 Ranking",
       itemListOrder: "https://schema.org/ItemListOrderAscending",
       numberOfItems: 5,
@@ -214,11 +214,11 @@ const advertorialSchema = {
     {
       "@type": "Product",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#buudy-product",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
       description:
         "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
-      image: "https://www.trustpilotreview.shop/img/57-w.webp",
+      image: "https://www.bestledfacemask.org/img/57-w.webp",
       brand: {
         "@type": "Brand",
         name: "Buudy",
@@ -258,20 +258,20 @@ const advertorialSchema = {
     {
       "@type": "VideoObject",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#dermatologist-video",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#dermatologist-video",
       name: "Dermatologist walkthrough of the Buudy 7 Colour LED Mask",
       description:
         "A short product walkthrough showing the Buudy LED mask fit, light modes, eye area, and full-face coverage.",
       thumbnailUrl:
-        "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict-poster.jpg",
+        "https://www.bestledfacemask.org/assets/buudy-dermatologist-verdict-poster.jpg",
       contentUrl:
-        "https://www.trustpilotreview.shop/assets/buudy-dermatologist-verdict.mp4",
+        "https://www.bestledfacemask.org/assets/buudy-dermatologist-verdict.mp4",
       uploadDate: "2026-06-12",
       duration: "PT2M6S",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#faq",
+      "@id": "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#faq",
       mainEntity: [
         {
           "@type": "Question",
@@ -302,19 +302,19 @@ const advertorialSchema = {
     {
       "@type": "BreadcrumbList",
       "@id":
-        "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026#breadcrumb",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://www.trustpilotreview.shop/",
+          item: "https://www.bestledfacemask.org/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Best LED Face Mask UK 2026",
-          item: "https://www.trustpilotreview.shop/best-led-face-mask-uk-2026",
+          item: "https://www.bestledfacemask.org/best-led-face-mask-uk-2026",
         },
       ],
     },

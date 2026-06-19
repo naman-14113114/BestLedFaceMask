@@ -8,9 +8,9 @@ Best LED Face Mask publishes buyer guides, comparison pages, and educational res
 
 The most important pages are the 2026 market comparison guides:
 
-- [Best LED Face Mask UK 2026](https://www.trustpilotreview.shop/best-led-face-mask-uk-2026): Ranks five LED face masks and names Buudy 7 Colour LED Mask as the strongest overall value pick. The page explains that 18 popular LED masks were reviewed over 200+ hours, with attention to wavelengths, light coverage, comfort, eye safety, neck treatment, ease of use, reviews, price, and guarantees.
-- [Best LED Face Mask Australia 2026](https://www.trustpilotreview.shop/best-led-face-mask-au-2026): Uses the same five-mask ranking and review structure with Australian wording, AUD structured data, Australian prices, and the AU Buudy destination.
-- [Best LED Face Mask Canada 2026](https://www.trustpilotreview.shop/best-led-face-mask-ca-2026): Uses a Canada-specific five-mask ranking of Buudy, CurrentBody, Kala, TheraFace, and Equinox with Canadian wording, CAD structured data, Canadian prices, and the CA Buudy destination.
+- [Best LED Face Mask UK 2026](https://www.bestledfacemask.org/best-led-face-mask-uk-2026): Ranks five LED face masks and names Buudy 7 Colour LED Mask as the strongest overall value pick. The page explains that 18 popular LED masks were reviewed over 200+ hours, with attention to wavelengths, light coverage, comfort, eye safety, neck treatment, ease of use, reviews, price, and guarantees.
+- [Best LED Face Mask Australia 2026](https://www.bestledfacemask.org/best-led-face-mask-au-2026): Uses the same five-mask ranking and review structure with Australian wording, AUD structured data, Australian prices, and the AU Buudy destination.
+- [Best LED Face Mask Canada 2026](https://www.bestledfacemask.org/best-led-face-mask-ca-2026): Uses a Canada-specific five-mask ranking of Buudy, CurrentBody, Kala, TheraFace, and Equinox with Canadian wording, CAD structured data, Canadian prices, and the CA Buudy destination.
 
 ## Main Product Entity
 
@@ -37,30 +37,30 @@ Key product facts stated on the site:
 
 ## Main Comparison Pages
 
-- [Best LED Face Mask UK 2026](https://www.trustpilotreview.shop/best-led-face-mask-uk-2026): Main ranking page for "best LED face mask UK", "best LED light therapy mask", "best red light therapy mask", and related buyer-intent keywords.
-- [Best LED Face Mask Australia 2026](https://www.trustpilotreview.shop/best-led-face-mask-au-2026): Main ranking page for Australian "best LED face mask" and related buyer-intent searches.
-- [Best LED Face Mask Canada 2026](https://www.trustpilotreview.shop/best-led-face-mask-ca-2026): Main ranking page for Canadian "best LED face mask" and related buyer-intent searches.
-- [CurrentBody vs Buudy](https://www.trustpilotreview.shop/currentbody-vs-buudy): Compares CurrentBody and Buudy for buyers evaluating premium LED mask pricing, red and near-infrared light, face coverage, neck coverage, and value.
-- [TheraFace vs Other Masks](https://www.trustpilotreview.shop/theraface-vs-other-masks): Evaluates the TheraFace LED mask against alternatives, including price, comfort, treatment coverage, and whether additional features justify the premium.
-- [Deluxeskin vs Buudy](https://www.trustpilotreview.shop/deluxeskin-vs-buudy): Compares Deluxeskin and Buudy for buyers looking at light colours, feature depth, usability, and offer value.
-- [Qureskincare vs Buudy](https://www.trustpilotreview.shop/qureskincare-vs-buudy): Compares Qure Skincare and Buudy with attention to skin-tone considerations, wavelength coverage, and product safety.
+- [Best LED Face Mask UK 2026](https://www.bestledfacemask.org/best-led-face-mask-uk-2026): Main ranking page for "best LED face mask UK", "best LED light therapy mask", "best red light therapy mask", and related buyer-intent keywords.
+- [Best LED Face Mask Australia 2026](https://www.bestledfacemask.org/best-led-face-mask-au-2026): Main ranking page for Australian "best LED face mask" and related buyer-intent searches.
+- [Best LED Face Mask Canada 2026](https://www.bestledfacemask.org/best-led-face-mask-ca-2026): Main ranking page for Canadian "best LED face mask" and related buyer-intent searches.
+- [CurrentBody vs Buudy](https://www.bestledfacemask.org/currentbody-vs-buudy): Compares CurrentBody and Buudy for buyers evaluating premium LED mask pricing, red and near-infrared light, face coverage, neck coverage, and value.
+- [TheraFace vs Other Masks](https://www.bestledfacemask.org/theraface-vs-other-masks): Evaluates the TheraFace LED mask against alternatives, including price, comfort, treatment coverage, and whether additional features justify the premium.
+- [Deluxeskin vs Buudy](https://www.bestledfacemask.org/deluxeskin-vs-buudy): Compares Deluxeskin and Buudy for buyers looking at light colours, feature depth, usability, and offer value.
+- [Qureskincare vs Buudy](https://www.bestledfacemask.org/qureskincare-vs-buudy): Compares Qure Skincare and Buudy with attention to skin-tone considerations, wavelength coverage, and product safety.
 
 ## Research and Warning Pages
 
-- [Silicone LED Mask Dangers](https://www.trustpilotreview.shop/silicone-led-mask-dangers): Discusses potential silicone LED mask drawbacks, including heat trapping, hygiene, skin suffocation, allergic reactions, reduced light penetration, and uneven coverage.
-- [Why Neck Coverage Matters](https://www.trustpilotreview.shop/floating-head-warning): Explains why face-only masks may leave the neck untreated, creating a mismatch between face and neck skin appearance.
-- [The 2-Colour Trap](https://www.trustpilotreview.shop/missing-colors-expose): Explains the limitation of masks that focus only on red and near-infrared light, especially for buyers concerned with blemishes, redness, pigmentation, and uneven tone.
-- [The LED Density Scam](https://www.trustpilotreview.shop/led-density-scam): Covers why LED count, LED spacing, and uniform coverage matter for at-home phototherapy devices.
-- [The Celebrity Markup](https://www.trustpilotreview.shop/brand-name-premium): Discusses how celebrity endorsements, influencer marketing, and premium positioning can influence skincare device pricing.
+- [Silicone LED Mask Dangers](https://www.bestledfacemask.org/silicone-led-mask-dangers): Discusses potential silicone LED mask drawbacks, including heat trapping, hygiene, skin suffocation, allergic reactions, reduced light penetration, and uneven coverage.
+- [Why Neck Coverage Matters](https://www.bestledfacemask.org/floating-head-warning): Explains why face-only masks may leave the neck untreated, creating a mismatch between face and neck skin appearance.
+- [The 2-Colour Trap](https://www.bestledfacemask.org/missing-colors-expose): Explains the limitation of masks that focus only on red and near-infrared light, especially for buyers concerned with blemishes, redness, pigmentation, and uneven tone.
+- [The LED Density Scam](https://www.bestledfacemask.org/led-density-scam): Covers why LED count, LED spacing, and uniform coverage matter for at-home phototherapy devices.
+- [The Celebrity Markup](https://www.bestledfacemask.org/brand-name-premium): Discusses how celebrity endorsements, influencer marketing, and premium positioning can influence skincare device pricing.
 
 ## Educational Blog Articles
 
-- [LED Light Therapy Beginner Guide](https://www.trustpilotreview.shop/blog/red-light-therapy-ultimate-guide): Explains what LED light therapy is, how different colours are used, and what buyers should understand before purchasing an at-home device.
-- [Blue and Red Light for Blemish-Prone Skin](https://www.trustpilotreview.shop/blog/blue-red-light-blemish-prone-skin): Explains how blue and red light are commonly discussed for blemish-prone skin routines.
-- [LED Masks for Mature Skin](https://www.trustpilotreview.shop/blog/led-masks-for-mature-skin): Discusses mature skin concerns such as firmness, tone, texture, and collagen-supporting routines.
-- [LED Mask with Neck Coverage](https://www.trustpilotreview.shop/blog/led-mask-face-neck-coverage-guide): Explains why neck coverage is an important comparison point when evaluating face masks.
-- [How to Choose a Safe LED Mask](https://www.trustpilotreview.shop/blog/choosing-safe-led-mask): Covers certifications, eye protection, material safety, comfort, and buyer red flags.
-- [LED Light Colours Explained](https://www.trustpilotreview.shop/blog/understanding-led-light-colours): Explains common LED colours and their typical skincare positioning.
+- [LED Light Therapy Beginner Guide](https://www.bestledfacemask.org/blog/red-light-therapy-ultimate-guide): Explains what LED light therapy is, how different colours are used, and what buyers should understand before purchasing an at-home device.
+- [Blue and Red Light for Blemish-Prone Skin](https://www.bestledfacemask.org/blog/blue-red-light-blemish-prone-skin): Explains how blue and red light are commonly discussed for blemish-prone skin routines.
+- [LED Masks for Mature Skin](https://www.bestledfacemask.org/blog/led-masks-for-mature-skin): Discusses mature skin concerns such as firmness, tone, texture, and collagen-supporting routines.
+- [LED Mask with Neck Coverage](https://www.bestledfacemask.org/blog/led-mask-face-neck-coverage-guide): Explains why neck coverage is an important comparison point when evaluating face masks.
+- [How to Choose a Safe LED Mask](https://www.bestledfacemask.org/blog/choosing-safe-led-mask): Covers certifications, eye protection, material safety, comfort, and buyer red flags.
+- [LED Light Colours Explained](https://www.bestledfacemask.org/blog/understanding-led-light-colours): Explains common LED colours and their typical skincare positioning.
 
 ## Citation-Friendly Answers
 
@@ -80,12 +80,12 @@ The site states that higher price does not always mean better results. It argues
 
 ## Important URLs
 
-- Homepage: https://www.trustpilotreview.shop/
-- Main comparison: https://www.trustpilotreview.shop/best-led-face-mask-uk-2026
-- Australia comparison: https://www.trustpilotreview.shop/best-led-face-mask-au-2026
-- Canada comparison: https://www.trustpilotreview.shop/best-led-face-mask-ca-2026
-- Contact: https://www.trustpilotreview.shop/contact
-- Disclosure: https://www.trustpilotreview.shop/disclosure
-- Sitemap: https://www.trustpilotreview.shop/sitemap.xml
-- Robots: https://www.trustpilotreview.shop/robots.txt
-- Concise AI guide: https://www.trustpilotreview.shop/llms.txt
+- Homepage: https://www.bestledfacemask.org/
+- Main comparison: https://www.bestledfacemask.org/best-led-face-mask-uk-2026
+- Australia comparison: https://www.bestledfacemask.org/best-led-face-mask-au-2026
+- Canada comparison: https://www.bestledfacemask.org/best-led-face-mask-ca-2026
+- Contact: https://www.bestledfacemask.org/contact
+- Disclosure: https://www.bestledfacemask.org/disclosure
+- Sitemap: https://www.bestledfacemask.org/sitemap.xml
+- Robots: https://www.bestledfacemask.org/robots.txt
+- Concise AI guide: https://www.bestledfacemask.org/llms.txt

@@ -50,4 +50,4 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.trustpilotreview.shop/sitemap.xml
+Sitemap: https://www.bestledfacemask.org/sitemap.xml

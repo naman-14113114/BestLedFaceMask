@@ -17,27 +17,27 @@ export function HomeNoscriptContent() {
         <h2>Important Guides</h2>
         <ul>
           <li>
-            <a href="https://www.trustpilotreview.shop/best-led-face-mask-uk-2026">
+            <a href="https://www.bestledfacemask.org/best-led-face-mask-uk-2026">
               Best LED Face Mask UK 2026
             </a>
           </li>
           <li>
-            <a href="https://www.trustpilotreview.shop/currentbody-vs-buudy">
+            <a href="https://www.bestledfacemask.org/currentbody-vs-buudy">
               CurrentBody vs Buudy
             </a>
           </li>
           <li>
-            <a href="https://www.trustpilotreview.shop/silicone-led-mask-dangers">
+            <a href="https://www.bestledfacemask.org/silicone-led-mask-dangers">
               Silicone LED Mask Dangers
             </a>
           </li>
           <li>
-            <a href="https://www.trustpilotreview.shop/missing-colors-expose">
+            <a href="https://www.bestledfacemask.org/missing-colors-expose">
               The 2-Colour Trap
             </a>
           </li>
           <li>
-            <a href="https://www.trustpilotreview.shop/led-density-scam">
+            <a href="https://www.bestledfacemask.org/led-density-scam">
               The LED Density Scam
             </a>
           </li>
