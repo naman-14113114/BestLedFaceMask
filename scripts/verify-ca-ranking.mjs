@@ -123,7 +123,7 @@ assert(advertorialMarkets.includes('priceRange: "$100 to $800+"'), "CA market pr
 assert(advertorialMarkets.includes('price: "$639.99"'), "CA CurrentBody price must remain $639.99");
 assert(advertorialMarkets.includes('price: "$279"'), "CA Buudy price must remain $279");
 assert(advertorialMarkets.includes('originalPrice: "$559"'), "CA Buudy compare-at price must remain $559");
-assert(advertorialMarkets.includes('buudyUrl: "https://buudy.com/products/buudy-led-mask"'), "global Buudy URL must be configured");
+assert(advertorialMarkets.includes('buudyUrl: "https://buudy.co.uk/products/buudy-led-mask"'), "global Buudy URL must be configured");
 assert(advertorialMarkets.includes('buudyUrl: "https://us.buudy.com/products/buudy-led-mask"'), "US Buudy URL must be configured");
 assert(advertorialMarkets.includes('buudyUrl: "https://www.buudy.co.uk/products/buudy-led-mask"'), "UK Buudy URL must be configured");
 assert(advertorialMarkets.includes('buudyUrl: "https://au.buudy.com/products/buudy-led-mask"'), "AU Buudy URL must be configured");

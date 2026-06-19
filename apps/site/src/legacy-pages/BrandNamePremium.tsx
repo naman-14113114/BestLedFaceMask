@@ -239,7 +239,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
                 </div>
               </div>
 
@@ -273,7 +273,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
                 </div>
               </div>
             </div>
@@ -289,7 +289,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/products/buudy-led-mask" 
+          href="https://buudy.co.uk/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

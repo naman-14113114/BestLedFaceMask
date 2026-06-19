@@ -278,7 +278,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                     Buudy 7 Color LED Therapy Mask
                   </h3>
                   
-                  <a href="https://buudy.com/products/buudy-led-mask" className="block w-full mb-6 group">
+                  <a href="https://buudy.co.uk/products/buudy-led-mask" className="block w-full mb-6 group">
                     <img 
                       src="/img/57-w.webp"
                       alt="Buudy 7 Color LED Therapy Mask" 
@@ -296,14 +296,14 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                   </div>
 
                   <div className="w-full hidden lg:block">
-                    <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                    <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-8">
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
-                  <a href="https://buudy.com/products/buudy-led-mask" className="hover:text-emerald-600 transition-colors">
+                  <a href="https://buudy.co.uk/products/buudy-led-mask" className="hover:text-emerald-600 transition-colors">
                     Buudy 7 Color LED Therapy Mask
                   </a>
                 </h3>
@@ -382,7 +382,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 </div>
 
                 <div className="w-full mt-8 lg:hidden">
-                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                 </div>
               </div>
             </div>
@@ -403,7 +403,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
               
               <div className="relative group">
-                <a href="https://buudy.com/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
+                <a href="https://buudy.co.uk/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/img/39-w.webp"
                     alt="Buudy LED Mask" 
@@ -434,7 +434,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 </div>
 
                 <a 
-                  href="https://buudy.com/products/buudy-led-mask" 
+                  href="https://buudy.co.uk/products/buudy-led-mask" 
                   className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   SHOP NOW
@@ -452,7 +452,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/products/buudy-led-mask" 
+          href="https://buudy.co.uk/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

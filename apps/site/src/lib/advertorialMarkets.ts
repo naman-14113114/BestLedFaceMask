@@ -64,7 +64,7 @@ export const advertorialMarkets: Record<
     titleCountry: "Worldwide",
     priceRange: "$100 to $700+",
     currencyCode: "USD",
-    buudyUrl: "https://buudy.com/products/buudy-led-mask",
+    buudyUrl: "https://buudy.co.uk/products/buudy-led-mask",
     productPrices: {
       buudy: { price: "$199", originalPrice: "$399", schemaPrice: "199.00", roundedPrice: "$199" },
       currentbody: { price: "$469", roundedPrice: "$469", restockingFee: "$47", fullCoveragePrice: "$799" },

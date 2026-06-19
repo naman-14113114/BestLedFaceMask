@@ -30,7 +30,7 @@ const products = [
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
-    link: "https://buudy.com/products/buudy-led-mask",
+    link: "https://buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
     description: [
       "Our top pick is the Buudy LED Mask, a medical-grade device that outperforms the competition with its comprehensive 7-color spectrum. While most brands offer only basic red light, Buudy includes specialized wavelengths to target everything from deep wrinkles and acne to inflammation. This FDA-cleared technology ensures professional-grade results for all skin types.",
@@ -375,7 +375,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
               
               {/* Left Image Area */}
               <div className="relative group">
-                <a href="https://buudy.com/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
+                <a href="https://buudy.co.uk/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/img/39-w.webp"
                     alt="Buudy LED Mask" 
@@ -408,7 +408,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
                 </div>
 
                 <a 
-                  href="https://buudy.com/products/buudy-led-mask" 
+                  href="https://buudy.co.uk/products/buudy-led-mask" 
                   className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   SHOP NOW
@@ -426,7 +426,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/products/buudy-led-mask" 
+          href="https://buudy.co.uk/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>
