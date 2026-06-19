@@ -32,9 +32,9 @@ const products = [
     link: "https://buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
     description: [
-      "Our top pick is the Buudy LED Mask, a medical-grade device that outperforms the competition with its comprehensive 7-color spectrum. While most brands offer only basic red light, Buudy includes specialized wavelengths to target everything from deep wrinkles and acne to inflammation. This FDA-cleared technology ensures professional-grade results for all skin types.",
-      "A major advantage is the built-in neck coverage, a vital feature often missing from more expensive models. This allows you to treat \"turkey neck\" and sagging skin simultaneously. The cordless, rechargeable design features \"Tap Technology,\" making it completely hands-free and portable for a convenient 15-minute daily session.",
-      "Trusted by over 16,000 customers with a 4.9-star rating, this mask delivers visible improvements in as few as ten uses. Currently priced at £179, it offers the best value on the market, combining full-face and neck rejuvenation with advanced eye protection for a safe, effective, and painless experience."
+      "Our top pick is the <b>Buudy LED Mask</b>, a medical-grade device that outperforms the competition with its comprehensive 7-color spectrum. While most brands offer only basic red light, Buudy includes specialized wavelengths to target everything from deep wrinkles and acne to inflammation. This FDA-cleared technology ensures professional-grade results for all skin types.",
+      "A major advantage is the built-in <b>neck coverage</b>, a vital feature often missing from more expensive models. This allows you to treat \"turkey neck\" and sagging skin simultaneously. The cordless, rechargeable design features \"Tap Technology,\" making it completely hands-free and portable for a convenient 15-minute daily session.",
+      "Trusted by over 16,000 customers with a 4.9-star rating, this mask delivers visible improvements in as few as ten uses. Currently priced at £179, it offers the best value on the market, combining full-face and neck rejuvenation with advanced <b>eye protection</b> for a safe, effective, and painless experience."
     ],
     pros: [
       "Proven Results: Has an outstanding rating of 5/5 and 4.9 stars based on over 1,000 reviews and performed well in internal testing.",
@@ -43,7 +43,7 @@ const products = [
       "Built-in Neck Coverage: Specifically designed to target \"turkey neck\" and sagging skin—a critical feature most expensive brands miss.",
       "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
       "Cordless & Portable: A hands-free, rechargeable design with \"Tap Technology\" that lets you multitask while you rejuvenate.",
-      "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated eye protection for enhanced safety.",
+      "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated <b>eye protection</b> for enhanced safety.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
       "90-Day Money-Back Guarantee: Offers a generous trial period to test for results, reducing the risk of purchase."
     ],
@@ -69,9 +69,9 @@ const products = [
     link: "https://amzn.to/4beNXsm",
     isWinner: false,
     description: [
-      "The CurrentBody LED Mask stands out as a premier selection in our evaluation, solidifying its reputation as a global leader in non-invasive skincare technology. Engineered with a sophisticated blend of red and near-infrared light, this device is clinically projected to reduce wrinkles by 24% in just four weeks.",
-      "Its proprietary \"Pillow Technology\" ensures uniform light distribution across all facial contours, maximizing the efficacy of every 10-minute session. Grounded in clinical research and expert-backed science, it remains a top-tier investment for those seeking professional-grade skin rejuvenation at home.",
-      "Trusted by over 500,000 users across 80 countries, the mask has earned a 97% satisfaction rate for delivering a visibly brighter and more refreshed complexion. It continues to be a benchmark for reliability and proven results in the domestic beauty-tech sector."
+      "The CurrentBody LED Mask stands out as a premier selection in our evaluation, solidifying its reputation as a global leader in non-invasive skincare technology. Engineered with a sophisticated blend of <b>red and near-infrared light</b>, this device is clinically projected to reduce wrinkles by 24% in just four weeks.",
+      "Its proprietary \"Pillow Technology\" ensures uniform light distribution across all facial contours, maximizing the efficacy of every <b>10-minute session</b>. Grounded in clinical research and expert-backed science, it remains a <b>top-tier investment</b> for those seeking professional-grade skin rejuvenation at home.",
+      "Trusted by over <b>500,000 users</b> across 80 countries, the mask has earned a 97% satisfaction rate for delivering a visibly brighter and more refreshed complexion. It continues to be a benchmark for reliability and proven results in the domestic beauty-tech sector."
     ],
     pros: [
       "Strong Social Proof: The mask is heavily endorsed by celebrities (like Kim Kardashian and Cillian Murphy) and multiple dermatologists, and has won several beauty awards.",
@@ -81,7 +81,7 @@ const products = [
     ],
     cons: [
       "Extremely High Price: At £399.99, it is drastically more expensive than the Buudy mask (which is £179).",
-      "No Neck Coverage: The standard £400 mask is for the face only. You must purchase the \"Face & Neck Kit\" for £679.99 to get neck coverage, which comes standard with the Buudy mask.",
+      "No Neck Coverage: The standard £400 mask is for the face only. You must purchase the \"Face & Neck Kit\" for £679.99 to get <b>neck coverage</b>, which comes standard with the Buudy mask.",
       "Very Limited Treatment Modes: This is an anti-aging-only device. It only offers 3 red/near-infrared wavelengths and completely lacks the 7-color versatility of the Buudy mask. It cannot be used to target acne (Blue light), dark spots (Green light), or redness (Yellow light).",
       "Not a Complete Solution: Because it only targets one concern (aging), it is not a comprehensive solution for total skin health like a multi-color mask.",
       "Costly Money-Back Guarantee: The 60-day money-back guarantee is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
@@ -101,13 +101,13 @@ const products = [
     rank: "#3",
     name: "Omnilux LED Mask",
     image: "https://img.thesitebase.net/10677/10677322/themes/1769107230af732ce69a.jpeg",
-    price: "£348",
+    price: "<b>£348</b>",
     rating: "4.6 / 5",
     link: "https://amzn.to/4uewbOw",
     isWinner: false,
     description: [
-      "Omnilux remains a preeminent name in the light therapy industry, recognized for bringing professional-grade standards to the home skincare market. Utilizing a clinically proven combination of red and near-infrared LED light, this device is specifically engineered to target deep-set wrinkles and revitalize skin texture within weeks of consistent use.",
-      "While it carries a premium price point of £348, the mask is highly regarded for its ergonomic design, offering a comfortable fit that ensures a seamless user experience. Favored by dermatological experts and skincare enthusiasts alike, the device has earned significant praise for delivering high-quality results that rival in-clinic treatments.",
+      "Omnilux remains a preeminent name in the light therapy industry, recognized for bringing professional-grade standards to the home skincare market. Utilizing a clinically proven combination of red and near-infrared LED light, this device is specifically engineered to <b>target deep-set wrinkles and revitalize skin texture</b> within weeks of consistent use.",
+      "While it carries a premium price point of <b>£348</b>, the mask is highly regarded for its <b>ergonomic design</b>, offering a comfortable fit that ensures a seamless user experience. Favored by dermatological experts and skincare enthusiasts alike, the device has earned significant praise for delivering high-quality results that rival in-clinic treatments.",
       "For those prioritizing long-term skin health and professional-standard efficacy, the Omnilux mask represents a sophisticated and reliable investment in modern beauty technology. It remains a top-tier choice for consumers seeking a durable, expert-backed solution for advanced facial rejuvenation."
     ],
     pros: [
@@ -116,8 +116,8 @@ const products = [
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag."
     ],
     cons: [
-      "Extremely High Price: At £348, it is significantly more expensive than the Buudy mask (£179).",
-      "No Neck Coverage: The £348 price is for the face mask only. A separate neck and chest piece must be purchased for an additional £348, making the total cost for full coverage nearly £696.",
+      "Extremely High Price: At <b>£348</b>, it is significantly more expensive than the Buudy mask (£179).",
+      "No Neck Coverage: The <b>£348</b> price is for the face mask only. A separate neck and chest piece must be purchased for an additional <b>£348</b>, making the total cost for full coverage nearly £696.",
       "Very Limited Treatment Modes: This mask is an anti-aging device only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
       "Not a Complete Solution: The company explicitly states the Contour mask \"will not clear acne breakouts\" and that customers must buy a different $395 mask (\"Omnilux Clear\") for that purpose. The Buudy mask handles both concerns in one device.",
       "Fewer LEDs: It is equipped with only 132 LEDs, which is significantly fewer than the Buudy mask's 192 high-density LEDs, offering less complete light coverage."
@@ -140,8 +140,8 @@ const products = [
     link: "https://amzn.to/40iCfrI",
     isWinner: false,
     description: [
-      "Our top pick after rigorous testing is the Shark CryoGlow LED Face Mask, which has quickly made headlines and won prestigious beauty awards. From a trusted brand known for high-tech innovation, Shark offers the first LED mask featuring integrated under-eye cooling technology, making it the ultimate 2-in-1 solution for comprehensive facial care.",
-      "Trusted by leading beauty editors at Oprah Daily and Women's Health, this mask offers three \"chill\" levels and four distinct treatment modes, including Better Ageing and Blemish Repair. These advanced settings ensure a quick and efficient therapy session in as little as 6 to 8 minutes, utilizing proven wavelengths like Red (630nm) and Blue (415nm) light.",
+      "Our top pick after rigorous testing is the Shark CryoGlow LED Face Mask, which has quickly made headlines and won prestigious beauty awards. From a trusted brand known for high-tech innovation, Shark offers the first LED mask featuring integrated <b>under-eye cooling technology</b>, making it the ultimate 2-in-1 solution for comprehensive facial care.",
+      "Trusted by leading beauty editors at Oprah Daily and Women's Health, this mask offers three \"chill\" levels and four distinct treatment modes, including Better Ageing and Blemish Repair. These advanced settings ensure a quick and efficient therapy session in as little as <b>6 to 8 minutes</b>, utilizing proven wavelengths like <b>Red (630nm) and Blue (415nm) light.</b>",
       "In our experience, a single daily session is all that is required to see noticeable improvements in skin clarity and tone. The independent clinical studies and dermatologist-backed technology specifically excel at brightening the under-eye area, with users reporting that the cooling pads visibly reduce puffiness and refresh the complexion after just one use."
     ],
     pros: [
@@ -176,12 +176,12 @@ const products = [
     link: "#",
     isWinner: false,
     description: [
-      "The Lanveza LED Facial Beauty Mask has gained steady visibility on social media as a specialized anti-aging tool. While it is FDA-cleared and utilizes a standard blend of red and near-infrared light, it ranks fifth on our list due to its narrow functional scope. It is designed primarily for a basic 10-minute anti-aging routine rather than a comprehensive skincare treatment.",
+      "The Lanveza LED Facial Beauty Mask has gained steady visibility on social media as a specialized anti-aging tool. While it is FDA-cleared and utilizes a standard blend of <b>red and near-infrared light</b>, it ranks fifth on our list due to its narrow functional scope. It is designed primarily for a basic 10-minute anti-aging routine rather than a comprehensive skincare treatment.",
       "Despite the security of a 90-day guarantee, the device lacks the versatility of our top-tier picks. With only 132 LEDs—significantly fewer than the high-density Buudy mask—it offers weaker light coverage and lacks essential neck treatment. Furthermore, it is restricted to just two wavelengths, missing the multi-color spectrum needed to target acne, dark spots, or inflammation.",
       "User feedback also points to several ergonomic and technical flaws, including an uncomfortable fit around the nose and unclear instructions. The absence of a low-battery indicator further detracts from the user experience, leading to unexpected mid-session shut-offs. While suitable as an entry-level device, its limited features and inconsistent data make it a less effective investment for professional-grade results."
     ],
     pros: [
-      "90-Day Guarantee: Offers a 90-day money-back guarantee.",
+      "90-Day Guarantee: Offers a <b>90-day money-back guarantee</b>.",
       "Clinically Proven: The device is FDA-cleared and claims clinically proven results for anti-aging.",
       "Good Reviews (when found): The product has a high star rating (4.8) from the 32 reviews shown at the bottom of the page."
     ],
@@ -337,7 +337,7 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
 
                   <div className="prose prose-slate prose-lg max-w-none mb-8">
                     {product.description.map((p, idx) => (
-                      <p key={idx} className="text-slate-600 leading-relaxed">{p}</p>
+                      <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
                     ))}
                   </div>
 
@@ -415,7 +415,7 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
                 <a href="https://buudy.co.uk/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/img/39-w.webp"
-                    alt="Buudy LED Mask" 
+                    alt="<b>Buudy LED Mask</b>" 
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                 </a>
@@ -459,7 +459,7 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-between gap-3">
         <div className="flex flex-col">
-          <span className="font-bold text-sm text-slate-900 leading-tight">Buudy LED Mask</span>
+          <span className="font-bold text-sm text-slate-900 leading-tight"><b>Buudy LED Mask</b></span>
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
