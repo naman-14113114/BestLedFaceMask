@@ -134,7 +134,7 @@ const products = [
     rank: "#4",
     name: "Omnilux LED Mask",
     image: "https://img.shopbase.com/10677/10677322/themes/1769107230af732ce69a.jpeg",
-    price: "<b>£348</b>",
+    price: "£348",
     rating: "4.6 / 5",
     link: "https://amzn.to/4uewbOw",
     isWinner: false,
@@ -375,7 +375,7 @@ export default function DeluxeskinComparison({ context }: MarketContextProps) {
                 <a href="https://buudy.co.uk/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/img/39-w.webp"
-                    alt="<b>Buudy LED Mask</b>" 
+                    alt="Buudy LED Mask" 
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                 </a>
@@ -419,7 +419,7 @@ export default function DeluxeskinComparison({ context }: MarketContextProps) {
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-between gap-3">
         <div className="flex flex-col">
-          <span className="font-bold text-sm text-slate-900 leading-tight"><b>Buudy LED Mask</b></span>
+          <span className="font-bold text-sm text-slate-900 leading-tight">Buudy LED Mask</span>
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 

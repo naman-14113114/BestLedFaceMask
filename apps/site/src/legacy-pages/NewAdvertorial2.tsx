@@ -44,7 +44,7 @@ const products = [
   {
     id: 1,
     rank: "#1",
-    name: "<b>Buudy 7 Colour</b> LED Mask",
+    name: "Buudy 7 Colour LED Mask",
     image: "/img/57-w.webp",
     price: "£179",
     originalPrice: "£449",
@@ -134,7 +134,7 @@ const products = [
     name: "Omnilux LED Mask",
     image:
       "https://img.thesitebase.net/10677/10677322/themes/1769107230af732ce69a.jpeg",
-    price: "<b>£348</b>",
+    price: "£348",
     rating: "4.6 / 5",
     link: "https://amzn.to/4s0Zcf7",
     isWinner: false,
