@@ -897,7 +897,7 @@ export default function Home({ context }: MarketContextProps) {
             ref={buudySectionRef}
             className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 pt-10 md:pt-10 p-6 md:p-10"
           >
-            <div className="sticky top-4 z-30 h-0 w-full">
+            <div className="hidden md:block sticky top-4 z-30 h-0 w-full">
               <img
                 src="/img/best-product-badge.png"
                 alt="No. 1 Best Product"

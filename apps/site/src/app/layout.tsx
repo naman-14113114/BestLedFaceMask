@@ -38,6 +38,13 @@ const googleTagManager = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.sta
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-TQ3HRZMJ');`;
 
+const googleAnalytics = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6V34EZM980');
+`;
+
 const outboundConversionConfig = `
     window.__tprBuudyOutboundConversion = {
       value: 330,
@@ -144,6 +151,15 @@ export default function RootLayout({
           id="google-tag-manager"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: googleTagManager }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6V34EZM980"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: googleAnalytics }}
         />
         <noscript>
           <iframe
