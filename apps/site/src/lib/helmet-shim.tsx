@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 
-export function Helmet(_props: { children?: ReactNode }) {
+export function Helmet({ children }: { children?: ReactNode }) {
+  void children;
   return null;
 }
 

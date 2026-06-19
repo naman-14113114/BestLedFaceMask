@@ -3,14 +3,17 @@ import React, { useState, useRef } from "react";
 import {
   CheckCircle2,
   XCircle,
-  Award,
   ChevronRight,
-  Calendar,
   ShieldCheck,
   Check,
   Play,
 } from "lucide-react";
 import { motion } from "motion/react";
+import {
+  GreenStarIcon,
+  GreenStarRating,
+} from "@/components/GreenStarRating";
+import { MarketFlag } from "@/components/MarketFlag";
 import { OutboundLoader } from "@/components/OutboundLoader";
 import {
   getAdvertorialMarket,
@@ -19,61 +22,8 @@ import {
   type ProductPriceKey,
 } from "@/lib/advertorialMarkets";
 import type { MarketContextProps } from "@/lib/marketContext";
+import { EXPERT_PROFILE } from "@/lib/expertProfile";
 import { getMobileProsCons } from "./mobileProsCons";
-
-const trustpilotStarTiles = [0, 1, 2, 3, 4];
-const trustpilotStarPoints =
-  "12 1.6 15.15 8.25 22.35 8.95 17.02 13.72 18.62 20.84 12 17.16 5.38 20.84 6.98 13.72 1.65 8.95 8.85 8.25";
-
-function TrustpilotStars({
-  className = "",
-  tileClassName = "h-6 w-6",
-  iconSize = 16,
-}: {
-  className?: string;
-  tileClassName?: string;
-  iconSize?: number;
-}) {
-  return (
-    <div
-      className={`flex items-center justify-center gap-1 ${className}`}
-      aria-label="5 out of 5 stars"
-    >
-      {trustpilotStarTiles.map((tile) => (
-        <svg
-          key={tile}
-          viewBox="0 0 24 24"
-          width={iconSize}
-          height={iconSize}
-          className={`text-[#00b67a] ${tileClassName}`}
-          aria-hidden="true"
-        >
-          <polygon points={trustpilotStarPoints} fill="currentColor" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
-function TrustpilotSingleStar({
-  className = "h-5 w-5",
-  iconSize = 14,
-}: {
-  className?: string;
-  iconSize?: number;
-}) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={iconSize}
-      height={iconSize}
-      className={`inline-block align-middle text-[#00b67a] ${className}`}
-      aria-label="Trustpilot star"
-    >
-      <polygon points={trustpilotStarPoints} fill="currentColor" />
-    </svg>
-  );
-}
 
 function stripInlineHtml(text: string) {
   return text
@@ -113,7 +63,7 @@ function summarizeMobilePoint(point: string) {
   return trimWords(compact);
 }
 
-function MobileProsCons({
+export function MobileProsCons({
   productId,
   marketKey,
   fallbackPros,
@@ -360,7 +310,7 @@ const baseProducts: Product[] = [
     id: 5,
     rank: "#5",
     name: "Dr. Dennis Gross DRx SpectraLite",
-    image: "https://m.media-amazon.com/images/I/61OfXQiidUL._AC_SL1500_.jpg",
+    image: "/img/Dr Dennis Gross.png",
     price: "£455",
     rating: "4.1 / 5",
     link: "https://amzn.to/4cvWiJR",
@@ -769,7 +719,7 @@ export default function Home({
   const heroImage =
     market.key === "ca"
       ? "/img/TOP 5 LED Mask.png"
-      : "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png";
+      : "/img/TOP 5 LED Mask uk.png";
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -788,18 +738,11 @@ export default function Home({
       <div className="bg-emerald-500 border-b border-emerald-600 pt-5 pb-6 px-4 md:pt-6 md:pb-8">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="mx-[-0.25rem] text-[clamp(1.3rem,6.6vw,2.5rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 md:mb-6 font-serif text-center">
-            {market.key === "global" ? (
-              <span>Best LED Face Masks of 2026</span>
-            ) : (
-              <>
-                <span className="block md:inline">
-                  Best LED Face Masks of 2026 in{" "}
-                </span>
-                <span className="block md:inline md:ml-2">
-                  {market.titleCountry}
-                </span>
-              </>
-            )}
+            <span className="block">Best LED Face Mask</span>
+            <span className="mt-2 flex items-center justify-center gap-2 text-[0.72em] md:gap-3">
+              <MarketFlag market={market.flagKey} />
+              <span>{market.headingCountry} - 2026</span>
+            </span>
           </h1>
 
           <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">
@@ -824,34 +767,38 @@ export default function Home({
             <div className="flex flex-col md:block items-center text-center md:text-left w-full">
               <div className="flex flex-col md:flex-row items-center gap-4 mb-6">
                 <img
-                  src="/img/dr-megan-vincze.png"
-                  alt="Dr. Megan Vincze"
+                  src={EXPERT_PROFILE.image}
+                  alt={EXPERT_PROFILE.name}
                   className="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover mb-2 md:mb-0"
                 />
                 <div>
                   <h3 className="font-bold text-xl md:text-2xl underline text-slate-900">
-                    Dr. Megan Vincze
+                    {EXPERT_PROFILE.name}
                   </h3>
                   <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-semibold mt-1">
-                    Certified Dermatologist
+                    {EXPERT_PROFILE.title}
                   </p>
                 </div>
               </div>
 
               <div className="text-sm md:text-base text-slate-700 leading-relaxed mb-6">
                 <p>
-                  With over 10 years of experience in skincare and beauty
+                  With {EXPERT_PROFILE.yearsExperience} years of
+                  experience in skincare and beauty
                   technology,{" "}
-                  <strong className="text-slate-900">Dr. Megan Vincze</strong>{" "}
+                  <strong className="text-slate-900">
+                    {EXPERT_PROFILE.name}
+                  </strong>{" "}
                   is a certified dermatologist and beauty technology expert. She
-                  reviewed 18 popular {market.titleCountry} LED Face Mask
-                  options over 200+ hours, comparing wavelengths, light
-                  coverage, comfort, eye safety, neck treatment, usability,
-                  reviews, price, and guarantees. Her biggest finding was
-                  simple: the most expensive mask was not always the best
-                  choice. The strongest options used the right wavelengths, gave
-                  even face-and-neck coverage, and were easy enough to use
-                  consistently at home.
+                  reviewed {EXPERT_PROFILE.masksReviewed} popular{" "}
+                  {market.headingCountry} LED face mask options over{" "}
+                  {EXPERT_PROFILE.testingHours} hours, comparing wavelengths,
+                  light coverage, comfort, eye safety, neck treatment,
+                  usability, reviews, price, and guarantees. Her biggest
+                  finding was simple: the most expensive mask was not always
+                  the best choice. The strongest options used the right
+                  wavelengths, gave even face-and-neck coverage, and were easy
+                  enough to use consistently at home.
                 </p>
               </div>
 
@@ -925,40 +872,40 @@ export default function Home({
           {products.map((product) => (
             <div
               key={product.id}
-              className={`relative bg-white rounded-3xl shadow-sm border ${product.isWinner ? "border-emerald-500 ring-4 ring-emerald-50 pt-10 md:pt-10" : "border-slate-200"} p-6 md:p-10`}
+              className={`relative bg-white rounded-3xl shadow-sm border ${product.isWinner ? "border-emerald-500 ring-4 ring-emerald-50" : "border-slate-200"} p-6 md:p-10`}
             >
-              {product.isWinner && (
-                <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
-                  <Award size={16} className="md:w-[18px] md:h-[18px]" />
-                  #1 Editor's Choice
-                </div>
-              )}
-
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
                 {/* Left Column: Image & Quick Stats */}
                 <div className="lg:col-span-4 flex flex-col items-center">
                   <div className="lg:sticky lg:top-8 w-full flex flex-col items-center">
                     <h2
-                      className={`text-2xl font-bold text-slate-900 mb-6 text-center lg:hidden ${product.isWinner ? "mt-3" : ""}`}
+                      className="text-2xl font-bold text-slate-900 mb-6 text-center lg:hidden"
                     >
                       {product.rank} {product.name}
                     </h2>
 
-                    <a
-                      href={product.link}
-                      onClick={(event) =>
-                        preventPlaceholderNavigation(event, product.link)
-                      }
-                      className="block w-full mb-6 group"
-                    >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full aspect-square object-cover rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
-                      />
-                    </a>
+                    <div className="relative w-full mb-6">
+                      {product.isWinner && (
+                        <div className="absolute left-3 top-3 z-10 rounded-full border border-white/70 bg-emerald-600 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-white shadow-lg md:left-4 md:top-4 md:px-4 md:py-2 md:text-sm">
+                          #1 Top Pick
+                        </div>
+                      )}
+                      <a
+                        href={product.link}
+                        onClick={(event) =>
+                          preventPlaceholderNavigation(event, product.link)
+                        }
+                        className="block w-full group"
+                      >
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full aspect-square object-cover rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
+                        />
+                      </a>
+                    </div>
 
                     <div className="text-center mb-2 lg:mb-6 w-full">
                       <div className="flex items-center justify-center gap-3 mb-2">
@@ -971,10 +918,11 @@ export default function Home({
                           </span>
                         )}
                       </div>
-                      <TrustpilotStars
+                      <GreenStarRating
+                        rating={product.rating}
+                        forceFull={product.isWinner}
+                        size={24}
                         className="mb-2"
-                        tileClassName="h-6 w-6"
-                        iconSize={16}
                       />
                       <p className="text-sm font-medium text-slate-500">
                         Overall rating {product.rating}
@@ -1314,17 +1262,11 @@ export default function Home({
                     <span className="font-bold text-base md:text-lg text-black font-sans">
                       Excellent
                     </span>
-                    <TrustpilotStars
-                      tileClassName="h-5 w-5 md:h-6 md:w-6"
-                      iconSize={18}
-                    />
+                    <GreenStarRating rating={5} size={22} />
                   </div>
                   <div className="text-xs md:text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
                     Rated 4.9 / 5 on{" "}
-                    <TrustpilotSingleStar
-                      className="h-4 w-4 md:h-5 md:w-5"
-                      iconSize={15}
-                    />{" "}
+                    <GreenStarIcon size={18} />{" "}
                     <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>

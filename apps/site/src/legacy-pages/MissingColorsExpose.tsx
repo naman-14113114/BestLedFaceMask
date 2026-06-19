@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, FlaskConical, Stethoscope, Star, XCircle, Award, Palette, ArrowDown } from 'lucide-react';
+import { AlertTriangle, Calendar, Check, CheckCircle2, FlaskConical, XCircle, Award, Palette, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
+import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
 import type { MarketContextProps } from '@/lib/marketContext';
@@ -145,9 +146,7 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100"
               >
-                <div className="flex items-center gap-1 mb-4 text-amber-400">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
+                <GreenStarRating rating={5} size={16} className="mb-4 justify-start" />
                 <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed italic mb-4">
                   "{expert.quote}"
                 </blockquote>
@@ -231,13 +230,11 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
                     <span className="text-3xl font-extrabold text-slate-900">£179</span>
                     <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                   </div>
-                  <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-                  </div>
+                  <GreenStarRating rating={5} size={20} className="mb-1" />
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Unlock All 7 Colors Now" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Unlock All 7 Colors Now" className="w-full" />
                 </div>
               </div>
 
@@ -271,7 +268,7 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Unlock All 7 Colors Now" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Unlock All 7 Colors Now" className="w-full" />
                 </div>
               </div>
             </div>
@@ -287,7 +284,7 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/pages/buudy-led-mask" 
+          href="https://buudy.com/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

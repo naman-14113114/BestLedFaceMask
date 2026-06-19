@@ -2,7 +2,7 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { articles } from '../data/articles';
-import { Calendar, User, Star } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
 import type { MarketContextProps } from '@/lib/marketContext';
 
@@ -71,7 +71,7 @@ export default function Article({ context }: MarketContextProps) {
                   </h3>
                   <div className="flex flex-col md:flex-row gap-8 items-center">
                      <div className="flex-1 w-full max-w-xs mx-auto">
-                        <img src="https://img.thesitebase.net/10677/10677322/themes/176943060543a303d043.png?width=828&height=0&min_height=0" alt="Buudy Mask" className="w-full h-auto rounded-xl shadow-md border border-white" />
+                        <img src="/img/39-w.webp" alt="Buudy Mask" className="w-full h-auto rounded-xl shadow-md border border-white" />
                      </div>
                      <div className="flex-1 text-center md:text-left">
                        <p className="text-slate-700 font-medium mb-4 leading-relaxed">
@@ -82,7 +82,7 @@ export default function Article({ context }: MarketContextProps) {
                        </div>
                        
                        <a 
-                          href="https://buudy.com/pages/buudy-led-mask" 
+                          href="https://buudy.com/products/buudy-led-mask" 
                           className="inline-block w-full text-center bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg font-bold font-sans tracking-wide py-4 px-8 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.3)] transition-all"
                         >
                           View Product Details

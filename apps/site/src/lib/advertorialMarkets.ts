@@ -19,6 +19,8 @@ export type MarketProductPrice = {
 
 export type AdvertorialMarket = {
   key: AdvertorialMarketKey;
+  headingCountry: string;
+  flagKey: AdvertorialMarketKey;
   route: string;
   locale: string;
   languageName: string;
@@ -49,6 +51,8 @@ export const advertorialMarkets: Record<
 > = {
   global: {
     key: "global",
+    headingCountry: "Worldwide",
+    flagKey: "global",
     route: "/best-led-face-mask-2026",
     locale: "en",
     languageName: "en",
@@ -73,6 +77,8 @@ export const advertorialMarkets: Record<
   },
   us: {
     key: "us",
+    headingCountry: "United States",
+    flagKey: "us",
     route: "/best-led-face-mask-us-2026",
     locale: "en-US",
     languageName: "en-US",
@@ -97,6 +103,8 @@ export const advertorialMarkets: Record<
   },
   uk: {
     key: "uk",
+    headingCountry: "United Kingdom",
+    flagKey: "uk",
     route: "/best-led-face-mask-uk-2026",
     locale: "en-GB",
     languageName: "en-GB",
@@ -144,6 +152,8 @@ export const advertorialMarkets: Record<
   },
   au: {
     key: "au",
+    headingCountry: "Australia",
+    flagKey: "au",
     route: "/best-led-face-mask-au-2026",
     locale: "en-AU",
     languageName: "en-AU",
@@ -191,6 +201,8 @@ export const advertorialMarkets: Record<
   },
   ca: {
     key: "ca",
+    headingCountry: "Canada",
+    flagKey: "ca",
     route: "/best-led-face-mask-ca-2026",
     locale: "en-CA",
     languageName: "en-CA",

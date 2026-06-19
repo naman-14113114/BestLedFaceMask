@@ -1,19 +1,12 @@
 'use client';
 import React from 'react';
-import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Award, Calendar, ShieldCheck } from 'lucide-react';
+import { GreenStarIcon, GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton, MetricBar } from './NewAdvertorial';
 import { ResponsiveProsCons } from './ResponsiveProsCons';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
-
-function SharpStar({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="#00b67a" className={className} aria-hidden="true">
-      <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
-    </svg>
-  );
-}
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",
@@ -37,7 +30,7 @@ const products = [
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
-    link: "https://buudy.com/pages/buudy-led-mask",
+    link: "https://buudy.com/products/buudy-led-mask",
     isWinner: true,
     description: [
       "Our top pick is the Buudy LED Mask, a medical-grade device that outperforms the competition with its comprehensive 7-color spectrum. While most brands offer only basic red light, Buudy includes specialized wavelengths to target everything from deep wrinkles and acne to inflammation. This FDA-cleared technology ensures professional-grade results for all skin types.",
@@ -71,7 +64,7 @@ const products = [
     id: 2,
     rank: "#2",
     name: "LED Facial Beauty Mask by Qureskincare",
-    image: "https://img.shopbase.com/10677/10677322/themes/1771076622cb6d999736.jpeg",
+    image: "/img/qure.png",
     price: "£299",
     rating: "4.8 / 5",
     link: "#",
@@ -224,13 +217,13 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img 
-                src="https://img.thesitebase.net/10677/10677322/themes/1770302958c850cb975e.png" 
-                alt="Dr. Elizabeth Vance" 
+                src={EXPERT_PROFILE.image}
+                alt={EXPERT_PROFILE.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Elizabeth Vance</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Certified Dermatologist</p>
+                <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -242,12 +235,12 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">Dr. Elizabeth Vance</strong> is a certified dermatologist and beauty technology expert with over 12 years of experience evaluating skincare devices. She has been featured in Allure, Harper’s Bazaar, and Dermatology Times, where she shares her expertise on the latest beauty innovations. Having tested hundreds of beauty devices in clinical and real-world settings, she specializes in helping consumers find safe, effective at-home beauty technology that delivers genuine results and exceptional value.
+              <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> is a certified dermatologist and beauty technology expert with over {EXPERT_PROFILE.yearsExperience} years of experience evaluating skincare devices. She has been featured in Allure, Harper's Bazaar, and Dermatology Times, where she shares her expertise on the latest beauty innovations. Having tested hundreds of beauty devices in clinical and real-world settings, she specializes in helping consumers find safe, effective at-home beauty technology that delivers genuine results and exceptional value.
             </p>
           </div>
 
           <img 
-            src="https://img.thesitebase.net/10677/10677322/themes/1771076589d8ecf6780e.png" 
+            src="/img/TOP 5 LED Mask-6.png"
             alt="LED Masks Comparison" 
             className="w-full max-w-5xl mx-auto rounded-3xl shadow-xl border border-slate-100"
           />
@@ -287,13 +280,6 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
               key={product.id} 
               className={`relative bg-white rounded-3xl shadow-sm border ${product.isWinner ? 'border-emerald-500 ring-4 ring-emerald-50 pt-10 md:pt-10' : 'border-slate-200'} p-6 md:p-10`}
             >
-              {product.isWinner && (
-                <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
-                  <Award size={16} className="md:w-[18px] md:h-[18px]" />
-                  #1 Editor's Choice
-                </div>
-              )}
-
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
                 {/* Left Column: Image & Quick Stats */}
                 <div className="lg:col-span-4 flex flex-col items-center">
@@ -302,7 +288,13 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
                       {product.rank} {product.name}
                     </h2>
                     
-                    <a href={product.link} className="block w-full mb-6 group">
+                    <a href={product.link} className="relative block w-full mb-6 group">
+                      {product.isWinner && (
+                        <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-emerald-700 shadow-lg ring-1 ring-emerald-100 backdrop-blur">
+                          <Award size={14} />
+                          #1 Top Pick
+                        </span>
+                      )}
                       <img 
                         src={product.image} 
                         alt={product.name} 
@@ -317,11 +309,12 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
                           <span className="text-lg text-slate-400 line-through font-medium">{product.originalPrice}</span>
                         )}
                       </div>
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        {[...Array(5)].map((_, i) => (
-                          <SharpStar key={i} size={30} />
-                        ))}
-                      </div>
+                      <GreenStarRating
+                        rating={product.rating}
+                        forceFull={product.isWinner}
+                        size={30}
+                        className="mb-1"
+                      />
                       <p className="text-sm font-medium text-slate-500">Overall rating {product.rating}</p>
                     </div>
 
@@ -382,7 +375,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
               
               {/* Left Image Area */}
               <div className="relative group">
-                <a href="https://buudy.com/pages/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
+                <a href="https://buudy.com/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/img/39-w.webp"
                     alt="Buudy LED Mask" 
@@ -407,23 +400,15 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
                 <div className="border border-gray-200 bg-white/60 rounded-xl p-5 mx-auto mb-8 inline-block shadow-sm">
                   <div className="flex items-center justify-center gap-3 mb-3">
                     <span className="font-extrabold text-xl md:text-2xl text-black font-sans">Excellent</span>
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i} className="flex items-center justify-center bg-[#00b67a] w-7 h-7 md:w-8 md:h-8">
-                          <svg width={18} height={18} viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                            <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
-                          </svg>
-                        </span>
-                      ))}
-                    </div>
+                    <GreenStarRating rating={5} size={18} gap={4} />
                   </div>
                   <div className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-1.5 font-sans">
-                    Rated <span className="font-bold text-black">4.9 / 5</span> on <SharpStar size={20} /> <span className="font-bold text-black">Trustpilot</span>
+                    Rated <span className="font-bold text-black">4.9 / 5</span> on <GreenStarIcon size={20} /> <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>
 
                 <a 
-                  href="https://buudy.com/pages/buudy-led-mask" 
+                  href="https://buudy.com/products/buudy-led-mask" 
                   className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   SHOP NOW
@@ -441,7 +426,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/pages/buudy-led-mask" 
+          href="https://buudy.com/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

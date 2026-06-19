@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, Eye, ShieldCheck, Star, XCircle, Award, Droplets, ArrowDown, Scissors } from 'lucide-react';
+import { AlertTriangle, Calendar, Check, CheckCircle2, Eye, XCircle, Award, Droplets, ArrowDown, Scissors } from 'lucide-react';
 import { motion } from 'motion/react';
-import { CTAButton, MetricBar } from './NewAdvertorial';
+import { GreenStarRating } from '@/components/GreenStarRating';
+import { CTAButton } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
 
 const dangerPoints = [
@@ -73,13 +75,13 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200&h=200" 
-                alt="Dr. Elizabeth Vance" 
+                src={EXPERT_PROFILE.image}
+                alt={EXPERT_PROFILE.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Elizabeth Vance</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Certified Dermatologist</p>
+                <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -91,7 +93,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">Dr. Elizabeth Vance</strong> exposes the beauty industry's most profitable secret: intentionally designing £400 LED masks to ignore the neck area, forcing customers to spend hundreds more to prevent the dreaded "floating head" syndrome.
+              <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> exposes the beauty industry's most profitable secret: intentionally designing £400 LED masks to ignore the neck area, forcing customers to spend hundreds more to prevent the dreaded "floating head" syndrome.
             </p>
           </div>
         </div>
@@ -152,9 +154,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100"
               >
-                <div className="flex items-center gap-1 mb-4 text-amber-400">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
+                <GreenStarRating rating={5} size={16} className="mb-4 justify-start" />
                 <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed italic mb-4">
                   "{expert.quote}"
                 </blockquote>
@@ -238,13 +238,11 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                     <span className="text-3xl font-extrabold text-slate-900">£179</span>
                     <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                   </div>
-                  <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-                  </div>
+                  <GreenStarRating rating={5} size={20} className="mb-1" />
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                 </div>
               </div>
 
@@ -278,7 +276,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                 </div>
               </div>
             </div>
@@ -296,7 +294,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
             </p>
             <div className="flex justify-center">
                 <a 
-                  href="https://buudy.com/pages/buudy-led-mask" 
+                  href="https://buudy.com/products/buudy-led-mask" 
                   className="bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   SHOP NOW
@@ -313,7 +311,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/pages/buudy-led-mask" 
+          href="https://buudy.com/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

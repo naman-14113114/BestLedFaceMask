@@ -22,7 +22,7 @@ export const articles: Article[] = [
     seoKeywords: "led light therapy guide, led mask buyer guide, red light therapy explained, led mask uk",
     author: "Best LED Face Mask Editorial",
     date: "March 10, 2026",
-    image: "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png",
+    image: "/img/TOP 5 LED Mask uk.png",
     excerpt: "LED light therapy has grown rapidly in popularity over the past few years. But with so many devices on the market, where do you start? This guide walks through the basics of how LED masks work, what each colour is designed for, and what features matter most when you are shopping for one.",
     content: [
       "LED light therapy has been available in professional skin care clinics for many years, and over the past decade, at-home devices have become increasingly accessible. If you have been scrolling through social media or browsing beauty retailers, you have probably seen those glowing face masks popping up everywhere. But what exactly are they, and are they worth your money?",
@@ -47,7 +47,7 @@ export const articles: Article[] = [
     seoKeywords: "led mask for blemishes, blue light therapy skin, red light blemishes, led face mask acne uk",
     author: "Best LED Face Mask Editorial",
     date: "March 5, 2026",
-    image: "https://img.thesitebase.net/10677/10677322/themes/176943060543a303d043.png?width=828&height=0&min_height=0",
+    image: "/img/39-w.webp",
     excerpt: "If you have blemish-prone skin, you may have heard about LED light therapy as a non-chemical approach worth exploring. Here is a straightforward look at what blue and red LED light are commonly used for, and what to consider when choosing a device.",
     content: [
       "Dealing with blemish-prone skin as an adult can be frustrating. Many people have tried various topical products with mixed results, and the idea of a light-based approach that does not involve chemicals can sound appealing. LED light therapy has gained attention as one such option, particularly devices that use blue and red wavelengths together.",

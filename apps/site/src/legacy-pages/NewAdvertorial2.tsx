@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   CheckCircle2,
   XCircle,
-  Star,
   Award,
   ChevronRight,
   Calendar,
@@ -17,11 +16,16 @@ import {
   Users,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  GreenStarIcon,
+  GreenStarRating,
+} from "@/components/GreenStarRating";
+import { MarketFlag } from "@/components/MarketFlag";
 import { OutboundLoader } from "@/components/OutboundLoader";
 import { getMobileProsCons } from "./mobileProsCons";
 import type { MarketContextProps } from "@/lib/marketContext";
-
-const BUUDY_LINK = "https://www.buudy.co.uk/products/buudy-led-mask";
+import { getAdvertorialMarket } from "@/lib/advertorialMarkets";
+import { EXPERT_PROFILE } from "@/lib/expertProfile";
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",
@@ -45,7 +49,7 @@ const products = [
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
-    link: BUUDY_LINK,
+    link: "",
     isWinner: true,
     colors: 7,
     neckCoverage: true,
@@ -85,8 +89,7 @@ const products = [
     id: 2,
     rank: "#2",
     name: "CurrentBody LED Mask",
-    image:
-      "https://img.thesitebase.net/10677/10677322/themes/176872504642f0322d65.jpeg",
+    image: "/img/Untitled design.png",
     price: "£399.99",
     rating: "4.7 / 5",
     link: "https://amzn.to/4beNXsm",
@@ -213,7 +216,7 @@ const products = [
     id: 5,
     rank: "#5",
     name: "Dr. Dennis Gross DRx SpectraLite",
-    image: "https://m.media-amazon.com/images/I/61OfXQiidUL._AC_SL1500_.jpg",
+    image: "/img/Dr Dennis Gross.png",
     price: "£455",
     rating: "4.1 / 5",
     link: "https://amzn.to/4cvWiJR",
@@ -528,7 +531,7 @@ const ScrollProgress = () => {
 };
 
 // --- Buudy Reminder Banner (between competitor reviews) ---
-const BuudyReminderBanner = () => (
+const BuudyReminderBanner = ({ href }: { href: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -547,7 +550,7 @@ const BuudyReminderBanner = () => (
       </div>
     </div>
     <a
-      href={BUUDY_LINK}
+      href={href}
       className="shrink-0 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-full text-sm shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 flex items-center gap-1 whitespace-nowrap"
     >
       See Why It's #1 <ChevronRight size={18} />
@@ -558,6 +561,7 @@ const BuudyReminderBanner = () => (
 // ========== MAIN PAGE COMPONENT ==========
 
 export default function Home({ context }: MarketContextProps) {
+  const market = getAdvertorialMarket(context.marketKey);
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
   const [criteriaOpen, setCriteriaOpen] = useState(false);
@@ -579,9 +583,20 @@ export default function Home({ context }: MarketContextProps) {
     });
   };
 
+  const localizedProducts = products.map((product) =>
+    product.isWinner
+      ? {
+          ...product,
+          price: market.productPrices.buudy.price,
+          originalPrice: market.productPrices.buudy.originalPrice,
+          link: market.buudyUrl,
+        }
+      : product,
+  );
+
   // Split products: winner first, then visible competitors
-  const winnerProduct = products[0];
-  const competitors = products.slice(1);
+  const winnerProduct = localizedProducts[0];
+  const competitors = localizedProducts.slice(1);
   const visibleCompetitors = showAllProducts
     ? competitors
     : competitors.slice(0, 1);
@@ -599,22 +614,26 @@ export default function Home({ context }: MarketContextProps) {
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            Best LED Face Masks of 2026 in the UK: Tested & Reviewed Comparisons
+            <span className="block">Best LED Face Mask</span>
+            <span className="mt-3 flex items-center justify-center gap-3 text-[0.72em]">
+              <MarketFlag market={market.flagKey} />
+              <span>{market.headingCountry} - 2026</span>
+            </span>
           </h1>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img
-                src="/img/dr-megan-vincze.png"
-                alt="Dr. Megan Vincze"
+                src={EXPERT_PROFILE.image}
+                alt={EXPERT_PROFILE.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
                 <p className="font-bold text-slate-900 leading-tight">
-                  Dr. Megan Vincze
+                  {EXPERT_PROFILE.name}
                 </p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
-                  Certified Dermatologist
+                  {EXPERT_PROFILE.title}
                 </p>
               </div>
             </div>
@@ -627,7 +646,10 @@ export default function Home({ context }: MarketContextProps) {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">Dr. Megan Vincze</strong>, a
+              <strong className="text-slate-900">
+                {EXPERT_PROFILE.name}
+              </strong>
+              , a
               certified dermatologist and beauty technology expert, reviewed 18
               popular UK LED Face Mask options over 200+ hours, comparing
               wavelengths, light coverage, comfort, eye safety, neck treatment,
@@ -640,7 +662,7 @@ export default function Home({ context }: MarketContextProps) {
           </div>
 
           <img
-            src="https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png"
+            src="/img/TOP 5 LED Mask uk.png"
             alt="LED Masks Comparison"
             className="w-full max-w-5xl mx-auto rounded-3xl shadow-xl border border-slate-100 mb-8"
           />
@@ -670,7 +692,7 @@ export default function Home({ context }: MarketContextProps) {
               </span>
               <span className="hidden md:inline text-slate-300">|</span>
               <span className="flex items-center gap-1">
-                <Star size={14} className="text-amber-400 fill-amber-400" />{" "}
+                <GreenStarIcon size={14} />{" "}
                 4.9/5 (1,000+ reviews)
               </span>
               <span className="hidden md:inline text-slate-300">|</span>
@@ -680,7 +702,7 @@ export default function Home({ context }: MarketContextProps) {
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={BUUDY_LINK}
+                href={market.buudyUrl}
                 className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-full shadow-xl shadow-emerald-500/30 transition-all hover:scale-105 flex items-center gap-2 text-base"
               >
                 Check Current Price <ChevronRight size={20} />
@@ -758,7 +780,7 @@ export default function Home({ context }: MarketContextProps) {
               </tr>
             </thead>
             <tbody>
-              {products.map((p) => (
+              {localizedProducts.map((p) => (
                 <tr
                   key={p.id}
                   className={`border-b border-slate-100 ${p.isWinner ? "bg-emerald-50/60 font-semibold" : ""}`}
@@ -875,18 +897,13 @@ export default function Home({ context }: MarketContextProps) {
             ref={buudySectionRef}
             className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 pt-10 md:pt-10 p-6 md:p-10"
           >
-            <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
-              <Award size={16} className="md:w-[18px] md:h-[18px]" />
-              #1 Editor&apos;s Choice
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               {/* Left Column */}
               <div className="lg:col-span-4 flex flex-col items-center">
                 <div className="lg:sticky lg:top-8 w-full flex flex-col items-center">
                   <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center lg:hidden mt-3">
                     <a
-                      href={BUUDY_LINK}
+                      href={market.buudyUrl}
                       className="hover:text-emerald-600 transition-colors"
                     >
                       {winnerProduct.rank} {winnerProduct.name}
@@ -895,8 +912,12 @@ export default function Home({ context }: MarketContextProps) {
 
                   <a
                     href={winnerProduct.link}
-                    className="block w-full mb-4 group"
+                    className="relative block w-full mb-4 group"
                   >
+                    <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-emerald-700 shadow-lg ring-1 ring-emerald-100 backdrop-blur">
+                      <Award size={14} />
+                      #1 Top Pick
+                    </span>
                     <img
                       src={winnerProduct.image}
                       alt={winnerProduct.name}
@@ -933,27 +954,19 @@ export default function Home({ context }: MarketContextProps) {
                       <Zap size={14} />
                       <span>Only 23 left at this price</span>
                     </div>
-                    <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={20} fill="currentColor" />
-                      ))}
-                    </div>
+                    <GreenStarRating
+                      rating={winnerProduct.rating}
+                      forceFull
+                      size={20}
+                      className="mb-1"
+                    />
                     <p className="text-sm font-medium text-slate-500">
                       Overall rating {winnerProduct.rating}
                     </p>
 
                     {/* ===== CRO: Trustpilot mini badge ===== */}
                     <div className="mt-3 border border-slate-200 bg-white rounded-lg p-2 inline-flex items-center gap-2">
-                      <div className="flex gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="bg-[#00b67a] p-0.5 rounded-sm"
-                          >
-                            <Star size={10} className="text-white fill-white" />
-                          </div>
-                        ))}
-                      </div>
+                      <GreenStarRating rating={5} size={12} gap={2} />
                       <span className="text-xs text-slate-600">
                         on{" "}
                         <span className="font-bold text-slate-800">
@@ -1154,7 +1167,7 @@ export default function Home({ context }: MarketContextProps) {
                 {/* ===== CRO #10: CTA After Metrics ===== */}
                 <div className="mb-8">
                   <CTAButton
-                    href={BUUDY_LINK}
+                    href={market.buudyUrl}
                     text="Get 60% Off — Limited Time"
                     className="w-full"
                   />
@@ -1163,7 +1176,7 @@ export default function Home({ context }: MarketContextProps) {
                 {/* ===== CRO #7a: Customer Review Cards ===== */}
                 <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-8">
                   <h4 className="font-bold text-slate-900 mb-5 text-lg flex items-center gap-2">
-                    <Star className="text-amber-400 fill-amber-400" size={20} />{" "}
+                    <GreenStarIcon size={20} />{" "}
                     What UK Customers Are Saying
                   </h4>
                   <div className="space-y-5">
@@ -1192,15 +1205,12 @@ export default function Home({ context }: MarketContextProps) {
                             </span>
                           )}
                         </div>
-                        <div className="flex items-center gap-0.5 mb-2">
-                          {[...Array(review.stars)].map((_, i) => (
-                            <Star
-                              key={i}
-                              size={14}
-                              className="text-amber-400 fill-amber-400"
-                            />
-                          ))}
-                        </div>
+                        <GreenStarRating
+                          rating={review.stars}
+                          size={14}
+                          gap={2}
+                          className="mb-2 justify-start"
+                        />
                         <p className="text-sm text-slate-600 leading-relaxed">
                           &ldquo;{review.text}&rdquo;
                         </p>
@@ -1265,7 +1275,7 @@ export default function Home({ context }: MarketContextProps) {
                             Normally £39
                           </span>
                           <img
-                            src="https://img.thesitebase.net/10650/10650730/themes/17682450181b5f55beb5.png?width=640&height=0&min_height=0"
+                            src="/img/93-w.webp"
                             alt="Premium Travel Box"
                             className="w-full aspect-square object-cover"
                           />
@@ -1288,7 +1298,7 @@ export default function Home({ context }: MarketContextProps) {
                             Normally £70
                           </span>
                           <img
-                            src="https://img.thesitebase.net/10650/10650730/products/ver_1/176738038817f3610740.png?width=640&height=0&min_height=0"
+                            src="/img/35-w.webp"
                             alt="Buudy LED Torch"
                             className="w-full aspect-square object-cover"
                           />
@@ -1311,7 +1321,7 @@ export default function Home({ context }: MarketContextProps) {
                             Normally £19
                           </span>
                           <img
-                            src="https://img.thesitebase.net/10650/10650730/themes/17682431737d583cc2df.png?width=640&height=0&min_height=0"
+                            src="/img/94-w.webp"
                             alt="Skincare E-Book"
                             className="w-full aspect-square object-cover"
                           />
@@ -1323,7 +1333,7 @@ export default function Home({ context }: MarketContextProps) {
                     </div>
 
                     <a
-                      href={BUUDY_LINK}
+                      href={market.buudyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg md:text-xl text-center py-4 md:py-5 rounded-2xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] relative overflow-hidden group border-2 border-blue-500"
@@ -1416,26 +1426,17 @@ export default function Home({ context }: MarketContextProps) {
                       <span className="font-bold text-lg text-black font-sans">
                         Excellent
                       </span>
-                      <div className="flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <div key={i} className="bg-[#00b67a] p-1 rounded-sm">
-                            <Star size={16} className="text-white fill-white" />
-                          </div>
-                        ))}
-                      </div>
+                      <GreenStarRating rating={5} size={18} gap={4} />
                     </div>
                     <div className="text-sm text-gray-600 flex items-center justify-center gap-1 font-sans">
                       Rated 4.9 / 5 on{" "}
-                      <Star
-                        size={16}
-                        className="text-[#00b67a] fill-[#00b67a]"
-                      />{" "}
+                      <GreenStarIcon size={16} />{" "}
                       <span className="font-bold text-black">Trustpilot</span>
                     </div>
                   </div>
 
                   <a
-                    href={BUUDY_LINK}
+                    href={market.buudyUrl}
                     className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                   >
                     CHECK AVAILABILITY
@@ -1446,7 +1447,7 @@ export default function Home({ context }: MarketContextProps) {
           </div>
 
           {/* ===== CRO #14: Reminder Banner before #2 ===== */}
-          <BuudyReminderBanner />
+          <BuudyReminderBanner href={market.buudyUrl} />
 
           {/* ====== COMPETITOR #2 (Always visible) ====== */}
           {visibleCompetitors.map((product) => (
@@ -1473,11 +1474,11 @@ export default function Home({ context }: MarketContextProps) {
                           {product.price}
                         </span>
                       </div>
-                      <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={20} fill="currentColor" />
-                        ))}
-                      </div>
+                      <GreenStarRating
+                        rating={product.rating}
+                        size={20}
+                        className="mb-1"
+                      />
                       <p className="text-sm font-medium text-slate-500">
                         Overall rating {product.rating}
                       </p>
@@ -1653,7 +1654,7 @@ export default function Home({ context }: MarketContextProps) {
           ))}
 
           {/* ===== CRO #14: Reminder Banner after #2 ===== */}
-          {!showAllProducts && <BuudyReminderBanner />}
+          {!showAllProducts && <BuudyReminderBanner href={market.buudyUrl} />}
 
           {/* ===== CRO #17: Collapsible products #3-#5 on mobile ===== */}
           {!showAllProducts && (
@@ -1701,11 +1702,11 @@ export default function Home({ context }: MarketContextProps) {
                                   {product.price}
                                 </span>
                               </div>
-                              <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                                {[...Array(5)].map((_, i) => (
-                                  <Star key={i} size={20} fill="currentColor" />
-                                ))}
-                              </div>
+                              <GreenStarRating
+                                rating={product.rating}
+                                size={20}
+                                className="mb-1"
+                              />
                               <p className="text-sm font-medium text-slate-500">
                                 Overall rating {product.rating}
                               </p>
@@ -1895,7 +1896,7 @@ export default function Home({ context }: MarketContextProps) {
                     </div>
                     {/* Reminder banner after #3 and #4 */}
                     {productIndex < hiddenCompetitors.length - 1 && (
-                      <BuudyReminderBanner />
+                      <BuudyReminderBanner href={market.buudyUrl} />
                     )}
                   </React.Fragment>
                 ))}
@@ -1908,7 +1909,7 @@ export default function Home({ context }: MarketContextProps) {
       {/* ===== CRO #18: Improved Sticky Mobile CTA ===== */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-center">
         <a
-          href={BUUDY_LINK}
+          href={market.buudyUrl}
           className="w-full text-center bg-emerald-500 text-white px-2 py-3.5 rounded-full font-bold text-[13px] sm:text-base shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Take me to the winning LED Mask</span>

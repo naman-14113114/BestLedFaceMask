@@ -1,18 +1,12 @@
 'use client';
 import React from 'react';
-import { CheckCircle2, XCircle, Award, ChevronRight, Calendar, ShieldCheck, Check, AlertTriangle, ThermometerSun, Bug, Droplets, Zap, ShieldAlert, Eye } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, Calendar, ShieldCheck, Check, AlertTriangle, ThermometerSun, Bug, Droplets, Zap, Eye } from 'lucide-react';
 import { motion } from 'motion/react';
+import { GreenStarIcon, GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton, MetricBar } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
-
-function SharpStar({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="#00b67a" className={className} aria-hidden="true">
-      <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
-    </svg>
-  );
-}
 
 const siliconeDangers = [
   {
@@ -103,13 +97,13 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img 
-                src="https://img.thesitebase.net/10677/10677322/themes/1770302958c850cb975e.png" 
-                alt="Dr. Elizabeth Vance" 
+                src={EXPERT_PROFILE.image}
+                alt={EXPERT_PROFILE.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Elizabeth Vance</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Certified Dermatologist</p>
+                <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -121,7 +115,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">Dr. Elizabeth Vance</strong> is a certified dermatologist and beauty technology expert with over 12 years of experience evaluating skincare devices. After witnessing a surge in patients presenting with skin damage from silicone-based LED masks, she conducted a comprehensive investigation into the hidden dangers of these popular devices.
+              <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> is a certified dermatologist and beauty technology expert with over {EXPERT_PROFILE.yearsExperience} years of experience evaluating skincare devices. After witnessing a surge in patients presenting with skin damage from silicone-based LED masks, she conducted a comprehensive investigation into the hidden dangers of these popular devices.
             </p>
           </div>
         </div>
@@ -201,11 +195,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100"
               >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <SharpStar key={i} size={16} />
-                  ))}
-                </div>
+                <GreenStarRating rating={5} size={16} className="mb-4 justify-start" />
                 <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed italic mb-4">
                   "{expert.quote}"
                 </blockquote>
@@ -288,7 +278,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                     Buudy 7 Color LED Therapy Mask
                   </h3>
                   
-                  <a href="https://buudy.com/pages/buudy-led-mask" className="block w-full mb-6 group">
+                  <a href="https://buudy.com/products/buudy-led-mask" className="block w-full mb-6 group">
                     <img 
                       src="/img/57-w.webp"
                       alt="Buudy 7 Color LED Therapy Mask" 
@@ -301,23 +291,19 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                       <span className="text-3xl font-extrabold text-slate-900">£179</span>
                       <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                     </div>
-                    <div className="flex items-center justify-center gap-1 mb-1">
-                      {[...Array(5)].map((_, i) => (
-                        <SharpStar key={i} size={30} />
-                      ))}
-                    </div>
+                    <GreenStarRating rating={5} size={30} className="mb-1" />
                     <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                   </div>
 
                   <div className="w-full hidden lg:block">
-                    <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                    <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-8">
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
-                  <a href="https://buudy.com/pages/buudy-led-mask" className="hover:text-emerald-600 transition-colors">
+                  <a href="https://buudy.com/products/buudy-led-mask" className="hover:text-emerald-600 transition-colors">
                     Buudy 7 Color LED Therapy Mask
                   </a>
                 </h3>
@@ -396,7 +382,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 </div>
 
                 <div className="w-full mt-8 lg:hidden">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
                 </div>
               </div>
             </div>
@@ -417,9 +403,9 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
               
               <div className="relative group">
-                <a href="https://buudy.com/pages/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
+                <a href="https://buudy.com/products/buudy-led-mask" className="block relative rounded-2xl overflow-hidden shadow-lg">
                   <img 
-                    src="https://img.thesitebase.net/10677/10677322/themes/176943060543a303d043.png?width=828&height=0&min_height=0" 
+                    src="/img/39-w.webp"
                     alt="Buudy LED Mask" 
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
@@ -440,23 +426,15 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 <div className="border border-gray-200 bg-white/60 rounded-xl p-5 mx-auto mb-8 inline-block shadow-sm">
                   <div className="flex items-center justify-center gap-3 mb-3">
                     <span className="font-extrabold text-xl md:text-2xl text-black font-sans">Excellent</span>
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i} className="flex items-center justify-center bg-[#00b67a] w-7 h-7 md:w-8 md:h-8">
-                          <svg width={18} height={18} viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                            <polygon points="12,1.5 15.09,8.26 22.5,9.27 17.25,14.14 18.54,21.5 12,17.77 5.46,21.5 6.75,14.14 1.5,9.27 8.91,8.26" />
-                          </svg>
-                        </span>
-                      ))}
-                    </div>
+                    <GreenStarRating rating={5} size={18} gap={4} />
                   </div>
                   <div className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-1.5 font-sans">
-                    Rated <span className="font-bold text-black">4.9 / 5</span> on <SharpStar size={20} /> <span className="font-bold text-black">Trustpilot</span>
+                    Rated <span className="font-bold text-black">4.9 / 5</span> on <GreenStarIcon size={20} /> <span className="font-bold text-black">Trustpilot</span>
                   </div>
                 </div>
 
                 <a 
-                  href="https://buudy.com/pages/buudy-led-mask" 
+                  href="https://buudy.com/products/buudy-led-mask" 
                   className="mx-auto bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   SHOP NOW
@@ -474,7 +452,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/pages/buudy-led-mask" 
+          href="https://buudy.com/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>

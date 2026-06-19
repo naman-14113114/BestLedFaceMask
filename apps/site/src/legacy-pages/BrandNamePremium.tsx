@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, TrendingUp, HandCoins, Star, XCircle, Award, BadgePoundSterling } from 'lucide-react';
+import { AlertTriangle, Calendar, Check, CheckCircle2, TrendingUp, HandCoins, XCircle, Award, BadgePoundSterling } from 'lucide-react';
 import { motion } from 'motion/react';
+import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
+import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
 
 const dangerPoints = [
@@ -42,13 +44,13 @@ const comparisonPoints = [
 
 const expertQuotes = [
   {
-    name: "Jane Reynolds",
-    title: "Cosmetic Formulation Chemist",
+    name: EXPERT_PROFILE.name,
+    title: EXPERT_PROFILE.title,
     quote: "If you strip away the designer packaging and the celebrity endorsements, the internal circuit boards of a £500 mask and a £200 mask often roll off very similar assembly lines. You are almost exclusively paying a 'brand tax' for the logo printed on the silicone."
   },
   {
-    name: "Dr. Mark Evans",
-    title: "Dermatologist & Medical Board Member",
+    name: EXPERT_PROFILE.name,
+    title: EXPERT_PROFILE.title,
     quote: "I always advise my patients to buy specs, not brands. Look for the nanometer wavelengths (630nm red, 415nm blue) and FDA clearance. If a device has those, spending an extra £300 just because it was in Vogue magazine is financially foolish."
   }
 ];
@@ -71,13 +73,13 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" 
-                alt="Jane Reynolds" 
+                src={EXPERT_PROFILE.image}
+                alt={EXPERT_PROFILE.name}
                 className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
               />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Jane Reynolds</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Cosmetic Tech Analyst</p>
+                <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -85,6 +87,12 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
               <Calendar size={16} className="text-emerald-500" />
               Last updated – {context.updatedDate}
             </div>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
+            <p>
+              {EXPERT_PROFILE_BIO} For this analysis, she reviewed premium LED mask positioning, specifications, and pricing claims to separate product value from brand markup.
+            </p>
           </div>
         </div>
       </header>
@@ -143,9 +151,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100"
               >
-                <div className="flex items-center gap-1 mb-4 text-amber-400">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
+                <GreenStarRating rating={5} size={16} className="mb-4 justify-start" />
                 <blockquote className="text-slate-700 text-base md:text-lg leading-relaxed italic mb-4">
                   "{expert.quote}"
                 </blockquote>
@@ -229,13 +235,11 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                     <span className="text-3xl font-extrabold text-slate-900">£179</span>
                     <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                   </div>
-                  <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-                  </div>
+                  <GreenStarRating rating={5} size={20} className="mb-1" />
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
                 </div>
               </div>
 
@@ -269,7 +273,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.com/pages/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.com/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
                 </div>
               </div>
             </div>
@@ -285,7 +289,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
           <span className="text-xs text-red-500 font-bold uppercase tracking-wide">60% OFF Today</span>
         </div>
         <a 
-          href="https://buudy.com/pages/buudy-led-mask" 
+          href="https://buudy.com/products/buudy-led-mask" 
           className="bg-emerald-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
           <span className="relative z-10">Shop Now</span>
