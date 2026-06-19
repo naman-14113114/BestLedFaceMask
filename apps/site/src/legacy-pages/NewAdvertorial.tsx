@@ -792,7 +792,7 @@ export default function Home({
               <span>Best LED Face Masks of 2026</span>
             ) : (
               <>
-                <span className="block whitespace-nowrap md:inline">
+                <span className="block md:inline">
                   Best LED Face Masks of 2026 in{" "}
                 </span>
                 <span className="block md:inline md:ml-2">
