@@ -870,6 +870,15 @@ export default function Home({
               key={product.id}
               className={`relative bg-white rounded-3xl shadow-sm border ${product.isWinner ? "border-emerald-500 ring-4 ring-emerald-50" : "border-slate-200"} p-6 md:p-10`}
             >
+              {product.isWinner && (
+                <div className="sticky top-4 z-30 h-0 w-full">
+                  <img
+                    src="/img/best-product-badge.png"
+                    alt="No. 1 Best Product"
+                    className="absolute -top-10 -left-10 md:-top-14 md:-left-14 w-32 md:w-48 object-contain drop-shadow-xl pointer-events-none"
+                  />
+                </div>
+              )}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
                 {/* Left Column: Image & Quick Stats */}
                 <div className="lg:col-span-4 flex flex-col items-center">
@@ -879,11 +888,6 @@ export default function Home({
                     </h2>
 
                     <div className="relative w-full mb-6">
-                      {product.isWinner && (
-                        <div className="absolute left-3 top-3 z-10 rounded-full border border-white/70 bg-emerald-600 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-white shadow-lg md:left-4 md:top-4 md:px-4 md:py-2 md:text-sm">
-                          #1 Top Pick
-                        </div>
-                      )}
                       <a
                         href={product.link}
                         onClick={(event) =>

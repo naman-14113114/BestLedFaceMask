@@ -897,6 +897,13 @@ export default function Home({ context }: MarketContextProps) {
             ref={buudySectionRef}
             className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 pt-10 md:pt-10 p-6 md:p-10"
           >
+            <div className="sticky top-4 z-30 h-0 w-full">
+              <img
+                src="/img/best-product-badge.png"
+                alt="No. 1 Best Product"
+                className="absolute -top-10 -left-10 md:-top-14 md:-left-14 w-32 md:w-48 object-contain drop-shadow-xl pointer-events-none"
+              />
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               {/* Left Column */}
               <div className="lg:col-span-4 flex flex-col items-center">
@@ -914,10 +921,7 @@ export default function Home({ context }: MarketContextProps) {
                     href={winnerProduct.link}
                     className="relative block w-full mb-4 group"
                   >
-                    <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-emerald-700 shadow-lg ring-1 ring-emerald-100 backdrop-blur">
-                      <Award size={14} />
-                      #1 Top Pick
-                    </span>
+                    
                     <img
                       src={winnerProduct.image}
                       alt={winnerProduct.name}

@@ -286,12 +286,7 @@ export default function DeluxeskinComparison({ context }: MarketContextProps) {
                     </h2>
                     
                     <a href={product.link} className="relative block w-full mb-6 group">
-                      {product.isWinner && (
-                        <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-emerald-700 shadow-lg ring-1 ring-emerald-100 backdrop-blur">
-                          <Award size={14} />
-                          #1 Top Pick
-                        </span>
-                      )}
+                      
                       <img 
                         src={product.image} 
                         alt={product.name} 
