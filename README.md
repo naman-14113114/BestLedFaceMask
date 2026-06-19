@@ -2,7 +2,7 @@
 
 Clean pnpm/Turborepo monorepo for the Best LED Face Mask review site.
 
-This repository contains one deployable Next.js application, `@trustpilotreview/site`, plus shared workspace packages for TypeScript, ESLint, UI, and shared utilities. The project was refactored from a mixed static/Vite export into a scalable monorepo while preserving the original content, visual output, media, tracking scripts, SEO files, and GEO/LLM files.
+This repository contains one deployable Next.js application, `@bestledfacemask/site`, plus shared workspace packages for TypeScript, ESLint, UI, and shared utilities.
 
 ## Tech Stack
 
@@ -46,7 +46,7 @@ This repository contains one deployable Next.js application, `@trustpilotreview/
 
 ## Applications And Packages
 
-- `apps/site`: The only deployable app. Package name: `@trustpilotreview/site`.
+- `apps/site`: The only deployable app. Package name: `@bestledfacemask/site`.
 - `packages/tsconfig`: Shared TypeScript configuration.
 - `packages/eslint-config`: Shared ESLint configuration.
 - `packages/shared`: Shared utility package, currently minimal and ready for future shared code.

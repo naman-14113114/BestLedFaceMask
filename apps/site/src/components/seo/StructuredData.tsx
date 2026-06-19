@@ -18,11 +18,8 @@ const homeSchema = {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
-      description: `${SITE_NAME} publishes UK-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`,
-      areaServed: {
-        "@type": "Country",
-        name: "United Kingdom",
-      },
+      description: `${SITE_NAME} publishes independent LED face mask comparisons and country-specific buyer guides.`,
+      areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
         "red light therapy masks",
@@ -39,7 +36,7 @@ const homeSchema = {
       publisher: {
         "@id": "https://www.bestledfacemask.org/#organization",
       },
-      inLanguage: "en-GB",
+      inLanguage: "en",
     },
     {
       "@type": "CollectionPage",
@@ -52,7 +49,7 @@ const homeSchema = {
       about: [
         "LED face mask reviews",
         "red light therapy masks",
-        "best LED face mask UK",
+        "best LED face mask",
         "LED mask with neck coverage",
       ],
     },
@@ -71,11 +68,8 @@ const advertorialSchema = {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
-      description: `${SITE_NAME} publishes UK-focused beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
-      areaServed: {
-        "@type": "Country",
-        name: "United Kingdom",
-      },
+      description: `${SITE_NAME} publishes independent beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
+      areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
         "red light therapy masks",
@@ -94,22 +88,6 @@ const advertorialSchema = {
         "@id": "https://www.bestledfacemask.org/#organization",
       },
       inLanguage: "en-GB",
-    },
-    {
-      "@type": "Person",
-      "@id": "https://www.bestledfacemask.org/#author-gabriella-vasili",
-      name: "Dr. Gabriella Vasili, MD",
-      jobTitle: "Dermatologist and beauty technology reviewer",
-      knowsAbout: [
-        "dermatology",
-        "red light therapy",
-        "LED phototherapy",
-        "skin rejuvenation",
-        "acne and blemish-prone skin",
-      ],
-      worksFor: {
-        "@id": "https://www.bestledfacemask.org/#organization",
-      },
     },
     {
       "@type": "WebPage",
@@ -145,7 +123,7 @@ const advertorialSchema = {
       datePublished: "2026-06-12",
       dateModified: "2026-06-13",
       author: {
-        "@id": "https://www.bestledfacemask.org/#author-gabriella-vasili",
+        "@id": "https://www.bestledfacemask.org/#organization",
       },
       publisher: {
         "@id": "https://www.bestledfacemask.org/#organization",
@@ -187,7 +165,7 @@ const advertorialSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Buudy 7 Colour LED Mask",
-          url: "https://buudy.co.uk/products/buudy-led-mask",
+          url: "https://www.buudy.co.uk/products/buudy-led-mask",
         },
         {
           "@type": "ListItem",
@@ -226,16 +204,10 @@ const advertorialSchema = {
       category: "At-home LED light therapy mask",
       offers: {
         "@type": "Offer",
-        url: "https://buudy.co.uk/products/buudy-led-mask",
+        url: "https://www.buudy.co.uk/products/buudy-led-mask",
         price: "179.00",
         priceCurrency: "GBP",
         availability: "https://schema.org/InStock",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        bestRating: "5",
-        reviewCount: "16000",
       },
       additionalProperty: [
         {
@@ -278,7 +250,7 @@ const advertorialSchema = {
           name: "What is the best LED face mask in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at Â£179.",
+            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at £179.",
           },
         },
         {
@@ -323,13 +295,6 @@ const advertorialSchema = {
 
 type SchemaNode = Record<string, unknown>;
 
-function setNestedObjectValue(node: SchemaNode, key: string, value: unknown) {
-  const nested = node[key];
-  if (nested && typeof nested === "object" && !Array.isArray(nested)) {
-    (nested as SchemaNode).name = value;
-  }
-}
-
 function getCanadaItemListElement(buudyUrl: string) {
   return [
     {
@@ -362,10 +327,6 @@ function getCanadaItemListElement(buudyUrl: string) {
 }
 
 function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
-  if (marketKey === "uk") {
-    return advertorialSchema;
-  }
-
   const market = advertorialMarkets[marketKey];
   const routeUrl = `${siteUrl}${market.route}`;
   const countryLower = market.countryName.toLowerCase();
@@ -380,7 +341,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   );
   for (const node of organizationNodes) {
     node.description = `${SITE_NAME} publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
-    setNestedObjectValue(node, "areaServed", market.countryName);
+    node.areaServed = market.key === "global"
+      ? "Worldwide"
+      : { "@type": "Country", name: market.countryName };
   }
 
   const website = graph.find((node) => node["@type"] === "WebSite");
@@ -392,7 +355,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   if (webpage) {
     webpage["@id"] = `${routeUrl}#webpage`;
     webpage.url = routeUrl;
-    webpage.name = `Best LED Face Mask ${market.countryName} (2026)`;
+    webpage.name = market.key === "global"
+      ? "Best LED Face Mask (2026)"
+      : `Best LED Face Mask ${market.countryName} (2026)`;
     webpage.about = [
       `best LED face mask ${market.countryName}`,
       "red light therapy mask",
@@ -406,8 +371,10 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   if (article) {
     article["@id"] = `${routeUrl}#article`;
     article.mainEntityOfPage = { "@id": `${routeUrl}#webpage` };
-    article.headline = `Best LED Face Mask ${market.countryName} (2026) | Best LED Light Therapy Mask Reviews`;
-    article.description = `A ${market.countryAdjective} comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.`;
+    article.headline = market.key === "global"
+      ? "Best LED Face Mask (2026) | Independent Comparison"
+      : `Best LED Face Mask ${market.countryName} (2026) | Independent Comparison`;
+    article.description = `An independent ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, guarantees, and overall value.`;
     article.keywords = [
       "best led face mask",
       `best led face mask ${countryLower}`,

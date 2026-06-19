@@ -1,3 +1,3 @@
-import nextConfig from "@trustpilotreview/eslint-config/next";
+import nextConfig from "@bestledfacemask/eslint-config/next";
 
 export default nextConfig;

@@ -1,5 +1,5 @@
 {
-  "name": "@trustpilotreview/ui",
+  "name": "@bestledfacemask/ui",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,8 +12,8 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@trustpilotreview/eslint-config": "workspace:*",
-    "@trustpilotreview/tsconfig": "workspace:*",
+    "@bestledfacemask/eslint-config": "workspace:*",
+    "@bestledfacemask/tsconfig": "workspace:*",
     "eslint": "^9",
     "typescript": "^5"
   },

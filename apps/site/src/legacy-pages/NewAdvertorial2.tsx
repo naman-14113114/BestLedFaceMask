@@ -21,7 +21,7 @@ import { OutboundLoader } from "@/components/OutboundLoader";
 import { getMobileProsCons } from "./mobileProsCons";
 import type { MarketContextProps } from "@/lib/marketContext";
 
-const BUUDY_LINK = "https://buudy.co.uk/products/buudy-led-mask";
+const BUUDY_LINK = "https://www.buudy.co.uk/products/buudy-led-mask";
 
 const criteria = [
   "Scientific effectiveness of the light wavelengths",

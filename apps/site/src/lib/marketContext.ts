@@ -6,10 +6,11 @@ import {
   type AdvertorialMarketKey
 } from "@/lib/advertorialMarkets";
 
-export type MarketCurrencyCode = "GBP" | "AUD" | "CAD";
+export type MarketCurrencyCode = "USD" | "GBP" | "AUD" | "CAD";
 
 export type MarketRates = {
   GBP: 1;
+  USD: number;
   AUD: number;
   CAD: number;
   asOf: string;
@@ -28,6 +29,7 @@ export type MarketContextProps = {
 
 const FALLBACK_RATES: MarketRates = {
   GBP: 1,
+  USD: 1.34,
   AUD: 1.9001,
   CAD: 1.8788,
   asOf: "2026-06-18",
@@ -35,6 +37,8 @@ const FALLBACK_RATES: MarketRates = {
 };
 
 const MARKET_TIME_ZONES: Record<AdvertorialMarketKey, string> = {
+  global: "UTC",
+  us: "America/New_York",
   uk: "Europe/London",
   au: "Australia/Sydney",
   ca: "America/Toronto"
@@ -53,18 +57,20 @@ function marketFromCountry(country: string | null): AdvertorialMarketKey {
       return "au";
     case "CA":
       return "ca";
+    case "US":
+      return "us";
     case "GB":
     case "UK":
       return "uk";
     default:
-      return "uk";
+      return "global";
   }
 }
 
 async function getRates(): Promise<MarketRates> {
   try {
     const response = await fetch(
-      "https://api.frankfurter.dev/v2/rates?base=GBP&quotes=AUD,CAD",
+      "https://api.frankfurter.dev/v2/rates?base=GBP&quotes=USD,AUD,CAD",
       {
         next: { revalidate: 86_400 },
         signal: AbortSignal.timeout(2_500)
@@ -76,10 +82,13 @@ async function getRates(): Promise<MarketRates> {
     const rows = (await response.json()) as FrankfurterRate[];
     const aud = rows.find((row) => row.quote === "AUD");
     const cad = rows.find((row) => row.quote === "CAD");
+    const usd = rows.find((row) => row.quote === "USD");
 
     if (
+      typeof usd?.rate !== "number" ||
       typeof aud?.rate !== "number" ||
       typeof cad?.rate !== "number" ||
+      !Number.isFinite(usd.rate) ||
       !Number.isFinite(aud.rate) ||
       !Number.isFinite(cad.rate)
     ) {
@@ -88,6 +97,7 @@ async function getRates(): Promise<MarketRates> {
 
     return {
       GBP: 1,
+      USD: usd.rate,
       AUD: aud.rate,
       CAD: cad.rate,
       asOf: aud.date ?? cad.date ?? FALLBACK_RATES.asOf,

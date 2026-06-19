@@ -10,12 +10,22 @@ export function HomeNoscriptContent() {
       <main>
         <h1>{SITE_NAME}</h1>
         <p>
-          UK-focused LED face mask reviews and buyer guides covering red light
-          therapy, light wavelengths, face and neck coverage, safety, price, and
-          value.
+          Independent LED face mask reviews and country-specific buyer guides
+          covering red light therapy, light wavelengths, face and neck coverage,
+          safety, price, and value.
         </p>
         <h2>Important Guides</h2>
         <ul>
+          <li>
+            <a href="https://www.bestledfacemask.org/best-led-face-mask-2026">
+              Best LED Face Mask 2026
+            </a>
+          </li>
+          <li>
+            <a href="https://www.bestledfacemask.org/best-led-face-mask-us-2026">
+              Best LED Face Mask USA 2026
+            </a>
+          </li>
           <li>
             <a href="https://www.bestledfacemask.org/best-led-face-mask-uk-2026">
               Best LED Face Mask UK 2026
@@ -200,7 +210,7 @@ export function AdvertorialNoscriptContent({
               UK buyers. Includes 7 visible colours, 830nm near-infrared
               support, built-in neck coverage, eye protection, cordless use,
               Buudy AI guided sessions, and a 90-day money-back guarantee.
-              Current reviewed price: Â£179.
+              Current reviewed price: £179.
             </li>
             <li>
               <strong>CurrentBody LED Mask</strong>: Strong brand recognition
@@ -225,7 +235,7 @@ export function AdvertorialNoscriptContent({
           </ol>
           <p>
             For availability and current offer details, visit{" "}
-            <a href="https://buudy.co.uk/products/buudy-led-mask">
+            <a href="https://www.buudy.co.uk/products/buudy-led-mask">
               the Buudy 7 Colour LED Mask product page
             </a>
             .
@@ -238,7 +248,7 @@ export function AdvertorialNoscriptContent({
             Our comparison ranks the Buudy 7 Colour LED Mask as the strongest
             value pick because it combines 7 visible colour modes, 830nm
             near-infrared support, face and neck coverage, eye protection, and a
-            90-day guarantee at Â£179.
+            90-day guarantee at £179.
           </p>
           <h3>Do more expensive LED masks always perform better?</h3>
           <p>

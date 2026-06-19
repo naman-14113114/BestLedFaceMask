@@ -36,6 +36,7 @@ const publicTextFiles = [
   path.join(siteRoot, "public", "llms-full.txt"),
   path.join(siteRoot, "public", "robots.txt")
 ];
+const legacyBrand = ["Trustpilot", " Review"].join("");
 
 assert(
   marketContext.includes('requestHeaders.get("x-vercel-ip-country")'),
@@ -81,8 +82,8 @@ for (const file of sourceFiles) {
     `${path.relative(root, file)} must render its date in the initial HTML`
   );
   assert(
-    !content.includes("Trustpilot Review Shop") &&
-      !content.includes("Trustpilot Review |"),
+    !content.includes(`${legacyBrand} Shop`) &&
+      !content.includes(`${legacyBrand} |`),
     `${path.relative(root, file)} must use the Best LED Face Mask brand`
   );
 }
@@ -90,12 +91,14 @@ for (const file of sourceFiles) {
 for (const file of publicTextFiles) {
   const content = read(file);
   assert(
-    !content.includes("Trustpilot Review Shop"),
+    !content.includes(`${legacyBrand} Shop`),
     `${path.relative(root, file)} must use the Best LED Face Mask brand`
   );
 }
 
 const explicitRoutes = [
+  ["best-led-face-mask-2026", "global"],
+  ["best-led-face-mask-us-2026", "us"],
   ["best-led-face-mask-uk-2026", "uk"],
   ["best-led-face-mask-au-2026", "au"],
   ["best-led-face-mask-ca-2026", "ca"]
@@ -107,6 +110,22 @@ for (const [route, market] of explicitRoutes) {
     page.includes(`getRequestPageContext("${market}")`),
     `${route} must keep route-market precedence`
   );
+  assert(
+    page.includes(`advertorialMetadata("/${route}", "${market}")`),
+    `${route} must bind metadata to its explicit market`
+  );
 }
+
+const metadata = read(path.join(siteRoot, "src", "lib", "metadata.ts"));
+for (const route of explicitRoutes.map(([route]) => `/${route}`)) {
+  assert(
+    metadata.includes(route),
+    `${route} must appear in the reciprocal hreflang map`
+  );
+}
+assert(
+  metadata.includes('"x-default": `${siteUrl}/best-led-face-mask-2026`'),
+  "global guide must be the x-default hreflang target"
+);
 
 console.log("First-load, market localization, and branding verification passed");

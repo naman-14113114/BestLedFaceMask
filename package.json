@@ -1,5 +1,5 @@
 {
-  "name": "trustpilotreview",
+  "name": "best-led-face-mask",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@11.1.1",
@@ -8,9 +8,9 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "dev:site": "pnpm --filter @trustpilotreview/site dev",
-    "build:site": "pnpm --filter @trustpilotreview/site build",
-    "verify": "node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs && node scripts/verify-localization.mjs"
+    "dev:site": "pnpm --filter @bestledfacemask/site dev",
+    "build:site": "pnpm --filter @bestledfacemask/site build",
+    "verify": "node scripts/verify-domain-independence.mjs && node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs && node scripts/verify-localization.mjs"
   },
   "devDependencies": {
     "turbo": "^2.8.6",

@@ -1,13 +1,17 @@
 (function () {
-  var BUUDY_HOST_RE = /(^|\.)buudy\.com$/i;
+  var BUUDY_HOST_RE = /(^|\.)buudy\.(com|co\.uk)$/i;
   var CONVERSION_VALUE = 330;
   var CONVERSION_CURRENCY = "INR";
   var CONVERSION_EVENT_NAMES = ["buudy_outbound_click", "affiliate_click"];
   var DEDUPE_WINDOW_MS = 1200;
-  var UK_BUUDY_LED_MASK_URL = "https://buudy.co.uk/products/buudy-led-mask";
+  var GLOBAL_BUUDY_LED_MASK_URL = "https://buudy.com/products/buudy-led-mask";
+  var US_BUUDY_LED_MASK_URL = "https://us.buudy.com/products/buudy-led-mask";
+  var UK_BUUDY_LED_MASK_URL = "https://www.buudy.co.uk/products/buudy-led-mask";
   var AU_BUUDY_LED_MASK_URL = "https://au.buudy.com/products/buudy-led-mask";
   var CA_BUUDY_LED_MASK_URL = "https://ca.buudy.com/products/buudy-led-mask";
   var MARKET_BUUDY_URLS = [
+    { path: "/best-led-face-mask-2026", url: GLOBAL_BUUDY_LED_MASK_URL },
+    { path: "/best-led-face-mask-us-2026", url: US_BUUDY_LED_MASK_URL },
     { path: "/best-led-face-mask-au-2026", url: AU_BUUDY_LED_MASK_URL },
     { path: "/best-led-face-mask-ca-2026", url: CA_BUUDY_LED_MASK_URL },
     { path: "/best-led-face-mask-uk-2026", url: UK_BUUDY_LED_MASK_URL },
@@ -75,12 +79,12 @@
       }
     }
 
-    return UK_BUUDY_LED_MASK_URL;
+    return GLOBAL_BUUDY_LED_MASK_URL;
   }
 
   function getPageBuudyUrl() {
     var regionalLink = document.querySelector(
-      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]',
+      'a[href*="buudy.co.uk/products/buudy-led-mask"],a[href*="us.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"],a[href*="buudy.com/products/buudy-led-mask"]',
     );
     return regionalLink ? regionalLink.href : FALLBACK_BUUDY_URL;
   }
@@ -167,6 +171,8 @@
       event_value: CONVERSION_VALUE,
       revenue_value: CONVERSION_VALUE,
       currency: CONVERSION_CURRENCY,
+      page_path: window.location.pathname,
+      destination_host: new URL(href).hostname,
     };
   }
 

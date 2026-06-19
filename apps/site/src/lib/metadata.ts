@@ -8,6 +8,15 @@ const ogImage = `${siteUrl}/img/57-w.webp`;
 const favicon = "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png";
 const robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 
+const advertorialLanguages = {
+  "x-default": `${siteUrl}/best-led-face-mask-2026`,
+  en: `${siteUrl}/best-led-face-mask-2026`,
+  "en-US": `${siteUrl}/best-led-face-mask-us-2026`,
+  "en-GB": `${siteUrl}/best-led-face-mask-uk-2026`,
+  "en-AU": `${siteUrl}/best-led-face-mask-au-2026`,
+  "en-CA": `${siteUrl}/best-led-face-mask-ca-2026`
+};
+
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: {
@@ -54,54 +63,39 @@ export const defaultAdvertorialMetadata: Metadata = {
   }
 };
 
-export function advertorialMetadata(pathname: string, marketKey: AdvertorialMarketKey = "uk"): Metadata {
+export function advertorialMetadata(pathname: string, marketKey: AdvertorialMarketKey = "global"): Metadata {
   const market = advertorialMarkets[marketKey];
-
-  if (marketKey !== "uk") {
-    const title = `Best LED Face Mask ${market.countryName} (2026) | Best LED Light Therapy Mask Reviews`;
-    const description = `Looking for the best LED face mask in ${market.countryName}? Compare the best LED light therapy masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.`;
-    const socialDescription = `Compare the best LED face masks in ${market.countryName} for wrinkles, red light therapy, at-home use, comfort, coverage, and overall value.`;
-
-    return {
-      ...defaultAdvertorialMetadata,
-      title,
-      description,
-      keywords:
-        `best led face mask, best led face mask ${market.countryName.toLowerCase()}, best led light therapy mask, best led mask for wrinkles, best red light therapy mask, best at home led face mask, best led light mask, best face led mask, best infrared face mask, top rated led face mask`,
-      alternates: {
-        canonical: `${siteUrl}${pathname}`,
-        languages: {
-          [market.languageName]: `${siteUrl}${pathname}`,
-          "x-default": `${siteUrl}${pathname}`
-        }
-      },
-      openGraph: {
-        ...defaultAdvertorialMetadata.openGraph,
-        title,
-        description: socialDescription,
-        url: `${siteUrl}${pathname}`,
-        locale: market.locale.replace("-", "_")
-      },
-      twitter: {
-        ...defaultAdvertorialMetadata.twitter,
-        title,
-        description: `Compare the best LED face masks in ${market.countryName} for wrinkles, acne, red light therapy, neck coverage, and value.`
-      }
-    };
-  }
-
+  const region = {
+    global: "",
+    us: " USA",
+    uk: " UK",
+    au: " Australia",
+    ca: " Canada"
+  }[marketKey];
+  const title = `Best LED Face Mask${region} (2026) | Expert Comparison`;
+  const description = marketKey === "global"
+    ? "Compare the best LED face masks of 2026 by wavelengths, coverage, comfort, safety, guarantee and value, with country-specific buying links."
+    : `Compare the best LED face masks in ${market.countryName} for wavelengths, face and neck coverage, comfort, safety, guarantee and overall value.`;
   return {
     ...defaultAdvertorialMetadata,
+    title,
+    description,
+    keywords: `best led face mask, best led face mask ${marketKey === "global" ? "2026" : market.countryName.toLowerCase()}, best led light therapy mask, best red light therapy mask, best at home led face mask, LED mask with neck coverage`,
     alternates: {
       canonical: `${siteUrl}${pathname}`,
-      languages: {
-        "en-GB": `${siteUrl}${pathname}`,
-        "x-default": `${siteUrl}${pathname}`
-      }
+      languages: advertorialLanguages
     },
     openGraph: {
       ...defaultAdvertorialMetadata.openGraph,
+      title,
+      description,
+      locale: market.locale.replace("-", "_"),
       url: `${siteUrl}${pathname}`
+    },
+    twitter: {
+      ...defaultAdvertorialMetadata.twitter,
+      title,
+      description
     }
   };
 }
@@ -110,10 +104,10 @@ export const homeMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
   description:
-    "UK-focused LED face mask reviews, buyer guides, and red light therapy comparisons covering wavelengths, safety, face and neck coverage, and value.",
+    "Independent LED face mask reviews and country-specific buyer guides covering wavelengths, safety, face and neck coverage, guarantees, and value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
-    "led face mask reviews, best led face mask uk, red light therapy mask uk, led mask buyer guide, led mask with neck coverage",
+    "led face mask reviews, best led face mask, red light therapy mask, led mask buyer guide, led mask with neck coverage",
   icons: {
     icon: favicon
   },
@@ -124,7 +118,7 @@ export const homeMetadata: Metadata = {
   openGraph: {
     title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
     description:
-      "Compare LED face masks, red light therapy devices, face and neck coverage, wavelengths, safety, and value for UK buyers.",
+      "Compare LED face masks, red light therapy devices, face and neck coverage, wavelengths, safety, guarantees, and value by market.",
     type: "website",
     url: `${siteUrl}/`,
     siteName: SITE_NAME,
@@ -137,6 +131,16 @@ export function legalMetadata(title: string): Metadata {
     metadataBase: new URL(siteUrl),
     title: `${title} | ${SITE_NAME}`,
     robots: "noindex, nofollow"
+  };
+}
+
+export function trustPageMetadata(title: string, description: string, pathname: string): Metadata {
+  return {
+    metadataBase: new URL(siteUrl),
+    title: `${title} | ${SITE_NAME}`,
+    description,
+    alternates: { canonical: `${siteUrl}${pathname}` },
+    robots
   };
 }
 

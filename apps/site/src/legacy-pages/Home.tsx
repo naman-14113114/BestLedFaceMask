@@ -1,195 +1,167 @@
 'use client';
-import { Helmet } from 'react-helmet-async';
+
+import { ArrowRight, BookOpen, Globe2, ShieldCheck, Waves } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/articles';
-import { Calendar, ChevronRight } from 'lucide-react';
-import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
-import { SITE_NAME } from '@/lib/brand';
 import type { MarketContextProps } from '@/lib/marketContext';
 
+const marketGuides = [
+  {
+    label: 'Global guide',
+    title: 'Best LED Face Masks of 2026',
+    description: 'Our worldwide comparison of wavelengths, coverage, comfort, guarantees and value.',
+    href: '/best-led-face-mask-2026',
+    code: 'INTL'
+  },
+  {
+    label: 'United States',
+    title: 'Best LED Face Masks in the USA',
+    description: 'US pricing, availability and retailer links for American buyers.',
+    href: '/best-led-face-mask-us-2026',
+    code: 'US'
+  },
+  {
+    label: 'United Kingdom',
+    title: 'Best LED Face Masks in the UK',
+    description: 'UK pricing, guarantees and buying options compared in pounds.',
+    href: '/best-led-face-mask-uk-2026',
+    code: 'UK'
+  },
+  {
+    label: 'Australia',
+    title: 'Best LED Face Masks in Australia',
+    description: 'Australian pricing and local shopping links in one focused guide.',
+    href: '/best-led-face-mask-au-2026',
+    code: 'AU'
+  },
+  {
+    label: 'Canada',
+    title: 'Best LED Face Masks in Canada',
+    description: 'Canada-specific products, pricing and availability for 2026.',
+    href: '/best-led-face-mask-ca-2026',
+    code: 'CA'
+  }
+];
+
+const recommendedRoute = {
+  global: '/best-led-face-mask-2026',
+  us: '/best-led-face-mask-us-2026',
+  uk: '/best-led-face-mask-uk-2026',
+  au: '/best-led-face-mask-au-2026',
+  ca: '/best-led-face-mask-ca-2026'
+} as const;
+
 export default function Home({ context }: MarketContextProps) {
-  const featured = articles[0];
-  const rest = articles.slice(1);
+  const recommendedGuide = marketGuides.find(
+    (guide) => guide.href === recommendedRoute[context.marketKey]
+  ) ?? marketGuides[0];
 
   return (
-    <MarketLocalizedContent context={context}>
-    <div className="w-full">
-      <Helmet>
-        <title>{SITE_NAME} | LED Face Mask Reviews & Buyer Guides</title>
-        <meta name="description" content="Honest product reviews and buyer guides for LED face masks and light therapy devices available in the UK. Compare features, prices, and real user experiences." />
-      </Helmet>
-
-      {/* Hero Section */}
-      <section className="bg-slate-900 text-white pt-16 pb-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png')] bg-cover bg-center" />
-        <div className="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1">
-            <div className="inline-block bg-emerald-500 text-white px-4 py-1.5 rounded-full font-bold text-xs tracking-wide uppercase mb-6">Featured Article</div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 font-serif">
-              {featured.title}
+    <div className="w-full bg-white">
+      <section className="border-b border-slate-200 bg-slate-950 px-4 py-16 text-white md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300">
+              <Waves size={18} aria-hidden="true" />
+              Independent light-therapy research
+            </div>
+            <h1 className="max-w-4xl font-serif text-4xl font-extrabold leading-tight text-white md:text-6xl">
+              Find the best LED face mask for your skin, budget and country
             </h1>
-            <p className="text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
-              {featured.excerpt}
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+              Compare wavelengths, face and neck coverage, treatment comfort, safety features, guarantees and current pricing without relying on brand hype alone.
             </p>
-            <Link 
-              to={`/blog/${featured.slug}`}
-              className="inline-flex justify-center items-center px-8 py-4 text-lg font-bold text-slate-900 bg-white rounded-full hover:scale-105 transition-transform duration-300"
-            >
-              Read Full Article <ChevronRight size={20} className="ml-2" />
-            </Link>
-          </div>
-          <div className="flex-1 hidden md:block">
-             <img src={featured.image} alt={featured.title} className="rounded-2xl shadow-2xl border border-slate-700/50" />
-          </div>
-        </div>
-      </section>
-
-      {/* Grid Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="flex items-center justify-between mb-12">
-           <h2 className="text-3xl font-bold text-slate-900 font-serif">Latest Articles</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {rest.map((article) => (
-            <Link key={article.id} to={`/blog/${article.slug}`} className="group flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="h-48 overflow-hidden relative border-b border-slate-100">
-                <img src={article.image} alt={article.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-4 uppercase tracking-wider">
-                  <Calendar size={14} /> {article.date}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-emerald-600 transition-colors leading-tight">
-                  {article.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                  {article.excerpt}
-                </p>
-                <div className="mt-auto flex items-center text-emerald-600 font-bold text-sm">
-                  Read Article <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Comparisons & Guides Section */}
-      <section className="bg-slate-100 px-4 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-emerald-500 text-white px-4 py-1.5 rounded-full font-bold text-xs tracking-wide uppercase mb-4">Expert Reviews</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-serif">Comparisons & Guides</h2>
-            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">In-depth head-to-head comparisons and expert guides to help you choose the right LED face mask for your skin.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Best LED Face Masks 2026",
-                description: "Our comprehensive ranking of the top 5 LED face masks available in the UK, tested over 200+ hours.",
-                image: "https://img.thesitebase.net/10677/10677322/themes/177107744580dd01d13d.png",
-                link: "/new-advertorial",
-                badge: "Top Pick"
-              },
-              {
-                title: "CurrentBody vs Buudy",
-                description: "Is the £400 CurrentBody mask worth it? We compare it head-to-head against the Buudy 7-Color LED Mask.",
-                image: "https://img.thesitebase.net/10677/10677322/themes/176872504642f0322d65.jpeg",
-                link: "/currentbody-vs-buudy",
-                badge: "Comparison"
-              },
-              {
-                title: "TheraFace vs Other Masks",
-                description: "Therabody's £579 LED mask promises vibration therapy — but does it outperform the competition?",
-                image: "https://img.thesitebase.net/10677/10677322/themes/177107817340059938e3.jpeg",
-                link: "/theraface-vs-other-masks",
-                badge: "Comparison"
-              },
-              {
-                title: "Deluxeskin vs Buudy",
-                description: "A detailed breakdown of how the Deluxeskin LED mask compares to the Buudy 7-Color in every category.",
-                image: "/img/57-w.webp",
-                link: "/deluxeskin-vs-buudy",
-                badge: "Comparison"
-              },
-              {
-                title: "Qureskincare vs Buudy",
-                description: "Can Qureskincare's LED mask compete with Buudy's 7 wavelengths and built-in neck coverage?",
-                image: "/img/57-w.webp",
-                link: "/qureskincare-vs-buudy",
-                badge: "Comparison"
-              },
-              {
-                title: "Silicone LED Mask Dangers",
-                description: "Why silicone-based LED masks may be damaging your skin — the hidden dangers most brands won't tell you.",
-                image: "https://img.thesitebase.net/10677/10677322/themes/1768726434a7e6301df7.png",
-                link: "/silicone-led-mask-dangers",
-                badge: "Health Alert"
-              },
-              {
-                title: "The £300 Neck Tax",
-                description: "Why buying a face-only LED mask might be a huge mistake, and how premium brands overcharge for neck coverage.",
-                image: "/img/neck_led_mask_1774237229811.png",
-                link: "/floating-head-warning",
-                badge: "Industry Exposé"
-              },
-              {
-                title: "The 2-Color Trap",
-                description: "Why expensive masks that only offer Red and Near-Infrared light are leaving 70% of your skin concerns untreated.",
-                image: "/img/seven_colors_mask_1774237479088.png",
-                link: "/missing-colors-expose",
-                badge: "Industry Exposé"
-              },
-              {
-                title: "The LED Density Scam",
-                description: "Is your £400 mask filled with 'dead zones'? Why hidden bulb counts could mean you're paying for a placebo.",
-                image: "/img/dense_led_macro_1774237501628.png",
-                link: "/led-density-scam",
-                badge: "Industry Exposé"
-              },
-              {
-                title: "The Celebrity Markup",
-                description: "Are you paying for real clinical technology or just funding a celebrity's Instagram post? The truth behind £500 masks.",
-                image: "/img/luxury_mask_markup_1774237538064.png",
-                link: "/brand-name-premium",
-                badge: "Industry Exposé"
-              },
-            ].map((card, idx) => (
-              <Link 
-                key={idx} 
-                to={card.link} 
-                className="group flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to={recommendedGuide.href}
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-4 font-bold text-slate-950 transition-colors hover:bg-emerald-400"
               >
-                <div className="h-48 overflow-hidden relative border-b border-slate-100">
-                  <img src={card.image} alt={card.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                  <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
-                    card.badge === 'Health Alert' ? 'bg-red-500 text-white' : 
-                    card.badge === 'Top Pick' ? 'bg-emerald-500 text-white' : 
-                    'bg-slate-800 text-white'
-                  }`}>
-                    {card.badge}
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-emerald-600 transition-colors leading-tight">
-                    {card.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                    {card.description}
-                  </p>
-                  <div className="mt-auto flex items-center text-emerald-600 font-bold text-sm">
-                    Read More <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
+                Read your recommended guide <ArrowRight size={19} aria-hidden="true" />
+              </Link>
+              <Link
+                to="/editorial-policy"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-7 py-4 font-bold text-white transition-colors hover:border-slate-400"
+              >
+                How we compare masks
+              </Link>
+            </div>
+          </div>
+
+          <figure className="overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+            <img
+              src="/img/57-w.webp"
+              alt="LED face mask shown during an at-home light therapy routine"
+              className="aspect-[4/3] w-full object-cover"
+              fetchPriority="high"
+            />
+            <figcaption className="flex items-center justify-between gap-4 border-t border-slate-700 px-5 py-4 text-sm text-slate-300">
+              <span>2026 buyer guides</span>
+              <span className="font-semibold text-emerald-300">5 markets compared</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-9 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase text-emerald-700">Shop in your market</p>
+            <h2 className="font-serif text-3xl font-bold text-slate-950 md:text-4xl">Country-specific LED mask rankings</h2>
+            <p className="mt-4 leading-relaxed text-slate-600">Each guide uses the correct local currency, availability and retailer destination. Choose your country rather than comparing prices from the wrong market.</p>
+          </div>
+          <div className="grid gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-5">
+            {marketGuides.map((guide) => (
+              <Link key={guide.href} to={guide.href} className="group flex min-h-64 flex-col bg-white p-6 transition-colors hover:bg-emerald-50">
+                <span className="text-xs font-extrabold uppercase text-emerald-700">{guide.code}</span>
+                <p className="mt-5 text-sm font-semibold text-slate-500">{guide.label}</p>
+                <h3 className="mt-2 text-xl font-bold leading-tight text-slate-950">{guide.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{guide.description}</p>
+                <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-bold text-emerald-700">
+                  View ranking <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      <section className="px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.7fr_1.3fr]">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase text-emerald-700">Research library</p>
+            <h2 className="font-serif text-3xl font-bold text-slate-950 md:text-4xl">Understand the technology before you buy</h2>
+            <p className="mt-4 leading-relaxed text-slate-600">Our supporting guides explain the practical differences between red, blue and near-infrared light, flexible and rigid masks, and face-only versus face-and-neck coverage.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {articles.slice(0, 6).map((article) => (
+              <Link key={article.id} to={`/blog/${article.slug}`} className="group border-t border-slate-300 pt-5">
+                <div className="mb-4 overflow-hidden rounded-lg bg-slate-100">
+                  <img src={article.image} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                </div>
+                <h3 className="text-xl font-bold leading-snug text-slate-950 group-hover:text-emerald-700">{article.title}</h3>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-600">{article.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-emerald-950 px-4 py-14 text-white">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+          <div className="flex gap-4">
+            <Globe2 className="shrink-0 text-emerald-300" aria-hidden="true" />
+            <div><h2 className="font-bold">Market-aware</h2><p className="mt-2 text-sm leading-relaxed text-emerald-100">Local prices and shopping links for each country guide.</p></div>
+          </div>
+          <div className="flex gap-4">
+            <ShieldCheck className="shrink-0 text-emerald-300" aria-hidden="true" />
+            <div><h2 className="font-bold">Transparent criteria</h2><p className="mt-2 text-sm leading-relaxed text-emerald-100">Published comparison factors and clear affiliate disclosure.</p></div>
+          </div>
+          <div className="flex gap-4">
+            <BookOpen className="shrink-0 text-emerald-300" aria-hidden="true" />
+            <div><h2 className="font-bold">Educational first</h2><p className="mt-2 text-sm leading-relaxed text-emerald-100">Plain-language guides to help readers verify product claims.</p></div>
+          </div>
+        </div>
+      </section>
     </div>
-    </MarketLocalizedContent>
   );
 }

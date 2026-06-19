@@ -17,10 +17,10 @@ importers:
 
   apps/site:
     dependencies:
-      '@trustpilotreview/shared':
+      '@bestledfacemask/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@trustpilotreview/ui':
+      '@bestledfacemask/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lottie-react:
@@ -42,15 +42,15 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
     devDependencies:
+      '@bestledfacemask/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@bestledfacemask/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.3.0
-      '@trustpilotreview/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@trustpilotreview/tsconfig':
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
       '@types/node':
         specifier: ^20
         version: 20.19.43
@@ -87,10 +87,10 @@ importers:
 
   packages/shared:
     devDependencies:
-      '@trustpilotreview/eslint-config':
+      '@bestledfacemask/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@trustpilotreview/tsconfig':
+      '@bestledfacemask/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       eslint:
@@ -108,10 +108,10 @@ importers:
         specifier: ^19.2.4
         version: 19.2.4
     devDependencies:
-      '@trustpilotreview/eslint-config':
+      '@bestledfacemask/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@trustpilotreview/tsconfig':
+      '@bestledfacemask/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       eslint:

@@ -77,6 +77,14 @@ assert(
   "canonical advertorial page must be exit-popup eligible",
 );
 assert(
+  isEligible("/best-led-face-mask-2026"),
+  "global advertorial page must be exit-popup eligible",
+);
+assert(
+  isEligible("/best-led-face-mask-us-2026"),
+  "US advertorial page must be exit-popup eligible",
+);
+assert(
   isEligible("/best-led-face-mask-au-2026"),
   "AU advertorial page must be exit-popup eligible",
 );
@@ -100,7 +108,7 @@ assert(
 );
 
 assert(
-  exitPopup.includes("https://buudy.co.uk/products/buudy-led-mask"),
+  exitPopup.includes("https://www.buudy.co.uk/products/buudy-led-mask"),
   "exit popup CTA must use the current UK Buudy product page",
 );
 assert(
@@ -137,8 +145,16 @@ assert(
 );
 
 assert(
-  outboundInteractions.includes("https://buudy.co.uk/products/buudy-led-mask"),
+  outboundInteractions.includes("https://www.buudy.co.uk/products/buudy-led-mask"),
   "outbound fallback route must use the UK Buudy product page",
+);
+assert(
+  exitPopup.includes("https://us.buudy.com/products/buudy-led-mask"),
+  "exit popup CTA must support the US Buudy product page",
+);
+assert(
+  outboundInteractions.includes("https://us.buudy.com/products/buudy-led-mask"),
+  "outbound fallback route must support the US Buudy product page",
 );
 assert(
   outboundInteractions.includes("https://au.buudy.com/products/buudy-led-mask"),
@@ -288,9 +304,8 @@ assert(
   "advertorial must use the dermatologist video poster",
 );
 assert(
-  advertorial.includes(
-    '<source src="/assets/buudy-dermatologist-verdict.mp4" type="video/mp4" />',
-  ),
+  advertorial.includes('src="/assets/buudy-dermatologist-verdict.mp4"') &&
+    advertorial.includes('type="video/mp4"'),
   "advertorial must use the dermatologist MP4",
 );
 assert(

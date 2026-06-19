@@ -11,7 +11,7 @@ import type {
 } from "@/lib/marketContext";
 
 const POUND_PRICE_RE = /Â?£\s?(\d[\d,]*(?:\.\d+)?)(\+)?/g;
-const BUUDY_HOST_RE = /(^|\.)buudy\.com$/i;
+const BUUDY_HOST_RE = /(^|\.)buudy\.(com|co\.uk)$/i;
 
 function exactPrice(
   amount: number,
@@ -42,9 +42,9 @@ function formatConvertedPrice(
   rate: number,
   plus: boolean
 ) {
-  const prefix = currency === "AUD" ? "A$" : "C$";
+  const prefix = currency === "AUD" ? "A$" : currency === "CAD" ? "C$" : "$";
   const converted = Math.round(amount * rate).toLocaleString(
-    currency === "AUD" ? "en-AU" : "en-CA",
+    currency === "AUD" ? "en-AU" : currency === "CAD" ? "en-CA" : "en-US",
     { maximumFractionDigits: 0 }
   );
   return `~${prefix}${converted}${plus ? "+" : ""}`;

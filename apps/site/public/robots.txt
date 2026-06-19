@@ -43,7 +43,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Low-value aggressive crawler for this UK buyer-guide site.
+# Low-value aggressive crawler for this international buyer-guide site.
 User-agent: Bytespider
 Disallow: /
 

@@ -14,9 +14,13 @@ function assert(condition, message) {
 
 const canonicalRoutes = [
   "/",
+  "/best-led-face-mask-2026",
+  "/best-led-face-mask-us-2026",
   "/best-led-face-mask-uk-2026",
   "/best-led-face-mask-au-2026",
   "/best-led-face-mask-ca-2026",
+  "/about",
+  "/editorial-policy",
   "/currentbody-vs-buudy",
   "/theraface-vs-other-masks",
   "/deluxeskin-vs-buudy",
@@ -42,7 +46,7 @@ for (const route of canonicalRoutes) {
 assert(fs.existsSync(path.join(appRoot, "blog", "[slug]", "page.tsx")), "/blog/[slug] must have an App Router page");
 
 const sitemap = fs.readFileSync(path.join(siteRoot, "public", "sitemap.xml"), "utf8");
-const sitemapRoutes = [...sitemap.matchAll(/https:\/\/www\.trustpilotreview\.shop([^<]*)/g)].map((match) => match[1] || "/");
+const sitemapRoutes = [...sitemap.matchAll(/https:\/\/www\.bestledfacemask\.org([^<]*)/g)].map((match) => match[1] || "/");
 for (const route of sitemapRoutes) {
   if (route.startsWith("/blog/")) continue;
   assert(canonicalRoutes.includes(route), `${route} from sitemap must be canonical and deployable`);

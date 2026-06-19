@@ -1,4 +1,4 @@
-export type AdvertorialMarketKey = "uk" | "au" | "ca";
+export type AdvertorialMarketKey = "global" | "us" | "uk" | "au" | "ca";
 
 export type ProductPriceKey =
   | "buudy"
@@ -29,7 +29,7 @@ export type AdvertorialMarket = {
   primaryGuideLabel: string;
   titleCountry: string;
   priceRange: string;
-  currencyCode: "GBP" | "AUD" | "CAD";
+  currencyCode: "USD" | "GBP" | "AUD" | "CAD";
   buudyUrl: string;
   productPrices: Record<ProductPriceKey, MarketProductPrice>;
   giftValues: {
@@ -47,6 +47,54 @@ export const advertorialMarkets: Record<
   AdvertorialMarketKey,
   AdvertorialMarket
 > = {
+  global: {
+    key: "global",
+    route: "/best-led-face-mask-2026",
+    locale: "en",
+    languageName: "en",
+    countryName: "Worldwide",
+    countryAdjective: "international",
+    buyerLabel: "international buyers",
+    marketLabel: "global market",
+    primaryGuideLabel: "Best LED Face Mask 2026",
+    titleCountry: "Worldwide",
+    priceRange: "$100 to $700+",
+    currencyCode: "USD",
+    buudyUrl: "https://buudy.com/products/buudy-led-mask",
+    productPrices: {
+      buudy: { price: "$199", originalPrice: "$399", schemaPrice: "199.00", roundedPrice: "$199" },
+      currentbody: { price: "$469", roundedPrice: "$469", restockingFee: "$47", fullCoveragePrice: "$799" },
+      omnilux: { price: "$395", fullCoveragePrice: "$790" },
+      shark: { price: "$349.99" },
+      drdenis: { price: "$455", premiumPriceLabel: "more than $450" },
+    },
+    giftValues: { total: "$149", travelBox: "$39", ledTorch: "$89", skincareGuide: "$21" },
+    popupOffer: "USD 199 instead of USD 399",
+  },
+  us: {
+    key: "us",
+    route: "/best-led-face-mask-us-2026",
+    locale: "en-US",
+    languageName: "en-US",
+    countryName: "United States",
+    countryAdjective: "US",
+    buyerLabel: "US buyers",
+    marketLabel: "US market",
+    primaryGuideLabel: "Best LED Face Mask USA 2026",
+    titleCountry: "the USA",
+    priceRange: "$100 to $700+",
+    currencyCode: "USD",
+    buudyUrl: "https://us.buudy.com/products/buudy-led-mask",
+    productPrices: {
+      buudy: { price: "$199", originalPrice: "$399", schemaPrice: "199.00", roundedPrice: "$199" },
+      currentbody: { price: "$469", roundedPrice: "$469", restockingFee: "$47", fullCoveragePrice: "$799" },
+      omnilux: { price: "$395", fullCoveragePrice: "$790" },
+      shark: { price: "$349.99" },
+      drdenis: { price: "$455", premiumPriceLabel: "more than $450" },
+    },
+    giftValues: { total: "$149", travelBox: "$39", ledTorch: "$89", skincareGuide: "$21" },
+    popupOffer: "USD 199 instead of USD 399",
+  },
   uk: {
     key: "uk",
     route: "/best-led-face-mask-uk-2026",
@@ -60,7 +108,7 @@ export const advertorialMarkets: Record<
     titleCountry: "the UK",
     priceRange: `${legacyPound}100 to ${legacyPound}600+`,
     currencyCode: "GBP",
-    buudyUrl: "https://buudy.co.uk/products/buudy-led-mask",
+    buudyUrl: "https://www.buudy.co.uk/products/buudy-led-mask",
     productPrices: {
       buudy: {
         price: `${legacyPound}179`,
@@ -194,7 +242,7 @@ export const advertorialMarketRoutes = Object.values(advertorialMarkets).map(
   (market) => market.route,
 );
 
-export function getAdvertorialMarket(key: AdvertorialMarketKey = "uk") {
+export function getAdvertorialMarket(key: AdvertorialMarketKey = "global") {
   return advertorialMarkets[key];
 }
 
@@ -202,6 +250,6 @@ export function getAdvertorialMarketByRoute(route: string) {
   return (
     Object.values(advertorialMarkets).find(
       (market) => market.route === route,
-    ) ?? advertorialMarkets.uk
+    ) ?? advertorialMarkets.global
   );
 }

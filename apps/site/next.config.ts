@@ -4,14 +4,14 @@ import path from "node:path";
 const redirectToAdvertorial = "/best-led-face-mask-uk-2026";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@trustpilotreview/ui", "@trustpilotreview/shared"],
+  transpilePackages: ["@bestledfacemask/ui", "@bestledfacemask/shared"],
   poweredByHeader: false,
   turbopack: {
     root: path.join(process.cwd(), "../..")
   },
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "www.trustpilotreview.shop" },
+      { protocol: "https", hostname: "www.bestledfacemask.org" },
       { protocol: "https", hostname: "img.thesitebase.net" },
       { protocol: "https", hostname: "img.shopbase.com" },
       { protocol: "https", hostname: "assets.thesitebase.net" },

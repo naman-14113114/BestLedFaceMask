@@ -1,5 +1,7 @@
 (function () {
   var ELIGIBLE_PATHS = [
+    "/best-led-face-mask-2026",
+    "/best-led-face-mask-us-2026",
     "/best-led-face-mask-in-uk",
     "/best-led-face-mask-au-2026",
     "/best-led-face-mask-ca-2026",
@@ -26,6 +28,16 @@
   var MOBILE_DELAY_MS = 14000;
   var MARKET_OFFERS = [
     {
+      path: "/best-led-face-mask-2026",
+      url: "https://buudy.com/products/buudy-led-mask",
+      offer: "USD 199 instead of USD 399",
+    },
+    {
+      path: "/best-led-face-mask-us-2026",
+      url: "https://us.buudy.com/products/buudy-led-mask",
+      offer: "USD 199 instead of USD 399",
+    },
+    {
       path: "/best-led-face-mask-au-2026",
       url: "https://au.buudy.com/products/buudy-led-mask",
       offer: "AUD 299 instead of AUD 498",
@@ -37,13 +49,13 @@
     },
     {
       path: "/best-led-face-mask-uk-2026",
-      url: "https://buudy.co.uk/products/buudy-led-mask",
+      url: "https://www.buudy.co.uk/products/buudy-led-mask",
       offer: "GBP 179 instead of GBP 449",
     },
   ];
-  var DEFAULT_MARKET_OFFER = MARKET_OFFERS[2];
+  var DEFAULT_MARKET_OFFER = MARKET_OFFERS[0];
   var EXIT_POPUP_ATTRIBUTION =
-    "?utm_source=trustpilotreview.shop&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
+    "?utm_source=bestledfacemask.org&utm_medium=exit_popup&utm_campaign=article_exit&utm_content=last_chance";
 
   function getMarketOffer(pathname) {
     for (var i = 0; i < MARKET_OFFERS.length; i += 1) {
@@ -56,7 +68,7 @@
     }
 
     var regionalLink = document.querySelector(
-      'a[href*="uk.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"]',
+      'a[href*="buudy.co.uk/products/buudy-led-mask"],a[href*="us.buudy.com/products/buudy-led-mask"],a[href*="au.buudy.com/products/buudy-led-mask"],a[href*="ca.buudy.com/products/buudy-led-mask"],a[href*="buudy.com/products/buudy-led-mask"]',
     );
 
     if (regionalLink) {
@@ -112,7 +124,7 @@
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: eventName,
-      source: "trustpilotreview_exit_popup",
+      source: "bestledfacemask_exit_popup",
       target_url: CTA_URL,
     });
   }

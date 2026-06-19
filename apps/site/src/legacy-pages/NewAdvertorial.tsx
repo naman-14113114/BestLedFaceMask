@@ -210,7 +210,7 @@ const baseProducts: Product[] = [
     price: "£179",
     originalPrice: "£449",
     rating: "4.9 / 5",
-    link: "https://buudy.co.uk/products/buudy-led-mask",
+    link: "https://www.buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
     description: [
       "Our top pick is the Buudy 7 Colour LED Mask, a medical-grade device that outperforms the competition with a 7-colour spectrum plus 830nm near-infrared. While most brands focus only on basic red light, Buudy uses targeted wavelengths to support everything from deep wrinkles and acne to inflammation, uneven tone, and overall skin recovery. This Health Canada Approved technology (with CE, FCC, and ROHS certifications) ensures professional-grade results for all skin types.",
@@ -628,7 +628,7 @@ function localizeProductCopy(
     }
 
     if (text.startsWith("Zero Neck & Chest Coverage:")) {
-      return `Zero Neck & Chest Coverage: For ${prices.drdenis.premiumPriceLabel}, the lack of a neck attachment is a glaring omission. Users risk the "floating head" aging effect, whereas better-value masks include neck and dÃ©colletage treatment as a standard feature.`;
+      return `Zero Neck & Chest Coverage: For ${prices.drdenis.premiumPriceLabel}, the lack of a neck attachment is a glaring omission. Users risk the "floating head" ageing effect, whereas better-value masks include neck and décolletage treatment as a standard feature.`;
     }
   }
 
@@ -788,12 +788,18 @@ export default function Home({
       <div className="bg-emerald-500 border-b border-emerald-600 pt-5 pb-6 px-4 md:pt-6 md:pb-8">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="mx-[-0.25rem] text-[clamp(1.3rem,6.6vw,2.5rem)] md:mx-0 md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 md:mb-6 font-serif text-center">
-            <span className="block whitespace-nowrap md:inline">
-              Best LED Face Masks of 2026 in{" "}
-            </span>
-            <span className="block md:inline md:ml-2">
-              {market.titleCountry}
-            </span>
+            {market.key === "global" ? (
+              <span>Best LED Face Masks of 2026</span>
+            ) : (
+              <>
+                <span className="block whitespace-nowrap md:inline">
+                  Best LED Face Masks of 2026 in{" "}
+                </span>
+                <span className="block md:inline md:ml-2">
+                  {market.titleCountry}
+                </span>
+              </>
+            )}
           </h1>
 
           <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">

@@ -1,5 +1,5 @@
 {
-  "extends": "@trustpilotreview/tsconfig/next.json",
+  "extends": "@bestledfacemask/tsconfig/next.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

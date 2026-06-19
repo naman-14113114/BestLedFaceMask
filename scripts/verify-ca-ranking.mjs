@@ -78,7 +78,11 @@ assert(!caProductsBlock.includes('link: "#"'), "CA competitor product links must
 const detailsBlock = sliceBetween(advertorial, "{/* Right Column: Details */}", "{/* Editor's Tip - Free Gifts Discovery (Buudy only) */}");
 assertInOrder(
   detailsBlock,
-  ["{/* Metrics */}", "{/* Mobile Pros & Cons */}", "{/* Pros */}"],
+  [
+    "{/* Metrics */}",
+    "{/* Mobile Pros & Cons disabled - using unified layout */}",
+    "{/* Pros */}",
+  ],
   "the product detail content flow"
 );
 

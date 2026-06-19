@@ -10,7 +10,7 @@ export default function Legal() {
   let title = "Privacy Policy";
   let content: React.ReactNode = (
     <>
-      <p className="mb-4">We are committed to protecting your personal information and your right to privacy. When you visit our website trustpilotreview.shop, we appreciate that you are trusting us with your personal information.</p>
+      <p className="mb-4">We are committed to protecting your personal information and your right to privacy. When you visit our website bestledfacemask.org, we appreciate that you are trusting us with your personal information.</p>
       <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">Information We Collect</h2>
       <p className="mb-4">We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, or otherwise when you contact us.</p>
       <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">How We Use Your Information</h2>
