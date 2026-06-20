@@ -181,6 +181,14 @@ assert(
   "affiliate fallback conversion event must be pushed",
 );
 assert(
+  outboundInteractions.includes("pushGoogleAnalyticsEvents"),
+  "outbound conversions must be sent directly to GA4",
+);
+assert(
+  outboundInteractions.includes('window.gtag("event", eventName'),
+  "GA4 outbound events must use gtag event calls",
+);
+assert(
   outboundInteractions.includes('JOURNEY_STORAGE_KEY = "blfm_attribution_v1"'),
   "Google attribution must use a stable first-party storage key",
 );
@@ -307,10 +315,22 @@ assert(
   layout.includes("/assets/buudy-exit-popup.js"),
   "root layout must load the exit popup script",
 );
-assert(layout.includes("GTM-TQ3HRZMJ"), "root layout must preserve the GTM ID");
+assert(
+  layout.includes('googleAnalyticsId = "G-6V34EZM980"'),
+  "root layout must use the bestledfacemask.org GA4 measurement ID",
+);
+assert(
+  layout.includes("https://www.googletagmanager.com/gtag/js?id="),
+  "root layout must load the direct Google tag script",
+);
+assert(
+  layout.includes("gtag('config', '${googleAnalyticsId}'"),
+  "root layout must configure the direct GA4 tag",
+);
+assert(!layout.includes("GTM-TQ3HRZMJ"), "root layout must not load the old GTM ID");
 assert(
   layout.includes("google-ads-consent-default-ca"),
-  "the Canadian route must establish Google consent state before GTM",
+  "the Canadian route must establish Google consent state before GA4",
 );
 assert(
   layout.includes('window.location.pathname.indexOf("/best-led-face-mask-ca-2026")'),
@@ -380,7 +400,7 @@ assert(
   "advertorial must use the dermatologist MP4",
 );
 assert(
-  advertorial.includes("£179"),
+  advertorial.includes("Â£179"),
   "Buudy UK price copy must remain consistent",
 );
 assert(
@@ -507,4 +527,3 @@ assert(
 );
 
 console.log("Tracking, exit popup, and Buudy conversion verification passed");
-
