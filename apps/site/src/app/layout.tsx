@@ -59,17 +59,16 @@ const googleAdsConsentDefaultCa = `
     })();
 `;
 
-const googleTagManager = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-TQ3HRZMJ');`;
+const googleAnalyticsId = "G-6V34EZM980";
 
-const googleAnalytics = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6V34EZM980');
+const googleAnalyticsConfig = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
+    gtag('js', new Date());
+    gtag('config', '${googleAnalyticsId}', {
+      send_page_view: true
+    });
 `;
 
 const outboundConversionConfig = `
@@ -180,27 +179,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: googleAdsConsentDefaultCa }}
         />
         <Script
-          id="google-tag-manager"
+          id="google-analytics-src"
           strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: googleTagManager }}
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
         />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6V34EZM980"
-          strategy="afterInteractive"
+          id="google-analytics-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: googleAnalyticsConfig }}
         />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: googleAnalytics }}
-        />
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TQ3HRZMJ"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         {children}
         <Script src="/assets/microsoft-consent-mode.js" strategy="afterInteractive" />
         <Script src="/assets/outbound-interactions-v2.js" strategy="afterInteractive" />
@@ -219,4 +206,3 @@ export default function RootLayout({
     </html>
   );
 }
-
