@@ -475,12 +475,35 @@
     });
   }
 
+  function pushGoogleAnalyticsEvents(payload) {
+    if (typeof window.gtag !== "function") return;
+
+    CONVERSION_EVENT_NAMES.forEach(function (eventName) {
+      window.gtag("event", eventName, {
+        event_category: payload.event_category,
+        event_label: payload.event_label,
+        outbound_url: payload.outbound_url,
+        currency: payload.currency,
+        event_value: payload.event_value,
+        revenue_value: payload.revenue_value,
+        page_path: payload.page_path,
+        destination_host: payload.destination_host,
+        market: payload.market,
+        journey_id: payload.journey_id,
+        attribution_source: payload.attribution_source,
+        cta_position: payload.cta_position,
+        transport_type: "beacon",
+      });
+    });
+  }
+
   function trackBuudyOutbound(href, target) {
     if (!href || wasRecentlyTracked(href)) return false;
 
     var payload = buildPayload(href, target);
     pushDataLayerEvents(href, payload);
     pushMicrosoftEvents(payload);
+    pushGoogleAnalyticsEvents(payload);
 
     if (typeof window.clarity === "function") {
       window.clarity("event", "buudy_outbound_click");
@@ -556,4 +579,3 @@
     true,
   );
 })();
-
