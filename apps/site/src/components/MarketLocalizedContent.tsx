@@ -28,7 +28,7 @@ function exactPrice(
     [680, prices.currentbody.fullCoveragePrice ?? prices.currentbody.price],
     [348, prices.omnilux.price],
     [696, prices.omnilux.fullCoveragePrice ?? prices.omnilux.price],
-    [299.99, prices.shark.price],
+    [269.99, prices.shark.price],
     [455, prices.drdenis.price]
   ]);
 

@@ -92,7 +92,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>Fast pre-programmed sessions</b> as short as 6–8 minutes",
       ],
       cons: [
-        "At <b>£299.99</b>, more than double the price of Buudy (£179)",
+        "At <b>£269.99</b>, more than double the price of Buudy (£179)",
         "<b>Face-only treatment</b> — no neck coverage included",
         "<b>Missing 5 of 7 wavelengths</b> (Green, Yellow, Cyan, Purple, White)",
         "<b>LED count undisclosed</b> — likely lower than Buudy's 192 high-density LEDs",

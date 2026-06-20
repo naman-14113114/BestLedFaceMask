@@ -135,7 +135,7 @@ export const advertorialMarkets: Record<
         fullCoveragePrice: `${legacyPound}696`,
       },
       shark: {
-        price: `${legacyPound}299.99`,
+        price: `${legacyPound}269.99`,
       },
       drdenis: {
         price: `${legacyPound}455`,

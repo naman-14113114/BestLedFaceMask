@@ -135,7 +135,7 @@ const products = [
     rank: "#4",
     name: "Shark CryoGlow LED Mask",
     image: "https://img.thesitebase.net/10677/10677322/themes/1768726434a7e6301df7.png",
-    price: "£299.99",
+    price: "£269.99",
     rating: "4.6 / 5",
     link: "https://amzn.to/40iCfrI",
     isWinner: false,
@@ -151,7 +151,7 @@ const products = [
       "Fast Treatment Times: With pre-programmed sessions as short as 6-8 minutes, it offers a very quick daily treatment."
     ],
     cons: [
-      "Extremely High Price: At £299.99, it is more than double the price of the Buudy mask (£179) for what is arguably less technology.",
+      "Extremely High Price: At £269.99, it is more than double the price of the Buudy mask (£179) for what is arguably less technology.",
       "No Neck Coverage: The device is for the face only and offers no treatment for the neck, a key area of concern for aging that is included with the Buudy mask.",
       "Severely Limited Light Modes: The mask is heavily focused on its cooling gimmick and offers very few light options. It is missing 5 of the 7 wavelengths (Green, Yellow, Cyan, Purple, White) that the Buudy mask has for targeting dark spots, skin balancing, and reducing swelling.",
       "Unspecified LED Count: A major red flag. The page does not state the number of LEDs, suggesting the count is low. A lower LED count (compared to Buudy's 192 high-density LEDs) means less power and less even skin coverage.",
