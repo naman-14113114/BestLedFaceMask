@@ -4,6 +4,21 @@
   var CONVERSION_CURRENCY = "INR";
   var CONVERSION_EVENT_NAMES = ["buudy_outbound_click", "affiliate_click"];
   var DEDUPE_WINDOW_MS = 1200;
+  var JOURNEY_STORAGE_KEY = "blfm_attribution_v1";
+  var JOURNEY_TTL_MS = 90 * 24 * 60 * 60 * 1000;
+  var CANADA_PATH = "/best-led-face-mask-ca-2026";
+  var CANADA_DESTINATION_HOST = "ca.buudy.com";
+  var ATTRIBUTION_PARAM_NAMES = [
+    "gclid",
+    "gbraid",
+    "wbraid",
+    "msclkid",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+  ];
   var GLOBAL_BUUDY_LED_MASK_URL = "https://buudy.com/products/buudy-led-mask";
   var US_BUUDY_LED_MASK_URL = "https://us.buudy.com/products/buudy-led-mask";
   var UK_BUUDY_LED_MASK_URL = "https://www.buudy.co.uk/products/buudy-led-mask";
@@ -22,6 +37,221 @@
   var BUUDY_CARD_TEXT_RE =
     /buudy\s*(7\s*color|led|mask)|official website|check availability|free gifts/i;
   var LOADING_RESET_MS = 3000;
+  var currentAttribution = initializeAttribution();
+
+  function isCanadaLandingPage() {
+    return (
+      window.location.pathname === CANADA_PATH ||
+      window.location.pathname.indexOf(CANADA_PATH + "/") === 0
+    );
+  }
+
+  function createJourneyId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+      /[xy]/g,
+      function (character) {
+        var random = (Math.random() * 16) | 0;
+        var value = character === "x" ? random : (random & 3) | 8;
+        return value.toString(16);
+      },
+    );
+  }
+
+  function readCookie(name) {
+    var prefix = name + "=";
+    var cookies = (document.cookie || "").split(";");
+
+    for (var index = 0; index < cookies.length; index += 1) {
+      var cookie = cookies[index].trim();
+      if (cookie.indexOf(prefix) === 0) {
+        return decodeURIComponent(cookie.slice(prefix.length));
+      }
+    }
+
+    return null;
+  }
+
+  function parseStoredAttribution(value) {
+    if (!value) return null;
+
+    try {
+      var parsed = JSON.parse(value);
+      if (!parsed || !parsed.journey_id || parsed.expires_at <= Date.now()) {
+        return null;
+      }
+      return parsed;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function readStoredAttribution() {
+    var stored = null;
+    try {
+      stored = window.localStorage.getItem(JOURNEY_STORAGE_KEY);
+    } catch (error) {}
+
+    return (
+      parseStoredAttribution(stored) ||
+      parseStoredAttribution(readCookie(JOURNEY_STORAGE_KEY))
+    );
+  }
+
+  function writeStoredAttribution(attribution) {
+    var serialized = JSON.stringify(attribution);
+    try {
+      window.localStorage.setItem(JOURNEY_STORAGE_KEY, serialized);
+    } catch (error) {}
+
+    try {
+      document.cookie =
+        JOURNEY_STORAGE_KEY +
+        "=" +
+        encodeURIComponent(serialized) +
+        "; Max-Age=" +
+        Math.floor(JOURNEY_TTL_MS / 1000) +
+        "; Path=/; SameSite=Lax; Secure";
+    } catch (error) {}
+  }
+
+  function getQueryAttribution() {
+    var query = new URLSearchParams(window.location.search);
+    var attribution = {};
+
+    ATTRIBUTION_PARAM_NAMES.forEach(function (name) {
+      var value = query.get(name);
+      if (value) attribution[name] = value;
+    });
+
+    var journeyId = query.get("journey_id");
+    if (journeyId) attribution.journey_id = journeyId;
+
+    return attribution;
+  }
+
+  function hasNewAdClick(queryAttribution, storedAttribution) {
+    var clickKeys = ["gclid", "gbraid", "wbraid", "msclkid"];
+    return clickKeys.some(function (key) {
+      return (
+        queryAttribution[key] &&
+        (!storedAttribution ||
+          storedAttribution[key] !== queryAttribution[key])
+      );
+    });
+  }
+
+  function getAttributionSource(attribution) {
+    if (attribution.gclid || attribution.gbraid || attribution.wbraid) {
+      return "google_ads";
+    }
+    if (attribution.msclkid) return "microsoft_ads";
+    if (attribution.utm_source) return attribution.utm_source;
+    return "direct_or_referral";
+  }
+
+  function initializeAttribution() {
+    if (!isCanadaLandingPage()) return null;
+
+    var stored = readStoredAttribution();
+    var query = getQueryAttribution();
+    var startsNewJourney = hasNewAdClick(query, stored);
+    var journeyId =
+      query.journey_id ||
+      (!startsNewJourney && stored && stored.journey_id) ||
+      createJourneyId();
+    var now = Date.now();
+    var attribution = Object.assign({}, startsNewJourney ? {} : stored || {}, query, {
+      journey_id: journeyId,
+      market: "CA",
+      landing_page:
+        startsNewJourney || !stored || !stored.landing_page
+          ? window.location.href
+          : stored.landing_page,
+      initial_referrer:
+        startsNewJourney || !stored || !stored.initial_referrer
+          ? document.referrer || ""
+          : stored.initial_referrer,
+      started_at:
+        startsNewJourney || !stored || !stored.started_at
+          ? now
+          : stored.started_at,
+      updated_at: now,
+      expires_at: now + JOURNEY_TTL_MS,
+    });
+
+    writeStoredAttribution(attribution);
+    window.__blfmAttribution = attribution;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "buudy_journey_start",
+      market: "CA",
+      journey_id: attribution.journey_id,
+      attribution_source: getAttributionSource(attribution),
+      landing_page: attribution.landing_page,
+    });
+
+    return attribution;
+  }
+
+  function getCtaPosition(target) {
+    if (!target || !target.closest) return "programmatic";
+
+    var source = target.closest(
+      "[data-cta-position], [data-buudy-exit-popup], a[data-outbound-button='true'], a[href]",
+    );
+    if (!source) return "unknown";
+
+    var explicit = source.getAttribute("data-cta-position");
+    if (explicit) return explicit;
+    if (source.hasAttribute("data-buudy-exit-popup")) return "exit_popup";
+
+    var label =
+      source.getAttribute("aria-label") ||
+      source.innerText ||
+      source.textContent ||
+      "outbound_cta";
+    return label
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "")
+      .slice(0, 80) || "outbound_cta";
+  }
+
+  function decorateOutboundHref(href, target) {
+    if (!href || !currentAttribution) return href;
+
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.hostname !== CANADA_DESTINATION_HOST) return url.href;
+
+      url.searchParams.set("journey_id", currentAttribution.journey_id);
+      ATTRIBUTION_PARAM_NAMES.forEach(function (name) {
+        if (currentAttribution[name] && !url.searchParams.has(name)) {
+          url.searchParams.set(name, currentAttribution[name]);
+        }
+      });
+      url.searchParams.set("blfm_source", "bestledfacemask.org");
+      url.searchParams.set("blfm_cta", getCtaPosition(target));
+      return url.href;
+    } catch (error) {
+      return href;
+    }
+  }
+
+  function applyDecoratedHref(target, href) {
+    if (!target || !target.closest || !href) return href;
+
+    var link = target.closest("a[href]");
+    if (link && toBuudyHref(link.href)) {
+      link.setAttribute("href", href);
+    }
+    return href;
+  }
 
   function isModifiedClick(event) {
     return (
@@ -163,7 +393,9 @@
     return null;
   }
 
-  function buildPayload(href) {
+  function buildPayload(href, target) {
+    var destination = new URL(href);
+    var isCanadaDestination = destination.hostname === CANADA_DESTINATION_HOST;
     return {
       event_category: "outbound",
       event_label: href,
@@ -172,7 +404,17 @@
       revenue_value: CONVERSION_VALUE,
       currency: CONVERSION_CURRENCY,
       page_path: window.location.pathname,
-      destination_host: new URL(href).hostname,
+      destination_host: destination.hostname,
+      market: isCanadaDestination ? "CA" : undefined,
+      journey_id:
+        isCanadaDestination && currentAttribution
+          ? currentAttribution.journey_id
+          : undefined,
+      attribution_source:
+        isCanadaDestination && currentAttribution
+          ? getAttributionSource(currentAttribution)
+          : undefined,
+      cta_position: getCtaPosition(target),
     };
   }
 
@@ -233,10 +475,10 @@
     });
   }
 
-  function trackBuudyOutbound(href) {
+  function trackBuudyOutbound(href, target) {
     if (!href || wasRecentlyTracked(href)) return false;
 
-    var payload = buildPayload(href);
+    var payload = buildPayload(href, target);
     pushDataLayerEvents(href, payload);
     pushMicrosoftEvents(payload);
 
@@ -250,15 +492,27 @@
   window.tprTrackBuudyOutbound = function (href) {
     try {
       var trackedHref = toBuudyHref(href);
-      return trackedHref ? trackBuudyOutbound(trackedHref) : false;
+      var decoratedHref = decorateOutboundHref(trackedHref, null);
+      return decoratedHref ? trackBuudyOutbound(decoratedHref, null) : false;
     } catch (error) {
       return false;
     }
   };
 
+  function prepareTrackedHref(event) {
+    var href = getTrackedHref(event);
+    if (!href) return null;
+
+    var decoratedHref = decorateOutboundHref(href, event.target);
+    applyDecoratedHref(event.target, decoratedHref);
+    applyDecoratedHref(getPointTarget(event), decoratedHref);
+    return decoratedHref;
+  }
+
   document.addEventListener(
     "pointerdown",
     function (event) {
+      prepareTrackedHref(event);
       if (isModifiedClick(event)) return;
       markOutboundButtonLoading(event.target);
     },
@@ -272,7 +526,7 @@
         markOutboundButtonLoading(event.target);
       }
 
-      var href = getTrackedHref(event);
+      var href = prepareTrackedHref(event);
       if (!href) return;
       if (isModifiedClick(event)) return;
 
@@ -280,7 +534,7 @@
         setMicrosoftAdsConsent("granted");
       }
 
-      trackBuudyOutbound(href);
+      trackBuudyOutbound(href, event.target);
     },
     true,
   );
@@ -296,8 +550,10 @@
         event.altKey
       )
         return;
+      prepareTrackedHref(event);
       markOutboundButtonLoading(event.target);
     },
     true,
   );
 })();
+

@@ -32,6 +32,33 @@ const microsoftConsentDefault = `
     })();
 `;
 
+const googleAdsConsentDefaultCa = `
+    (function () {
+      if (window.location.pathname.indexOf("/best-led-face-mask-ca-2026") !== 0) {
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag("consent", "default", {
+        ad_storage: "granted",
+        analytics_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        wait_for_update: 0
+      });
+      gtag("set", "url_passthrough", true);
+      window.dataLayer.push({
+        event: "google_ads_consent_default_ca",
+        market: "CA",
+        ad_storage: "granted",
+        analytics_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted"
+      });
+    })();
+`;
+
 const googleTagManager = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -148,6 +175,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: microsoftConsentDefault }}
         />
         <Script
+          id="google-ads-consent-default-ca"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: googleAdsConsentDefaultCa }}
+        />
+        <Script
           id="google-tag-manager"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: googleTagManager }}
@@ -187,3 +219,4 @@ export default function RootLayout({
     </html>
   );
 }
+
