@@ -30,27 +30,27 @@
     {
       path: "/best-led-face-mask-2026",
       url: "https://buudy.com/products/buudy-led-mask",
-      offer: "$199 instead of $399",
+      offer: "USD 199 instead of USD 399",
     },
     {
       path: "/best-led-face-mask-us-2026",
       url: "https://us.buudy.com/products/buudy-led-mask",
-      offer: "$199 instead of $399",
+      offer: "USD 199 instead of USD 399",
     },
     {
       path: "/best-led-face-mask-au-2026",
       url: "https://au.buudy.com/products/buudy-led-mask",
-      offer: "$299 instead of $498",
+      offer: "AUD 299 instead of AUD 498",
     },
     {
       path: "/best-led-face-mask-ca-2026",
       url: "https://ca.buudy.com/products/buudy-led-mask",
-      offer: "$279 instead of $559",
+      offer: "CAD 279 instead of CAD 559",
     },
     {
       path: "/best-led-face-mask-uk-2026",
       url: "https://www.buudy.co.uk/products/buudy-led-mask",
-      offer: "£179 instead of £359",
+      offer: "GBP 179 instead of GBP 449",
     },
   ];
   var DEFAULT_MARKET_OFFER = MARKET_OFFERS[0];
@@ -166,13 +166,13 @@
       "<button class='buudy-exit-close' type='button' aria-label='Close' data-buudy-exit-close='true'>&times;</button>",
       "<div class='buudy-exit-content'>",
       "<div class='buudy-exit-kicker'>Before you go</div>",
-      "<h2 class='buudy-exit-title' id='buudy-exit-title'>The #1 pick is still 50% off.</h2>",
+      "<h2 class='buudy-exit-title' id='buudy-exit-title'>The #1 pick is still 60% off.</h2>",
       "<p class='buudy-exit-copy'>If you were comparing LED masks, do not leave without checking the Buudy 7-color mask. It covers red, blue, green, cyan, yellow, purple and white routines in one device.</p>",
       "<div class='buudy-exit-offer'><div><span>Today on Buudy</span><strong>" +
         CURRENT_MARKET_OFFER.offer +
         "</strong></div><span>Last check</span></div>",
       "<div class='buudy-exit-actions'>",
-      "<a class='buudy-exit-cta' href='" + CTA_URL + "'>Claim 50% Off</a>",
+      "<a class='buudy-exit-cta' href='" + CTA_URL + "'>Claim 60% Off</a>",
       "<button class='buudy-exit-secondary' type='button' data-buudy-exit-close='true'>Keep Reading</button>",
       "</div>",
       "</div>",
