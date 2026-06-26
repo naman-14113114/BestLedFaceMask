@@ -714,7 +714,11 @@ export default function Home({
   const market = getAdvertorialMarket(marketKey);
   const products = getProductsForMarket(market);
   const heroImage =
-    market.key === "ca"
+    market.key === "uk"
+      ? "/img/TOP 5 LED Mask UK.webp"
+      : market.key === "us"
+      ? "/img/TOP 5 LED Mask US.webp"
+      : market.key === "ca"
       ? "/img/TOP 5 LED Mask.png"
       : "/img/TOP 5 LED Mask uk.png";
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);

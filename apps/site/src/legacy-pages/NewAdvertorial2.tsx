@@ -662,7 +662,7 @@ export default function Home({ context }: MarketContextProps) {
           </div>
 
           <img
-            src="/img/TOP 5 LED Mask uk.png"
+            src={market.key === "uk" ? "/img/TOP 5 LED Mask UK.webp" : market.key === "us" ? "/img/TOP 5 LED Mask US.webp" : "/img/TOP 5 LED Mask uk.png"}
             alt="LED Masks Comparison"
             className="w-full max-w-5xl mx-auto rounded-3xl shadow-xl border border-slate-100 mb-8"
           />
