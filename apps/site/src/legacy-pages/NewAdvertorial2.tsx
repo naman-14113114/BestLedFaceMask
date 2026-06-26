@@ -1110,7 +1110,7 @@ export default function Home({ context }: MarketContextProps) {
                               <strong className="text-slate-900">
                                 {bold}:
                               </strong>
-                              {rest.join(":")}
+                              <span dangerouslySetInnerHTML={{ __html: rest.join(":") }} />
                             </span>
                           </li>
                         );
@@ -1587,7 +1587,7 @@ export default function Home({ context }: MarketContextProps) {
                                 <strong className="text-slate-900">
                                   {bold}:
                                 </strong>
-                                {rest.join(":")}
+                                <span dangerouslySetInnerHTML={{ __html: rest.join(":") }} />
                               </span>
                             </li>
                           );
@@ -1825,7 +1825,7 @@ export default function Home({ context }: MarketContextProps) {
                                         <strong className="text-slate-900">
                                           {bold}:
                                         </strong>
-                                        {rest.join(":")}
+                                        <span dangerouslySetInnerHTML={{ __html: rest.join(":") }} />
                                       </span>
                                     </li>
                                   );

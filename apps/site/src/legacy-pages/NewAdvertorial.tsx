@@ -1006,7 +1006,7 @@ export default function Home({
                                 <strong className="text-slate-900">
                                   {bold}:
                                 </strong>
-                                {rest.join(":")}
+                                <span dangerouslySetInnerHTML={{ __html: rest.join(":") }} />
                               </span>
                             </li>
                           );

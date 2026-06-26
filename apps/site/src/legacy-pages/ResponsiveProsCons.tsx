@@ -55,7 +55,7 @@ export function ResponsiveProsCons({ pros, cons }: { pros: string[]; cons: strin
               return (
                 <li key={idx} className="text-base text-slate-700 flex items-start gap-3">
                   <Check size={20} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">{bold}:</strong>{rest.length > 0 ? ':' + rest.join(':') : ''}</span>
+                  <span><strong className="text-slate-900">{bold}:</strong><span dangerouslySetInnerHTML={{ __html: rest.length > 0 ? ':' + rest.join(':') : '' }} /></span>
                 </li>
               );
             })}
@@ -71,7 +71,7 @@ export function ResponsiveProsCons({ pros, cons }: { pros: string[]; cons: strin
               return (
                 <li key={idx} className="text-base text-slate-700 flex items-start gap-3">
                   <XCircle size={20} className="text-red-500 shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">{bold}:</strong>{rest.length > 0 ? ':' + rest.join(':') : ''}</span>
+                  <span><strong className="text-slate-900">{bold}:</strong><span dangerouslySetInnerHTML={{ __html: rest.length > 0 ? ':' + rest.join(':') : '' }} /></span>
                 </li>
               );
             })}
