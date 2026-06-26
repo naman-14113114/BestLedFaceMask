@@ -874,7 +874,7 @@ export default function Home({
               key={product.id}
               className={`relative bg-white rounded-3xl shadow-sm border ${product.isWinner ? "border-emerald-500 ring-4 ring-emerald-50" : "border-slate-200"} p-6 md:p-10`}
             >
-              {product.isWinner && (
+              {/* {product.isWinner && (
                 <div className="hidden md:block sticky top-4 z-30 h-0 w-full">
                   <img
                     src="/img/best-product-badge.png"
@@ -882,7 +882,7 @@ export default function Home({
                     className="absolute -top-10 -left-10 md:-top-14 md:-left-14 w-32 md:w-48 object-contain drop-shadow-xl pointer-events-none"
                   />
                 </div>
-              )}
+              )} */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
                 {/* Left Column: Image & Quick Stats */}
                 <div className="lg:col-span-4 flex flex-col items-center">
