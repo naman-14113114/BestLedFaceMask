@@ -1,4 +1,4 @@
-﻿import fs from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -181,6 +181,66 @@ assert(
   "affiliate fallback conversion event must be pushed",
 );
 assert(
+  outboundInteractions.includes("pushGoogleAnalyticsEvents"),
+  "outbound conversions must be sent directly to GA4",
+);
+assert(
+  outboundInteractions.includes('window.gtag("event", eventName'),
+  "GA4 outbound events must use gtag event calls",
+);
+assert(
+  outboundInteractions.includes('JOURNEY_STORAGE_KEY = "blfm_attribution_v1"'),
+  "Google attribution must use a stable first-party storage key",
+);
+assert(
+  outboundInteractions.includes("JOURNEY_TTL_MS = 90 * 24 * 60 * 60 * 1000"),
+  "Google attribution must persist for the 90-day click-import window",
+);
+[
+  "gclid",
+  "gbraid",
+  "wbraid",
+  "msclkid",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+].forEach((parameter) => {
+  assert(
+    outboundInteractions.includes(`"${parameter}"`),
+    `outbound attribution must preserve ${parameter}`,
+  );
+});
+assert(
+  outboundInteractions.includes("crypto.randomUUID"),
+  "attribution must create a collision-resistant journey ID when supported",
+);
+assert(
+  outboundInteractions.includes("buudy_journey_start"),
+  "the Canadian landing page must expose a journey-start data-layer event",
+);
+assert(
+  outboundInteractions.includes("decorateOutboundHref"),
+  "Canadian Buudy destinations must be decorated with saved attribution",
+);
+assert(
+  outboundInteractions.includes('url.searchParams.set("journey_id"'),
+  "the journey ID must be passed to ca.buudy.com",
+);
+assert(
+  outboundInteractions.includes("applyDecoratedHref"),
+  "the native anchor destination must be updated before navigation",
+);
+assert(
+  outboundInteractions.includes('market: "CA"'),
+  "Canadian outbound events must include their market",
+);
+assert(
+  outboundInteractions.includes("cta_position"),
+  "outbound events must identify the CTA placement",
+);
+assert(
   outboundInteractions.includes("looksLikeBuudyImage"),
   "image-layer clicks must be handled",
 );
@@ -255,7 +315,38 @@ assert(
   layout.includes("/assets/buudy-exit-popup.js"),
   "root layout must load the exit popup script",
 );
-assert(layout.includes("GTM-TQ3HRZMJ"), "root layout must preserve the GTM ID");
+assert(
+  layout.includes('googleAnalyticsId = "G-6V34EZM980"'),
+  "root layout must use the bestledfacemask.org GA4 measurement ID",
+);
+assert(
+  layout.includes("https://www.googletagmanager.com/gtag/js?id="),
+  "root layout must load the direct Google tag script",
+);
+assert(
+  layout.includes("gtag('config', '${googleAnalyticsId}'"),
+  "root layout must configure the direct GA4 tag",
+);
+assert(!layout.includes("GTM-TQ3HRZMJ"), "root layout must not load the old GTM ID");
+assert(
+  layout.includes("google-ads-consent-default-ca"),
+  "the Canadian route must establish Google consent state before GA4",
+);
+assert(
+  layout.includes('window.location.pathname.indexOf("/best-led-face-mask-ca-2026")'),
+  "Google consent defaults must stay scoped to the Canadian advertorial",
+);
+[
+  "ad_storage",
+  "analytics_storage",
+  "ad_user_data",
+  "ad_personalization",
+].forEach((consentField) => {
+  assert(
+    layout.includes(consentField),
+    `Canadian Google consent setup must include ${consentField}`,
+  );
+});
 assert(
   layout.includes("699e744b8a14f51c38e4fa86/1ji9fci26"),
   "root layout must preserve the Tawk.to widget ID",
@@ -309,7 +400,7 @@ assert(
   "advertorial must use the dermatologist MP4",
 );
 assert(
-  advertorial.includes("£179"),
+  advertorial.includes("Â£179"),
   "Buudy UK price copy must remain consistent",
 );
 assert(
