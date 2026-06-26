@@ -20,7 +20,7 @@ function exactPrice(
   const prices = advertorialMarkets[marketKey].productPrices;
   const exactPrices = new Map<number, string>([
     [179, prices.buudy.price],
-    [449, prices.buudy.originalPrice ?? prices.buudy.price],
+    [359, prices.buudy.originalPrice ?? prices.buudy.price],
     [399.99, prices.currentbody.price],
     [400, prices.currentbody.roundedPrice ?? prices.currentbody.price],
     [40, prices.currentbody.restockingFee ?? prices.currentbody.price],

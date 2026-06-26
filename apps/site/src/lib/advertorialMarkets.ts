@@ -120,7 +120,7 @@ export const advertorialMarkets: Record<
     productPrices: {
       buudy: {
         price: `${legacyPound}179`,
-        originalPrice: `${legacyPound}449`,
+        originalPrice: `${legacyPound}359`,
         schemaPrice: "179.00",
         roundedPrice: `${legacyPound}179`,
       },
@@ -148,7 +148,7 @@ export const advertorialMarkets: Record<
       ledTorch: `${legacyPound}70`,
       skincareGuide: `${legacyPound}19`,
     },
-    popupOffer: "GBP 179 instead of GBP 449",
+    popupOffer: "GBP 179 instead of GBP 359",
   },
   au: {
     key: "au",
@@ -241,10 +241,10 @@ export const advertorialMarkets: Record<
       },
     },
     giftValues: {
-      total: "$128",
-      travelBox: "$39",
-      ledTorch: "$70",
-      skincareGuide: "$19",
+      total: "$229",
+      travelBox: "$71",
+      ledTorch: "$129",
+      skincareGuide: "$29",
     },
     popupOffer: "CAD 279 instead of CAD 559",
   },

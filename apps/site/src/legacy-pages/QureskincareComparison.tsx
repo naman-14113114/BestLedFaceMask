@@ -28,7 +28,7 @@ const products = [
     name: "Buudy 7 Color LED Therapy Mask",
     image: "/img/57-w.webp",
     price: "£179",
-    originalPrice: "£449",
+    originalPrice: "£359",
     rating: "4.9 / 5",
     link: "https://buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
@@ -45,7 +45,7 @@ const products = [
       "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
       "Cordless & Portable: A hands-free, rechargeable design with \"Tap Technology\" that lets you multitask while you rejuvenate.",
       "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated <b>eye protection</b> for enhanced safety.",
-      "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
+      "Cost-effective: Currently priced at £179, which is a 50% discount from its regular price of £359.",
       "90-Day Money-Back Guarantee: Offers a generous trial period to test for results, reducing the risk of purchase."
     ],
     cons: [
@@ -388,7 +388,7 @@ export default function QureskincareComparison({ context }: MarketContextProps) 
                 <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>
                 
                 <div className="text-3xl md:text-4xl font-bold text-[#8b1528] mb-8 font-sans">
-                  Now at 60% off
+                  Now at 50% off
                 </div>
 
                 {/* Trustpilot-style Badge */}

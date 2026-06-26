@@ -236,7 +236,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                 <div className="text-center mb-6 w-full">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-3xl font-extrabold text-slate-900">£179</span>
-                    <span className="text-lg text-slate-400 line-through font-medium">£449</span>
+                    <span className="text-lg text-slate-400 line-through font-medium">£359</span>
                   </div>
                   <GreenStarRating rating={5} size={20} className="mb-1" />
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
