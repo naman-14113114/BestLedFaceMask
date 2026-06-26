@@ -155,7 +155,7 @@ const baseProducts: Product[] = [
     name: "Buudy 7 Colour LED Mask",
     image: "/img/57-w.webp",
     price: "£179",
-    originalPrice: "£359",
+    originalPrice: "£449",
     rating: "4.9 / 5",
     link: "https://www.buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
@@ -172,7 +172,7 @@ const baseProducts: Product[] = [
       "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
       'Cordless, Portable & Guided: A hands-free, rechargeable design with <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b> that help match each routine to your skin concern.',
       "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated <b>eye protection</b> for enhanced safety.",
-      "Cost-effective: Currently priced at £179, which is a 50% discount from its regular price of £359.",
+      "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
       "90-Day Money-Back Guarantee: Buudy offers a generous 90-day trial period to test for results. If you're not satisfied, you get a full refund.",
     ],
     cons: [
@@ -525,7 +525,7 @@ function localizeProductCopy(
     }
 
     if (text.startsWith("Cost-effective:")) {
-      return `Cost-effective: Currently priced at ${prices.buudy.price}, which is a 50% discount from its regular price of ${prices.buudy.originalPrice}.`;
+      return `Cost-effective: Currently priced at ${prices.buudy.price}, which is a 60% discount from its regular price of ${prices.buudy.originalPrice}.`;
     }
 
     if (text.startsWith("Limited Availability:")) {
@@ -1253,7 +1253,7 @@ export default function Home({
                 <div className="w-28 md:w-32 h-[1px] bg-[#d4af37] mx-auto mb-5 md:mb-6"></div>
 
                 <div className="text-2xl md:text-4xl font-bold text-[#8b1528] mb-5 md:mb-8 font-sans">
-                  Now at 50% off
+                  Now at 60% off
                 </div>
 
                 {/* Trustpilot-style Badge */}

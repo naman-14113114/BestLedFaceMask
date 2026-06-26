@@ -30,22 +30,22 @@
     {
       path: "/best-led-face-mask-2026",
       url: "https://buudy.com/products/buudy-led-mask",
-      offer: "USD 199 instead of USD 399",
+      offer: "USD 199 instead of USD 499",
     },
     {
       path: "/best-led-face-mask-us-2026",
       url: "https://us.buudy.com/products/buudy-led-mask",
-      offer: "USD 199 instead of USD 399",
+      offer: "USD 199 instead of USD 499",
     },
     {
       path: "/best-led-face-mask-au-2026",
       url: "https://au.buudy.com/products/buudy-led-mask",
-      offer: "AUD 299 instead of AUD 498",
+      offer: "AUD 299 instead of AUD 749",
     },
     {
       path: "/best-led-face-mask-ca-2026",
       url: "https://ca.buudy.com/products/buudy-led-mask",
-      offer: "CAD 279 instead of CAD 559",
+      offer: "CAD 279 instead of CAD 699",
     },
     {
       path: "/best-led-face-mask-uk-2026",

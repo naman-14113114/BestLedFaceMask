@@ -289,7 +289,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                   <div className="text-center mb-6 w-full">
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <span className="text-3xl font-extrabold text-slate-900">£179</span>
-                      <span className="text-lg text-slate-400 line-through font-medium">£359</span>
+                      <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                     </div>
                     <GreenStarRating rating={5} size={30} className="mb-1" />
                     <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
@@ -420,7 +420,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                 <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>
                 
                 <div className="text-3xl md:text-4xl font-bold text-[#8b1528] mb-8 font-sans">
-                  Now at 50% off
+                  Now at 60% off
                 </div>
 
                 <div className="border border-gray-200 bg-white/60 rounded-xl p-5 mx-auto mb-8 inline-block shadow-sm">

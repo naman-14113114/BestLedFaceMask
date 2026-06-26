@@ -47,7 +47,7 @@ const products = [
     name: "Buudy 7 Colour LED Mask",
     image: "/img/57-w.webp",
     price: "£179",
-    originalPrice: "£359",
+    originalPrice: "£449",
     rating: "4.9 / 5",
     link: "",
     isWinner: true,
@@ -68,7 +68,7 @@ const products = [
       "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
       'Cordless, Portable & Guided: A hands-free, rechargeable design with <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b> that help match each routine to your skin concern.',
       "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated <b>eye protection</b> for enhanced safety.",
-      "Cost-effective: Currently priced at £179, which is a 50% discount from its regular price of £359.",
+      "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
       "90-Day Money-Back Guarantee: Buudy offers a generous 90-day trial period to test for results. If you're not satisfied, you get a full refund, which significantly reduces the risk of purchase.",
     ],
     cons: [
@@ -687,7 +687,7 @@ export default function Home({ context }: MarketContextProps) {
               <span className="font-bold text-2xl text-slate-900">
                 £179{" "}
                 <span className="text-base text-slate-400 line-through font-normal">
-                  £359
+                  £449
                 </span>
               </span>
               <span className="hidden md:inline text-slate-300">|</span>
@@ -1419,7 +1419,7 @@ export default function Home({ context }: MarketContextProps) {
                   <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>
 
                   <div className="text-3xl md:text-4xl font-bold text-[#8b1528] mb-8 font-sans">
-                    Now at 50% off
+                    Now at 60% off
                   </div>
 
                   {/* Trustpilot Badge */}

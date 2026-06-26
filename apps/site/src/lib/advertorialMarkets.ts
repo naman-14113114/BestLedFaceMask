@@ -66,14 +66,14 @@ export const advertorialMarkets: Record<
     currencyCode: "USD",
     buudyUrl: "https://buudy.co.uk/products/buudy-led-mask",
     productPrices: {
-      buudy: { price: "$199", originalPrice: "$399", schemaPrice: "199.00", roundedPrice: "$199" },
+      buudy: { price: "$199", originalPrice: "$499", schemaPrice: "199.00", roundedPrice: "$199" },
       currentbody: { price: "$469", roundedPrice: "$469", restockingFee: "$47", fullCoveragePrice: "$799" },
       omnilux: { price: "$395", fullCoveragePrice: "$790" },
       shark: { price: "$349.99" },
       drdenis: { price: "$455", premiumPriceLabel: "more than $450" },
     },
     giftValues: { total: "$149", travelBox: "$39", ledTorch: "$89", skincareGuide: "$21" },
-    popupOffer: "USD 199 instead of USD 399",
+    popupOffer: "USD 199 instead of USD 499",
   },
   us: {
     key: "us",
@@ -92,14 +92,14 @@ export const advertorialMarkets: Record<
     currencyCode: "USD",
     buudyUrl: "https://us.buudy.com/products/buudy-led-mask",
     productPrices: {
-      buudy: { price: "$199", originalPrice: "$399", schemaPrice: "199.00", roundedPrice: "$199" },
+      buudy: { price: "$199", originalPrice: "$499", schemaPrice: "199.00", roundedPrice: "$199" },
       currentbody: { price: "$469", roundedPrice: "$469", restockingFee: "$47", fullCoveragePrice: "$799" },
       omnilux: { price: "$395", fullCoveragePrice: "$790" },
       shark: { price: "$349.99" },
       drdenis: { price: "$455", premiumPriceLabel: "more than $450" },
     },
     giftValues: { total: "$149", travelBox: "$39", ledTorch: "$89", skincareGuide: "$21" },
-    popupOffer: "USD 199 instead of USD 399",
+    popupOffer: "USD 199 instead of USD 499",
   },
   uk: {
     key: "uk",
@@ -120,7 +120,7 @@ export const advertorialMarkets: Record<
     productPrices: {
       buudy: {
         price: `${legacyPound}179`,
-        originalPrice: `${legacyPound}359`,
+        originalPrice: `${legacyPound}449`,
         schemaPrice: "179.00",
         roundedPrice: `${legacyPound}179`,
       },
@@ -148,7 +148,7 @@ export const advertorialMarkets: Record<
       ledTorch: `${legacyPound}70`,
       skincareGuide: `${legacyPound}19`,
     },
-    popupOffer: "GBP 179 instead of GBP 359",
+    popupOffer: "GBP 179 instead of GBP 449",
   },
   au: {
     key: "au",
@@ -169,7 +169,7 @@ export const advertorialMarkets: Record<
     productPrices: {
       buudy: {
         price: "$299",
-        originalPrice: "$498",
+        originalPrice: "$749",
         schemaPrice: "299.00",
         roundedPrice: "$299",
       },
@@ -197,7 +197,7 @@ export const advertorialMarkets: Record<
       ledTorch: "$149",
       skincareGuide: "$19",
     },
-    popupOffer: "AUD 299 instead of AUD 498",
+    popupOffer: "AUD 299 instead of AUD 749",
   },
   ca: {
     key: "ca",
@@ -218,7 +218,7 @@ export const advertorialMarkets: Record<
     productPrices: {
       buudy: {
         price: "$279",
-        originalPrice: "$559",
+        originalPrice: "$699",
         schemaPrice: "279.00",
         roundedPrice: "$279",
       },
@@ -246,7 +246,7 @@ export const advertorialMarkets: Record<
       ledTorch: "$129",
       skincareGuide: "$29",
     },
-    popupOffer: "CAD 279 instead of CAD 559",
+    popupOffer: "CAD 279 instead of CAD 699",
   },
 };
 
