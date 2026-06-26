@@ -1,4 +1,5 @@
 "use client";
+import { ExpandableDescription } from "@/components/ExpandableDescription";
 import React, { useState, useEffect, useRef } from "react";
 import {
   CheckCircle2,
@@ -1001,11 +1002,7 @@ export default function Home({ context }: MarketContextProps) {
                   </a>
                 </h2>
 
-                <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  {winnerProduct.description.map((p, idx) => (
-                    <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
-                  ))}
-                </div>
+                <ExpandableDescription description={winnerProduct.description} isWinner={true} />
 
                 {/* ===== CRO #7c: "Who Is This For?" ===== */}
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -1504,11 +1501,7 @@ export default function Home({ context }: MarketContextProps) {
                       {product.rank} {product.name}
                     </a>
                   </h2>
-                  <div className="prose prose-slate prose-lg max-w-none mb-8">
-                    {product.description.map((p, idx) => (
-                              <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
-                            ))}
-                  </div>
+                  <ExpandableDescription description={product.description} isWinner={product.isWinner} />
                   {/* Mobile-only: uses separate mobile data */}
                   {(() => {
                     const mobileData = getMobileProsCons("uk", product.id);
@@ -1730,11 +1723,7 @@ export default function Home({ context }: MarketContextProps) {
                               {product.rank} {product.name}
                             </a>
                           </h2>
-                          <div className="prose prose-slate prose-lg max-w-none mb-8">
-                            {product.description.map((p, idx) => (
-                              <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
-                            ))}
-                          </div>
+                          <ExpandableDescription description={product.description} isWinner={product.isWinner} />
                           {/* Mobile-only: uses separate mobile data */}
                           {(() => {
                             const mobileData = getMobileProsCons(

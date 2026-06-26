@@ -1,4 +1,5 @@
 'use client';
+import { ExpandableDescription } from "@/components/ExpandableDescription";
 import React from 'react';
 import { Award, Calendar, ShieldCheck } from 'lucide-react';
 import { GreenStarIcon, GreenStarRating } from '@/components/GreenStarRating';
@@ -326,11 +327,7 @@ export default function DeluxeskinComparison({ context }: MarketContextProps) {
                     </a>
                   </h2>
 
-                  <div className="prose prose-slate prose-lg max-w-none mb-8">
-                    {product.description.map((p, idx) => (
-                      <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
-                    ))}
-                  </div>
+                  <ExpandableDescription description={product.description} isWinner={product.isWinner} />
 
                   <ResponsiveProsCons pros={product.pros} cons={product.cons} />
 

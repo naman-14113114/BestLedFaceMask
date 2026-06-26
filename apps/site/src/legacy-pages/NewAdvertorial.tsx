@@ -1,4 +1,5 @@
 "use client";
+import { ExpandableDescription } from "@/components/ExpandableDescription";
 import React, { useState, useRef } from "react";
 import {
   CheckCircle2,
@@ -955,15 +956,7 @@ export default function Home({
                     </a>
                   </h2>
 
-                  <div className="prose prose-slate prose-lg max-w-none mb-8">
-                    {product.description.map((p, idx) => (
-                      <p
-                        key={idx}
-                        className="text-slate-600 leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: p }}
-                      />
-                    ))}
-                  </div>
+                  <ExpandableDescription description={product.description} isWinner={product.isWinner} />
 
                   {/* Metrics */}
                   <div className="bg-slate-50 rounded-2xl p-5 md:p-6 border border-slate-100 mb-8">

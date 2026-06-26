@@ -1,4 +1,5 @@
 'use client';
+import { ExpandableDescription } from "@/components/ExpandableDescription";
 import React from 'react';
 import { CheckCircle2, XCircle, Award, Calendar, ShieldCheck, Check } from 'lucide-react';
 import { GreenStarIcon, GreenStarRating } from '@/components/GreenStarRating';
@@ -330,11 +331,7 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
                     </a>
                   </h2>
 
-                  <div className="prose prose-slate prose-lg max-w-none mb-8">
-                    {product.description.map((p, idx) => (
-                      <p key={idx} className="text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: p }} />
-                    ))}
-                  </div>
+                  <ExpandableDescription description={product.description} isWinner={product.isWinner} />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     {/* Pros */}
