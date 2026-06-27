@@ -1080,76 +1080,166 @@ export default function Home({
 
                         <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-8">
                           {/* Travel Box */}
-                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
-                            <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce">
-                              FREE
+                          {market.key === "ca" ? (
+                            <a
+                              href="https://ca.buudy.com/pages/premium-travel-box"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative block cursor-pointer"
+                            >
+                              <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce">
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.travelBox}
+                                </span>
+                                <img
+                                  src="/img/93-w.webp"
+                                  alt="Premium Travel Box"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight hover:underline">
+                                Premium Travel Box
+                              </p>
+                            </a>
+                          ) : (
+                            <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                              <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce">
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.travelBox}
+                                </span>
+                                <img
+                                  src="/img/93-w.webp"
+                                  alt="Premium Travel Box"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
+                                Premium Travel Box
+                              </p>
                             </div>
-                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
-                                Normally {market.giftValues.travelBox}
-                              </span>
-                              <img
-                                src="/img/93-w.webp"
-                                alt="Premium Travel Box"
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full aspect-square object-cover"
-                              />
-                            </div>
-                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
-                              Premium Travel Box
-                            </p>
-                          </div>
+                          )}
 
                           {/* LED Torch */}
-                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
-                            <div
-                              className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
-                              style={{ animationDelay: "0.2s" }}
+                          {market.key === "ca" ? (
+                            <a
+                              href="https://ca.buudy.com/products/red-light-torch"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative block cursor-pointer"
                             >
-                              FREE
+                              <div
+                                className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
+                                style={{ animationDelay: "0.2s" }}
+                              >
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.ledTorch}
+                                </span>
+                                <img
+                                  src="/img/35-w.webp"
+                                  alt="Buudy LED Torch"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight hover:underline">
+                                Buudy LED Torch
+                              </p>
+                            </a>
+                          ) : (
+                            <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                              <div
+                                className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
+                                style={{ animationDelay: "0.2s" }}
+                              >
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.ledTorch}
+                                </span>
+                                <img
+                                  src="/img/35-w.webp"
+                                  alt="Buudy LED Torch"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
+                                Buudy LED Torch
+                              </p>
                             </div>
-                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
-                                Normally {market.giftValues.ledTorch}
-                              </span>
-                              <img
-                                src="/img/35-w.webp"
-                                alt="Buudy LED Torch"
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full aspect-square object-cover"
-                              />
-                            </div>
-                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
-                              Buudy LED Torch
-                            </p>
-                          </div>
+                          )}
 
                           {/* E-Book */}
-                          <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
-                            <div
-                              className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
-                              style={{ animationDelay: "0.4s" }}
+                          {market.key === "ca" ? (
+                            <a
+                              href="https://ca.buudy.com/pages/skincare-guide"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative block cursor-pointer"
                             >
-                              FREE
+                              <div
+                                className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
+                                style={{ animationDelay: "0.4s" }}
+                              >
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.skincareGuide}
+                                </span>
+                                <img
+                                  src="/img/94-w.webp"
+                                  alt="Skincare E-Book"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight hover:underline">
+                                Expert Skincare Guide
+                              </p>
+                            </a>
+                          ) : (
+                            <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-4 border border-blue-100 shadow-lg text-center transform hover:-translate-y-1 transition-transform relative">
+                              <div
+                                className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
+                                style={{ animationDelay: "0.4s" }}
+                              >
+                                FREE
+                              </div>
+                              <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
+                                <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
+                                  Normally {market.giftValues.skincareGuide}
+                                </span>
+                                <img
+                                  src="/img/94-w.webp"
+                                  alt="Skincare E-Book"
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="w-full aspect-square object-cover"
+                                />
+                              </div>
+                              <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
+                                Expert Skincare Guide
+                              </p>
                             </div>
-                            <div className="relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-gray-50 border border-slate-100">
-                              <span className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 text-gray-900 font-bold line-through z-10 bg-white/90 px-1 sm:px-3 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-xs shadow-sm whitespace-nowrap">
-                                Normally {market.giftValues.skincareGuide}
-                              </span>
-                              <img
-                                src="/img/94-w.webp"
-                                alt="Skincare E-Book"
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full aspect-square object-cover"
-                              />
-                            </div>
-                            <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
-                              Expert Skincare Guide
-                            </p>
-                          </div>
+                          )}
                         </div>
 
                         <OutboundButton
