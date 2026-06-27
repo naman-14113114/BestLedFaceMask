@@ -45,7 +45,7 @@
     {
       path: "/best-led-face-mask-ca-2026",
       url: "https://ca.buudy.com/products/buudy-led-mask",
-      offer: "CAD 279 instead of CAD 699",
+      offer: "CAD 299 instead of CAD 649",
     },
     {
       path: "/best-led-face-mask-uk-2026",

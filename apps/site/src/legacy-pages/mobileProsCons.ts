@@ -136,7 +136,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>4.9★ rating</b> from over 4,000 customers",
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
         "Noticeable results after a few uses, with full results in <b>under 10 uses</b>",
-        "Currently <b>$279</b> (60% off the regular $699 price)",
+        "Currently <b>$299</b> (60% off the regular $649 price)",
         "<b>90-day money-back guarantee</b> for added peace of mind",
       ],
       cons: [

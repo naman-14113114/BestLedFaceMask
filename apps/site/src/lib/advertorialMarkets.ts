@@ -217,10 +217,10 @@ export const advertorialMarkets: Record<
     buudyUrl: "https://ca.buudy.com/products/buudy-led-mask",
     productPrices: {
       buudy: {
-        price: "$279",
-        originalPrice: "$699",
-        schemaPrice: "279.00",
-        roundedPrice: "$279",
+        price: "$299",
+        originalPrice: "$649",
+        schemaPrice: "299.00",
+        roundedPrice: "$299",
       },
       currentbody: {
         price: "$639.99",
@@ -246,7 +246,7 @@ export const advertorialMarkets: Record<
       ledTorch: "$129",
       skincareGuide: "$29",
     },
-    popupOffer: "CAD 279 instead of CAD 699",
+    popupOffer: "CAD 299 instead of CAD 649",
   },
 };
 

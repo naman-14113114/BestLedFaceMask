@@ -121,7 +121,7 @@ assert(advertorial.includes("aria-disabled={href === \"#\" ? true : undefined}")
 
 assert(advertorialMarkets.includes('priceRange: "$100 to $800+"'), "CA market price range must include the TheraFace ceiling");
 assert(advertorialMarkets.includes('price: "$639.99"'), "CA CurrentBody price must remain $639.99");
-assert(advertorialMarkets.includes('price: "$279"'), "CA Buudy price must remain $279");
+assert(advertorialMarkets.includes('price: "$299"'), "CA Buudy price must remain $299");
 assert(advertorialMarkets.includes('originalPrice: "$559"'), "CA Buudy compare-at price must remain $559");
 assert(advertorialMarkets.includes('buudyUrl: "https://buudy.co.uk/products/buudy-led-mask"'), "global Buudy URL must be configured");
 assert(advertorialMarkets.includes('buudyUrl: "https://us.buudy.com/products/buudy-led-mask"'), "US Buudy URL must be configured");

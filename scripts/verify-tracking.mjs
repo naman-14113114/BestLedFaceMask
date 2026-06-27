@@ -124,7 +124,7 @@ assert(
   "exit popup must include the AU offer text",
 );
 assert(
-  exitPopup.includes("CAD 279 instead of CAD 559"),
+  exitPopup.includes("CAD 299 instead of CAD 649"),
   "exit popup must include the CA offer text",
 );
 assert(
@@ -510,7 +510,7 @@ assert(
   "AU Buudy compare-at price must be configured",
 );
 assert(
-  advertorialMarkets.includes('price: "$279"'),
+  advertorialMarkets.includes('price: "$299"'),
   "CA Buudy price must be configured",
 );
 assert(
