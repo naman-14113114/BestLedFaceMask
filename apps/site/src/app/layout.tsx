@@ -16,11 +16,11 @@ const microsoftConsentDefault = `
     (function () {
       var stored = null;
       try {
-        stored = window.localStorage.getItem("tpr_microsoft_ads_consent");
+        stored = window.localStorage.getItem("blfm_microsoft_ads_consent");
       } catch (error) {}
 
       var state = "granted";
-      window.__tprMicrosoftAdsConsent = state;
+      window.__blfmMicrosoftAdsConsent = state;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -72,7 +72,7 @@ const googleAnalyticsConfig = `
 `;
 
 const outboundConversionConfig = `
-    window.__tprBuudyOutboundConversion = {
+    window.__blfmBuudyOutboundConversion = {
       value: 330,
       currency: 'INR',
       events: ['buudy_outbound_click', 'affiliate_click']
@@ -192,7 +192,7 @@ export default function RootLayout({
         <Script src="/assets/microsoft-consent-mode.js" strategy="afterInteractive" />
         <Script src="/assets/outbound-interactions-v2.js" strategy="afterInteractive" />
         <Script
-          id="tpr-buudy-outbound-conversion"
+          id="blfm-buudy-outbound-conversion"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: outboundConversionConfig }}
         />

@@ -420,21 +420,21 @@
 
   function hasMicrosoftAdsConsent() {
     return (
-      window.__tprMicrosoftAdsConsent === "granted" ||
-      (typeof window.tprHasMicrosoftAdsConsent === "function" &&
-        window.tprHasMicrosoftAdsConsent())
+      window.__blfmMicrosoftAdsConsent === "granted" ||
+      (typeof window.blfmHasMicrosoftAdsConsent === "function" &&
+        window.blfmHasMicrosoftAdsConsent())
     );
   }
 
   function setMicrosoftAdsConsent(value) {
-    if (typeof window.tprSetMicrosoftAdsConsent === "function") {
-      window.tprSetMicrosoftAdsConsent(value);
+    if (typeof window.blfmSetMicrosoftAdsConsent === "function") {
+      window.blfmSetMicrosoftAdsConsent(value);
       return;
     }
 
-    window.__tprMicrosoftAdsConsent = value;
+    window.__blfmMicrosoftAdsConsent = value;
     try {
-      window.localStorage.setItem("tpr_microsoft_ads_consent", value);
+      window.localStorage.setItem("blfm_microsoft_ads_consent", value);
     } catch (error) {}
 
     if (value === "granted") {
@@ -443,18 +443,18 @@
         ad_storage: "granted",
       });
 
-      if (typeof window.tprLoadMicrosoftUet === "function") {
-        window.tprLoadMicrosoftUet();
+      if (typeof window.blfmLoadMicrosoftUet === "function") {
+        window.blfmLoadMicrosoftUet();
       }
     }
   }
 
   function wasRecentlyTracked(href) {
     var now = Date.now();
-    var last = window.__tprBuudyOutboundLast || {};
+    var last = window.__blfmBuudyOutboundLast || {};
     if (last.href === href && now - last.time < DEDUPE_WINDOW_MS) return true;
 
-    window.__tprBuudyOutboundLast = {
+    window.__blfmBuudyOutboundLast = {
       href: href,
       time: now,
     };
@@ -512,7 +512,7 @@
     return true;
   }
 
-  window.tprTrackBuudyOutbound = function (href) {
+  window.blfmTrackBuudyOutbound = function (href) {
     try {
       var trackedHref = toBuudyHref(href);
       var decoratedHref = decorateOutboundHref(trackedHref, null);

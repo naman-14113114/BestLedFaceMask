@@ -1,12 +1,12 @@
 (function () {
-  var CONSENT_KEY = "tpr_microsoft_ads_consent";
-  var CLARITY_ID = "w4nply9u93";
-  var BANNER_ID = "tpr-ms-consent";
+  var CONSENT_KEY = "blfm_microsoft_ads_consent";
+  var CLARITY_ID = "xdkopsmyau";
+  var BANNER_ID = "blfm-ms-consent";
   var MICROSOFT_UET_TAG_ID = "211072489";
 
   function flushMicrosoftUetCallbacks() {
-    var callbacks = window.__tprMicrosoftUetCallbacks || [];
-    window.__tprMicrosoftUetCallbacks = [];
+    var callbacks = window.__blfmMicrosoftUetCallbacks || [];
+    window.__blfmMicrosoftUetCallbacks = [];
 
     callbacks.forEach(function (callback) {
       try {
@@ -17,20 +17,20 @@
 
   function loadMicrosoftUet(callback) {
     if (typeof callback === "function") {
-      window.__tprMicrosoftUetCallbacks = window.__tprMicrosoftUetCallbacks || [];
-      window.__tprMicrosoftUetCallbacks.push(callback);
+      window.__blfmMicrosoftUetCallbacks = window.__blfmMicrosoftUetCallbacks || [];
+      window.__blfmMicrosoftUetCallbacks.push(callback);
     }
 
-    if (window.__tprMicrosoftUetReady) {
+    if (window.__blfmMicrosoftUetReady) {
       window.setTimeout(flushMicrosoftUetCallbacks, 0);
       return;
     }
 
-    if (window.__tprMicrosoftUetLoading) {
+    if (window.__blfmMicrosoftUetLoading) {
       return;
     }
 
-    window.__tprMicrosoftUetLoading = true;
+    window.__blfmMicrosoftUetLoading = true;
     (function (w, d, t, u, o) {
       w[u] = w[u] || [];
       o.ts = new Date().getTime();
@@ -47,13 +47,13 @@
         o.q = w[u];
         w[u] = new UET(o);
         w[u].push("pageLoad");
-        window.__tprMicrosoftUetReady = true;
-        window.__tprMicrosoftUetLoading = false;
+        window.__blfmMicrosoftUetReady = true;
+        window.__blfmMicrosoftUetLoading = false;
         n.onload = n.onreadystatechange = null;
         flushMicrosoftUetCallbacks();
       };
       n.onerror = function () {
-        window.__tprMicrosoftUetLoading = false;
+        window.__blfmMicrosoftUetLoading = false;
         flushMicrosoftUetCallbacks();
       };
 
@@ -82,7 +82,7 @@
   }
 
   function setUetConsent(value) {
-    window.__tprMicrosoftAdsConsent = value;
+    window.__blfmMicrosoftAdsConsent = value;
 
     if (value === "granted") {
       window.uetq = window.uetq || [];
@@ -100,11 +100,11 @@
   }
 
   function loadClarity() {
-    if (window.__tprClarityLoaded || !CLARITY_ID) {
+    if (window.__blfmClarityLoaded || !CLARITY_ID) {
       return;
     }
 
-    window.__tprClarityLoaded = true;
+    window.__blfmClarityLoaded = true;
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () {
         (c[a].q = c[a].q || []).push(arguments);
@@ -154,11 +154,11 @@
     }
   }
 
-  window.tprSetMicrosoftAdsConsent = applyConsent;
-  window.tprGetMicrosoftAdsConsent = getStoredConsent;
-  window.tprLoadMicrosoftUet = loadMicrosoftUet;
-  window.tprHasMicrosoftAdsConsent = function () {
-    return window.__tprMicrosoftAdsConsent === "granted";
+  window.blfmSetMicrosoftAdsConsent = applyConsent;
+  window.blfmGetMicrosoftAdsConsent = getStoredConsent;
+  window.blfmLoadMicrosoftUet = loadMicrosoftUet;
+  window.blfmHasMicrosoftAdsConsent = function () {
+    return window.__blfmMicrosoftAdsConsent === "granted";
   };
 
   applyConsent("granted");
