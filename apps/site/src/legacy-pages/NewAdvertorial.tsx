@@ -391,12 +391,12 @@ const canadaCompetitorProducts: Product[] = [
     link: "https://amzn.to/4a6g1yt",
     isWinner: false,
     description: [
-      "TheraFace Mask takes fourth place in the Canada guide. It is the most premium-feeling competitor on this list, backed by Therabody's wellness-tech reputation and built around <b>648 LEDs</b> plus <b>VibraWave massage therapy</b> for facial tension.",
+      "TheraFace Mask takes fourth place in the Canada guide. It is the most premium-feeling competitor on this list, backed by Therabody's wellness-tech reputation and built around 648 LEDs plus <b>VibraWave massage therapy</b> for facial tension.",
       "The mask includes <b>Red, Blue, and Yellow light therapies</b>, cordless use, and short <b>9-minute sessions</b>. For buyers who already trust Therabody and want a <b>high-end, hard-shell device</b>, it has obvious appeal.",
       "The tradeoff is value. At <b>$799.99</b>, it is dramatically more expensive than the other masks here, still focuses on the face only, and uses a <b>rigid, heavier headset</b> that can feel less comfortable across different face shapes.",
     ],
     pros: [
-      "Massive LED Count: Uses <b>648 LEDs</b>, one of the highest counts in the category.",
+      "Massive LED Count: Uses 648 LEDs, one of the highest counts in the category.",
       "Vibration Therapy: VibraWave motors add a massage-style feature for facial tension relief.",
       "Cordless Design: Short 9-minute routines and no cord make sessions easy to start.",
       "Brand Reputation: Backed by Therabody, a major name in wellness technology.",
