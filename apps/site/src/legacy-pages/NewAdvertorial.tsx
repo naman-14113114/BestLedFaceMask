@@ -717,6 +717,8 @@ export default function Home({
   const heroImage =
     market.key === "uk"
       ? "/img/TOP 5 LED Mask UK.webp"
+      : market.key === "ca"
+      ? "/img/TOP 5 LED Mask.png"
       : "/img/TOP 5 LED Mask US.webp";
   const [isVerdictVideoPlaying, setIsVerdictVideoPlaying] = useState(false);
   const verdictVideoRef = useRef<HTMLVideoElement | null>(null);
