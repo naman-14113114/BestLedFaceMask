@@ -37,3 +37,7 @@ dev-server*.log
 
 # vercel
 .vercel
+
+# local memory backups / secret-bearing files (never commit)
+*.local.md
+CONTEXT.prev-full-archive.local.md
