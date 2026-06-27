@@ -10,9 +10,12 @@
     "typecheck": "turbo typecheck",
     "dev:site": "pnpm --filter @bestledfacemask/site dev",
     "build:site": "pnpm --filter @bestledfacemask/site build",
-    "verify": "node scripts/verify-domain-independence.mjs && node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs && node scripts/verify-localization.mjs"
+    "verify": "node scripts/verify-domain-independence.mjs && node scripts/verify-tracking.mjs && node scripts/verify-routes.mjs && node scripts/verify-assets.mjs && node scripts/verify-ca-ranking.mjs && node scripts/verify-localization.mjs",
+    "prebuild": "node scripts/verify-git-sync.mjs",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
     "turbo": "^2.8.6",
     "typescript": "^5"
   },
