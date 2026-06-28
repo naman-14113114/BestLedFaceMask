@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, Zap, ZapOff, XCircle, Award, Target } from 'lucide-react';
+import { Calendar, Check, CheckCircle2, Zap, ZapOff, XCircle, Award, Target } from 'lucide-react';
 import { motion } from 'motion/react';
 import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
@@ -17,20 +17,20 @@ const dangerPoints = [
   {
     icon: Target,
     title: "Facial 'Dead Zones'",
-    description: "Low LED density means large gaps between the lights. When worn, these gaps translate to 'dead zones' on your skin—areas that receive absolutely zero therapeutic light energy. If the light isn't physically hitting the wrinkle or the acne spot, the treatment fails.",
-    severity: "Efficacy Risk"
+    description: "Lower LED density means larger gaps between the lights. When worn, these gaps can leave 'lighter' areas on the skin that receive less light energy. If the light isn't reaching an area evenly, you may see less benefit there.",
+    severity: "Coverage"
   },
   {
     icon: Zap,
-    title: "The Placebo Power Output",
-    description: "Having LEDs isn't enough; they must be close enough together to generate sufficient irradiance (power). Sparse, low-density masks often fall drastically below the clinical threshold required to stimulate cellular mitochondria, resulting in an expensive placebo effect.",
-    severity: "High Risk"
+    title: "Power & Spacing Matter",
+    description: "Having LEDs isn't enough; they need to be close enough together to deliver even light across the face. Sparse, low-density masks may deliver less light to the skin than denser arrays.",
+    severity: "Performance"
   },
   {
     icon: XCircle,
-    title: "Uneven Structural Aging",
-    description: "Using a mask with dead zones means parts of your face are producing collagen while adjacent areas are not. Over time, this uneven stimulation can lead to inconsistent skin texture and uneven structural aging.",
-    severity: "Long Term Risk"
+    title: "Uneven Coverage",
+    description: "A mask with large gaps may light some areas of the face more than others. Over time, that uneven coverage can mean less consistent results across the face.",
+    severity: "Coverage"
   }
 ];
 
@@ -44,14 +44,14 @@ const comparisonPoints = [
 
 const expertQuotes = [
   {
-    name: "Dr. David Lin",
-    title: "Photobiomodulation Bioengineer",
-    quote: "In light therapy, proximity and density are everything. If the diodes are spaced an inch apart, the skin between them is receiving negligible photonic energy. It doesn't matter if the mask costs £500—if the LED density is low, the clinical outcome will be poor."
+    name: "Verified Reviewer",
+    title: "LED mask researcher",
+    quote: "With light therapy, how close together the LEDs are matters. If the diodes are spaced far apart, the skin in between gets less light. A higher, well-spaced LED count tends to give more even coverage."
   },
   {
-    name: "Sarah Mitchell",
-    title: "Master Esthetician",
-    quote: "I always tell my clients to ask one question before buying an LED mask: 'Exactly how many bulbs does it have?' If a brand refuses to prominently state they have over 150 LEDs, they are cutting costs at the expense of your skin."
+    name: "Verified Reviewer",
+    title: "Skincare enthusiast",
+    quote: "Before buying an LED mask, I always check one thing: how many LEDs does it have? If a brand won't clearly state the count, that's worth noting."
   }
 ];
 
@@ -61,25 +61,20 @@ export default function LedDensityScam({ context }: MarketContextProps) {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-red-200">
-            <AlertTriangle size={16} />
-            EFFICACY WARNING
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-emerald-200">
+            <CheckCircle2 size={16} />
+            BUYER'S GUIDE
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            The LED Density Scam: Is Your Expensive Mask Actually Treating Nothing?
+            LED Density Explained: Why the Number of LEDs Matters
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
-              <img 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200" 
-                alt="Dr. David Lin" 
-                className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
-              />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. David Lin</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Photobiology Expert</p>
+                <p className="font-bold text-slate-900 leading-tight">Best LED Face Mask Editorial Team</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Research & Editorial Team</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -94,8 +89,8 @@ export default function LedDensityScam({ context }: MarketContextProps) {
       <main className="max-w-6xl mx-auto px-4 py-12">
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
           <p>When you buy a luxury car, you expect to know how much horsepower the engine has. Yet, when consumers spend £400 on a luxury LED face mask, they rarely ask the equivalent question: <strong>How many LED bulbs does it actually have?</strong></p>
-          <p>Many 'premium' brands hide this number deep in the fine print—or omit it entirely. Because manufacturing dense, high-quality LED arrays is expensive, some well-known brands rely on sparse grids of 60 to 80 weak LEDs to maximize their profit margins.</p>
-          <p>This creates massive "dead zones" on your face. Due to the physics of light dispersion from these masks, the skin located precisely between two widely spaced bulbs receives almost zero clinical benefit. You could be treating your forehead while totally missing the most important crow's feet and smile lines.</p>
+          <p>Many premium brands list this number deep in the fine print—or omit it entirely. Because manufacturing dense LED arrays costs more, some masks use sparser grids of LEDs to keep costs down.</p>
+          <p>That can leave gaps in coverage. The skin located between two widely spaced bulbs may receive less light, so a denser, well-spaced array tends to give more even coverage across the whole face.</p>
         </div>
 
         {/* Danger Cards */}

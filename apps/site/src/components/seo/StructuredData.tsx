@@ -18,7 +18,7 @@ const homeSchema = {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
-      description: `${SITE_NAME} publishes independent LED face mask comparisons and country-specific buyer guides.`,
+      description: `${SITE_NAME} publishes LED face mask comparisons and country-specific buyer guides.`,
       areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
@@ -68,7 +68,7 @@ const advertorialSchema = {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
-      description: `${SITE_NAME} publishes independent beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
+      description: `${SITE_NAME} publishes beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
       areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
@@ -372,9 +372,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
     article["@id"] = `${routeUrl}#article`;
     article.mainEntityOfPage = { "@id": `${routeUrl}#webpage` };
     article.headline = market.key === "global"
-      ? "Best LED Face Mask (2026) | Independent Comparison"
-      : `Best LED Face Mask ${market.countryName} (2026) | Independent Comparison`;
-    article.description = `An independent ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, guarantees, and overall value.`;
+      ? "Best LED Face Mask (2026) | Editorial Comparison"
+      : `Best LED Face Mask ${market.countryName} (2026) | Editorial Comparison`;
+    article.description = `An editorial ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, guarantees, and overall value.`;
     article.keywords = [
       "best led face mask",
       `best led face mask ${countryLower}`,

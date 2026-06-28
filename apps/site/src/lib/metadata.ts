@@ -104,7 +104,7 @@ export const homeMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
   description:
-    "Independent LED face mask reviews and country-specific buyer guides covering wavelengths, safety, face and neck coverage, guarantees, and value.",
+    "LED face mask reviews and country-specific buyer guides covering wavelengths, safety, face and neck coverage, guarantees, and value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
     "led face mask reviews, best led face mask, red light therapy mask, led mask buyer guide, led mask with neck coverage",

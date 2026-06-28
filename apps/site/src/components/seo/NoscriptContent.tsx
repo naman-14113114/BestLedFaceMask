@@ -10,9 +10,9 @@ export function HomeNoscriptContent() {
       <main>
         <h1>{SITE_NAME}</h1>
         <p>
-          Independent LED face mask reviews and country-specific buyer guides
-          covering red light therapy, light wavelengths, face and neck coverage,
-          safety, price, and value.
+          LED face mask reviews and country-specific buyer guides covering red
+          light therapy, light wavelengths, face and neck coverage, safety,
+          price, and value.
         </p>
         <h2>Important Guides</h2>
         <ul>
@@ -78,7 +78,7 @@ export function AdvertorialNoscriptContent({
             {
               name: "Kala Red Light Face Mask",
               description:
-                "A credible Canada-focused option with red, near-infrared, and blue light, 198 listed LED lights, FDA-cleared and Health Canada positioning, and a reviewed price of $382.49.",
+                "A credible Canada-focused option with red, near-infrared, and blue light, 198 listed LED lights, dermatologist-tested positioning, and a reviewed price of $382.49.",
             },
             {
               name: "TheraFace Mask",
@@ -88,7 +88,7 @@ export function AdvertorialNoscriptContent({
             {
               name: "Equinox LED Mask",
               description:
-                "A silicone face mask with 336 face LEDs, six treatment modes, and Health Canada approval signals, but weaker value at $385 because the face-only model excludes neck and chest coverage.",
+                "A silicone face mask with 336 face LEDs, six treatment modes, and multiple listed safety certifications, but weaker value at $385 because the face-only model excludes neck and chest coverage.",
             },
           ]
         : [

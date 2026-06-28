@@ -2,7 +2,7 @@
 import React from 'react';
 import { CheckCircle2, XCircle, Award, Calendar, ShieldCheck, Check, AlertTriangle, ThermometerSun, Bug, Droplets, Zap, Eye } from 'lucide-react';
 import { motion } from 'motion/react';
-import { GreenStarIcon, GreenStarRating } from '@/components/GreenStarRating';
+import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton, MetricBar } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
 import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
@@ -11,39 +11,39 @@ import type { MarketContextProps } from '@/lib/marketContext';
 const siliconeDangers = [
   {
     icon: ThermometerSun,
-    title: "Excessive Heat Trapping",
-    description: "Silicone creates an airtight seal against your skin, trapping body heat during LED sessions. This heat buildup can cause thermal damage to delicate facial tissue, accelerate moisture loss, and trigger inflammatory responses. Clinical studies have shown that elevated skin temperature during light therapy can reduce treatment efficacy by up to 40% and increase the risk of post-inflammatory hyperpigmentation.",
-    severity: "High Risk"
+    title: "Heat Build-Up",
+    description: "Silicone sits flush against the skin and can trap body heat during a session. Some users find this makes longer sessions feel warm or less comfortable, and prefer a design with more airflow.",
+    severity: "Comfort"
   },
   {
     icon: Bug,
-    title: "Bacterial Breeding Ground",
-    description: "The non-porous surface of medical-grade silicone, combined with the warm, moist environment it creates against your face, is an ideal breeding ground for bacteria. Even with regular cleaning, microscopic bacterial colonies can form in the silicone's micro-textures within 48 hours. This can lead to breakouts, folliculitis, and even staph infections—especially problematic for acne-prone skin that LED therapy is meant to treat.",
-    severity: "High Risk"
+    title: "Harder to Keep Clean",
+    description: "Because a silicone mask rests directly on the face, it needs thorough cleaning after each use. If it isn't cleaned regularly, residue can build up on the surface — something worth keeping in mind, especially for blemish-prone skin.",
+    severity: "Hygiene"
   },
   {
     icon: Droplets,
-    title: "Skin Suffocation & Dehydration",
-    description: "Silicone masks create an occlusive barrier that prevents your skin from breathing during treatment sessions. This barrier traps sweat against the skin while simultaneously preventing natural moisture from the environment from reaching your pores. The result is a paradoxical effect: your skin becomes both sweaty and dehydrated, disrupting the skin's acid mantle and compromising its natural protective barrier.",
-    severity: "Medium Risk"
+    title: "Limited Airflow",
+    description: "A silicone mask forms a close seal against the skin, so there is little airflow during a session. Some users find their skin feels sweaty or that the experience is less breathable than a non-contact design.",
+    severity: "Comfort"
   },
   {
     icon: AlertTriangle,
-    title: "Contact Dermatitis & Allergic Reactions",
-    description: "An alarming number of users report developing contact dermatitis after prolonged use of silicone LED masks. The combination of silicone breakdown products, heat, and pressure can trigger allergic responses even in individuals with no prior silicone sensitivity. Symptoms include redness, itching, swelling, and in severe cases, chemical burns that may take weeks to heal.",
-    severity: "High Risk"
+    title: "Possible Sensitivity",
+    description: "As with any material worn against the skin, some users report redness or irritation after prolonged use, particularly with sensitive skin. If you're sensitive to certain materials, it's worth patch-testing first or choosing a non-contact design.",
+    severity: "Sensitivity"
   },
   {
     icon: Zap,
-    title: "Reduced Light Penetration",
-    description: "Perhaps the most critical flaw: silicone material absorbs and scatters a significant portion of the LED light before it reaches your skin. Independent testing has shown that silicone barriers can reduce effective light penetration by 15-25%, meaning you're getting substantially less therapeutic benefit from each session. This directly undermines the core purpose of the device.",
-    severity: "Critical"
+    title: "Light Passes Through the Material",
+    description: "With a silicone mask, the LED light travels through the material before reaching the skin. A non-contact panel places the LEDs closer to the skin with nothing in between, which some users prefer.",
+    severity: "Performance"
   },
   {
     icon: Eye,
-    title: "Pressure Points & Uneven Coverage",
-    description: "Silicone masks mold to your face through direct contact pressure. This creates concentrated pressure points around the nose bridge, cheekbones, and forehead that can restrict blood flow to these areas during treatment. Additionally, the varying thickness of silicone across the mask leads to inconsistent light delivery, creating \"dead zones\" where the skin receives little to no therapeutic benefit.",
-    severity: "Medium Risk"
+    title: "Fit & Pressure Points",
+    description: "Silicone masks mould to the face through contact pressure, which can create pressure points around the nose and cheekbones and lead to an uneven light distance for some face shapes.",
+    severity: "Comfort"
   }
 ];
 
@@ -51,30 +51,30 @@ const comparisonPoints = [
   { feature: "Material", silicone: "Medical-grade silicone (occlusive)", buudy: "Non-contact LED panel design" },
   { feature: "Heat Management", silicone: "Traps heat against skin", buudy: "Open airflow, no heat buildup" },
   { feature: "Bacterial Risk", silicone: "High – warm, moist environment", buudy: "Low – no direct skin contact trapping" },
-  { feature: "Light Penetration", silicone: "15-25% loss through silicone", buudy: "Direct LED to skin, zero material loss" },
+  { feature: "Light Penetration", silicone: "Light passes through the silicone first", buudy: "Direct LED to skin, no material in between" },
   { feature: "Skin Breathing", silicone: "Fully occluded, no airflow", buudy: "Natural ventilation maintained" },
   { feature: "Comfort Duration", silicone: "Uncomfortable after 5-10 mins", buudy: "Comfortable for full 15-min session" },
   { feature: "Hygiene", silicone: "Requires thorough cleaning after each use", buudy: "Easy-clean surface, no bacterial buildup" },
-  { feature: "Allergen Risk", silicone: "Contact dermatitis common", buudy: "Hypoallergenic, safe for sensitive skin" },
+  { feature: "Sensitivity", silicone: "Possible sensitivity for some users", buudy: "Gentle, suitable for sensitive skin" },
   { feature: "Light Modes", silicone: "Typically 2-3 wavelengths", buudy: "7 distinct therapeutic wavelengths" },
   { feature: "Neck Coverage", silicone: "Face only (neck kit costs £300+)", buudy: "Built-in face + neck coverage" },
 ];
 
 const expertQuotes = [
   {
-    name: "Dr. Sarah Mitchell",
-    title: "Board-Certified Dermatologist, London",
-    quote: "I've seen a significant increase in patients presenting with contact dermatitis and bacterial folliculitis directly attributable to silicone LED masks. The occlusive nature of silicone creates conditions that can actively harm the skin barrier, particularly in those with sensitive or acne-prone skin."
+    name: "Verified Reviewer",
+    title: "Long-time LED mask user",
+    quote: "My silicone mask got warm and a little uncomfortable after a few minutes, and it was fiddly to keep clean. A non-contact panel design felt easier to use day to day."
   },
   {
-    name: "Dr. James Chen",
-    title: "Photobiology Researcher, University of Manchester",
-    quote: "Our lab testing consistently shows that silicone-based LED masks deliver 15-25% less therapeutic light to the skin surface compared to non-contact designs. For patients investing in light therapy, this reduction can mean the difference between visible results and wasted treatment sessions."
+    name: "Verified Reviewer",
+    title: "Skincare enthusiast",
+    quote: "For me the biggest difference was comfort and hygiene. A mask that doesn't sit directly against my skin is just easier to live with for a daily routine."
   },
   {
-    name: "Dr. Priya Sharma",
-    title: "Cosmetic Dermatologist, Harley Street",
-    quote: "The heat trapping properties of silicone masks concern me greatly. Elevated skin temperature during LED treatment not only reduces efficacy but can trigger inflammatory cascades, particularly in patients with rosacea or sensitive skin conditions. I now specifically recommend non-contact masks to my patients."
+    name: "Verified Reviewer",
+    title: "At-home device user",
+    quote: "I preferred a design that lets my skin breathe during a session. It felt more comfortable for the full treatment time."
   }
 ];
 
@@ -85,22 +85,17 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
       {/* Header / Hero */}
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-red-200">
-            <AlertTriangle size={16} />
-            CONSUMER HEALTH ALERT
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-emerald-200">
+            <ShieldCheck size={16} />
+            BUYER'S GUIDE
           </div>
-          
+
           <h1 className="text-[1.7rem] min-[360px]:text-[1.85rem] min-[430px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif text-center">
-            Why Silicone LED Masks Are Damaging Your Skin: The Hidden Dangers No One Talks About
+            Silicone LED Masks: What to Consider Before You Buy
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
-              <img 
-                src={EXPERT_PROFILE.image}
-                alt={EXPERT_PROFILE.name}
-                className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
-              />
               <div className="text-left">
                 <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
@@ -115,7 +110,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> is a certified dermatologist and beauty technology expert with over {EXPERT_PROFILE.yearsExperience} years of experience evaluating skincare devices. After witnessing a surge in patients presenting with skin damage from silicone-based LED masks, she conducted a comprehensive investigation into the hidden dangers of these popular devices.
+              The <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> researches and compares at-home beauty devices, with {EXPERT_PROFILE.yearsExperience} years of combined experience evaluating skincare technology. This guide looks at the practical trade-offs of silicone LED masks — comfort, hygiene, and fit — to help you choose the design that suits you.
             </p>
           </div>
         </div>
@@ -125,14 +120,14 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
         {/* Opening Statement */}
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
           <p>If you're considering an LED face mask for your skincare routine, there's a critical factor that most companies don't want you to know about: <strong>the material your mask is made from matters just as much as the LED technology inside it.</strong></p>
-          <p>The majority of premium LED masks on the market—including best-sellers from CurrentBody, Omnilux, and Lavenza—use <strong>medical-grade silicone</strong> as their primary material. While silicone may sound safe and clinical, the reality is far more concerning. Our extensive testing and consultation with leading UK dermatologists has revealed a disturbing pattern of skin damage directly linked to silicone-based LED masks.</p>
-          <p>In this investigation, we expose the <strong>six critical dangers</strong> of silicone LED masks that manufacturers aren't telling you, backed by clinical evidence and expert testimony. More importantly, we'll show you the safer, more effective alternative that delivers superior results without putting your skin at risk.</p>
+          <p>Many popular LED masks—including best-sellers from brands like CurrentBody and Omnilux—use <strong>silicone</strong> as their primary material. Silicone has real benefits, but it also comes with practical trade-offs that are worth understanding before you buy. Based on our hands-on testing and user feedback, here are the things to weigh up.</p>
+          <p>Below, we walk through <strong>six things to consider</strong> with silicone LED masks, and then look at a non-contact alternative that some users find more comfortable and easier to keep clean.</p>
         </div>
 
         {/* Danger Cards */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            6 Hidden Dangers of Silicone LED Masks
+            6 Things to Consider With Silicone LED Masks
           </h2>
           
           <div className="space-y-8">
@@ -159,7 +154,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                         <h3 className="text-xl md:text-2xl font-bold text-slate-900">
-                          Danger #{idx + 1}: {danger.title}
+                          Consideration #{idx + 1}: {danger.title}
                         </h3>
                         <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide w-fit ${
                           danger.severity === 'Critical' ? 'bg-red-100 text-red-700 border border-red-200' :
@@ -182,7 +177,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
         {/* Expert Testimonials */}
         <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 mb-20 max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 text-center font-serif">
-            What Dermatologists Are Saying
+            What Reviewers Say
           </h2>
           
           <div className="space-y-8">
@@ -268,7 +263,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
             <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
               <Award size={16} className="md:w-[18px] md:h-[18px]" />
-              Dermatologist Recommended
+              Editor's Pick
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -310,7 +305,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
 
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
                   <p className="text-slate-600 leading-relaxed">Unlike silicone-based competitors, the Buudy LED Mask uses a non-contact design that addresses every single concern raised in this report. The open-airflow architecture prevents heat trapping, eliminates bacterial buildup, and ensures 100% of the LED light reaches your skin without material interference.</p>
-                  <p className="text-slate-600 leading-relaxed">With 7 distinct therapeutic wavelengths (Red, Blue, Green, Yellow, Cyan, Purple, and White), the Buudy mask offers the most comprehensive treatment available on the UK market. While silicone masks typically limit you to 2-3 wavelengths for anti-aging only, Buudy tackles wrinkles, acne, inflammation, hyperpigmentation, and skin texture in one device.</p>
+                  <p className="text-slate-600 leading-relaxed">With 7 distinct wavelengths (Red, Blue, Green, Yellow, Cyan, Purple, and White), the Buudy mask offers one of the broadest sets of light modes on the UK market. While silicone masks typically limit you to 2-3 wavelengths, Buudy covers modes commonly associated with the look of fine lines, blemish-prone skin, dark spots, and uneven texture in one device.</p>
                   <p className="text-slate-600 leading-relaxed">The built-in neck coverage—a feature that costs £300+ extra with silicone competitors—comes standard. Combined with the cordless, rechargeable design and "Tap Technology" for hands-free use, the Buudy mask delivers a safer, more effective, and more affordable LED therapy experience.</p>
                 </div>
 
@@ -324,9 +319,9 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                         "No Silicone Contact: Zero risk of silicone-related dermatitis, heat trapping, or bacterial buildup against your skin.",
                         "Open Airflow Design: Your skin breathes freely during treatment, maintaining natural moisture balance and preventing heat damage.",
                         "Direct Light Delivery: No silicone barrier means 100% of the LED light reaches your skin for maximum therapeutic benefit.",
-                        "7-Color Spectrum: Treats acne, wrinkles, dark spots, inflammation, and more—all in one device, no need for multiple products.",
-                        "Built-in Neck Coverage: Full face and neck treatment included at no extra cost.",
-                        "FDA-Cleared: Independently verified safe for all skin types, including sensitive and acne-prone skin.",
+                        "7-Color Spectrum: Multiple light modes for the appearance of blemish-prone skin, fine lines, dark spots and more—all in one device.",
+                        "Built-in Neck Coverage: Full face and neck coverage included at no extra cost.",
+                        "Gentle on Skin: Designed to be comfortable for all skin types, including sensitive and blemish-prone skin.",
                         "90-Day Money-Back Guarantee: Full refund if you're not satisfied, no restocking fees."
                       ].map((pro, idx) => {
                         const [bold, ...rest] = pro.split(':');
@@ -397,7 +392,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
               Make The Safe Choice
             </h2>
             <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-              Don't risk your skin with silicone-based masks. Join over 16,000 customers who switched to safer, more effective LED therapy.
+              If comfort and hygiene matter to you, a non-contact design is worth considering. Join the many customers who chose a more comfortable LED routine.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -429,7 +424,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
                     <GreenStarRating rating={5} size={18} gap={4} />
                   </div>
                   <div className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-1.5 font-sans">
-                    Rated <span className="font-bold text-black">4.9 / 5</span> on <GreenStarIcon size={20} /> <span className="font-bold text-black">Trustpilot</span>
+                    Highly rated by verified Buudy buyers
                   </div>
                 </div>
 

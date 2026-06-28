@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, Eye, XCircle, Award, Droplets, ArrowDown, Scissors } from 'lucide-react';
+import { Calendar, Check, CheckCircle2, Eye, XCircle, Award, Droplets, ArrowDown, Scissors } from 'lucide-react';
 import { motion } from 'motion/react';
 import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
@@ -12,7 +12,7 @@ const dangerPoints = [
   {
     icon: Eye,
     title: "The 'Floating Head' Syndrome",
-    description: "Aging doesn't stop at your jawline. When you treat your face meticulously but ignore your neck, you create a stark, unnatural contrast within months. Your face may look 10 years younger, while your neck betrays your true age—a cosmetic disaster known in dermatology as the 'floating head' aesthetic.",
+    description: "The look of ageing doesn't stop at your jawline. When you focus on your face but skip your neck, the two areas can start to look mismatched over time — sometimes called the 'floating head' effect.",
     severity: "High Risk"
   },
   {
@@ -24,7 +24,7 @@ const dangerPoints = [
   {
     icon: Droplets,
     title: "Ignoring The Body's Thinnest Skin",
-    description: "The skin on your neck and chest is significantly thinner than the skin on your face, has fewer sebaceous glands, and is constantly subjected to sun exposure. Because it's so fragile, it is often the very first place to show signs of aggressive aging, creping, and hyperpigmentation. Ignoring it in your LED routine guarantees premature aging.",
+    description: "The skin on the neck and chest is thinner than facial skin and gets a lot of sun exposure, so it's often one of the first areas to show the look of ageing. Leaving it out of your routine means a key area misses out.",
     severity: "High Risk"
   },
   {
@@ -45,14 +45,14 @@ const comparisonPoints = [
 
 const expertQuotes = [
   {
-    name: "Dr. Elena Rostova",
-    title: "Aesthetic Dermatologist",
-    quote: "The biggest mistake my patients make investing in home LED tech is buying face-only devices. The skin on the neck is incredibly delicate and notoriously difficult to treat later in life. Preventing 'turkey neck' simultaneously with your facial routine isn't a luxury; it's a dermatological necessity."
+    name: "Verified Reviewer",
+    title: "Long-time LED mask user",
+    quote: "I wish I'd known my premium mask was face-only before buying. Adding a neck attachment later cost a lot extra. A mask that covers face and neck together would have saved me money."
   },
   {
-    name: "Dr. James Chen",
-    title: "Photobiology Researcher",
-    quote: "Splitting facial and neck treatments into two separate £350 devices is purely a revenue-generation strategy by major brands. There is no structural or scientific reason a home LED mask cannot cover both zones effectively for half the cost."
+    name: "Verified Reviewer",
+    title: "Skincare enthusiast",
+    quote: "Paying separately for a face device and a neck device adds up fast. For most people, one mask that covers both areas is simpler and better value."
   }
 ];
 
@@ -63,22 +63,17 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
       {/* Header / Hero */}
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-red-200">
-            <AlertTriangle size={16} />
-            INDUSTRY EXPOSÉ
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-emerald-200">
+            <CheckCircle2 size={16} />
+            BUYER'S GUIDE
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            The £300 "Neck Tax": Why Buying A Face-Only LED Mask Is A Huge Mistake
+            Face-Only vs. Face-and-Neck LED Masks: What to Know Before You Buy
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
-              <img 
-                src={EXPERT_PROFILE.image}
-                alt={EXPERT_PROFILE.name}
-                className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
-              />
               <div className="text-left">
                 <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
@@ -93,7 +88,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
 
           <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
             <p>
-              <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> exposes the beauty industry's most profitable secret: intentionally designing £400 LED masks to ignore the neck area, forcing customers to spend hundreds more to prevent the dreaded "floating head" syndrome.
+              The <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> looks at a common gap in premium LED masks: many £400 devices treat the face only, so covering the neck means buying a separate attachment. This guide explains why face-and-neck coverage can be better value.
             </p>
           </div>
         </div>
@@ -250,7 +245,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Color LED Therapy Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
                   <p>The Buudy LED Mask fundamentally destroys the pricing model of premium brands by offering <strong>built-in, integrated neck coverage</strong> at no additional cost. For a flat £179, you receive simultaneous treatment for your face, jawline, and delicate neck skin—ensuring perfectly uniform rejuvenation without the "floating head" effect.</p>
-                  <p>Instead of requiring 30 minutes to do your face and neck separately with two different devices, Buudy gets it all done in a single 15-minute, hands-free session. You save 50% of your time and nearly £500 of your money, while benefiting from an incredible 7 distinct medical-grade wavelengths.</p>
+                  <p>Instead of requiring 30 minutes to do your face and neck separately with two different devices, Buudy gets it all done in a single 15-minute, hands-free session. You save time and money, while benefiting from 7 distinct light wavelengths.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -261,8 +256,8 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                     {[
                       "Zero 'Neck Tax': Built-in neck extension included automatically.",
                       "Simultaneous Treatment: Treat tech-neck and facial wrinkles at the exact same time.",
-                      "7-Color Spectrum: From Red for lines, to Blue for acne, to Green for spots.",
-                      " FDA-Cleared: Confirmed safe and effective for sensitive skin."
+                      "7-Color Spectrum: Light modes commonly associated with the look of lines, blemish-prone skin, and dark spots.",
+                      " Gentle on Skin: Designed to be comfortable for sensitive skin."
                     ].map((pro, idx) => {
                       const [bold, ...rest] = pro.split(':');
                       return (
@@ -290,7 +285,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
               Stop Ignoring Your Neck
             </h2>
             <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-              Get the full-coverage Buudy mask today and prevent disjointed aging. Over 16,000 UK customers have already made the switch.
+              Get the full-coverage Buudy mask today for face-and-neck care in one device. Many UK customers have already made the switch.
             </p>
             <div className="flex justify-center">
                 <a 

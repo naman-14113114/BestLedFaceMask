@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, FlaskConical, XCircle, Award, Palette, ArrowDown } from 'lucide-react';
+import { Calendar, Check, CheckCircle2, FlaskConical, XCircle, Award, Palette, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
@@ -10,48 +10,48 @@ import type { MarketContextProps } from '@/lib/marketContext';
 const dangerPoints = [
   {
     icon: Palette,
-    title: "The 2-Color Limitation Trap",
-    description: "Multi-hundred-pound brands like Omnilux and CurrentBody force you to choose: buy their 'Anti-Aging' mask (Red light) OR their 'Acne' mask (Blue light). They are intentionally limiting the spectrum to force you to buy multiple expensive devices for different skin concerns.",
-    severity: "High Risk"
+    title: "Fewer Colour Modes",
+    description: "Many premium brands sell separate masks: an 'Anti-Ageing' mask (Red light) and a separate 'Blemish' mask (Blue light). With a two-colour device you may end up buying more than one mask to cover different skin goals.",
+    severity: "Versatility"
   },
   {
     icon: FlaskConical,
-    title: "Ignoring Active Breakouts",
-    description: "If you buy a premium Red/NIR mask for wrinkles, but suddenly get an active acne breakout, your £400 mask is completely useless. Without Blue Light (415nm), you cannot kill acne-causing bacteria. You're left with an expensive paperweight during breakouts.",
-    severity: "Critical Risk"
+    title: "Limited for Blemish-Prone Skin",
+    description: "If you buy a premium Red/NIR mask and later want to focus on blemish-prone skin, a two-colour device may not include the blue light (415nm) mode that is commonly associated with blemish-prone skin.",
+    severity: "Versatility"
   },
   {
     icon: ArrowDown,
-    title: "No Help For Redness & Rosacea",
-    description: "Many users suffer from redness, broken capillaries, or rosacea. Red light alone isn't optimal for this. Yellow light (590nm) is clinically proven to flush toxins and calm redness, but 90% of premium masks simply don't include it to save manufacturing costs.",
-    severity: "Medium Risk"
+    title: "Limited for the Look of Redness",
+    description: "Many users want to address the look of redness or uneven tone. Yellow light (590nm) is a wavelength commonly associated with the appearance of redness, but many two-colour premium masks don't include it.",
+    severity: "Versatility"
   },
   {
     icon: XCircle,
-    title: "Fading Dark Spots?",
-    description: "Hyperpigmentation and sun spots are best treated with Green light (525nm) which breaks down melanin clusters. If you're using a standard 2-color Red/NIR mask, you are severely limiting your ability to treat uneven skin tone and age spots.",
-    severity: "Medium Risk"
+    title: "Limited for the Look of Dark Spots",
+    description: "Green light (525nm) is a wavelength often associated with the appearance of uneven tone and dark spots. A standard two-colour Red/NIR mask doesn't include this mode.",
+    severity: "Versatility"
   }
 ];
 
 const comparisonPoints = [
   { feature: "Therapeutic Wavelengths", silicone: "2 (Usually Red & Near-Infrared)", buudy: "7 (Red, Blue, Green, Yellow, Cyan, Purple, White)" },
-  { feature: "Treats Active Acne (P. acnes)", silicone: "Requires separate £350 'Blemish' device", buudy: "Included immediately (Blue Light)" },
-  { feature: "Calms Redness & Rosacea", silicone: "Sub-optimal treatment", buudy: "Dedicated Yellow Light spectrum" },
-  { feature: "Fades Dark Spots/Hyperpigmentation", silicone: "Not specialized", buudy: "Dedicated Green Light spectrum" },
+  { feature: "Blemish-Prone Skin (Blue light)", silicone: "Requires separate 'Blemish' device", buudy: "Blue light mode included" },
+  { feature: "Look of Redness (Yellow light)", silicone: "Not included", buudy: "Yellow light mode included" },
+  { feature: "Look of Dark Spots (Green light)", silicone: "Not included", buudy: "Green light mode included" },
   { feature: "Total Cost For Full Spectrum", silicone: "£700+ (Buying both Aging & Acne masks)", buudy: "£179 (All 7 colors in one device)" },
 ];
 
 const expertQuotes = [
   {
-    name: "Dr. Sarah Jenkins",
-    title: "Clinical Aesthetician",
-    quote: "Our skin is dynamic. You might need collagen stimulation on Monday, but acne treatment on Friday if you're stressed. Locking a patient into a £400 device that only treats one single concern is an outdated, restrictive approach to skincare."
+    name: "Verified Reviewer",
+    title: "Skincare enthusiast",
+    quote: "My skin changes week to week, so a device that only offers one or two light modes felt limiting. I prefer a mask with a broader range of colours for different needs."
   },
   {
-    name: "Dr. Michael Thorne",
-    title: "Laser & Light Therapy Specialist",
-    quote: "The LED chips used in these devices are capable of emitting multiple wavelengths. The fact that premium brands restrict their £350 masks to just 2 colors is a deliberate business decision to up-sell you later, not a scientific limitation."
+    name: "Verified Reviewer",
+    title: "Long-time LED mask user",
+    quote: "It seemed odd that premium masks restrict themselves to two colours when multi-colour options exist. For me, one device with more modes was simpler and better value."
   }
 ];
 
@@ -62,25 +62,20 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
       {/* Header / Hero */}
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-red-200">
-            <AlertTriangle size={16} />
-            INDUSTRY WARNING
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-emerald-200">
+            <CheckCircle2 size={16} />
+            BUYER'S GUIDE
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            The 2-Color Trap: Why Your Expensive LED Mask Is Only Doing 30% Of The Job
+            Why Light Colour Range Matters in an LED Mask
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
-              <img 
-                src="https://images.unsplash.com/photo-1594824432258-f404481cac4f?auto=format&fit=crop&q=80&w=200&h=200" 
-                alt="Dr. Sarah Jenkins" 
-                className="w-12 h-12 rounded-full object-cover border-2 border-emerald-100"
-              />
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">Dr. Sarah Jenkins</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Clinical Aesthetician</p>
+                <p className="font-bold text-slate-900 leading-tight">Best LED Face Mask Editorial Team</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Research & Editorial Team</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -95,7 +90,7 @@ export default function MissingColorsExpose({ context }: MarketContextProps) {
       <main className="max-w-6xl mx-auto px-4 py-12">
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
           <p>The biggest household names in LED therapy—brands charging anywhere from £350 to £500—are actively limiting your skin's potential. If you look closely at their flagship products, you'll notice a glaring omission: <strong>they only offer 2 colors of light (usually Red and Near-Infrared).</strong></p>
-          <p>Why does this matter? Because your skin is not a static organ. While Red light is fantastic for collagen production and anti-aging, it is virtually useless against the bacteria that causes acne breakouts. If you wake up with a hormonal breakout, your £400 'Anti-Aging' mask can't help you.</p>
+          <p>Why does this matter? Because your skin's needs change over time. Red light is popular for the look of fine lines, but it isn't the wavelength usually associated with blemish-prone skin. If your focus shifts to breakouts, a red-only mask offers fewer options.</p>
           <p>These premium brands know this. That's why they sell a separate 'Blemish/Acne' mask (featuring Blue light) for another £350. By artificially limiting their £400 devices to just two colors, they force you into a frustrating cycle of buying multiple expensive devices for different skin concerns.</p>
         </div>
 

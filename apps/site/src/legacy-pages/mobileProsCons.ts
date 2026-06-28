@@ -28,18 +28,18 @@ export const mobileProsCons: MobileProsConsMap = {
     1: {
       pros: [
         "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
-        "<b>Covers both the face and neck area</b>, helping target sagging skin and \"turkey neck\"",
-        "Health Canada Approved and certified to <b>CE, FCC & RoHS standards</b>",
-        "Built-in <b>eye protection</b> with safe, <b>pain-free</b> treatment suitable for all skin types",
-        "<b>4.9★ rating</b> from over 4,000 customers",
+        "<b>Covers both the face and neck area</b>, including the neck and jawline in the same session",
+        "Built with <b>flexible, skin-friendly materials</b> and even light placement",
+        "Built-in <b>eye protection</b> with a gentle, <b>pain-free</b> experience suitable for all skin types",
+        "<b>Strong customer feedback</b> on comfort and ease of use",
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
-        "Noticeable results after a few uses, with full results in <b>under 10 uses</b>",
+        "Designed for short, regular sessions you can keep up with at home",
         "Currently <b>£179</b> (60% off the regular £449 price)",
         "<b>90-day money-back guarantee</b> for added peace of mind",
       ],
       cons: [
         "Available online only in the <b>United Kingdom</b>",
-        "<b>Limited stock</b> due to high customer demand",
+        "Sold through the official Buudy website rather than retail stores",
         "Tap controls can take a session or two to learn, though most users <b>adapt quickly</b>",
       ],
     },
@@ -47,9 +47,9 @@ export const mobileProsCons: MobileProsConsMap = {
     // #2 CurrentBody LED Mask
     2: {
       pros: [
-        "<b>Endorsed by celebrities and dermatologists</b>, with multiple beauty awards",
-        "<b>4.7★ rating</b> from 2,860 customer reviews",
-        "Clinical study reported up to <b>30% wrinkle reduction</b> after 8 weeks",
+        "<b>Widely featured in the media</b> alongside celebrity and beauty-editor coverage",
+        "<b>High average rating</b> across a large number of customer reviews",
+        "Brand markets the device around the <b>appearance of fine lines and wrinkles</b>",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
       ],
       cons: [
@@ -67,16 +67,16 @@ export const mobileProsCons: MobileProsConsMap = {
     // #3 Omnilux LED Mask
     3: {
       pros: [
-        "<b>FDA-cleared and dermatologist-recommended</b> — 95% of users reported brighter skin",
+        "<b>Long-established light-therapy brand</b> with a strong reputation",
         "<b>30-day no-hassle money-back guarantee</b> for peace of mind",
-        "<b>Trusted medical-grade brand</b> from the professional skin care market",
+        "<b>Trusted brand</b> from the professional skin care market",
         "Flexible and portable with <b>rechargeable controller</b> and carry bag",
       ],
       cons: [
         "<b>Face-only treatment</b> at £348; separate neck piece costs another <b>£348</b>",
         "Premium-priced — significantly more expensive than Buudy (<b>£179</b>)",
         "<b>Only 2 wavelengths</b> (Red and NIR) — missing 5 other light modes",
-        "<b>Won't treat acne</b> — company explicitly states this limitation",
+        "<b>Single-concern focus</b> — a separate model is sold for blemish-prone skin",
         "<b>Fewer LEDs</b>: only 132 vs. Buudy's 192 high-density LEDs",
         "Some reviewers <b>report no noticeable difference</b> after months of use",
         "Flexible silicone may <b>require extra care</b> for hygiene and maintenance",
@@ -87,8 +87,8 @@ export const mobileProsCons: MobileProsConsMap = {
     4: {
       pros: [
         "Unique <b>\"Insta-Chill\" cryo-therapy</b> for under-eyes — not found in standard LED masks",
-        "<b>Developed with dermatologists</b> for added clinical credibility",
-        "<b>4.6★ rating</b> from 500+ reviews on the trusted Shark brand",
+        "<b>Developed with skin-care professionals</b> for added credibility",
+        "<b>High average rating</b> from a large number of reviews on the trusted Shark brand",
         "<b>Fast pre-programmed sessions</b> as short as 6–8 minutes",
       ],
       cons: [
@@ -97,7 +97,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>Missing 5 of 7 wavelengths</b> (Green, Yellow, Cyan, Purple, White)",
         "<b>LED count undisclosed</b> — likely lower than Buudy's 192 high-density LEDs",
         "At 675g, <b>very heavy and rigid</b> — may not suit all face shapes",
-        "<b>Cannot treat hyperpigmentation</b> or balance broader skin texture",
+        "<b>Fewer colour options</b> than a multi-colour mask for broader skin goals",
       ],
     },
 
@@ -106,7 +106,7 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>Full session in just 3 minutes</b> — fastest treatment time in this ranking",
         "<b>Designed by Dr. Dennis Gross</b> — strong dermatologist-backed authority",
-        "<b>415nm Blue light</b> effectively targets surface acne-causing bacteria",
+        "<b>415nm Blue light</b> mode, a wavelength associated with blemish-prone skin",
         "<b>Cordless</b> with internal battery for wire-free sessions",
       ],
       cons: [
@@ -130,18 +130,18 @@ export const mobileProsCons: MobileProsConsMap = {
     1: {
       pros: [
         "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
-        "<b>Covers both the face and neck area</b>, helping target sagging skin and \"turkey neck\"",
-        "Health Canada Approved and certified to <b>CE, FCC & RoHS standards</b>",
-        "Built-in <b>eye protection</b> with safe, <b>pain-free</b> treatment suitable for all skin types",
-        "<b>4.9★ rating</b> from over 4,000 customers",
+        "<b>Covers both the face and neck area</b>, including the neck and jawline in the same session",
+        "Built with <b>flexible, skin-friendly materials</b> and even light placement",
+        "Built-in <b>eye protection</b> with a gentle, <b>pain-free</b> experience suitable for all skin types",
+        "<b>Strong customer feedback</b> on comfort and ease of use",
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
-        "Noticeable results after a few uses, with full results in <b>under 10 uses</b>",
+        "Designed for short, regular sessions you can keep up with at home",
         "Currently <b>$299</b> (60% off the regular $649 price)",
         "<b>90-day money-back guarantee</b> for added peace of mind",
       ],
       cons: [
         "Available online only in <b>Canada</b>",
-        "<b>Limited stock</b> due to high customer demand",
+        "Sold through the official Buudy website rather than retail stores",
         "Tap controls can take a session or two to learn, though most users <b>adapt quickly</b>",
       ],
     },
@@ -149,9 +149,9 @@ export const mobileProsCons: MobileProsConsMap = {
     // #2 CurrentBody LED Mask (CA)
     2: {
       pros: [
-        "<b>Endorsed by celebrities and dermatologists</b>, with multiple beauty awards",
-        "<b>4.7★ rating</b> from 2,860 customer reviews",
-        "Clinical study reported up to <b>30% wrinkle reduction</b> after 8 weeks",
+        "<b>Widely featured in the media</b> alongside celebrity and beauty-editor coverage",
+        "<b>High average rating</b> across a large number of customer reviews",
+        "Brand markets the device around the <b>appearance of fine lines and wrinkles</b>",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
       ],
       cons: [
@@ -169,8 +169,8 @@ export const mobileProsCons: MobileProsConsMap = {
     // #3 Kala Red Light Face Mask (CA only)
     3: {
       pros: [
-        "Red, Near-Infrared and Blue LED light treatment",
-        "<b>FDA-cleared</b> and dermatologist-recommended",
+        "Red, Near-Infrared and Blue LED light modes",
+        "<b>Dermatologist-tested</b> positioning highlighted by the brand",
         "Lightweight <b>348g</b> silicone design for comfortable wear",
         "<b>2-year warranty</b> provides added peace of mind",
       ],
@@ -206,7 +206,7 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>336 LEDs</b> provide dense and even facial light coverage",
         "<b>Six treatment modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
-        "Health Canada Approved with <b>CE, FCC and RoHS certifications</b>",
+        "Lists <b>multiple safety certifications</b>",
         "Backed by a <b>2-year warranty</b> for added assurance",
       ],
       cons: [

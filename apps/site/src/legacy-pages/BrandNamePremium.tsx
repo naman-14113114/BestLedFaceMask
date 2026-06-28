@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { AlertTriangle, Calendar, Check, CheckCircle2, TrendingUp, HandCoins, XCircle, Award, BadgePoundSterling } from 'lucide-react';
+import { Calendar, Check, CheckCircle2, TrendingUp, HandCoins, XCircle, Award, BadgePoundSterling } from 'lucide-react';
 import { motion } from 'motion/react';
 import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
@@ -18,7 +18,7 @@ const dangerPoints = [
   {
     icon: TrendingUp,
     title: "Commoditized Technology",
-    description: "The core technology behind LED light therapy—light emitting diodes engineered to specific nanometers—is well-established science. The actual cost of producing FDA-cleared, clinical-grade LEDs has plummeted, yet massive brands refuse to lower their retail prices.",
+    description: "The core technology behind LED light therapy—light emitting diodes engineered to specific nanometers—is well-established science. The actual cost of producing clinical-grade LEDs has fallen significantly, yet many premium brands keep their retail prices high.",
     severity: "Consumer Awareness"
   },
   {
@@ -46,12 +46,12 @@ const expertQuotes = [
   {
     name: EXPERT_PROFILE.name,
     title: EXPERT_PROFILE.title,
-    quote: "If you strip away the designer packaging and the celebrity endorsements, the internal circuit boards of a £500 mask and a £200 mask often roll off very similar assembly lines. You are almost exclusively paying a 'brand tax' for the logo printed on the silicone."
+    quote: "If you strip away the designer packaging and the celebrity endorsements, a £500 mask and a £200 mask often use very similar components. With premium brands, a large part of the price reflects the logo rather than the technology."
   },
   {
     name: EXPERT_PROFILE.name,
     title: EXPERT_PROFILE.title,
-    quote: "I always advise my patients to buy specs, not brands. Look for the nanometer wavelengths (630nm red, 415nm blue) and FDA clearance. If a device has those, spending an extra £300 just because it was in Vogue magazine is financially foolish."
+    quote: "Our advice is to compare specs, not brands. Look at the nanometer wavelengths (630nm red, 415nm blue) and the accessories included. If two devices are similar on paper, paying an extra £300 for the brand name rarely makes sense."
   }
 ];
 
@@ -61,13 +61,13 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
       <header className="bg-white border-b border-slate-200 pt-12 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-red-200">
-            <AlertTriangle size={16} />
-            INDUSTRY EXPOSÉ
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-emerald-200">
+            <BadgePoundSterling size={16} />
+            PRICE BREAKDOWN
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            The "Celebrity Markup": Are You Paying For Light Therapy Or Marketing?
+            Brand Name vs. Value: What You're Really Paying For in an LED Mask
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
@@ -236,10 +236,10 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                     <span className="text-lg text-slate-400 line-through font-medium">£449</span>
                   </div>
                   <GreenStarRating rating={5} size={20} className="mb-1" />
-                  <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
+                  <p className="text-sm font-medium text-slate-500">Highly rated by customers</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get the Buudy Mask Direct" className="w-full" />
                 </div>
               </div>
 
@@ -247,7 +247,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Color LED Therapy Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
                   <p>Buudy was founded on a simple principle: <strong> democratize clinical-grade skincare.</strong> By refusing to pay millions to celebrities for endorsements, Buudy is able to pour 100% of its budget directly into the hardware.</p>
-                  <p>That means at £179, you are getting FDA-cleared technology, 7 distinct wavelengths, 192 high-density LEDs, and a built-in neck adapter. You are paying for the electronics, the clinical research, and the results—nothing else.</p>
+                  <p>That means at £179, you are getting 7 distinct wavelengths, 192 high-density LEDs, and a built-in neck adapter. You are paying for the electronics and the design—not a celebrity marketing budget.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -257,9 +257,9 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                   <ul className="space-y-4">
                     {[
                       "Zero Celebrity Markup: We don't pay influencers, we pass the savings to you.",
-                      "Medical-Grade Hardware: 192 dense LEDs with clinical power output.",
+                      "Capable Hardware: 192 dense LEDs across 7 light modes.",
                       "Transparent Pricing: £179 includes the face mask, neck adapter, and all accessories.",
-                      "Proven Results: Over 16,000 organic, un-paid customer reviews in the UK."
+                      "Strong Customer Feedback: A large base of organic, un-paid customer reviews in the UK."
                     ].map((pro, idx) => {
                       const [bold, ...rest] = pro.split(':');
                       return (
@@ -273,7 +273,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get FDA-Cleared Tech Direct" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get the Buudy Mask Direct" className="w-full" />
                 </div>
               </div>
             </div>
