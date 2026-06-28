@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
 const siteUrl = SITE_URL;
 const ogImage = `${siteUrl}/img/57-w.webp`;
-const favicon = "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png";
+const favicon = "/favicon.png";
 const robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 
 const advertorialLanguages = {
