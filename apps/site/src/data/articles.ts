@@ -22,7 +22,7 @@ export const articles: Article[] = [
     seoKeywords: "led light therapy guide, led mask buyer guide, red light therapy explained, led mask uk",
     author: "Best LED Face Mask Editorial",
     date: "March 10, 2026",
-    image: "/img/TOP 5 LED Mask.png",
+    image: "https://www.bestledfacemask.org/img/TOP%205%20LED%20Mask.png",
     excerpt: "LED light therapy has grown rapidly in popularity over the past few years. But with so many devices on the market, where do you start? This guide walks through the basics of how LED masks work, what each colour is designed for, and what features matter most when you are shopping for one.",
     content: [
       "LED light therapy has been available in professional skin care clinics for many years, and over the past decade, at-home devices have become increasingly accessible. If you have been scrolling through social media or browsing beauty retailers, you have probably seen those glowing face masks popping up everywhere. But what exactly are they, and are they worth your money?",
