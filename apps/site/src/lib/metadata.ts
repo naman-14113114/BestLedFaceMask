@@ -27,7 +27,7 @@ export const rootMetadata: Metadata = {
 
 export const defaultAdvertorialMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
+  title: "Best LED Face Mask UK (2026) | Best LED Light Mask Reviews",
   description:
     "Looking for the best LED face mask in the UK? Compare LED light masks for fine lines, red light routines, at-home use, face and neck coverage, and overall value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
@@ -45,7 +45,7 @@ export const defaultAdvertorialMetadata: Metadata = {
   },
   robots,
   openGraph: {
-    title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
+    title: "Best LED Face Mask UK (2026) | Best LED Light Mask Reviews",
     description:
       "Compare the best LED face masks in the UK for fine lines, red light routines, at-home use, comfort, coverage, and overall value.",
     type: "article",
@@ -57,7 +57,7 @@ export const defaultAdvertorialMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
+    title: "Best LED Face Mask UK (2026) | Best LED Light Mask Reviews",
     description: "Compare the best LED face masks in the UK for fine lines, blemish-prone skin routines, red light, neck coverage, and value.",
     images: [ogImage]
   }

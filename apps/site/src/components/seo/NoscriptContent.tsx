@@ -224,7 +224,7 @@ export function AdvertorialNoscriptContent({
             </li>
             <li>
               <strong>Omnilux Contour Face</strong>: Respected red light mask
-              with clinical heritage, but limited colour range and no integrated
+              with an established brand history, but limited colour range and no integrated
               neck coverage.
             </li>
             <li>

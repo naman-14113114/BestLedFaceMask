@@ -116,7 +116,7 @@ const advertorialSchema = {
           "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#webpage",
       },
       headline:
-        "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
+        "Best LED Face Mask UK (2026) | Best LED Light Mask Reviews",
       description:
         "A UK comparison guide covering the best LED face masks for fine lines, red light routines, at-home use, face and neck coverage, and overall value.",
       image: "https://www.bestledfacemask.org/img/57-w.webp",

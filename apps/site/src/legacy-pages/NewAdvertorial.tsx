@@ -216,7 +216,7 @@ const baseProducts: Product[] = [
       "Fewer Light Modes: It focuses on red and near-infrared light and does not include the blue, green, or yellow light modes found on multi-colour masks like Buudy.",
       "Single-Concern Focus: Because it centres on the appearance of ageing, it is less versatile than a multi-colour mask for a broader range of skin goals.",
       "Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
-      "Mixed User Results: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
+      "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
       'Fit Issues: Some users note that the fit isn\'t perfect and that the mask can "slide down," even with the new straps.',
     ],
     metrics: [
@@ -252,10 +252,10 @@ const baseProducts: Product[] = [
     cons: [
       "Extremely High Price: At <b>£348</b>, it is significantly more expensive than the Buudy mask (£179).",
       "No Neck Coverage: The <b>£348</b> price is for the face mask only. A separate neck and chest piece must be purchased for an additional <b>£348</b>, making the total cost for full coverage nearly £696.",
-      "Very Limited Treatment Modes: This mask is an anti-aging device only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
+      "Very Limited Light Modes: This mask is focused on ageing-related routines only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
       "Single-Concern Focus: The Contour model is positioned mainly for the appearance of ageing, while a separate Omnilux model is sold for blemish-prone skin. A multi-colour mask covers more in one device.",
       "Fewer LEDs: It is equipped with only 132 LEDs, fewer than the Buudy mask's 192 LEDs, offering less dense light coverage.",
-      "Mixed User Results: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
+      "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
     ],
     metrics: [
       { label: "Light Effectiveness", value: 76 },
@@ -317,8 +317,8 @@ const baseProducts: Product[] = [
       "Crucially, at this premium price, it entirely lacks neck and chest coverage. While it does provide convenience, the <b>162 LEDs</b> offer a lower density of light compared to some newer models, and it misses several colour options included on broader multi-colour masks.",
     ],
     pros: [
-      "Fastest Treatment Time: Completes a full session in just 3 minutes, ideal for those in a rush.",
-      "Dermatologist Created: Designed by Dr. Dennis Gross, adding a layer of clinical authority.",
+      "Fastest Session Time: Completes a full session in just 3 minutes, ideal for those in a rush.",
+      "Dermatologist-Created Brand: Designed by Dr. Dennis Gross, adding strong brand authority.",
       "Blue Light Mode: Includes a 415nm blue light mode, a wavelength commonly associated with blemish-prone skin.",
       "Cordless Usability: Internal battery allows for wire-free usage during the short session window.",
     ],
@@ -327,7 +327,7 @@ const baseProducts: Product[] = [
       "Zero Neck & Chest Coverage: For nearly £500, the lack of a neck attachment is a major omission. Better-value masks include neck and jawline coverage as a standard feature.",
       "Lower LED Density: Containing only <b>162 LEDs</b>, it has a lower light density than modern high-output models, resulting in larger gaps between light points on the skin.",
       "Rigid, Uncomfortable Fit: The hard plastic shell does not flex. Users with varying bone structures frequently report <b>significant discomfort</b> on the bridge of the nose and <b>uneven light coverage</b>, a stark contrast to the comfort of soft, molding silicone.",
-      "Severely Limited Color Spectrum: It offers only 3 modes (Red, Blue, and Combo). It completely misses out on Green (pigmentation), Yellow (redness), Cyan, Purple, and White light therapies that come standard with Buudy.",
+      "Severely Limited Color Spectrum: It offers only 3 modes (Red, Blue, and Combo). It misses Green, Yellow, Cyan, Purple, and White light modes that come standard with Buudy.",
       "Short Battery Life: The internal battery is kept small to reduce the mask's weight, meaning it requires much more frequent charging than devices utilizing external power banks.",
       "Fragile Build: Rigid plastic masks are inherently prone to cracking or breaking if accidentally dropped, unlike durable, travel-friendly silicone options.",
       "No Eye Protection: The open-eye design allows light to bleed into your vision, which can be bothersome for light-sensitive users compared to masks with integrated eye inserts.",
@@ -395,7 +395,7 @@ const canadaCompetitorProducts: Product[] = [
     ],
     pros: [
       "Massive LED Count: Uses 648 LEDs, one of the highest counts in the category.",
-      "Vibration Therapy: VibraWave motors add a massage-style feature for facial tension relief.",
+      "Vibration Feature: VibraWave motors add a massage-style feature for a spa-like routine.",
       "Cordless Design: Short 9-minute routines and no cord make sessions easy to start.",
       "Brand Reputation: Backed by Therabody, a major name in wellness technology.",
     ],
@@ -433,7 +433,7 @@ const canadaCompetitorProducts: Product[] = [
     ],
     pros: [
       "High Face LED Count: The <b>face-only mask</b> lists <b>336 LEDs</b> for dense facial coverage.",
-      "Six Treatment Modes: Includes combinations such as Red + NIR, Red + Blue, and Yellow + NIR.",
+      "Six Light Modes: Includes combinations such as Red + NIR, Red + Blue, and Yellow + NIR.",
       "Ultra-Thin Comfort: The product positioning highlights a thinner silicone fit than many standard masks.",
       "Certification and Warranty Signals: Lists multiple safety certifications and a <b>2-year warranty</b>.",
     ],
@@ -541,7 +541,7 @@ function localizeProductCopy(
       return 'No Neck Coverage: The standard mask is for the face only. You must purchase the "Face & Neck Kit" for <b>neck coverage</b>, which comes standard with the Buudy mask.';
     }
 
-    if (text.startsWith("Costly Money-Back Guarantee:")) {
+    if (text.startsWith("Return Fee:")) {
       return `Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be about ${prices.currentbody.restockingFee} on a ${prices.currentbody.roundedPrice} mask.`;
     }
   }
