@@ -21,6 +21,7 @@ import {
 } from "@/lib/advertorialMarkets";
 import type { MarketContextProps } from "@/lib/marketContext";
 import { EXPERT_PROFILE } from "@/lib/expertProfile";
+import { SITE_NAME } from "@/lib/brand";
 import { getMobileProsCons } from "./mobileProsCons";
 
 function stripInlineHtml(text: string) {
@@ -1372,6 +1373,74 @@ export default function Home({
           </div>
         </div>
       </main>
+
+      <footer className="border-t border-slate-200 bg-slate-950 px-4 pb-28 pt-10 text-slate-300 md:pb-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
+            <div>
+              <p className="text-lg font-extrabold tracking-tight text-white">
+                {SITE_NAME}
+              </p>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-400">
+                Independent LED face mask comparisons for shoppers comparing
+                price, wavelengths, comfort, face and neck coverage, return
+                policies, and overall value. Product prices, offers, stock, and
+                terms can change, so always confirm final details on the
+                retailer website before purchase.
+              </p>
+              <p className="mt-4 text-xs leading-relaxed text-slate-500">
+                Affiliate disclosure: we may receive compensation when readers
+                click links or buy products featured on this site. This does not
+                add cost for you. Individual experiences with skincare devices
+                vary, and this site provides general information only.
+              </p>
+            </div>
+
+            <nav
+              aria-label="Footer navigation"
+              className="grid grid-cols-2 gap-3 text-sm font-semibold text-slate-300 sm:grid-cols-3 md:text-right"
+            >
+              <a href="/" className="transition-colors hover:text-white">
+                Home
+              </a>
+              <a
+                href="/best-led-face-mask-2026"
+                className="transition-colors hover:text-white"
+              >
+                Rankings
+              </a>
+              <a href="/about" className="transition-colors hover:text-white">
+                About
+              </a>
+              <a
+                href="/editorial-policy"
+                className="transition-colors hover:text-white"
+              >
+                Editorial Policy
+              </a>
+              <a
+                href="/disclosure"
+                className="transition-colors hover:text-white"
+              >
+                Disclosure
+              </a>
+              <a href="/contact" className="transition-colors hover:text-white">
+                Contact
+              </a>
+              <a href="/privacy" className="transition-colors hover:text-white">
+                Privacy
+              </a>
+              <a href="/terms" className="transition-colors hover:text-white">
+                Terms
+              </a>
+            </nav>
+          </div>
+
+          <div className="mt-8 border-t border-white/10 pt-5 text-xs text-slate-500">
+            © 2026 {SITE_NAME}. All rights reserved.
+          </div>
+        </div>
+      </footer>
 
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-center">
