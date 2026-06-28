@@ -5,7 +5,14 @@ import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
 const siteUrl = SITE_URL;
 const ogImage = `${siteUrl}/img/57-w.webp`;
-const favicon = "/favicon.png";
+const icons = {
+  icon: [
+    { url: "/favicon.svg", type: "image/svg+xml" },
+    { url: "/favicon.png", type: "image/png", sizes: "64x64" },
+    { url: "/icon-192.png", type: "image/png", sizes: "192x192" }
+  ],
+  apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }]
+};
 const robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 
 const advertorialLanguages = {
@@ -19,9 +26,7 @@ const advertorialLanguages = {
 
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  icons: {
-    icon: favicon
-  },
+  icons,
   robots
 };
 
@@ -32,10 +37,8 @@ export const defaultAdvertorialMetadata: Metadata = {
     "Looking for the best LED face mask in the UK? Compare LED light masks for fine lines, red light routines, at-home use, face and neck coverage, and overall value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
-    "best led face mask, best led face mask uk, best led light mask, red light face mask, best red light mask, best at home led face mask, best face led mask, best infrared face mask, top rated led face mask",
-  icons: {
-    icon: favicon
-  },
+    "best led face mask, best led face mask uk, best led light therapy mask, best led mask for wrinkles, best red light therapy mask, best at home led face mask, best led light mask, best face led mask, best infrared face mask, top rated led face mask",
+  icons,
   alternates: {
     canonical: "/best-led-face-mask-uk-2026",
     languages: {
@@ -107,10 +110,8 @@ export const homeMetadata: Metadata = {
     "LED face mask reviews and country-specific buyer guides covering wavelengths, safety signals, face and neck coverage, return policies, and value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
-    "led face mask reviews, best led face mask, red light mask, led mask buyer guide, led mask with neck coverage",
-  icons: {
-    icon: favicon
-  },
+    "led face mask reviews, best led face mask, red light therapy mask, led mask buyer guide, led mask with neck coverage",
+  icons,
   alternates: {
     canonical: `${siteUrl}/`
   },
