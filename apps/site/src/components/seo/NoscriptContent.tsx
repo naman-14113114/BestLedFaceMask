@@ -11,7 +11,7 @@ export function HomeNoscriptContent() {
         <h1>{SITE_NAME}</h1>
         <p>
           LED face mask reviews and country-specific buyer guides covering red
-          light therapy, light wavelengths, face and neck coverage, safety,
+          LED skincare, light wavelengths, face and neck coverage, safety,
           price, and value.
         </p>
         <h2>Important Guides</h2>
@@ -47,8 +47,8 @@ export function HomeNoscriptContent() {
             </a>
           </li>
           <li>
-            <a href="https://www.bestledfacemask.org/led-density-scam">
-              The LED Density Scam
+            <a href="https://www.bestledfacemask.org/best-led-face-mask-2026">
+              LED Density Buying Guide
             </a>
           </li>
         </ul>
@@ -69,7 +69,7 @@ export function AdvertorialNoscriptContent({
         ? [
             {
               name: "Buudy 7 Colour LED Mask",
-              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
+              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
             },
             {
               name: "CurrentBody LED Mask",
@@ -78,23 +78,23 @@ export function AdvertorialNoscriptContent({
             {
               name: "Kala Red Light Face Mask",
               description:
-                "A credible Canada-focused option with red, near-infrared, and blue light, 198 listed LED lights, dermatologist-tested positioning, and a reviewed price of $382.49.",
+                "A credible Canada-focused option with red, near-infrared, and blue light, 198 listed LED lights, clear published specifications, and a reviewed price of $382.49.",
             },
             {
               name: "TheraFace Mask",
               description:
-                "A premium Therabody device with 648 LEDs and VibraWave massage therapy, but a very high reviewed price of $799.99 and no integrated neck coverage.",
+                "A premium Therabody device with 648 LEDs and VibraWave massage, but a very high reviewed price of $799.99 and no integrated neck coverage.",
             },
             {
               name: "Equinox LED Mask",
               description:
-                "A silicone face mask with 336 face LEDs, six treatment modes, and multiple listed safety certifications, but weaker value at $385 because the face-only model excludes neck and chest coverage.",
+                "A silicone face mask with 336 face LEDs, six light modes, and multiple listed safety certifications, but weaker value at $385 because the face-only model excludes neck and chest coverage.",
             },
           ]
         : [
             {
               name: "Buudy 7 Colour LED Mask",
-              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
+              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
             },
             {
               name: "CurrentBody LED Mask",
@@ -104,12 +104,12 @@ export function AdvertorialNoscriptContent({
             {
               name: "Shark CryoGlow LED Mask",
               description:
-                "Useful cooling features and fast sessions, but fewer treatment colours and a higher price point.",
+                "Useful cooling features and fast sessions, but fewer light colours and a higher price point.",
             },
             {
               name: "Omnilux Contour Face",
               description:
-                "Respected red light mask with clinical heritage, but limited colour range and no integrated neck treatment.",
+                "Respected red light mask with an established brand history, but limited colour range and no integrated neck coverage.",
             },
             {
               name: "Dr. Dennis Gross DRx SpectraLite FaceWare Pro",
@@ -127,12 +127,12 @@ export function AdvertorialNoscriptContent({
             <p>
               We tested 18 popular LED face masks over 200+ hours for{" "}
               {marketConfig.buyerLabel}, comparing wavelengths, light coverage,
-              comfort, eye safety, neck treatment, ease of use, reviews, price,
-              and guarantees.
+              comfort, eye safety, neck coverage, ease of use, reviews, price,
+              and return policies.
             </p>
             <p>
               The main finding was that a higher price did not always mean
-              better results. The strongest LED masks used the right
+              better value. The strongest LED masks used clearly published
               wavelengths, gave even face and neck coverage, and were easy
               enough to use consistently at home.
             </p>
@@ -164,12 +164,12 @@ export function AdvertorialNoscriptContent({
               Our comparison ranks the Buudy 7 Colour LED Mask as the strongest
               value pick because it combines 7 visible colour modes, 830nm
               near-infrared support, face and neck coverage, eye protection, and
-              a 90-day guarantee at {marketConfig.productPrices.buudy.price}.
+              a 90-day money-back policy at {marketConfig.productPrices.buudy.price}.
             </p>
             <h3>Do more expensive LED masks always perform better?</h3>
             <p>
               No. In this comparison, wavelength quality, even coverage,
-              treatment consistency, comfort, and safety mattered more than
+              routine consistency, comfort, and safety signals mattered more than
               brand prestige or price.
             </p>
             <h3>Which wavelengths are highlighted for the Buudy mask?</h3>
@@ -193,11 +193,11 @@ export function AdvertorialNoscriptContent({
           <p>
             We tested 18 popular LED face masks over 200+ hours for UK buyers,
             comparing wavelengths, light coverage, comfort, eye safety, neck
-            treatment, ease of use, reviews, price, and guarantees.
+            coverage, ease of use, reviews, price, and return policies.
           </p>
           <p>
             The main finding was that a higher price did not always mean better
-            results. The strongest LED masks used the right wavelengths, gave
+            value. The strongest LED masks used clearly published wavelengths, gave
             even face and neck coverage, and were easy enough to use
             consistently at home.
           </p>
@@ -209,7 +209,7 @@ export function AdvertorialNoscriptContent({
               <strong>Buudy 7 Colour LED Mask</strong>: Best overall value for
               UK buyers. Includes 7 visible colours, 830nm near-infrared
               support, built-in neck coverage, eye protection, cordless use,
-              Buudy AI guided sessions, and a 90-day money-back guarantee.
+              Buudy AI guided sessions, and a 90-day money-back policy.
               Current reviewed price: £179.
             </li>
             <li>
@@ -219,13 +219,13 @@ export function AdvertorialNoscriptContent({
             </li>
             <li>
               <strong>Shark CryoGlow LED Mask</strong>: Useful cooling features
-              and fast sessions, but fewer treatment colours and a higher price
+              and fast sessions, but fewer light colours and a higher price
               point.
             </li>
             <li>
               <strong>Omnilux Contour Face</strong>: Respected red light mask
               with clinical heritage, but limited colour range and no integrated
-              neck treatment.
+              neck coverage.
             </li>
             <li>
               <strong>Dr. Dennis Gross DRx SpectraLite FaceWare Pro</strong>:
@@ -248,12 +248,12 @@ export function AdvertorialNoscriptContent({
             Our comparison ranks the Buudy 7 Colour LED Mask as the strongest
             value pick because it combines 7 visible colour modes, 830nm
             near-infrared support, face and neck coverage, eye protection, and a
-            90-day guarantee at £179.
+            90-day money-back policy at £179.
           </p>
           <h3>Do more expensive LED masks always perform better?</h3>
           <p>
-            No. In this comparison, wavelength quality, even coverage, treatment
-            consistency, comfort, and safety mattered more than brand prestige
+            No. In this comparison, wavelength quality, even coverage, routine
+            consistency, comfort, and safety signals mattered more than brand prestige
             or price.
           </p>
           <h3>Which wavelengths are highlighted for the Buudy mask?</h3>

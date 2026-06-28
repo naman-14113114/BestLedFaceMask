@@ -29,10 +29,10 @@ export const defaultAdvertorialMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
   description:
-    "Looking for the best LED face mask in the UK? Compare the best LED light therapy masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
+    "Looking for the best LED face mask in the UK? Compare LED light masks for fine lines, red light routines, at-home use, face and neck coverage, and overall value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
-    "best led face mask, best led face mask uk, best led light therapy mask, best led mask for wrinkles, best red light therapy mask, best at home led face mask, best led light mask, best face led mask, best infrared face mask, top rated led face mask",
+    "best led face mask, best led face mask uk, best led light mask, red light face mask, best red light mask, best at home led face mask, best face led mask, best infrared face mask, top rated led face mask",
   icons: {
     icon: favicon
   },
@@ -47,7 +47,7 @@ export const defaultAdvertorialMetadata: Metadata = {
   openGraph: {
     title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
     description:
-      "Compare the best LED face masks in the UK for wrinkles, red light therapy, at-home use, comfort, coverage, and overall value.",
+      "Compare the best LED face masks in the UK for fine lines, red light routines, at-home use, comfort, coverage, and overall value.",
     type: "article",
     url: `${siteUrl}/best-led-face-mask-uk-2026`,
     siteName: SITE_NAME,
@@ -58,7 +58,7 @@ export const defaultAdvertorialMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
-    description: "Compare the best LED face masks in the UK for wrinkles, acne, red light therapy, neck coverage, and value.",
+    description: "Compare the best LED face masks in the UK for fine lines, blemish-prone skin routines, red light, neck coverage, and value.",
     images: [ogImage]
   }
 };
@@ -74,13 +74,13 @@ export function advertorialMetadata(pathname: string, marketKey: AdvertorialMark
   }[marketKey];
   const title = `Best LED Face Mask${region} (2026) | Expert Comparison`;
   const description = marketKey === "global"
-    ? "Compare the best LED face masks of 2026 by wavelengths, coverage, comfort, safety, guarantee and value, with country-specific buying links."
-    : `Compare the best LED face masks in ${market.countryName} for wavelengths, face and neck coverage, comfort, safety, guarantee and overall value.`;
+    ? "Compare the best LED face masks of 2026 by wavelengths, coverage, comfort, safety signals, return policies and value, with country-specific buying links."
+    : `Compare the best LED face masks in ${market.countryName} for wavelengths, face and neck coverage, comfort, safety signals, return policies and overall value.`;
   return {
     ...defaultAdvertorialMetadata,
     title,
     description,
-    keywords: `best led face mask, best led face mask ${marketKey === "global" ? "2026" : market.countryName.toLowerCase()}, best led light therapy mask, best red light therapy mask, best at home led face mask, LED mask with neck coverage`,
+    keywords: `best led face mask, best led face mask ${marketKey === "global" ? "2026" : market.countryName.toLowerCase()}, best led light mask, best red light mask, best at home led face mask, LED mask with neck coverage`,
     alternates: {
       canonical: `${siteUrl}${pathname}`,
       languages: advertorialLanguages
@@ -104,10 +104,10 @@ export const homeMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
   description:
-    "LED face mask reviews and country-specific buyer guides covering wavelengths, safety, face and neck coverage, guarantees, and value.",
+    "LED face mask reviews and country-specific buyer guides covering wavelengths, safety signals, face and neck coverage, return policies, and value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
-    "led face mask reviews, best led face mask, red light therapy mask, led mask buyer guide, led mask with neck coverage",
+    "led face mask reviews, best led face mask, red light mask, led mask buyer guide, led mask with neck coverage",
   icons: {
     icon: favicon
   },
@@ -118,7 +118,7 @@ export const homeMetadata: Metadata = {
   openGraph: {
     title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
     description:
-      "Compare LED face masks, red light therapy devices, face and neck coverage, wavelengths, safety, guarantees, and value by market.",
+      "Compare LED face masks, red light devices, face and neck coverage, wavelengths, safety signals, return policies, and value by market.",
     type: "website",
     url: `${siteUrl}/`,
     siteName: SITE_NAME,

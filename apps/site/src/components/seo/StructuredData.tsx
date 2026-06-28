@@ -22,7 +22,7 @@ const homeSchema = {
       areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
-        "red light therapy masks",
+        "red light LED masks",
         "LED mask safety",
         "LED mask wavelengths",
         "at-home skincare technology",
@@ -48,7 +48,7 @@ const homeSchema = {
       },
       about: [
         "LED face mask reviews",
-        "red light therapy masks",
+        "red light LED masks",
         "best LED face mask",
         "LED mask with neck coverage",
       ],
@@ -68,13 +68,13 @@ const advertorialSchema = {
         "@type": "ImageObject",
         url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
       },
-      description: `${SITE_NAME} publishes beauty technology comparisons and buyer guides for LED face masks and red light therapy devices.`,
+      description: `${SITE_NAME} publishes beauty technology comparisons and buyer guides for LED face masks and red light skincare devices.`,
       areaServed: "Worldwide",
       knowsAbout: [
         "LED face masks",
-        "red light therapy masks",
-        "blue light therapy for blemish-prone skin",
-        "near-infrared light therapy",
+        "red light LED masks",
+        "blue light routines for blemish-prone skin",
+        "near-infrared LED skincare",
         "at-home skincare devices",
         "LED mask safety and certifications",
       ],
@@ -100,9 +100,9 @@ const advertorialSchema = {
       },
       about: [
         "best LED face mask UK",
-        "red light therapy mask",
+        "red light LED mask",
         "LED mask with neck coverage",
-        "at-home LED light therapy",
+        "at-home LED skincare",
       ],
       inLanguage: "en-GB",
       dateModified: "2026-06-13",
@@ -118,7 +118,7 @@ const advertorialSchema = {
       headline:
         "Best LED Face Mask UK (2026) | Best LED Light Therapy Mask Reviews",
       description:
-        "A UK comparison guide covering the best LED face masks for wrinkles, red light therapy, at-home use, face and neck coverage, and overall value.",
+        "A UK comparison guide covering the best LED face masks for fine lines, red light routines, at-home use, face and neck coverage, and overall value.",
       image: "https://www.bestledfacemask.org/img/57-w.webp",
       datePublished: "2026-06-12",
       dateModified: "2026-06-13",
@@ -131,9 +131,9 @@ const advertorialSchema = {
       keywords: [
         "best led face mask",
         "best led face mask uk",
-        "best led light therapy mask",
-        "best red light therapy mask",
-        "best led mask for wrinkles",
+        "best led light mask",
+        "best red light mask",
+        "red light face mask",
         "best at home led face mask",
         "LED mask with neck coverage",
         "7 colour LED mask",
@@ -195,13 +195,13 @@ const advertorialSchema = {
         "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
       description:
-        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
+        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back policy.",
       image: "https://www.bestledfacemask.org/img/57-w.webp",
       brand: {
         "@type": "Brand",
         name: "Buudy",
       },
-      category: "At-home LED light therapy mask",
+      category: "At-home LED skincare mask",
       offers: {
         "@type": "Offer",
         url: "https://www.buudy.co.uk/products/buudy-led-mask",
@@ -222,8 +222,8 @@ const advertorialSchema = {
         },
         {
           "@type": "PropertyValue",
-          name: "Guarantee",
-          value: "90-day money-back guarantee",
+          name: "Return policy",
+          value: "90-day money-back policy",
         },
       ],
     },
@@ -250,7 +250,7 @@ const advertorialSchema = {
           name: "What is the best LED face mask in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at £179.",
+            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day money-back policy at £179.",
           },
         },
         {
@@ -258,7 +258,7 @@ const advertorialSchema = {
           name: "Do more expensive LED masks always perform better?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. The comparison found that higher price did not always mean better results. Wavelength quality, even coverage, treatment consistency, comfort, and safety mattered more than brand prestige.",
+            text: "No. The comparison found that higher price did not always mean better value. Published wavelength information, even coverage, routine consistency, comfort, and safety signals mattered more than brand prestige.",
           },
         },
         {
@@ -340,7 +340,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
     (node) => node["@type"] === "Organization",
   );
   for (const node of organizationNodes) {
-    node.description = `${SITE_NAME} publishes ${market.countryAdjective}-focused LED face mask reviews, red light therapy comparisons, and buyer guides.`;
+    node.description = `${SITE_NAME} publishes ${market.countryAdjective}-focused LED face mask reviews, red light skincare comparisons, and buyer guides.`;
     node.areaServed = market.key === "global"
       ? "Worldwide"
       : { "@type": "Country", name: market.countryName };
@@ -360,9 +360,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       : `Best LED Face Mask ${market.countryName} (2026)`;
     webpage.about = [
       `best LED face mask ${market.countryName}`,
-      "red light therapy mask",
+      "red light LED mask",
       "LED mask with neck coverage",
-      "at-home LED light therapy",
+      "at-home LED skincare",
     ];
     webpage.inLanguage = market.languageName;
   }
@@ -374,13 +374,13 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
     article.headline = market.key === "global"
       ? "Best LED Face Mask (2026) | Editorial Comparison"
       : `Best LED Face Mask ${market.countryName} (2026) | Editorial Comparison`;
-    article.description = `An editorial ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, guarantees, and overall value.`;
+    article.description = `An editorial ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, return policies, and overall value.`;
     article.keywords = [
       "best led face mask",
       `best led face mask ${countryLower}`,
-      "best led light therapy mask",
-      "best red light therapy mask",
-      "best led mask for wrinkles",
+      "best led light mask",
+      "best red light mask",
+      "red light face mask",
       "best at home led face mask",
       "LED mask with neck coverage",
       "7 colour LED mask",
@@ -436,7 +436,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       const answer = question.acceptedAnswer;
       if (answer && typeof answer === "object" && !Array.isArray(answer)) {
         (answer as SchemaNode).text =
-          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at ${market.productPrices.buudy.price}.`;
+          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day money-back policy at ${market.productPrices.buudy.price}.`;
       }
     }
   }
