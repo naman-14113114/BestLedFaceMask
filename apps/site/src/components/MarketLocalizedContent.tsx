@@ -10,7 +10,7 @@ import type {
   PageMarketContext
 } from "@/lib/marketContext";
 
-const POUND_PRICE_RE = /Â?£\s?(\d[\d,]*(?:\.\d+)?)(\+)?/g;
+const POUND_PRICE_RE = /\u00C2?\u00A3\s?(\d[\d,]*(?:\.\d+)?)(\+)?/g;
 const BUUDY_HOST_RE = /(^|\.)buudy\.(com|co\.uk)$/i;
 
 function exactPrice(

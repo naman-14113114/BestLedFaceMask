@@ -230,14 +230,14 @@ const advertorialSchema = {
     {
       "@type": "VideoObject",
       "@id":
-        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#dermatologist-video",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#skincare professional-video",
       name: "Dermatologist walkthrough of the Buudy 7 Colour LED Mask",
       description:
         "A short product walkthrough showing the Buudy LED mask fit, light modes, eye area, and full-face coverage.",
       thumbnailUrl:
-        "https://www.bestledfacemask.org/assets/buudy-dermatologist-verdict-poster.jpg",
+        "https://www.bestledfacemask.org/assets/buudy-skincare professional-verdict-poster.jpg",
       contentUrl:
-        "https://www.bestledfacemask.org/assets/buudy-dermatologist-verdict.mp4",
+        "https://www.bestledfacemask.org/assets/buudy-skincare professional-verdict.mp4",
       uploadDate: "2026-06-12",
       duration: "PT2M6S",
     },
@@ -419,7 +419,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
 
   const video = graph.find((node) => node["@type"] === "VideoObject");
   if (video) {
-    video["@id"] = `${routeUrl}#dermatologist-video`;
+    video["@id"] = `${routeUrl}#skincare professional-video`;
   }
 
   const faq = graph.find((node) => node["@type"] === "FAQPage");

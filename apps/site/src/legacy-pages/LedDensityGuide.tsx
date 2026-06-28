@@ -11,7 +11,7 @@ const dangerPoints = [
   {
     icon: ZapOff,
     title: "Hidden Bulb Counts",
-    description: "Many high-end brands intentionally obscure their total LED bulb count in their marketing materials. Why? Because producing high-density LED arrays is expensive. A mask that costs £400 might only have 60 to 80 weak LEDs spread far apart.",
+    description: "Many high-end brands intentionally hide their total LED bulb count in their marketing materials. Why? Because producing high-density LED arrays is expensive. A mask that costs £400 might only have 60 to 80 widely spaced LEDs spread far apart.",
     severity: "Transparency Risk"
   },
   {
@@ -29,15 +29,15 @@ const dangerPoints = [
   {
     icon: XCircle,
     title: "Uneven Coverage",
-    description: "A mask with large gaps may light some areas of the face more than others. Over time, that uneven coverage can mean less consistent results across the face.",
+    description: "A mask with large gaps may light some areas of the face more than others. Over time, that uneven coverage can mean less consistent coverage across the face.",
     severity: "Coverage"
   }
 ];
 
 const comparisonPoints = [
   { feature: "Total LED Bulb Count", silicone: "Often hidden (typically 60-100)", buudy: "192 High-Density LEDs" },
-  { feature: "Treatment Area Gaps", silicone: "Large 'dead zones' between bulbs", buudy: "Seamless edge-to-edge coverage" },
-  { feature: "Irradiance Output", silicone: "Often drops across sparse areas", buudy: "Consistent clinical power output" },
+  { feature: "Coverage Area Gaps", silicone: "Large 'dead zones' between bulbs", buudy: "Seamless edge-to-edge coverage" },
+  { feature: "Irradiance Output", silicone: "Often drops across sparse areas", buudy: "Consistent light output" },
   { feature: "Transparency", silicone: "Vague specifications", buudy: "Full spec disclosure" },
   { feature: "Price", silicone: "£350 - £500+", buudy: "£179" },
 ];
@@ -46,7 +46,7 @@ const expertQuotes = [
   {
     name: "Verified Reviewer",
     title: "LED mask researcher",
-    quote: "With light therapy, how close together the LEDs are matters. If the diodes are spaced far apart, the skin in between gets less light. A higher, well-spaced LED count tends to give more even coverage."
+    quote: "With LED skincare, how close together the LEDs are matters. If the diodes are spaced far apart, the skin in between gets less light. A higher, well-spaced LED count tends to give more even coverage."
   },
   {
     name: "Verified Reviewer",
@@ -55,7 +55,7 @@ const expertQuotes = [
   }
 ];
 
-export default function LedDensityScam({ context }: MarketContextProps) {
+export default function LedDensityGuide({ context }: MarketContextProps) {
   return (
     <MarketLocalizedContent context={context}>
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
@@ -128,7 +128,7 @@ export default function LedDensityScam({ context }: MarketContextProps) {
         {/* Expert Testimonials */}
         <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 mb-20 max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 text-center font-serif">
-            The Physics of Light Therapy
+            The Physics of LED Skincare
           </h2>
           <div className="space-y-8">
             {expertQuotes.map((expert, idx) => (
@@ -209,14 +209,14 @@ export default function LedDensityScam({ context }: MarketContextProps) {
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
             <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
               <Award size={16} className="md:w-[18px] md:h-[18px]" />
-              Maximum Output Guarantee
+              High-Density LED Array
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4 flex flex-col items-center">
                 <img 
                   src="/img/57-w.webp"
-                  alt="Buudy 7 Color LED Therapy Mask" 
+                  alt="Buudy 7 Colour LED Mask" 
                   className="w-full rounded-2xl shadow-md border border-slate-100 mb-6"
                 />
                 <div className="text-center mb-6 w-full">
@@ -228,15 +228,15 @@ export default function LedDensityScam({ context }: MarketContextProps) {
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get High-Density Results" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="View High-Density Mask" className="w-full" />
                 </div>
               </div>
 
               <div className="lg:col-span-8">
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Color LED Therapy Mask</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Colour LED Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  <p>Buudy refuses to obscure its technical specifications. The Buudy mask contains a massive <strong>192 high-density LED array</strong>, ensuring that every square centimeter of your face and neck receives clinical-level irradiance.</p>
-                  <p>By packing the LEDs tightly together, Buudy actively eliminates 'dead zones'. This guarantees uniform cellular stimulation, resulting in faster collagen production, more even skin texture, and a drastically accelerated timeline for results.</p>
+                  <p>Buudy refuses to hide its technical specifications. The Buudy mask contains a massive <strong>192 high-density LED array</strong>, ensuring that every square centimeter of your face and neck receives high, even light coverage.</p>
+                  <p>By packing the LEDs tightly together, Buudy actively eliminates 'dead zones'. This return policys more even light coverage, resulting in a more consistent face and neck routine.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -247,7 +247,7 @@ export default function LedDensityScam({ context }: MarketContextProps) {
                     {[
                       "192 Total Bulbs: One of the highest density arrays on the consumer market.",
                       "Zero Dead Zones: Seamless light coverage from forehead to neckline.",
-                      "Maximum Irradiance: Penetrates deeper into the dermis for genuine cellular repair.",
+                      "Even Light Coverage: Penetrates deeper into the dermis for a consistent skincare routine.",
                       "Transparent Specs: We proudly publish our bulb count because we exceed the standard."
                     ].map((pro, idx) => {
                       const [bold, ...rest] = pro.split(':');
@@ -262,7 +262,7 @@ export default function LedDensityScam({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Get High-Density Results" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="View High-Density Mask" className="w-full" />
                 </div>
               </div>
             </div>

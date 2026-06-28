@@ -37,17 +37,17 @@ export function HomeNoscriptContent() {
             </a>
           </li>
           <li>
-            <a href="https://www.bestledfacemask.org/silicone-led-mask-dangers">
-              Silicone LED Mask Dangers
+            <a href="https://www.bestledfacemask.org/silicone-led-mask-considerations">
+              Silicone LED Mask Considerations
             </a>
           </li>
           <li>
-            <a href="https://www.bestledfacemask.org/missing-colors-expose">
-              The 2-Colour Trap
+            <a href="https://www.bestledfacemask.org/led-colour-range-guide">
+              LED Colour Range Guide
             </a>
           </li>
           <li>
-            <a href="https://www.bestledfacemask.org/best-led-face-mask-2026">
+            <a href="https://www.bestledfacemask.org/led-density-guide">
               LED Density Buying Guide
             </a>
           </li>

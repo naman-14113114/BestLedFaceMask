@@ -38,8 +38,8 @@ export default function Layout({ children }: { children?: ReactNode }) {
           <div className="mx-auto mb-6 max-w-3xl rounded-lg border border-amber-200 bg-amber-50 p-7 text-left text-sm leading-relaxed text-slate-700">
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-700">Important disclosure</p>
             <p className="mb-4"><strong>Affiliate disclosure:</strong> We may receive compensation for clicks on or purchases of products featured on this site. This comes at no additional cost to you.</p>
-            <p className="mb-4"><strong>Individual results:</strong> Experiences with skincare devices vary. Product information and examples do not guarantee a particular result.</p>
-            <p><strong>Medical disclaimer:</strong> This website provides general information and is not a substitute for professional medical advice, diagnosis or treatment.</p>
+            <p className="mb-4"><strong>Individual results:</strong> Experiences with skincare devices vary. Product information and examples do not return policy a particular result.</p>
+            <p><strong>Medical disclaimer:</strong> This website provides general information and is not a substitute for professional advice from a qualified clinician.</p>
           </div>
         </div>
       </footer>

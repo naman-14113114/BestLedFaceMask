@@ -18,19 +18,19 @@ const dangerPoints = [
   {
     icon: TrendingUp,
     title: "Commoditized Technology",
-    description: "The core technology behind LED light therapy—light emitting diodes engineered to specific nanometers—is well-established science. The actual cost of producing clinical-grade LEDs has fallen significantly, yet many premium brands keep their retail prices high.",
+    description: "The core technology behind LED LED skincare—light emitting diodes engineered to specific nanometers—is well-established science. The actual cost of producing well-specced LEDs has fallen significantly, yet many premium brands keep their retail prices high.",
     severity: "Consumer Awareness"
   },
   {
     icon: BadgePoundSterling,
     title: "The 'Prestige Pricing' Illusion",
-    description: "In the beauty industry, there is a psychological tactic called 'prestige pricing'. Brands intentionally price a product at £400+ to trick consumers into assuming it must be 'clinical grade' or inherently better than a £179 product. It is a calculated psychological trap.",
+    description: "In the beauty industry, there is a psychological tactic called 'prestige pricing'. Brands intentionally price a product at £400+ to trick consumers into assuming it must be 'well-specced' or inherently better than a £179 product. It can make price feel like proof of quality even when specs tell a more useful story.",
     severity: "High Risk"
   },
   {
     icon: XCircle,
-    title: "Nickled and Dimed",
-    description: "Because these brands operate on massive overheads, they constantly nickel and dime you. Want neck coverge? That's £300 extra. Want a protective bag? £40. Want blue light for acne? Another £350 mask.",
+    title: "Optional Add-Ons Add Up",
+    description: "Because these brands operate on massive overheads, they constantly sell more add-ons. Want neck coverge? That's £300 extra. Want a protective bag? £40. Want blue light for blemish-prone skin? Another £350 mask.",
     severity: "Financial Risk"
   }
 ];
@@ -39,7 +39,7 @@ const comparisonPoints = [
   { feature: "Business Model", silicone: "Heavy Influencer/Celebrity Marketing", buudy: "Direct-to-Consumer / Word of Mouth" },
   { feature: "Retail Price", silicone: "£350 - £579+", buudy: "£179 (Fair Pricing)" },
   { feature: "Included in Box", silicone: "Mask & Basic Cord", buudy: "Face Mask, Neck Mask, Remote, Eye Protection" },
-  { feature: "Return on Investment", silicone: "Paying for brand perceived value", buudy: "Paying strictly for technology & results" },
+  { feature: "Return on Investment", silicone: "Paying for brand perceived value", buudy: "Paying strictly for technology and value" },
 ];
 
 const expertQuotes = [
@@ -99,9 +99,9 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
 
       <main className="max-w-6xl mx-auto px-4 py-12">
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
-          <p>It's the dirtiest secret in the luxury beauty industry: <strong>A higher price tag does not equal better technology.</strong></p>
+          <p>A key lesson in the luxury beauty category is simple: <strong>A higher price tag does not equal better technology.</strong></p>
           <p>When you see world-famous models or Hollywood actors posting selfies with a specific brand's LED mask, they didn't just stumble upon it. They are paid hundreds of thousands of pounds for that endorsement. And where does the brand get that money? By charging you £400 for a device that costs a fraction of that to produce.</p>
-          <p>This "Celebrity Markup" forces consumers to absorb massive corporate marketing overheads. You are led to believe that because a mask costs £500, it must possess some magical, proprietary 'clinical' advantage. The reality is that the physics of light—specifically 630nm Red Light and 415nm Blue Light—cannot be patented or made 'more premium' by a logo. Light is just light.</p>
+          <p>This "Celebrity Markup" forces consumers to absorb massive corporate marketing overheads. You are led to believe that because a mask costs £500, it must possess some special proprietary advantage. The reality is that the physics of light—specifically 630nm Red Light and 415nm Blue Light—cannot be patented or made 'more premium' by a logo. Light is just light.</p>
         </div>
 
         {/* Danger Cards */}
@@ -172,7 +172,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
         {/* Comparison Table */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center font-serif">
-            The Math of Light Therapy
+            The Price Breakdown
           </h2>
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden max-w-4xl mx-auto mt-10">
             <div className="grid grid-cols-3 bg-slate-800 text-white">
@@ -214,7 +214,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
         {/* The Safe Alternative Section */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            The Solution: Direct-to-Consumer Integrity
+            The Solution: Direct-to-Consumer Value
           </h2>
           
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
@@ -227,7 +227,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
               <div className="lg:col-span-4 flex flex-col items-center">
                 <img 
                   src="/img/57-w.webp"
-                  alt="Buudy 7 Color LED Therapy Mask" 
+                  alt="Buudy 7 Colour LED Mask"
                   className="w-full rounded-2xl shadow-md border border-slate-100 mb-6"
                 />
                 <div className="text-center mb-6 w-full">
@@ -244,9 +244,9 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
               </div>
 
               <div className="lg:col-span-8">
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Color LED Therapy Mask</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Colour LED Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  <p>Buudy was founded on a simple principle: <strong> democratize clinical-grade skincare.</strong> By refusing to pay millions to celebrities for endorsements, Buudy is able to pour 100% of its budget directly into the hardware.</p>
+                  <p>Buudy was founded on a simple principle: <strong> make well-specced skincare easier to access.</strong> By refusing to pay millions to celebrities for endorsements, Buudy is able to pour 100% of its budget directly into the hardware.</p>
                   <p>That means at £179, you are getting 7 distinct wavelengths, 192 high-density LEDs, and a built-in neck adapter. You are paying for the electronics and the design—not a celebrity marketing budget.</p>
                 </div>
 

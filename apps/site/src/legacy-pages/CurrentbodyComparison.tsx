@@ -12,12 +12,12 @@ const criteria = [
   "Scientific effectiveness of the light wavelengths",
   "Even light distribution",
   "Comfort and fit on the face",
-  "Skin-friendly, medically approved materials",
+  "Skin-friendly, safety-conscious materials",
   "Adjustable light modes and intensity levels",
   "User interface and ease of operation",
   "Battery life and charging performance",
   "Product durability and build quality",
-  "User feedback and real skincare results",
+  "User feedback and everyday skincare experience",
   "Affordability and post-purchase customer support"
 ];
 
@@ -25,7 +25,7 @@ const products = [
   {
     id: 1,
     rank: "#1",
-    name: "Buudy 7 Color LED Therapy Mask",
+    name: "Buudy 7 Colour LED Mask",
     image: "/img/57-w.webp",
     price: "£179",
     originalPrice: "£449",
@@ -33,27 +33,27 @@ const products = [
     link: "https://buudy.co.uk/products/buudy-led-mask",
     isWinner: true,
     description: [
-      "Our top pick is the <b>Buudy LED Mask</b>, an at-home device that stands out with its comprehensive 7-color spectrum. While most brands offer only basic red light, Buudy includes multiple wavelengths commonly associated with the look of wrinkles, blemish-prone skin, and uneven tone. It is designed for comfortable use at home across all skin types.",
+      "Our top pick is the <b>Buudy LED Mask</b>, an at-home device that stands out with its comprehensive 7-colour spectrum. While most brands offer only basic red light, Buudy includes multiple wavelengths commonly associated with the appearance of fine lines, blemish-prone skin, and uneven tone. It is designed for comfortable use at home across all skin types.",
       "A major advantage is the built-in <b>neck coverage</b>, a vital feature often missing from more expensive models. This allows you to treat \"turkey neck\" and sagging skin simultaneously. The cordless, rechargeable design features \"Tap Technology,\" making it completely hands-free and portable for a convenient 15-minute daily session.",
       "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage with advanced <b>eye protection</b> for a comfortable, painless experience."
     ],
     pros: [
       "Strong Customer Feedback: Reviewers consistently highlight comfort, ease of use, and the look of brighter skin over time.",
-      "7-Color Spectrum: Unlike competitors that only offer 2 or 3 colors, Buudy features 7 distinct wavelengths (Red, Blue, Green, Yellow, Cyan, Purple, and White) plus near-infrared, in one device.",
+      "7 Colour Range: Unlike competitors that only offer 2 or 3 light modes, Buudy features 7 distinct wavelengths (Red, Blue, Green, Yellow, Cyan, Purple, and White) plus near-infrared, in one device.",
       "Thoughtful Design: Lightweight, flexible fit with even light placement across the face and neck.",
       "Built-in Neck Coverage: Specifically designed to target \"turkey neck\" and sagging skin—a critical feature most expensive brands miss.",
-      "Fast Results: Claims noticeable skin improvement after just a few uses and full results in under 10 uses.",
+      "Easy Routine: Short sessions and regular use fit into a normal skincare routine.",
       "Cordless & Portable: A hands-free, rechargeable design with \"Tap Technology\" that lets you multitask while you rejuvenate.",
-      "Safe and Effective: This painless treatment is suitable for all skin types and includes integrated <b>eye protection</b> for enhanced safety.",
+      "Comfortable Routine: A painless session design with integrated <b>eye protection</b> for added comfort.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "90-Day Money-Back Guarantee: Offers a generous trial period to test for results, reducing the risk of purchase."
+      "90-Day Money-Back Policy: Offers a trial period, subject to the terms shown on the official website."
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
       "Direct-Only Purchase: Sold through the official Buudy website rather than third-party marketplaces."
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 97 },
+      { label: "Light Coverage", value: 97 },
       { label: "Skin Comfort and Fit", value: 96 },
       { label: "Ease of Use", value: 97 },
       { label: "Material Quality", value: 96 },
@@ -70,27 +70,27 @@ const products = [
     link: "https://amzn.to/4beNXsm",
     isWinner: false,
     description: [
-      "The CurrentBody LED Mask is one of the most recognised names in at-home light therapy. It uses a blend of <b>red and near-infrared light</b> and is marketed mainly around the appearance of fine lines and wrinkles.",
-      "Its proprietary \"Pillow Technology\" ensures uniform light distribution across all facial contours, maximizing the efficacy of every <b>10-minute session</b>. Grounded in clinical research and expert-backed science, it remains a <b>top-tier investment</b> for those seeking professional-grade skin rejuvenation at home.",
+      "The CurrentBody LED Mask is one of the most recognised names in at-home LED skincare. It uses a blend of <b>red and near-infrared light</b> and is marketed mainly around the appearance of fine lines and skin texture.",
+      "Its proprietary \"Pillow Technology\" ensures uniform light distribution across all facial contours, maximizing the efficacy of every <b>10-minute session</b>. It remains a familiar premium option for shoppers who want a streamlined red and near-infrared routine at home.",
       "The mask has a large international following and strong brand recognition. It continues to be a popular benchmark in the at-home beauty-tech space, though it sits at a much higher price than our top pick."
     ],
     pros: [
-      "Strong Social Proof: The mask is heavily endorsed by celebrities (like Kim Kardashian and Cillian Murphy) and multiple dermatologists, and has won several beauty awards.",
+      "Strong Social Proof: The mask is heavily endorsed by celebrities (like Kim Kardashian and Cillian Murphy) and multiple skincare professionals, and has won several beauty awards.",
       "High Review Volume: It has a 4.7-star rating based on a very large number of reviews (2,860).",
-      "Clinically Studied: The company provides specific clinical data on its effectiveness for anti-aging (e.g., \"reducing wrinkles by 30%... in 8 weeks\").",
+      "Published Study Claims: The brand shares study-based claims around the look of smoother, firmer skin.",
       "High-Quality Build: Features include flexible silicone for a good fit, a portable clip-on controller, and optional eye inserts for convenience."
     ],
     cons: [
       "Extremely High Price: At £399.99, it is drastically more expensive than the Buudy mask (which is £179).",
       "No Neck Coverage: The standard £400 mask is for the face only. You must purchase the \"Face & Neck Kit\" for £679.99 to get <b>neck coverage</b>, which comes standard with the Buudy mask.",
-      "Very Limited Treatment Modes: This is an anti-aging-only device. It only offers 3 red/near-infrared wavelengths and completely lacks the 7-color versatility of the Buudy mask. It cannot be used to target acne (Blue light), dark spots (Green light), or redness (Yellow light).",
-      "Not a Complete Solution: Because it only targets one concern (aging), it is not a comprehensive solution for total skin health like a multi-color mask.",
-      "Costly Money-Back Guarantee: The 60-day money-back guarantee is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
-      "Mixed User Results: Despite the high rating, some verified reviewers report issues, stating they \"Not noticed any difference yet\" even after using it 5 times a week for a couple of months.",
+      "Very Limited Light Modes: This is focused mainly on anti-ageing routines. It only offers 3 red/near-infrared wavelengths and completely lacks the 7-colour versatility of the Buudy mask. It does not include the blue-light routine often used by blemish-prone shoppers (Blue light), dark spots (Green light), or redness (Yellow light).",
+      "Limited Light Range: It focuses on one main skin goal, while a multi-colour mask gives shoppers more routine options.",
+      "Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
+      "Mixed User Feedback: Despite the high rating, some verified reviewers report issues, stating they \"Not noticed any difference yet\" even after using it 5 times a week for a couple of months.",
       "Fit Issues: Some users note that the fit isn't perfect and that the mask can \"feel it slide down,\" even with the new straps."
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 82 },
+      { label: "Light Coverage", value: 82 },
       { label: "Skin Comfort and Fit", value: 86 },
       { label: "Ease of Use", value: 87 },
       { label: "Material Quality", value: 90 },
@@ -107,24 +107,24 @@ const products = [
     link: "https://amzn.to/4uewbOw",
     isWinner: false,
     description: [
-      "Omnilux is a well-established name in the light therapy industry, known for bringing a professional feel to the home skincare market. It uses a combination of red and near-infrared LED light, wavelengths commonly associated with the look of fine lines and skin texture.",
-      "While it carries a premium price point of <b>£348</b>, the mask is highly regarded for its <b>ergonomic design</b>, offering a comfortable fit that ensures a seamless user experience. Favored by dermatological experts and skincare enthusiasts alike, the device has earned significant praise for delivering high-quality results that rival in-clinic treatments.",
-      "For those prioritizing long-term skin health and professional-standard efficacy, the Omnilux mask represents a sophisticated and reliable investment in modern beauty technology. It remains a top-tier choice for consumers seeking a durable, expert-backed solution for advanced facial rejuvenation."
+      "Omnilux is a well-established name in the LED skincare category, known for bringing a professional feel to the home skincare market. It uses a combination of red and near-infrared LED light, wavelengths commonly associated with the look of fine lines and skin texture.",
+      "While it carries a premium price point of <b>£348</b>, the mask is highly regarded for its <b>ergonomic design</b>, offering a comfortable fit that ensures a seamless user experience. Frequently praised by skincare enthusiasts, the device remains a familiar premium option for shoppers who want a simple red and near-infrared routine.",
+      "For those prioritizing long-term skin health and brand history and routine simplicity, the Omnilux mask represents a sophisticated and reliable investment in modern beauty technology. It remains a top-tier choice for consumers seeking a durable, premium at-home skincare device."
     ],
     pros: [
-      "Good Guarantee: Offers a 30-day, no-hassle, money-back guarantee, which is more straightforward than some competitors.",
+      "Good Return Policy: Offers a 30-day money-back policy, which is more straightforward than some competitors.",
       "High-Quality Brand: Omnilux is a well-known, trusted brand that originated in the professional medical device market.",
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag."
     ],
     cons: [
       "Extremely High Price: At <b>£348</b>, it is significantly more expensive than the Buudy mask (£179).",
       "No Neck Coverage: The <b>£348</b> price is for the face mask only. A separate neck and chest piece must be purchased for an additional <b>£348</b>, making the total cost for full coverage nearly £696.",
-      "Very Limited Treatment Modes: This mask is an anti-aging device only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
-      "Not a Complete Solution: The company explicitly states the Contour mask \"will not clear acne breakouts\" and that customers must buy a different $395 mask (\"Omnilux Clear\") for that purpose. The Buudy mask handles both concerns in one device.",
+      "Very Limited Light Modes: This mask is an anti-ageing device only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
+      "Not a Complete Solution: The company explicitly states the Contour mask \"will not support blemish-prone skin routines\" and that customers must buy a different $395 mask (\"Omnilux Clear\") for that purpose. The Buudy mask handles both concerns in one device.",
       "Fewer LEDs: It is equipped with only 132 LEDs, which is significantly fewer than the Buudy mask's 192 high-density LEDs, offering less complete light coverage."
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 76 },
+      { label: "Light Coverage", value: 76 },
       { label: "Skin Comfort and Fit", value: 88 },
       { label: "Ease of Use", value: 87 },
       { label: "Material Quality", value: 92 },
@@ -142,25 +142,25 @@ const products = [
     isWinner: false,
     description: [
       "Our top pick after rigorous testing is the Shark CryoGlow LED Face Mask, which has quickly made headlines and won prestigious beauty awards. From a trusted brand known for high-tech innovation, Shark offers the first LED mask featuring integrated <b>under-eye cooling technology</b>, making it the ultimate 2-in-1 solution for comprehensive facial care.",
-      "Trusted by leading beauty editors at Oprah Daily and Women's Health, this mask offers three \"chill\" levels and four distinct treatment modes, including Better Ageing and Blemish Repair. These advanced settings ensure a quick and efficient therapy session in as little as <b>6 to 8 minutes</b>, utilizing proven wavelengths like <b>Red (630nm) and Blue (415nm) light.</b>",
-      "In our experience, a single daily session is all that is required to see noticeable improvements in skin clarity and tone. The independent clinical studies and dermatologist-backed technology specifically excel at brightening the under-eye area, with users reporting that the cooling pads visibly reduce puffiness and refresh the complexion after just one use."
+      "Featured by leading beauty editors at Oprah Daily and Women's Health, this mask offers three \"chill\" levels and four distinct light modes, including Better Ageing and Blemish Repair. These advanced settings ensure a quick session in as little as <b>6 to 8 minutes</b>, using commonly referenced wavelengths like <b>Red (630nm) and Blue (415nm) light.</b>",
+      "In our experience, a single daily session is all that is required to see noticeable improvements in skin clarity and tone. The published brand materials and device positioning specifically excel at brightening the under-eye area, with users reporting that the cooling pads visibly reduce puffiness and refresh the complexion after just one use."
     ],
     pros: [
-      "Unique Cooling Technology: Its main selling point is the \"Insta-Chill\" cryo-therapy for the under-eyes, a feature not found in standard LED masks, which helps to soothe and depuff.",
-      "Developed with Dermatologists: The product is backed by dermatologists, which adds to its credibility.",
+      "Unique Cooling Technology: Its main selling point is the \"Insta-Chill\" cooling feature for the under-eyes, a feature not found in standard LED masks, for a refreshed under-eye feel.",
+      "Dermatologist-Founded Brand: The brand has strong expert-led positioning, which adds credibility.",
       "Strong Brand & Reviews: Shark is a well-known, trusted brand, and the mask has a high 4.6-star rating from over 500 reviews.",
-      "Fast Treatment Times: With pre-programmed sessions as short as 6-8 minutes, it offers a very quick daily treatment."
+      "Fast Sessions: With pre-programmed sessions as short as 6-8 minutes, it offers a very quick daily routine."
     ],
     cons: [
       "Extremely High Price: At £269.99, it is more than double the price of the Buudy mask (£179) for what is arguably less technology.",
-      "No Neck Coverage: The device is for the face only and offers no treatment for the neck, a key area of concern for aging that is included with the Buudy mask.",
-      "Severely Limited Light Modes: The mask is heavily focused on its cooling gimmick and offers very few light options. It is missing 5 of the 7 wavelengths (Green, Yellow, Cyan, Purple, White) that the Buudy mask has for targeting dark spots, skin balancing, and reducing swelling.",
-      "Unspecified LED Count: A major red flag. The page does not state the number of LEDs, suggesting the count is low. A lower LED count (compared to Buudy's 192 high-density LEDs) means less power and less even skin coverage.",
+      "No Neck Coverage: The device is for the face only and does not include neck coverage, a key area of concern for aging that is included with the Buudy mask.",
+      "Limited Light Modes: The mask is heavily focused on its cooling gimmick and offers very few light options. It is missing 5 of the 7 wavelengths (Green, Yellow, Cyan, Purple, White) that the Buudy mask has for targeting dark spots, skin balancing, and reducing swelling.",
+      "Unspecified LED Count: The page does not clearly state the number of LEDs. Shoppers who care about even coverage may prefer a device with a published LED count.",
       "Very Heavy & Rigid: At 675g, this mask is exceptionally heavy. This, combined with a rigid (non-silicone) design, can make it uncomfortable to wear and may not fit all face shapes well.",
-      "Not a Complete Solution: It's a 2-in-1 device that compromises on the LED therapy. A customer wanting to treat hyperpigmentation (Green light) or balance skin texture (Yellow light) would get no benefit from this mask."
+      "Limited Light Range: It is a 2-in-1 device with fewer light modes. A customer wanting to focus on the look of uneven tone (Green light) or balance skin texture (Yellow light) would get no benefit from this mask."
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 65 },
+      { label: "Light Coverage", value: 65 },
       { label: "Skin Comfort and Fit", value: 52 },
       { label: "Ease of Use", value: 75 },
       { label: "Material Quality", value: 85 },
@@ -177,17 +177,17 @@ const products = [
     link: "#",
     isWinner: false,
     description: [
-      "The Lanveza LED Facial Beauty Mask has gained steady visibility on social media as a specialized anti-aging tool. While it uses a standard blend of <b>red and near-infrared light</b>, it ranks fifth on our list due to its narrow functional scope. It is designed primarily for a basic 10-minute anti-aging routine rather than a comprehensive skincare treatment.",
-      "Despite the security of a 90-day guarantee, the device lacks the versatility of our top-tier picks. With only 132 LEDs—significantly fewer than the high-density Buudy mask—it offers weaker light coverage and lacks essential neck treatment. Furthermore, it is restricted to just two wavelengths, missing the multi-color spectrum needed to target acne, dark spots, or inflammation.",
-      "User feedback also points to several ergonomic and technical flaws, including an uncomfortable fit around the nose and unclear instructions. The absence of a low-battery indicator further detracts from the user experience, leading to unexpected mid-session shut-offs. While suitable as an entry-level device, its limited features and inconsistent data make it a less effective investment for professional-grade results."
+      "The Lanveza LED Facial Beauty Mask has gained steady visibility on social media as a specialized anti-ageing tool. While it uses a standard blend of <b>red and near-infrared light</b>, it ranks fifth on our list due to its narrow functional scope. It is designed primarily for a basic 10-minute anti-ageing routine rather than a comprehensive skincare routine.",
+      "Although it offers a 90-day return policy, the device lacks the versatility of our top-tier picks. With only 132 LEDs—significantly fewer than the high-density Buudy mask—it offers weaker light coverage and does not include built-in neck coverage. Furthermore, it is restricted to just two wavelengths, missing the multi-colour range needed to target blemish-prone skin, dark spots, or inflammation.",
+      "User feedback also points to several ergonomic and technical flaws, including an uncomfortable fit around the nose and unclear instructions. The absence of a low-battery indicator further detracts from the user experience, leading to unexpected mid-session shut-offs. While suitable as an entry-level device, its limited features and inconsistent data make it a less effective investment for everyday value."
     ],
     pros: [
-      "90-Day Guarantee: Offers a <b>90-day money-back guarantee</b>.",
-      "Anti-Ageing Focus: The brand markets the device around the appearance of fine lines and wrinkles.",
+      "90-Day Return Policy: Offers a <b>90-day money-back policy</b>.",
+      "Anti-Ageing Focus: The brand markets the device around the appearance of fine lines and skin texture.",
       "Good Reviews (when found): The product has a high star rating (4.8) from the 32 reviews shown at the bottom of the page."
     ],
     cons: [
-      "Extremely Limited Treatment Options: The main \"Contour Face\" product is advertised as only having Red and Near-Infrared light. This is a major drawback compared to Buudy's 7 different wavelengths for targeting acne, dark spots, and more.",
+      "Extremely Limited Treatment Options: The main \"Contour Face\" product is advertised as only having Red and Near-Infrared light. This is a major drawback compared to Buudy's 7 different wavelengths for targeting blemish-prone skin, dark spots, and more.",
       "Lacks Neck Coverage: The product is only for the face. It offers no solution for the neck, failing to treat \"turkey neck,\" which the Buudy mask includes.",
       "Fewer LEDs: It is equipped with only 132 LEDs, which is significantly fewer than the Buudy mask's 192 high-density LEDs. This can lead to less effective, weaker, or patchier light coverage.",
       "Confusing Instructions: Customer reviews state that the \"instructions are quite unclear for getting started\" and that they had to use \"some guessing\" to make it work, leading them to believe many \"defective\" mask claims are just from user confusion.",
@@ -196,7 +196,7 @@ const products = [
       "Contradictory Review Data: The top of the page claims \"(2,346)\" reviews, but the actual review summary section at the bottom states it is \"Based on 32 Reviews,\" which is a very low number and could be seen as untrustworthy."
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 68 },
+      { label: "Light Coverage", value: 68 },
       { label: "Skin Comfort and Fit", value: 60 },
       { label: "Ease of Use", value: 58 },
       { label: "Material Quality", value: 70 },
@@ -247,11 +247,11 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
       <main className="max-w-6xl mx-auto px-4 py-12">
         {/* Intro */}
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
-          <p>LED face masks have undergone a massive shift in the UK, moving from exclusive Harley Street clinic treatments to essential "must-have" home skincare tech. As a beauty tech researcher, I spent four months testing the UK market's most popular devices to separate the genuine breakthroughs from the marketing hype.</p>
+          <p>LED face masks have undergone a massive shift in the UK, moving from exclusive Harley Street clinic services to essential "must-have" home skincare tech. As a beauty tech researcher, I spent four months testing the UK market's most popular devices to separate the standout options from the marketing hype.</p>
           <p>These devices use light wavelengths that are commonly associated with the appearance of fine lines, blemish-prone skin, and uneven tone. However, the UK market is currently flooded with options, with prices ranging from <strong>£100 budget finds to £600+ premium investments</strong>. Despite similar-sounding marketing claims, the products are far from equal.</p>
           <p>We put <strong>18 LED masks</strong> through their paces over <strong>200+ hours</strong> and reviewed published skincare research to understand what makes a device stand out for everyday use. Our findings were clear: some models felt well-built and easy to use consistently, while others offered far less for the price.</p>
-          <p>The difference comes down to <strong>proper wavelengths, light intensity, and treatment protocols</strong>—the factors that separate effective devices from expensive placebos.</p>
-          <p>This guide is designed to reveal which LED masks actually deliver results, helping you navigate the British high street and online retailers to find the right device for your skin and your budget.</p>
+          <p>The difference comes down to <strong>proper wavelengths, light intensity, and routine consistency</strong>—the factors that separate effective devices from poor-value options.</p>
+          <p>This guide is designed to reveal which LED masks stand out for value, helping you navigate the British high street and online retailers to find the right device for your skin and your budget.</p>
         </div>
 
         {/* Criteria */}
@@ -411,7 +411,7 @@ export default function CurrentbodyComparison({ context }: MarketContextProps) {
               {/* Right Content Area */}
               <div className="flex flex-col justify-center text-center">
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 font-serif tracking-tight">
-                  Buudy 7-Color LED Light Mask
+                  Buudy 7 Colour LED Mask
                 </h3>
                 
                 <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>

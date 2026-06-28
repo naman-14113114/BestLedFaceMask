@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AdvertorialSeo } from "@/components/seo/AdvertorialSeo";
 import { advertorialMetadata } from "@/lib/metadata";
 import { getRequestPageContext } from "@/lib/marketContext";
-import MissingColorsExpose from "@/legacy-pages/MissingColorsExpose";
+import LedDensityGuide from "@/legacy-pages/LedDensityGuide";
 
-export const metadata: Metadata = advertorialMetadata("/missing-colors-expose");
+export const metadata: Metadata = advertorialMetadata("/led-density-guide");
 
 export default async function Page() {
   const context = await getRequestPageContext();
@@ -12,7 +12,7 @@ export default async function Page() {
   return (
     <>
       <AdvertorialSeo />
-      <MissingColorsExpose context={context} />
+      <LedDensityGuide context={context} />
     </>
   );
 }

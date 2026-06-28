@@ -183,7 +183,7 @@ const baseProducts: Product[] = [
       "Learning Curve: Some users note the intuitive tap controls take a session or two to fully get used to, though most find it second nature after the first few uses.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 97 },
+      { label: "Light Coverage", value: 97 },
       { label: "Skin Comfort and Fit", value: 96 },
       { label: "Ease of Use", value: 97 },
       { label: "Material Quality", value: 96 },
@@ -221,7 +221,7 @@ const baseProducts: Product[] = [
       'Fit Issues: Some users note that the fit isn\'t perfect and that the mask can "slide down," even with the new straps.',
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 82 },
+      { label: "Light Coverage", value: 82 },
       { label: "Skin Comfort and Fit", value: 86 },
       { label: "Ease of Use", value: 87 },
       { label: "Material Quality", value: 90 },
@@ -259,7 +259,7 @@ const baseProducts: Product[] = [
       "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 76 },
+      { label: "Light Coverage", value: 76 },
       { label: "Skin Comfort and Fit", value: 88 },
       { label: "Ease of Use", value: 87 },
       { label: "Material Quality", value: 92 },
@@ -296,7 +296,7 @@ const baseProducts: Product[] = [
       "Fewer Colour Options: It is a 2-in-1 device focused on cooling, so shoppers who want the broader range of colour modes found on a multi-colour mask get fewer options here.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 65 },
+      { label: "Light Coverage", value: 65 },
       { label: "Skin Comfort and Fit", value: 52 },
       { label: "Ease of Use", value: 75 },
       { label: "Material Quality", value: 85 },
@@ -313,13 +313,13 @@ const baseProducts: Product[] = [
     link: "https://amzn.to/4cvWiJR",
     isWinner: false,
     description: [
-      "The Dr. Dennis Gross DRx SpectraLite FaceWare Pro secures the #5 spot on our list, bringing a dermatologist-created brand to at-home skincare. Known for its ultra-fast <b>3-minute</b> sessions, it is popular with those who have busy schedules. It is positioned mainly around blemish-prone skin through its 415nm blue light mode.",
+      "The Dr. Dennis Gross DRx SpectraLite FaceWare Pro secures the #5 spot on our list, bringing a skincare professional-created brand to at-home skincare. Known for its ultra-fast <b>3-minute</b> sessions, it is popular with those who have busy schedules. It is positioned mainly around blemish-prone skin through its 415nm blue light mode.",
       "However, the <b>staggering £455 price point</b> makes it an incredibly expensive investment, especially given its limitations. With a rigid, unyielding hard plastic shell, many users report <b>significant discomfort</b> on the bridge of the nose and <b>uneven light coverage</b> across different bone structures.",
       "Crucially, at this premium price, it entirely lacks neck and chest coverage. While it does provide convenience, the <b>162 LEDs</b> offer a lower density of light compared to some newer models, and it misses several colour options included on broader multi-colour masks.",
     ],
     pros: [
       "Fastest Session Time: Completes a full session in just 3 minutes, ideal for those in a rush.",
-      "Dermatologist-Created Brand: Designed by Dr. Dennis Gross, adding strong brand authority.",
+      "Dermatologist-Created Brand: Created by Dr. Dennis Gross, adding strong brand authority.",
       "Blue Light Mode: Includes a 415nm blue light mode, a wavelength commonly associated with blemish-prone skin.",
       "Cordless Usability: Internal battery allows for wire-free usage during the short session window.",
     ],
@@ -328,13 +328,13 @@ const baseProducts: Product[] = [
       "Zero Neck & Chest Coverage: For nearly £500, the lack of a neck attachment is a major omission. Better-value masks include neck and jawline coverage as a standard feature.",
       "Lower LED Density: Containing only <b>162 LEDs</b>, it has a lower light density than modern high-output models, resulting in larger gaps between light points on the skin.",
       "Rigid, Uncomfortable Fit: The hard plastic shell does not flex. Users with varying bone structures frequently report <b>significant discomfort</b> on the bridge of the nose and <b>uneven light coverage</b>, a stark contrast to the comfort of soft, molding silicone.",
-      "Severely Limited Color Spectrum: It offers only 3 modes (Red, Blue, and Combo). It misses Green, Yellow, Cyan, Purple, and White light modes that come standard with Buudy.",
+      "Limited Colour Range: It offers only 3 modes (Red, Blue, and Combo). It misses Green, Yellow, Cyan, Purple, and White light modes that come standard with Buudy.",
       "Short Battery Life: The internal battery is kept small to reduce the mask's weight, meaning it requires much more frequent charging than devices utilizing external power banks.",
       "Fragile Build: Rigid plastic masks are inherently prone to cracking or breaking if accidentally dropped, unlike durable, travel-friendly silicone options.",
       "No Eye Protection: The open-eye design allows light to bleed into your vision, which can be bothersome for light-sensitive users compared to masks with integrated eye inserts.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 75 },
+      { label: "Light Coverage", value: 75 },
       { label: "Skin Comfort and Fit", value: 45 },
       { label: "Ease of Use", value: 85 },
       { label: "Material Quality", value: 75 },
@@ -373,7 +373,7 @@ const canadaCompetitorProducts: Product[] = [
       "Price Still Adds Up: At <b>$382.49</b>, it costs more than the reviewed Buudy Canada offer while covering less skin area.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 78 },
+      { label: "Light Coverage", value: 78 },
       { label: "Skin Comfort and Fit", value: 84 },
       { label: "Ease of Use", value: 82 },
       { label: "Material Quality", value: 86 },
@@ -401,7 +401,7 @@ const canadaCompetitorProducts: Product[] = [
       "Brand Reputation: Backed by Therabody, a major name in wellness technology.",
     ],
     cons: [
-      "Eye-Watering Price: At <b>$799.99</b>, it is the most expensive product in this Canada ranking.",
+      "Very High Price: At <b>$799.99</b>, it is the most expensive product in this Canada ranking.",
       "Zero Neck Coverage: The device covers the face only and leaves out the neck and chest area.",
       "Heavy and Rigid: The hard-shell format can feel less forgiving and may not sit evenly on every face shape.",
       "Limited Spectrum: It focuses on Red, Blue, and Yellow while missing Green, Cyan, Purple, and White light modes.",
@@ -410,7 +410,7 @@ const canadaCompetitorProducts: Product[] = [
       "Bulky Storage: The rigid premium shell takes more room to store and travel with.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 88 },
+      { label: "Light Coverage", value: 88 },
       { label: "Skin Comfort and Fit", value: 74 },
       { label: "Ease of Use", value: 84 },
       { label: "Material Quality", value: 94 },
@@ -447,7 +447,7 @@ const canadaCompetitorProducts: Product[] = [
       "Incomplete Coverage: Without neck coverage in the face-only model, the jawline and neck can be left behind.",
     ],
     metrics: [
-      { label: "Light Effectiveness", value: 72 },
+      { label: "Light Coverage", value: 72 },
       { label: "Skin Comfort and Fit", value: 80 },
       { label: "Ease of Use", value: 76 },
       { label: "Material Quality", value: 84 },
@@ -743,7 +743,7 @@ export default function Home({
           This page is an advertorial. We may earn a commission when you buy
           through links on this page, at no extra cost to you. Rankings reflect
           our own editorial opinion. LED face masks are cosmetic devices;
-          individual results vary and nothing here is medical advice.
+          individual experiences vary and nothing here is medical advice.
         </p>
       </div>
       {/* Header / Hero */}
@@ -1302,14 +1302,14 @@ export default function Home({
                     controls
                     playsInline
                     preload="metadata"
-                    poster="/assets/buudy-dermatologist-verdict-poster.jpg"
+                    poster="/assets/buudy-skincare professional-verdict-poster.jpg"
                     aria-label="Product walkthrough of the Buudy 7 Colour LED Mask"
                     onPlay={() => setIsVerdictVideoPlaying(true)}
                     onPause={() => setIsVerdictVideoPlaying(false)}
                     onEnded={() => setIsVerdictVideoPlaying(false)}
                   >
                     <source
-                      src="/assets/buudy-dermatologist-verdict.mp4"
+                      src="/assets/buudy-skincare professional-verdict.mp4"
                       type="video/mp4"
                     />
                     Your browser does not support the video tag.

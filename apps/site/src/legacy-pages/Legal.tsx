@@ -71,7 +71,7 @@ export default function Legal() {
           
           <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">2. Medical Disclaimer</h2>
           <p className="text-slate-600 leading-relaxed">
-            The content on our website is provided for general information purposes only and is not intended as, nor should it be considered a substitute for, professional medical advice. Do not use the information on this website for diagnosing or treating any medical or health condition.
+            The content on our website is provided for general information purposes only and is not intended as, nor should it be considered a substitute for, professional medical advice. Do not use the information on this website for diagnosing or managing any medical or health condition.
           </p>
         </div>
       </div>

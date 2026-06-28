@@ -8,4 +8,4 @@ export const EXPERT_PROFILE = {
 } as const;
 
 export const EXPERT_PROFILE_BIO =
-  "The Best LED Face Mask Editorial Team researches and compares at-home beauty devices. For this guide the team reviewed 18 popular LED face masks over 200+ hours of hands-on use and research, comparing wavelengths, light coverage, comfort, eye safety, neck coverage, usability, reviews, price, and guarantees.";
+  "The Best LED Face Mask Editorial Team researches and compares at-home beauty devices. For this guide the team reviewed 18 popular LED face masks over 200+ hours of hands-on use and research, comparing wavelengths, light coverage, comfort, eye safety, neck coverage, usability, reviews, price, and return policies.";

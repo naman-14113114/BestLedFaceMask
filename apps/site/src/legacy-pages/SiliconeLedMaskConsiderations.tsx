@@ -8,7 +8,7 @@ import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
 import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
 
-const siliconeDangers = [
+const siliconeConsiderations = [
   {
     icon: ThermometerSun,
     title: "Heat Build-Up",
@@ -49,14 +49,14 @@ const siliconeDangers = [
 
 const comparisonPoints = [
   { feature: "Material", silicone: "Medical-grade silicone (occlusive)", buudy: "Non-contact LED panel design" },
-  { feature: "Heat Management", silicone: "Traps heat against skin", buudy: "Open airflow, no heat buildup" },
-  { feature: "Bacterial Risk", silicone: "High – warm, moist environment", buudy: "Low – no direct skin contact trapping" },
+  { feature: "Heat Management", silicone: "Can feel warm against skin", buudy: "Open airflow design" },
+  { feature: "Hygiene Consideration", silicone: "Needs careful cleaning", buudy: "Low-contact design" },
   { feature: "Light Penetration", silicone: "Light passes through the silicone first", buudy: "Direct LED to skin, no material in between" },
   { feature: "Skin Breathing", silicone: "Fully occluded, no airflow", buudy: "Natural ventilation maintained" },
   { feature: "Comfort Duration", silicone: "Uncomfortable after 5-10 mins", buudy: "Comfortable for full 15-min session" },
-  { feature: "Hygiene", silicone: "Requires thorough cleaning after each use", buudy: "Easy-clean surface, no bacterial buildup" },
+  { feature: "Hygiene", silicone: "Requires thorough cleaning after each use", buudy: "Easy-clean surface, no residue build-up" },
   { feature: "Sensitivity", silicone: "Possible sensitivity for some users", buudy: "Gentle, suitable for sensitive skin" },
-  { feature: "Light Modes", silicone: "Typically 2-3 wavelengths", buudy: "7 distinct therapeutic wavelengths" },
+  { feature: "Light Modes", silicone: "Typically 2-3 wavelengths", buudy: "7 distinct light modes" },
   { feature: "Neck Coverage", silicone: "Face only (neck kit costs £300+)", buudy: "Built-in face + neck coverage" },
 ];
 
@@ -74,11 +74,11 @@ const expertQuotes = [
   {
     name: "Verified Reviewer",
     title: "At-home device user",
-    quote: "I preferred a design that lets my skin breathe during a session. It felt more comfortable for the full treatment time."
+    quote: "I preferred a design that lets my skin breathe during a session. It felt more comfortable for the full session time."
   }
 ];
 
-export default function SiliconMaskWarning({ context }: MarketContextProps) {
+export default function SiliconeLedMaskConsiderations({ context }: MarketContextProps) {
   return (
     <MarketLocalizedContent context={context}>
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
@@ -131,7 +131,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
           </h2>
           
           <div className="space-y-8">
-            {siliconeDangers.map((danger, idx) => {
+            {siliconeConsiderations.map((danger, idx) => {
               const IconComponent = danger.icon;
               return (
                 <motion.div
@@ -214,7 +214,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
             Silicone Masks vs. Buudy: The Full Comparison
           </h2>
           <p className="text-slate-600 text-center mb-10 max-w-2xl mx-auto">
-            See exactly how silicone-based LED masks stack up against the Buudy 7-Color LED Mask across every critical safety and performance metric.
+            See exactly how silicone-based LED masks stack up against the Buudy 7 Colour LED Mask across every critical safety and performance metric.
           </p>
           
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden max-w-4xl mx-auto">
@@ -257,7 +257,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
         {/* The Safe Alternative Section */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            The Safe Alternative: Why Buudy Is Different
+            The Non-Contact Alternative
           </h2>
           
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
@@ -270,13 +270,13 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
               <div className="lg:col-span-4 flex flex-col items-center">
                 <div className="lg:sticky lg:top-8 w-full flex flex-col items-center">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center lg:hidden mt-3">
-                    Buudy 7 Color LED Therapy Mask
+                    Buudy 7 Colour LED Mask
                   </h3>
                   
                   <a href="https://buudy.co.uk/products/buudy-led-mask" className="block w-full mb-6 group">
                     <img 
                       src="/img/57-w.webp"
-                      alt="Buudy 7 Color LED Therapy Mask" 
+                      alt="Buudy 7 Colour LED Mask" 
                       className="w-full rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
                     />
                   </a>
@@ -299,30 +299,30 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
               <div className="lg:col-span-8">
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
                   <a href="https://buudy.co.uk/products/buudy-led-mask" className="hover:text-emerald-600 transition-colors">
-                    Buudy 7 Color LED Therapy Mask
+                    Buudy 7 Colour LED Mask
                   </a>
                 </h3>
 
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  <p className="text-slate-600 leading-relaxed">Unlike silicone-based competitors, the Buudy LED Mask uses a non-contact design that addresses every single concern raised in this report. The open-airflow architecture prevents heat trapping, eliminates bacterial buildup, and ensures 100% of the LED light reaches your skin without material interference.</p>
+                  <p className="text-slate-600 leading-relaxed">Unlike silicone-based competitors, the Buudy LED Mask uses a non-contact design that addresses every single concern raised in this report. The open-airflow architecture prevents heat trapping, eliminates residue build-up, and ensures 100% of the LED light reaches your skin without material interference.</p>
                   <p className="text-slate-600 leading-relaxed">With 7 distinct wavelengths (Red, Blue, Green, Yellow, Cyan, Purple, and White), the Buudy mask offers one of the broadest sets of light modes on the UK market. While silicone masks typically limit you to 2-3 wavelengths, Buudy covers modes commonly associated with the look of fine lines, blemish-prone skin, dark spots, and uneven texture in one device.</p>
-                  <p className="text-slate-600 leading-relaxed">The built-in neck coverage—a feature that costs £300+ extra with silicone competitors—comes standard. Combined with the cordless, rechargeable design and "Tap Technology" for hands-free use, the Buudy mask delivers a safer, more effective, and more affordable LED therapy experience.</p>
+                  <p className="text-slate-600 leading-relaxed">The built-in neck coverage—a feature that costs £300+ extra with silicone competitors—comes standard. Combined with the cordless, rechargeable design and "Tap Technology" for hands-free use, the Buudy mask delivers a safer, more effective, and more affordable LED skincare experience.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100">
                     <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
-                      <CheckCircle2 className="text-emerald-500" /> Why It's Safer
+                      <CheckCircle2 className="text-emerald-500" /> Why Users Like It
                     </h4>
                     <ul className="space-y-4">
                       {[
-                        "No Silicone Contact: Zero risk of silicone-related dermatitis, heat trapping, or bacterial buildup against your skin.",
-                        "Open Airflow Design: Your skin breathes freely during treatment, maintaining natural moisture balance and preventing heat damage.",
-                        "Direct Light Delivery: No silicone barrier means 100% of the LED light reaches your skin for maximum therapeutic benefit.",
-                        "7-Color Spectrum: Multiple light modes for the appearance of blemish-prone skin, fine lines, dark spots and more—all in one device.",
+                        "No Silicone Contact: No silicone panel resting directly against your skin during use.",
+                        "Open Airflow Design: Your skin has more airflow during the session, maintaining natural moisture balance and keeping the session more breathable.",
+                        "Direct Light Delivery: No silicone barrier means 100% of the LED light reaches your skin for a clearer light path.",
+                        "7 Colour Range: Multiple light modes for the appearance of blemish-prone skin, fine lines, dark spots and more—all in one device.",
                         "Built-in Neck Coverage: Full face and neck coverage included at no extra cost.",
                         "Gentle on Skin: Designed to be comfortable for all skin types, including sensitive and blemish-prone skin.",
-                        "90-Day Money-Back Guarantee: Full refund if you're not satisfied, no restocking fees."
+                        "90-Day Money-Back Policy: Return policy for added peace of mind."
                       ].map((pro, idx) => {
                         const [bold, ...rest] = pro.split(':');
                         return (
@@ -337,16 +337,16 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
 
                   <div className="bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
                     <h4 className="font-bold text-amber-800 mb-4 flex items-center gap-2 text-lg">
-                      <AlertTriangle className="text-amber-500" /> Silicone Mask Risks You Avoid
+                      <AlertTriangle className="text-amber-500" /> Silicone Mask Trade-Offs You Avoid
                     </h4>
                     <ul className="space-y-4">
                       {[
-                        "No Heat Trapping: Unlike silicone masks that create an airtight seal and overheat the skin.",
-                        "No Bacterial Buildup: The open design prevents the warm, moist conditions bacteria thrive in.",
+                        "Less Heat Build-Up: Unlike silicone masks that sit closely against the skin and feel warm.",
+                        "Less Residue Build-Up: The open design is easier to keep clean than a close-contact silicone panel.",
                         "No Light Loss: Skip the 15-25% light absorption that silicone material causes.",
-                        "No Pressure Points: Evenlydelivered light without the uncomfortable facial pressure of silicone masks.",
-                        "No Allergic Reactions: Eliminate the risk of contact dermatitis from prolonged silicone exposure.",
-                        "No Extra Costs: Neck coverage included free—not a £300+ add-on like silicone competitors."
+                        "No Pressure Points: Evenly delivered light without the uncomfortable facial pressure of silicone masks.",
+                        "No Silicone Contact: Avoid prolonged silicone contact during the session.",
+                        "No Extra Neck Add-On: Neck coverage is included rather than sold as a separate high-cost accessory."
                       ].map((con, idx) => {
                         const [bold, ...rest] = con.split(':');
                         return (
@@ -362,11 +362,11 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
 
                 {/* Metrics */}
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                  <h4 className="font-bold text-slate-900 mb-6 text-lg">Safety & Performance Metrics</h4>
+                  <h4 className="font-bold text-slate-900 mb-6 text-lg">Comfort & Value Metrics</h4>
                   <div className="space-y-3">
                     {[
-                      { label: "Skin Safety", value: 99 },
-                      { label: "Light Effectiveness", value: 97 },
+                      { label: "Skin Comfort", value: 99 },
+                      { label: "Light Coverage", value: 97 },
                       { label: "Comfort & Fit", value: 96 },
                       { label: "Hygiene Score", value: 98 },
                       { label: "Affordability", value: 100 }
@@ -409,7 +409,7 @@ export default function SiliconMaskWarning({ context }: MarketContextProps) {
               
               <div className="flex flex-col justify-center text-center">
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 font-serif tracking-tight">
-                  Buudy 7-Color LED Light Mask
+                  Buudy 7 Colour LED Mask
                 </h3>
                 
                 <div className="w-32 h-[1px] bg-[#d4af37] mx-auto mb-6"></div>

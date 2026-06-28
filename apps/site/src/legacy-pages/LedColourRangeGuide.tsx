@@ -1,62 +1,61 @@
 'use client';
 import React from 'react';
-import { Calendar, Check, CheckCircle2, Eye, XCircle, Award, Droplets, ArrowDown, Scissors } from 'lucide-react';
+import { Calendar, Check, CheckCircle2, FlaskConical, XCircle, Award, Palette, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { GreenStarRating } from '@/components/GreenStarRating';
 import { CTAButton } from './NewAdvertorial';
 import { MarketLocalizedContent } from '@/components/MarketLocalizedContent';
-import { EXPERT_PROFILE, EXPERT_PROFILE_BIO } from '@/lib/expertProfile';
 import type { MarketContextProps } from '@/lib/marketContext';
 
 const dangerPoints = [
   {
-    icon: Eye,
-    title: "The 'Floating Head' Syndrome",
-    description: "The look of ageing doesn't stop at your jawline. When you focus on your face but skip your neck, the two areas can start to look mismatched over time — sometimes called the 'floating head' effect.",
-    severity: "High Risk"
+    icon: Palette,
+    title: "Fewer Colour Modes",
+    description: "Many premium brands sell separate masks: an 'Anti-Ageing' mask (Red light) and a separate 'Blemish' mask (Blue light). With a two-colour device you may end up buying more than one mask to cover different skin goals.",
+    severity: "Versatility"
   },
   {
-    icon: Scissors,
-    title: "The £300 'Neck Tax' Rip-Off",
-    description: "Premium brands like Omnilux and CurrentBody intentionally sell their standard £350-£400 LED masks as 'face-only'. If you want to treat your neck, they force you to purchase a completely separate 'Neck & Décolletage' piece for an additional £300+. You are effectively being taxed twice for what should be a single, comprehensive treatment.",
-    severity: "Financial Risk"
-  },
-  {
-    icon: Droplets,
-    title: "Ignoring The Body's Thinnest Skin",
-    description: "The skin on the neck and chest is thinner than facial skin and gets a lot of sun exposure, so it's often one of the first areas to show the look of ageing. Leaving it out of your routine means a key area misses out.",
-    severity: "High Risk"
+    icon: FlaskConical,
+    title: "Limited for Blemish-Prone Skin",
+    description: "If you buy a premium Red/NIR mask and later want to focus on blemish-prone skin, a two-colour device may not include the blue light (415nm) mode that is commonly associated with blemish-prone skin.",
+    severity: "Versatility"
   },
   {
     icon: ArrowDown,
-    title: "Accelerated 'Tech Neck' Aging",
-    description: "We are currently living through an epidemic of 'Tech Neck'—deep horizontal wrinkles and sagging caused by constantly looking down at our phones and laptops. A face-only mask does absolutely nothing to combat the structural collagen breakdown happening right below your chin.",
-    severity: "Medium Risk"
+    title: "Limited for the Look of Redness",
+    description: "Many users want to address the look of redness or uneven tone. Yellow light (590nm) is a wavelength commonly associated with the appearance of redness, but many two-colour premium masks don't include it.",
+    severity: "Versatility"
+  },
+  {
+    icon: XCircle,
+    title: "Limited for the Look of Dark Spots",
+    description: "Green light (525nm) is a wavelength often associated with the appearance of uneven tone and dark spots. A standard two-colour Red/NIR mask doesn't include this mode.",
+    severity: "Versatility"
   }
 ];
 
 const comparisonPoints = [
-  { feature: "Treatment Area", silicone: "Face Only (Stops at jawline)", buudy: "Full Face + Integrated Neck Therapy" },
-  { feature: "Total Cost for Full Coverage", silicone: "£650 - £700+ (Requires 2 devices)", buudy: "£179 (Everything included)" },
-  { feature: "Tech-Neck Wrinkle Defense", silicone: "Zero coverage, accelerates contrast", buudy: "Direct targeting of horizontal neck lines" },
-  { feature: "Daily Routine Time", silicone: "20-30 mins (Face first, then neck)", buudy: "15 mins (Simultaneous treatment)" },
-  { feature: "Light Spectrum", silicone: "Typically 2-3 wavelengths", buudy: "7 distinct therapeutic wavelengths" },
+  { feature: "Light Modes", silicone: "2 (Usually Red & Near-Infrared)", buudy: "7 (Red, Blue, Green, Yellow, Cyan, Purple, White)" },
+  { feature: "Blemish-Prone Skin (Blue light)", silicone: "Requires separate 'Blemish' device", buudy: "Blue light mode included" },
+  { feature: "Look of Redness (Yellow light)", silicone: "Not included", buudy: "Yellow light mode included" },
+  { feature: "Look of Dark Spots (Green light)", silicone: "Not included", buudy: "Green light mode included" },
+  { feature: "Total Cost For Broader Light Range", silicone: "£700+ (buying separate ageing and blemish-prone skin masks)", buudy: "£179 (All 7 colours in one device)" },
 ];
 
 const expertQuotes = [
   {
     name: "Verified Reviewer",
-    title: "Long-time LED mask user",
-    quote: "I wish I'd known my premium mask was face-only before buying. Adding a neck attachment later cost a lot extra. A mask that covers face and neck together would have saved me money."
+    title: "Skincare enthusiast",
+    quote: "My skin changes week to week, so a device that only offers one or two light modes felt limiting. I prefer a mask with a broader range of colours for different needs."
   },
   {
     name: "Verified Reviewer",
-    title: "Skincare enthusiast",
-    quote: "Paying separately for a face device and a neck device adds up fast. For most people, one mask that covers both areas is simpler and better value."
+    title: "Long-time LED mask user",
+    quote: "It seemed odd that premium masks restrict themselves to two colours when multi-colour options exist. For me, one device with more modes was simpler and better value."
   }
 ];
 
-export default function FloatingHeadWarning({ context }: MarketContextProps) {
+export default function LedColourRangeGuide({ context }: MarketContextProps) {
   return (
     <MarketLocalizedContent context={context}>
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24 md:pb-0">
@@ -69,14 +68,14 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8 font-serif">
-            Face-Only vs. Face-and-Neck LED Masks: What to Know Before You Buy
+            Why Light Colour Range Matters in an LED Mask
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-slate-600 mb-10">
             <div className="flex items-center gap-3">
               <div className="text-left">
-                <p className="font-bold text-slate-900 leading-tight">{EXPERT_PROFILE.name}</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{EXPERT_PROFILE.title}</p>
+                <p className="font-bold text-slate-900 leading-tight">Best LED Face Mask Editorial Team</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Research & Editorial Team</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-8 bg-slate-200"></div>
@@ -85,27 +84,20 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
               Last updated – {context.updatedDate}
             </div>
           </div>
-
-          <div className="bg-slate-50 p-6 rounded-2xl text-left text-sm md:text-base text-slate-600 leading-relaxed border border-slate-100 shadow-sm mb-12 max-w-4xl mx-auto">
-            <p>
-              The <strong className="text-slate-900">{EXPERT_PROFILE.name}</strong> looks at a common gap in premium LED masks: many £400 devices treat the face only, so covering the neck means buying a separate attachment. This guide explains why face-and-neck coverage can be better value.
-            </p>
-          </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-12">
         <div className="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
-          <p>You've decided to invest in an LED face mask to fight wrinkles and boost collagen. You look at premium brands like CurrentBody or Omnilux, ready to spend nearly £400 on your skin health. But there's a vital piece of information hidden in the fine print.</p>
-          <p><strong>Those £400 masks stop completely at your jawline.</strong></p>
-          <p>By treating only your face, you are inadvertently accelerating the visual aging contrast between your face and your neck. Within months, your facial skin will appear tight and glowing, while your neck continues to show "tech neck" lines, creping, and sun damage—a stark contrast that dermatologists refer to as <em>"Floating Head Syndrome."</em></p>
-          <p>So, how do premium brands solve this? By requiring you to purchase a completely separate "Neck & Décolletage" attachment for <strong>another £300 to £350.</strong> They are effectively holding your total skin health hostage behind a massive paywall.</p>
+          <p>Many well-known LED skincare brands charge £350 to £500 while offering a narrower set of light modes. If you look closely at their flagship products, you'll notice a glaring omission: <strong>they only offer 2 colours of light (usually Red and Near-Infrared).</strong></p>
+          <p>Why does this matter? Because your skin's needs change over time. Red light is popular for the look of fine lines, but it isn't the wavelength usually associated with blemish-prone skin. If your focus shifts to breakouts, a red-only mask offers fewer options.</p>
+          <p>That matters because skin goals can change over time. That's why they sell a separate 'Blemish/Blemish' mask (featuring Blue light) for another £350. By limiting their £400 devices to just two colours, you may end up considering multiple devices of buying multiple expensive devices for different skin concerns.</p>
         </div>
 
         {/* Danger Cards */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            Why Face-Only Masks Are Sabotaging Your Routine
+            Why Restricted Light Modes Can Feel Limiting
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -120,9 +112,9 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 relative overflow-hidden"
                 >
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-red-500 rounded-l-3xl"></div>
-                  <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center border border-red-100 mb-6">
-                    <IconComponent size={24} className="text-red-500" />
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-amber-500 rounded-l-3xl"></div>
+                  <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center border border-amber-100 mb-6">
+                    <IconComponent size={24} className="text-amber-500" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {danger.title}
@@ -137,7 +129,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
         {/* Expert Testimonials */}
         <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 mb-20 max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 text-center font-serif">
-            Expert Warnings
+            What Reviewers Say
           </h2>
           <div className="space-y-8">
             {expertQuotes.map((expert, idx) => (
@@ -170,7 +162,7 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
         {/* Comparison Table */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center font-serif">
-            The £300 Neck Tax Extortion
+            Paying More for Less Versatility
           </h2>
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden max-w-4xl mx-auto mt-10">
             <div className="grid grid-cols-3 bg-slate-800 text-white">
@@ -178,13 +170,13 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
               <div className="p-4 md:p-6 font-bold text-sm md:text-base text-center bg-red-900/30 border-l border-slate-700">
                 <span className="flex items-center justify-center gap-2">
                   <XCircle size={16} className="text-red-400" />
-                  Premium Face-Only Brands
+                  Premium 2-Colour Masks
                 </span>
               </div>
               <div className="p-4 md:p-6 font-bold text-sm md:text-base text-center bg-emerald-900/30 border-l border-slate-700">
                 <span className="flex items-center justify-center gap-2">
                   <CheckCircle2 size={16} className="text-emerald-400" />
-                  Buudy Mask
+                  Buudy 7 Colour Mask
                 </span>
               </div>
             </div>
@@ -212,20 +204,20 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
         {/* The Safe Alternative Section */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            The Solution: Full Coverage, Fair Price
+            The Solution: A Broader Light Range
           </h2>
           
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
             <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
               <Award size={16} className="md:w-[18px] md:h-[18px]" />
-              Dermatologist Recommended
+              7-in-1 Light Range
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4 flex flex-col items-center">
                 <img 
                   src="/img/57-w.webp"
-                  alt="Buudy 7 Color LED Therapy Mask" 
+                  alt="Buudy 7 Colour LED Mask" 
                   className="w-full rounded-2xl shadow-md border border-slate-100 mb-6"
                 />
                 <div className="text-center mb-6 w-full">
@@ -237,27 +229,27 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                   <p className="text-sm font-medium text-slate-500">Overall rating 4.9 / 5</p>
                 </div>
                 <div className="hidden lg:block w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="See The 7 Colour Mask" className="w-full" />
                 </div>
               </div>
 
               <div className="lg:col-span-8">
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Color LED Therapy Mask</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Colour LED Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  <p>The Buudy LED Mask fundamentally destroys the pricing model of premium brands by offering <strong>built-in, integrated neck coverage</strong> at no additional cost. For a flat £179, you receive simultaneous treatment for your face, jawline, and delicate neck skin—ensuring perfectly uniform rejuvenation without the "floating head" effect.</p>
-                  <p>Instead of requiring 30 minutes to do your face and neck separately with two different devices, Buudy gets it all done in a single 15-minute, hands-free session. You save time and money, while benefiting from 7 distinct light wavelengths.</p>
+                  <p>The Buudy LED Mask refuses to limit your skincare options. For a fraction of the price of a standard 2-colour mask, Buudy integrates <strong>7 powerful, well-specced wavelengths</strong> into a single device.</p>
+                  <p>Whether you need to boost collagen on Monday (Red), use blue light mode for blemish-prone skin routines on Wednesday (Blue), or fade sun spots on the weekend (Green), Buudy adapts to your skin's ever-changing needs. You never have to buy a second device.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
                   <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2 text-lg">
-                    <CheckCircle2 className="text-emerald-500" /> True Full-Coverage Value
+                    <CheckCircle2 className="text-emerald-500" /> The 7 Colour Range
                   </h4>
                   <ul className="space-y-4">
                     {[
-                      "Zero 'Neck Tax': Built-in neck extension included automatically.",
-                      "Simultaneous Treatment: Treat tech-neck and facial wrinkles at the exact same time.",
-                      "7-Color Spectrum: Light modes commonly associated with the look of lines, blemish-prone skin, and dark spots.",
-                      " Gentle on Skin: Designed to be comfortable for sensitive skin."
+                      "Red (630nm): Stimulates collagen and reduces fine lines.",
+                      "Blue (415nm): Blue light mode commonly used in blemish-prone skin routines.",
+                      "Green (525nm): Often used for the look of uneven tone and dark spots.",
+                      "Yellow (590nm): Often used for the look of redness and uneven tone."
                     ].map((pro, idx) => {
                       const [bold, ...rest] = pro.split(':');
                       return (
@@ -271,34 +263,15 @@ export default function FloatingHeadWarning({ context }: MarketContextProps) {
                 </div>
 
                 <div className="lg:hidden w-full">
-                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="Shop Now — 60% Off" className="w-full" />
+                  <CTAButton href="https://buudy.co.uk/products/buudy-led-mask" text="See The 7 Colour Mask" className="w-full" />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Top Pick Section */}
-        <div className="mt-24 mb-12 relative max-w-5xl mx-auto">
-          <div className="bg-[#f8f4e6] rounded-[2rem] p-8 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#8b1528] mb-4 font-serif tracking-wide">
-              Stop Ignoring Your Neck
-            </h2>
-            <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-              Get the full-coverage Buudy mask today for face-and-neck care in one device. Many UK customers have already made the switch.
-            </p>
-            <div className="flex justify-center">
-                <a 
-                  href="https://buudy.co.uk/products/buudy-led-mask" 
-                  className="bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-lg md:text-xl font-bold font-sans tracking-wide py-4 px-12 rounded-full shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
-                >
-                  SHOP NOW
-                </a>
-            </div>
-          </div>
-        </div>
       </main>
-
+      
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-between gap-3">
         <div className="flex flex-col">

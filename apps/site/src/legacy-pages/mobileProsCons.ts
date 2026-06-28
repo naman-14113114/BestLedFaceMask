@@ -27,7 +27,7 @@ export const mobileProsCons: MobileProsConsMap = {
     // #1 Buudy 7 Colour LED Mask
     1: {
       pros: [
-        "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
+        "<b>7 colour routine</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
         "<b>Covers both the face and neck area</b>, including the neck and jawline in the same session",
         "Built with <b>flexible, skin-friendly materials</b> and even light placement",
         "Built-in <b>eye protection</b> with a gentle, <b>pain-free</b> experience suitable for all skin types",
@@ -35,7 +35,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
         "Designed for short, regular sessions you can keep up with at home",
         "Currently <b>£179</b> (60% off the regular £449 price)",
-        "<b>90-day money-back guarantee</b> for added peace of mind",
+        "<b>90-day money-back policy</b> for added peace of mind",
       ],
       cons: [
         "Available online only in the <b>United Kingdom</b>",
@@ -49,16 +49,16 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>Widely featured in the media</b> alongside celebrity and beauty-editor coverage",
         "<b>High average rating</b> across a large number of customer reviews",
-        "Brand markets the device around the <b>appearance of fine lines and wrinkles</b>",
+        "Brand markets the device around the <b>appearance of fine lines and skin texture</b>",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
       ],
       cons: [
-        "<b>Face-only treatment</b> at £399.99; neck kit costs an <b>additional £679.99</b>",
+        "<b>Face-only coverage</b> at £399.99; neck kit costs an <b>additional £679.99</b>",
         "Premium-priced device — significantly more expensive than Buudy (£179)",
-        "<b>Limited to anti-aging</b> with 3 Red/NIR wavelengths only",
+        "<b>Limited to anti-ageing</b> with 3 Red/NIR wavelengths only",
         "<b>No Blue, Green or Yellow</b> light modes for broader skin concerns",
-        "60-day guarantee includes a <b>10% restocking fee</b> on returns (~£40)",
-        "Some users <b>report minimal results</b> after extended use",
+        "60-day return policy includes a <b>10% restocking fee</b> on returns (~£40)",
+        "Some users <b>report minimal feedback</b> after extended use",
         "Some reviewers mention <b>fit and slipping issues</b>",
         "Flexible silicone design may <b>require extra care</b> for hygiene and maintenance",
       ],
@@ -67,13 +67,13 @@ export const mobileProsCons: MobileProsConsMap = {
     // #3 Omnilux LED Mask
     3: {
       pros: [
-        "<b>Long-established light-therapy brand</b> with a strong reputation",
-        "<b>30-day no-hassle money-back guarantee</b> for peace of mind",
+        "<b>Long-established LED skincare brand</b> with a strong reputation",
+        "<b>30-day no-hassle money-back policy</b> for peace of mind",
         "<b>Trusted brand</b> from the professional skin care market",
         "Flexible and portable with <b>rechargeable controller</b> and carry bag",
       ],
       cons: [
-        "<b>Face-only treatment</b> at £348; separate neck piece costs another <b>£348</b>",
+        "<b>Face-only coverage</b> at £348; separate neck piece costs another <b>£348</b>",
         "Premium-priced — significantly more expensive than Buudy (<b>£179</b>)",
         "<b>Only 2 wavelengths</b> (Red and NIR) — missing 5 other light modes",
         "<b>Single-concern focus</b> — a separate model is sold for blemish-prone skin",
@@ -86,14 +86,14 @@ export const mobileProsCons: MobileProsConsMap = {
     // #4 Shark CryoGlow LED Mask
     4: {
       pros: [
-        "Unique <b>\"Insta-Chill\" cryo-therapy</b> for under-eyes — not found in standard LED masks",
+        "Unique <b>\"Insta-Chill\" cooling feature</b> for under-eyes — not found in standard LED masks",
         "<b>Developed with skin-care professionals</b> for added credibility",
         "<b>High average rating</b> from a large number of reviews on the trusted Shark brand",
         "<b>Fast pre-programmed sessions</b> as short as 6–8 minutes",
       ],
       cons: [
         "At <b>£269.99</b>, more than double the price of Buudy (£179)",
-        "<b>Face-only treatment</b> — no neck coverage included",
+        "<b>Face-only coverage</b> — no neck coverage included",
         "<b>Missing 5 of 7 wavelengths</b> (Green, Yellow, Cyan, Purple, White)",
         "<b>LED count undisclosed</b> — likely lower than Buudy's 192 high-density LEDs",
         "At 675g, <b>very heavy and rigid</b> — may not suit all face shapes",
@@ -104,8 +104,8 @@ export const mobileProsCons: MobileProsConsMap = {
     // #5 Dr. Dennis Gross DRx SpectraLite
     5: {
       pros: [
-        "<b>Full session in just 3 minutes</b> — fastest treatment time in this ranking",
-        "<b>Designed by Dr. Dennis Gross</b> — strong dermatologist-backed authority",
+        "<b>Full session in just 3 minutes</b> — fastest session time in this ranking",
+        "<b>Created by Dr. Dennis Gross</b> — strong expert-led positioning",
         "<b>415nm Blue light</b> mode, a wavelength associated with blemish-prone skin",
         "<b>Cordless</b> with internal battery for wire-free sessions",
       ],
@@ -114,7 +114,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>No neck or chest coverage</b> — face only at nearly £500",
         "<b>Only 162 LEDs</b> — lower density than modern high-output models",
         "<b>Rigid plastic shell</b> doesn't flex — discomfort reported on the nose bridge",
-        "<b>Only Red, Blue and Combo</b> modes — missing 5 other light therapies",
+        "<b>Only Red, Blue and Combo</b> modes — missing 5 other light modes",
         "<b>Short battery life</b> — small internal battery needs frequent charging",
         "<b>Fragile build</b> — rigid plastic prone to cracking if dropped",
         "<b>No eye protection</b> — open-eye design allows light to reach vision",
@@ -129,7 +129,7 @@ export const mobileProsCons: MobileProsConsMap = {
     // #1 Buudy 7 Colour LED Mask (CA)
     1: {
       pros: [
-        "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
+        "<b>7 colour routine</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
         "<b>Covers both the face and neck area</b>, including the neck and jawline in the same session",
         "Built with <b>flexible, skin-friendly materials</b> and even light placement",
         "Built-in <b>eye protection</b> with a gentle, <b>pain-free</b> experience suitable for all skin types",
@@ -137,7 +137,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
         "Designed for short, regular sessions you can keep up with at home",
         "Currently <b>$299</b> (60% off the regular $649 price)",
-        "<b>90-day money-back guarantee</b> for added peace of mind",
+        "<b>90-day money-back policy</b> for added peace of mind",
       ],
       cons: [
         "Available online only in <b>Canada</b>",
@@ -151,16 +151,16 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>Widely featured in the media</b> alongside celebrity and beauty-editor coverage",
         "<b>High average rating</b> across a large number of customer reviews",
-        "Brand markets the device around the <b>appearance of fine lines and wrinkles</b>",
+        "Brand markets the device around the <b>appearance of fine lines and skin texture</b>",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
       ],
       cons: [
-        "<b>Face-only treatment</b>; neck coverage requires an <b>additional purchase</b>",
+        "<b>Face-only coverage</b>; neck coverage requires an <b>additional purchase</b>",
         "Premium-priced device compared with many alternatives",
-        "<b>Limited to anti-aging</b> with 3 Red/NIR wavelengths only",
+        "<b>Limited to anti-ageing</b> with 3 Red/NIR wavelengths only",
         "<b>No Blue, Green or Yellow</b> light modes for broader skin concerns",
-        "60-day guarantee includes a <b>10% restocking fee</b> on returns",
-        "Some users <b>report minimal results</b> after extended use",
+        "60-day return policy includes a <b>10% restocking fee</b> on returns",
+        "Some users <b>report minimal feedback</b> after extended use",
         "Some reviewers mention <b>fit and slipping issues</b>",
         "Flexible silicone design may <b>require extra care</b> for hygiene and maintenance",
       ],
@@ -175,7 +175,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "<b>2-year warranty</b> provides added peace of mind",
       ],
       cons: [
-        "Face-only treatment with <b>no neck or jawline coverage</b>",
+        "Face-only coverage with <b>no neck or jawline coverage</b>",
         "Missing Green, Cyan, Yellow, Purple and White light modes",
         "Optical power density is lower than some leading competitors",
         "<b>4-hour charge time</b> can be inconvenient",
@@ -187,7 +187,7 @@ export const mobileProsCons: MobileProsConsMap = {
     4: {
       pros: [
         "Uses <b>648 LEDs</b>, making it one of the highest LED-count masks in the category",
-        "<b>VibraWave vibration therapy</b> provides added facial tension and relaxation benefits",
+        "<b>VibraWave vibration feature</b> provides added facial tension and relaxation benefits",
         "Short <b>9-minute routines</b> with no cord",
         "Backed by Therabody, a <b>major wellness tech name</b>.",
       ],
@@ -197,7 +197,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "Hard-shell construction may not sit evenly on all face shapes",
         "<b>Missing Green, Cyan, Purple, and White</b> light modes",
         "<b>Battery runtime is shorter</b> than some masks that use external controller systems",
-        "Higher price does not include built-in neck treatment despite the premium cost",
+        "Higher price does not include built-in neck coverage despite the premium cost",
       ],
     },
 
@@ -205,16 +205,16 @@ export const mobileProsCons: MobileProsConsMap = {
     5: {
       pros: [
         "<b>336 LEDs</b> provide dense and even facial light coverage",
-        "<b>Six treatment modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
+        "<b>Six light modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
         "Lists <b>multiple safety certifications</b>",
         "Backed by a <b>2-year warranty</b> for added assurance",
       ],
       cons: [
-        "The <b>$385</b> model treats only the face, with <b>no neck or chest coverage</b> included",
-        "<b>Missing Green, Cyan, Purple and White</b> light therapy modes",
+        "The <b>$385</b> model covers only the face, with <b>no neck or chest coverage</b> included",
+        "<b>Missing Green, Cyan, Purple and White</b> LED skincare modes",
         "<b>Wired remote controller</b> feels less convenient than cordless or tap-controlled designs",
         "<b>Higher price than Buudy</b> while covering less area",
-        "<b>No neck treatment</b> leaves jawline and neck behind",
+        "<b>No neck coverage</b> leaves jawline and neck behind",
       ],
     },
   },

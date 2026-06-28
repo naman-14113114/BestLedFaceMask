@@ -9,7 +9,7 @@ const marketGuides = [
   {
     label: 'Global guide',
     title: 'Best LED Face Masks of 2026',
-    description: 'Our worldwide comparison of wavelengths, coverage, comfort, guarantees and value.',
+    description: 'Our worldwide comparison of wavelengths, coverage, comfort, return policys and value.',
     href: '/best-led-face-mask-2026',
     code: 'INTL'
   },
@@ -23,7 +23,7 @@ const marketGuides = [
   {
     label: 'United Kingdom',
     title: 'Best LED Face Masks in the UK',
-    description: 'UK pricing, guarantees and buying options compared in pounds.',
+    description: 'UK pricing, return policys and buying options compared in pounds.',
     href: '/best-led-face-mask-uk-2026',
     code: 'UK'
   },
@@ -63,13 +63,13 @@ export default function Home({ context }: MarketContextProps) {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300">
               <Waves size={18} aria-hidden="true" />
-              Independent light-therapy research
+              Independent LED skincare research
             </div>
             <h1 className="max-w-4xl font-serif text-4xl font-extrabold leading-tight text-white md:text-6xl">
               Find the best LED face mask for your skin, budget and country
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Compare wavelengths, face and neck coverage, treatment comfort, safety features, guarantees and current pricing without relying on brand hype alone.
+              Compare wavelengths, face and neck coverage, routine comfort, safety features, return policys and current pricing without relying on brand hype alone.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -90,7 +90,7 @@ export default function Home({ context }: MarketContextProps) {
           <figure className="overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
             <img
               src="/img/57-w.webp"
-              alt="LED face mask shown during an at-home light therapy routine"
+              alt="LED face mask shown during an at-home LED skincare routine"
               className="aspect-[4/3] w-full object-cover"
               fetchPriority="high"
             />

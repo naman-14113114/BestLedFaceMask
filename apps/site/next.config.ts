@@ -74,7 +74,11 @@ const nextConfig: NextConfig = {
       { source: "/therabody-vs-buudy", destination: redirectToAdvertorial, permanent: true },
       { source: "/therabody-vs-buudy/:path*", destination: redirectToAdvertorial, permanent: true },
       { source: "/pages/buudy-led-mask-product-redesign", destination: redirectToAdvertorial, permanent: true },
-      { source: "/pages/buudy-led-mask-product-redesign/:path*", destination: redirectToAdvertorial, permanent: true }
+      { source: "/pages/buudy-led-mask-product-redesign/:path*", destination: redirectToAdvertorial, permanent: true },
+      { source: "/silicone-led-mask-dangers", destination: "/silicone-led-mask-considerations", permanent: true },
+      { source: "/floating-head-warning", destination: "/face-neck-led-mask-guide", permanent: true },
+      { source: "/missing-colors-expose", destination: "/led-colour-range-guide", permanent: true },
+      { source: "/led-density-scam", destination: "/led-density-guide", permanent: true }
     ];
   }
 };

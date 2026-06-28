@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AdvertorialSeo } from "@/components/seo/AdvertorialSeo";
 import { advertorialMetadata } from "@/lib/metadata";
 import { getRequestPageContext } from "@/lib/marketContext";
-import LedDensityScam from "@/legacy-pages/LedDensityScam";
+import FaceNeckLedMaskGuide from "@/legacy-pages/FaceNeckLedMaskGuide";
 
-export const metadata: Metadata = advertorialMetadata("/led-density-scam");
+export const metadata: Metadata = advertorialMetadata("/face-neck-led-mask-guide");
 
 export default async function Page() {
   const context = await getRequestPageContext();
@@ -12,7 +12,7 @@ export default async function Page() {
   return (
     <>
       <AdvertorialSeo />
-      <LedDensityScam context={context} />
+      <FaceNeckLedMaskGuide context={context} />
     </>
   );
 }
