@@ -253,6 +253,35 @@
     return href;
   }
 
+  function decorateBuudyLink(link) {
+    if (!link || !link.href) return;
+
+    var href = toBuudyHref(link.href);
+    if (!href) return;
+
+    link.setAttribute("href", decorateOutboundHref(href, link));
+  }
+
+  function decorateAllBuudyLinks() {
+    var links = document.querySelectorAll("a[href]");
+    for (var index = 0; index < links.length; index += 1) {
+      decorateBuudyLink(links[index]);
+    }
+  }
+
+  function scheduleLinkDecoration() {
+    decorateAllBuudyLinks();
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", decorateAllBuudyLinks, {
+        once: true,
+      });
+    }
+
+    window.setTimeout(decorateAllBuudyLinks, 500);
+    window.setTimeout(decorateAllBuudyLinks, 2000);
+  }
+
   function isModifiedClick(event) {
     return (
       event.button !== 0 ||
@@ -523,21 +552,45 @@
   };
 
   function prepareTrackedHref(event) {
-    var href = getTrackedHref(event);
-    if (!href) return null;
+    try {
+      var href = getTrackedHref(event);
+      if (!href) return null;
 
-    var decoratedHref = decorateOutboundHref(href, event.target);
-    applyDecoratedHref(event.target, decoratedHref);
-    applyDecoratedHref(getPointTarget(event), decoratedHref);
-    return decoratedHref;
+      var decoratedHref = decorateOutboundHref(href, event.target);
+      applyDecoratedHref(event.target, decoratedHref);
+      applyDecoratedHref(getPointTarget(event), decoratedHref);
+      return decoratedHref;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getAnchorTarget(target) {
+    if (!target || !target.closest) return "";
+
+    var link = target.closest("a[href]");
+    return link ? (link.getAttribute("target") || "") : "";
+  }
+
+  function navigateToBuudy(href, target) {
+    if (!href) return;
+
+    var anchorTarget = getAnchorTarget(target);
+    if (anchorTarget && anchorTarget !== "_self") {
+      var opened = window.open(href, anchorTarget, "noopener,noreferrer");
+      if (!opened) {
+        window.location.assign(href);
+      }
+      return;
+    }
+
+    window.location.assign(href);
   }
 
   document.addEventListener(
     "pointerdown",
     function (event) {
       prepareTrackedHref(event);
-      if (isModifiedClick(event)) return;
-      markOutboundButtonLoading(event.target);
     },
     true,
   );
@@ -545,19 +598,25 @@
   document.addEventListener(
     "click",
     function (event) {
-      if (!isModifiedClick(event)) {
-        markOutboundButtonLoading(event.target);
-      }
-
       var href = prepareTrackedHref(event);
       if (!href) return;
       if (isModifiedClick(event)) return;
 
-      if (!hasMicrosoftAdsConsent()) {
-        setMicrosoftAdsConsent("granted");
-      }
+      event.preventDefault();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      event.stopPropagation();
+      markOutboundButtonLoading(event.target);
 
-      trackBuudyOutbound(href, event.target);
+      try {
+        if (!hasMicrosoftAdsConsent()) {
+          setMicrosoftAdsConsent("granted");
+        }
+
+        trackBuudyOutbound(href, event.target);
+      } catch (error) {
+      } finally {
+        navigateToBuudy(href, event.target);
+      }
     },
     true,
   );
@@ -578,4 +637,6 @@
     },
     true,
   );
+
+  scheduleLinkDecoration();
 })();
