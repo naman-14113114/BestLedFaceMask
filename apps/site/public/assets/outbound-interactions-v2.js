@@ -523,21 +523,45 @@
   };
 
   function prepareTrackedHref(event) {
-    var href = getTrackedHref(event);
-    if (!href) return null;
+    try {
+      var href = getTrackedHref(event);
+      if (!href) return null;
 
-    var decoratedHref = decorateOutboundHref(href, event.target);
-    applyDecoratedHref(event.target, decoratedHref);
-    applyDecoratedHref(getPointTarget(event), decoratedHref);
-    return decoratedHref;
+      var decoratedHref = decorateOutboundHref(href, event.target);
+      applyDecoratedHref(event.target, decoratedHref);
+      applyDecoratedHref(getPointTarget(event), decoratedHref);
+      return decoratedHref;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getAnchorTarget(target) {
+    if (!target || !target.closest) return "";
+
+    var link = target.closest("a[href]");
+    return link ? (link.getAttribute("target") || "") : "";
+  }
+
+  function navigateToBuudy(href, target) {
+    if (!href) return;
+
+    var anchorTarget = getAnchorTarget(target);
+    if (anchorTarget && anchorTarget !== "_self") {
+      var opened = window.open(href, anchorTarget, "noopener,noreferrer");
+      if (!opened) {
+        window.location.assign(href);
+      }
+      return;
+    }
+
+    window.location.assign(href);
   }
 
   document.addEventListener(
     "pointerdown",
     function (event) {
       prepareTrackedHref(event);
-      if (isModifiedClick(event)) return;
-      markOutboundButtonLoading(event.target);
     },
     true,
   );
@@ -553,11 +577,20 @@
       if (!href) return;
       if (isModifiedClick(event)) return;
 
-      if (!hasMicrosoftAdsConsent()) {
-        setMicrosoftAdsConsent("granted");
-      }
+      event.preventDefault();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      event.stopPropagation();
 
-      trackBuudyOutbound(href, event.target);
+      try {
+        if (!hasMicrosoftAdsConsent()) {
+          setMicrosoftAdsConsent("granted");
+        }
+
+        trackBuudyOutbound(href, event.target);
+      } catch (error) {
+      } finally {
+        navigateToBuudy(href, event.target);
+      }
     },
     true,
   );
