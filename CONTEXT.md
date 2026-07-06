@@ -346,6 +346,8 @@ From the dossier's Full Source Coverage Manifest (59 readable Codex sessions, 20
 - Some session CWDs are temp/connection-test folders with no business content; large archive sections are redacted tool outputs.
 - **Verify before relying:** IPL pricing ($129 vs $199 drafts); free gift (Massage Kit/Gua Sha $79 vs Red Torch $69); Buudy live spec vs redesign concept; Muuhu checkout env vars (not yet configured); owner-name disambiguation.
 
+- **2026-07-06 — Juujo-Vercel: Added Grounding Flat Sheet and Grounding Mat.** (Task #16 from handoff). Created `groundingFlatSheet` and `groundingMat` products. Set up free gift auto-add logic in `cart.ts` using `deriveGiftLines` so purchasing a fitted or flat sheet automatically includes a £0 mat in the cart (non-persisted, derived dynamically). Redesigned `Header.tsx` and `navigation.ts` to include a dropdown structure for Grounding products and commented out weighted blankets, cooling sheets, and pillows from the exported `products` array and site-wide components (`home.ts`, `footer.ts`, `sitemap.ts`, etc.). Created `GroundingMatWhatIsItSection` and `GroundingMatBenefitsSection` using the classified mat videos/images. Copied all changes from `uk` to `us`, `ca`, and `au`. Verified `tsc --noEmit` across all apps to be perfectly clean with 0 errors.
+
 ---
 
 *End of CONTEXT.md baseline (2026-06-27). Append below this line in future sessions — never delete. Full verbatim source archive preserved in `CONTEXT.prev-full-archive.local.md` (gitignored) and `agent.md`.*
