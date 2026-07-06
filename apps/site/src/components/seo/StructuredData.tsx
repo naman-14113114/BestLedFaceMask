@@ -420,6 +420,9 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
   const video = graph.find((node) => node["@type"] === "VideoObject");
   if (video) {
     video["@id"] = `${routeUrl}#dermatologist-video`;
+    if (market.key === "ca") {
+      video.name = "Editor walkthrough of the Buudy 7 Colour LED Mask";
+    }
   }
 
   const faq = graph.find((node) => node["@type"] === "FAQPage");

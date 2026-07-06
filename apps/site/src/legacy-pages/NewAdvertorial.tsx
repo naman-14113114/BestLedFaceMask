@@ -20,7 +20,7 @@ import {
   type ProductPriceKey,
 } from "@/lib/advertorialMarkets";
 import type { MarketContextProps } from "@/lib/marketContext";
-import { EXPERT_PROFILE } from "@/lib/expertProfile";
+import { getExpertProfile } from "@/lib/expertProfile";
 import { getMobileProsCons } from "./mobileProsCons";
 
 function stripInlineHtml(text: string) {
@@ -371,7 +371,7 @@ const canadaCompetitorProducts: Product[] = [
       "Limited Colour Range: Red, near-infrared, and blue are useful, but it lacks Green, Cyan, Yellow, Purple, and White modes for broader skin concerns.",
       "Moderate Output: The listed optical power density is practical but not the strongest in the category.",
       "Long Charging Time: A 4-hour charging time is less convenient than shorter-charge or longer-runtime systems.",
-      "Price Still Adds Up: At <b>$382.49</b>, it costs more than the reviewed Buudy Canada offer while covering less skin area.",
+      "Higher Price Point: At <b>$382.49</b>, it is priced higher than our top pick while covering less skin area.",
     ],
     metrics: [
       { label: "Light Effectiveness", value: 78 },
@@ -393,7 +393,7 @@ const canadaCompetitorProducts: Product[] = [
     description: [
       "TheraFace Mask takes fourth place in the Canada guide. It is the most premium-feeling competitor on this list, backed by Therabody's wellness-tech reputation and built around 648 LEDs plus <b>VibraWave massage therapy</b> for facial tension.",
       "The mask includes <b>Red, Blue, and Yellow light therapies</b>, cordless use, and short <b>9-minute sessions</b>. For buyers who already trust Therabody and want a <b>high-end, hard-shell device</b>, it has obvious appeal.",
-      "The tradeoff is value. At <b>$799.99</b>, it is dramatically more expensive than the other masks here, still focuses on the face only, and uses a <b>rigid, heavier headset</b> that can feel less comfortable across different face shapes.",
+      "The tradeoff is value. At <b>$799.99</b>, it is a premium-priced option, still focuses on the face only, and uses a <b>rigid, heavier headset</b> that can feel less comfortable across different face shapes.",
     ],
     pros: [
       "Massive LED Count: Uses 648 LEDs, one of the highest counts in the category.",
@@ -402,11 +402,10 @@ const canadaCompetitorProducts: Product[] = [
       "Brand Reputation: Backed by Therabody, a major name in wellness technology.",
     ],
     cons: [
-      "Eye-Watering Price: At <b>$799.99</b>, it is the most expensive product in this Canada ranking.",
+      "Premium Price: At <b>$799.99</b>, it is a premium-priced product in this ranking.",
       "Zero Neck Coverage: The device treats the face only and ignores the neck and chest area.",
       "Heavy and Rigid: The hard-shell format can feel less forgiving and may not sit evenly on every face shape.",
       "Limited Spectrum: It focuses on Red, Blue, and Yellow while missing Green, Cyan, Purple, and White light modes.",
-      "Risk of Floating Head Syndrome: Treating only the face can leave a visible mismatch around the jawline and neck.",
       "Short Battery Life: LED-only battery runtime is limited compared with simpler external-controller designs.",
       "Bulky Storage: The rigid premium shell takes more room to store and travel with.",
     ],
@@ -444,7 +443,7 @@ const canadaCompetitorProducts: Product[] = [
       "Limited Colour Spectrum: It uses four wavelengths and lacks Green, Cyan, Purple, and White modes.",
       "Complex Controller: Multiple modes and intensity choices can feel less simple for daily use.",
       "Inconvenient Wired Remote: The controller setup is less seamless than tap-style or fully cordless routines.",
-      "Lower Overall Value: It costs more than the reviewed Buudy Canada offer while delivering less included coverage.",
+      "Lower Overall Value: It is priced higher than our top pick while delivering less included coverage.",
       "Incomplete Anti-Aging Coverage: Without neck treatment in the face-only model, the jawline and neck can be left behind.",
     ],
     metrics: [
@@ -520,6 +519,62 @@ function localizeProductCopy(
 
   const prices = market.productPrices;
 
+  if (market.key === "ca") {
+    if (productKey === "buudy") {
+      if (text.startsWith("Our top pick is the <b>Buudy 7 Colour</b> LED Mask, a medical-grade device")) {
+        return `Our top pick is the <b>Buudy 7 Colour</b> LED Mask, a multi-wavelength LED device that outperforms the competition with a 7-colour spectrum plus <b>830nm near-infrared</b>. While most brands focus only on basic red light, Buudy uses targeted wavelengths designed to address multiple skin appearance concerns, including uneven tone and overall skin recovery. This CE, FCC, and ROHS certified technology is designed for a range of skin types.`;
+      }
+      if (text.startsWith("A major advantage is the built-in <b>neck coverage</b>")) {
+        return `A major advantage is the built-in <b>neck coverage</b>, a vital feature often missing from more expensive models. This allows you to cover the neck area alongside the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.`;
+      }
+      if (text.startsWith("Trusted by over 16,000 customers")) {
+        return `Trusted by over 16,000 customers with a 4.9-star rating, this mask is designed for consistent at-home use. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced <b>eye protection</b>, and a <b>90-day money-back guarantee</b> for a safer, lower-risk trial.`;
+      }
+      if (text.startsWith("Proven Results: Has an outstanding rating")) {
+        return `Strong Reviews: 4.9-star rating from over 4,000 customers.`;
+      }
+      if (text.startsWith("Dermatologist Proven: Health Canada Approved")) {
+        return `Certified: Holds CE, FCC, and ROHS certifications.`;
+      }
+      if (text.startsWith("Fast Results: Claims noticeable skin improvement")) {
+        return `Consistent Use Design: Built for easy daily routines with automatic session timing.`;
+      }
+      if (text.startsWith("Safe and Effective: This painless treatment")) {
+        return `Gentle Design: Non-invasive LED light with integrated eye protection, designed for a wide range of skin types.`;
+      }
+      if (text.startsWith("Cost-effective: Currently priced at")) {
+        return `Cost-effective: Currently priced at ${prices.buudy.price}.`;
+      }
+      if (text.startsWith("Limited Stock: There is a risk")) {
+        return ""; 
+      }
+      if (text.startsWith("Limited Availability:")) {
+        return `Limited Availability: Available for purchase online only in ${market.countryName}.`;
+      }
+    }
+
+    if (productKey === "currentbody") {
+      if (text.startsWith("The CurrentBody LED Mask stands out")) {
+        return `The CurrentBody LED Mask stands out as a premier selection in our evaluation, solidifying its reputation as a global leader in non-invasive skincare technology. Engineered with a sophisticated blend of <b>red and near-infrared light</b>, this device is designed to support an anti-aging skincare routine.`;
+      }
+      if (text.startsWith("Clinically Studied: The company provides specific clinical data")) {
+        return `Brand Claims: The company reports this device helps support anti-aging routines.`;
+      }
+      if (text.startsWith("Extremely High Price:")) {
+        return `Higher Price Point: At ${prices.currentbody.price}, it is priced higher than the Buudy mask (which is ${prices.buudy.price}).`;
+      }
+      if (text.startsWith("Costly Money-Back Guarantee:")) {
+        return `Return Policy Note: The 60-day money-back guarantee includes a 10% restocking fee to return it.`;
+      }
+      if (text.startsWith("Mixed User Results:")) {
+        return `Mixed Feedback: Despite the high rating, some verified reviewers report mixed feedback after extended use.`;
+      }
+      if (text.startsWith("Silicone Mask Dangers:")) {
+        return "";
+      }
+    }
+  }
+
   if (productKey === "buudy") {
     if (text.startsWith("Trusted by over 16,000 customers")) {
       return `Trusted by over 16,000 customers with a 4.9-star rating, this mask delivers visible improvements in as few as ten uses. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced <b>eye protection</b>, and a <b>90-day money-back guarantee</b> for a safer, lower-risk trial.`;
@@ -594,21 +649,37 @@ function localizeBaseProduct(product: Product, market: AdvertorialMarket) {
     link: product.isWinner ? market.buudyUrl : product.link,
     description: product.description.map((copy) =>
       localizeProductCopy(copy, market, productKey),
-    ),
+    ).filter(Boolean),
     pros: product.pros.map((copy) =>
       localizeProductCopy(copy, market, productKey),
-    ),
+    ).filter(Boolean),
     cons: product.cons.map((copy) =>
       localizeProductCopy(copy, market, productKey),
-    ),
+    ).filter(Boolean),
   };
 }
 
 function getCanadaProducts(market: AdvertorialMarket) {
-  const buudy = localizeBaseProduct(baseProducts[0], market);
+  const buudy = {
+    ...localizeBaseProduct(baseProducts[0], market),
+    metrics: [
+      { label: "Light Effectiveness", value: 90 },
+      { label: "Skin Comfort and Fit", value: 88 },
+      { label: "Ease of Use", value: 90 },
+      { label: "Material Quality", value: 88 },
+      { label: "Affordability", value: 92 },
+    ],
+  };
   const currentBody = {
     ...localizeBaseProduct(baseProducts[1], market),
     link: "https://amzn.to/4fL0JCN",
+    metrics: [
+      { label: "Light Effectiveness", value: 85 },
+      { label: "Skin Comfort and Fit", value: 86 },
+      { label: "Ease of Use", value: 87 },
+      { label: "Material Quality", value: 90 },
+      { label: "Affordability", value: 50 },
+    ],
   };
 
   return [buudy, currentBody, ...canadaCompetitorProducts];
@@ -714,6 +785,7 @@ export default function Home({
 }: { market?: AdvertorialMarketKey } & MarketContextProps) {
   const market = getAdvertorialMarket(marketKey);
   const products = getProductsForMarket(market);
+  const expertProfile = getExpertProfile(marketKey);
   const heroImage =
     market.key === "uk"
       ? "/img/TOP 5 LED Mask UK.webp"
@@ -767,45 +839,53 @@ export default function Home({
             <div className="flex flex-col md:block items-center text-center md:text-left w-full">
               <div className="flex flex-col md:flex-row items-center gap-4 mb-6">
                 <img
-                  src={EXPERT_PROFILE.image}
-                  alt={EXPERT_PROFILE.name}
+                  src={expertProfile.image}
+                  alt={expertProfile.name}
                   className="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover mb-2 md:mb-0"
                 />
                 <div>
                   <h3 className="font-bold text-xl md:text-2xl underline text-slate-900">
-                    {EXPERT_PROFILE.name}
+                    {expertProfile.name}
                   </h3>
                   <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-semibold mt-1">
-                    {EXPERT_PROFILE.title}
+                    {expertProfile.title}
                   </p>
                 </div>
               </div>
 
               <div className="text-sm md:text-base text-slate-700 leading-relaxed mb-6">
-                <p>
-                  With {EXPERT_PROFILE.yearsExperience} years of experience in
-                  skincare and beauty technology,{" "}
-                  <strong className="text-slate-900">
-                    {EXPERT_PROFILE.name}
-                  </strong>{" "}
-                  is a certified dermatologist and beauty technology expert. She
-                  reviewed {EXPERT_PROFILE.masksReviewed} popular{" "}
-                  {market.headingCountry} LED face mask options over{" "}
-                  {EXPERT_PROFILE.testingHours} hours, comparing wavelengths,
-                  light coverage, comfort, eye safety, neck treatment,
-                  usability, reviews, price, and guarantees. Her biggest finding
-                  was simple: the most expensive mask was not always the best
-                  choice. The strongest options used the right wavelengths, gave
-                  even face-and-<b>neck coverage</b>, and were easy enough to use
-                  consistently at home.
-                </p>
+                {market.key === "ca" ? (
+                  <p>
+                    Our editorial team compared 5 popular LED face masks available in Canada, evaluating them based on published specifications, verified user feedback, and editorial criteria including wavelengths, light coverage, comfort, eye safety, neck treatment, usability, price, and guarantees. Our biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-<b>neck coverage</b>, and were easy enough to use consistently at home.
+                  </p>
+                ) : (
+                  <p>
+                    With {expertProfile.yearsExperience} years of experience in
+                    skincare and beauty technology,{" "}
+                    <strong className="text-slate-900">
+                      {expertProfile.name}
+                    </strong>{" "}
+                    is a certified dermatologist and beauty technology expert. She
+                    reviewed {expertProfile.masksReviewed} popular{" "}
+                    {market.headingCountry} LED face mask options over{" "}
+                    {expertProfile.testingHours} hours, comparing wavelengths,
+                    light coverage, comfort, eye safety, neck treatment,
+                    usability, reviews, price, and guarantees. Her biggest finding
+                    was simple: the most expensive mask was not always the best
+                    choice. The strongest options used the right wavelengths, gave
+                    even face-and-<b>neck coverage</b>, and were easy enough to use
+                    consistently at home.
+                  </p>
+                )}
               </div>
 
               <hr className="border-slate-200 w-full mb-4" />
 
-              <div className="text-xs md:text-sm italic text-slate-600 md:text-right">
-                * Recommended by over 1,000 {market.buyerLabel} skincare users.
-              </div>
+              {market.key === "ca" ? null : (
+                <div className="text-xs md:text-sm italic text-slate-600 md:text-right">
+                  * Recommended by over 1,000 {market.buyerLabel} skincare users.
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -821,12 +901,20 @@ export default function Home({
             identical claims about collagen, acne, redness, and anti-ageing
             results.
           </p>
-          <p>
-            So we tested <strong>18 of the most popular LED masks</strong> over{" "}
-            <strong>200+ hours</strong>, comparing wavelengths, light coverage,
-            comfort, eye safety, neck treatment, ease of use, reviews, price,
-            and guarantees.
-          </p>
+          {market.key === "ca" ? (
+            <p>
+              We compared <strong>5 popular LED masks</strong> available in Canada, 
+              evaluating wavelengths, light coverage, comfort, eye safety, neck treatment, 
+              ease of use, reviews, price, and guarantees.
+            </p>
+          ) : (
+            <p>
+              So we tested <strong>18 of the most popular LED masks</strong> over{" "}
+              <strong>200+ hours</strong>, comparing wavelengths, light coverage,
+              comfort, eye safety, neck treatment, ease of use, reviews, price,
+              and guarantees.
+            </p>
+          )}
           <p>
             The biggest finding was simple: a higher price did not always mean
             better results. The best masks used the right wavelengths, gave even
@@ -834,9 +922,8 @@ export default function Home({
             home.
           </p>
           <p>
-            Below, we rank the LED masks that actually stood out, including the
-            one we believe offers the strongest balance of results, safety,
-            comfort, and value for {market.buyerLabel}.
+            Below, we rank the LED masks that actually stood out, including{" "}
+            {market.key === "ca" ? "our editorial recommendation for Canadian buyers." : `the one we believe offers the strongest balance of results, safety, comfort, and value for ${market.buyerLabel}.`}
           </p>
         </div>
 
@@ -856,13 +943,21 @@ export default function Home({
             ))}
           </div>
           <p className="text-center text-slate-600 bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-[14px] md:text-base leading-snug md:leading-relaxed">
-            Over the past three months, we have thoroughly tested{" "}
-            <strong>18 different LED face masks</strong>. Based on{" "}
-            <strong>hands-on evaluations</strong>, insights from{" "}
-            <strong>board-certified dermatologists</strong>, and{" "}
-            <strong>thousands of consumer reviews</strong>, the following five
-            models stood out as the best in terms of{" "}
-            <strong>performance, comfort, safety, and affordability</strong>.
+            {market.key === "ca" ? (
+              <>
+                We compared these LED face masks based on published specifications, verified user feedback, and editorial criteria. Based on <strong>technical evaluations</strong> and <strong>consumer reviews</strong>, the following five models stood out as the best in terms of <strong>performance, comfort, safety, and affordability</strong>.
+              </>
+            ) : (
+              <>
+                Over the past three months, we have thoroughly tested{" "}
+                <strong>18 different LED face masks</strong>. Based on{" "}
+                <strong>hands-on evaluations</strong>, insights from{" "}
+                <strong>board-certified dermatologists</strong>, and{" "}
+                <strong>thousands of consumer reviews</strong>, the following five
+                models stood out as the best in terms of{" "}
+                <strong>performance, comfort, safety, and affordability</strong>.
+              </>
+            )}
           </p>
         </div>
 
@@ -1065,7 +1160,7 @@ export default function Home({
                         </div>
 
                         <h4 className="font-extrabold text-2xl md:text-3xl text-gray-900 mb-4 leading-tight">
-                          Active Offer Found: {market.giftValues.total} in{" "}
+                          {market.key === "ca" ? "Exclusive Canadian Offer" : "Active Offer Found"}: {market.giftValues.total} in{" "}
                           <span className="text-blue-600 bg-blue-100 px-2 rounded-md inline-block transform -rotate-1">
                             FREE GIFTS
                           </span>
@@ -1282,7 +1377,7 @@ export default function Home({
         <div className="mt-20 md:mt-24 mb-10 md:mb-12 relative max-w-sm md:max-w-5xl mx-auto">
           <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
             <h2 className="text-2xl md:text-4xl font-bold text-center text-[#8b1528] mb-6 md:mb-10 font-serif tracking-wide">
-              Dermatologist's Verdict
+              {market.key === "ca" ? "Editor's Pick" : "Dermatologist's Verdict"}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -1338,7 +1433,7 @@ export default function Home({
                 <div className="w-28 md:w-32 h-[1px] bg-[#d4af37] mx-auto mb-5 md:mb-6"></div>
 
                 <div className="text-2xl md:text-4xl font-bold text-[#8b1528] mb-5 md:mb-8 font-sans">
-                  Now at 60% off
+                  {market.key === "ca" ? "Current Price" : "Now at 60% off"}
                 </div>
 
                 {/* Trustpilot-style Badge */}
@@ -1368,6 +1463,23 @@ export default function Home({
         </div>
       </main>
 
+      {/* Footer / Disclosures */}
+      <footer className="mt-20 border-t border-slate-200 bg-white px-4 py-12 pb-24 shadow-inner">
+        <div className="mx-auto max-w-6xl text-center text-sm text-slate-500">
+          <p className="mb-2 text-lg font-bold text-slate-800">Best LED Face Mask</p>
+          <p className="mb-6">© 2026 Best LED Face Mask. All rights reserved.</p>
+          <div className="mx-auto mb-6 max-w-3xl rounded-lg border border-amber-200 bg-amber-50 p-7 text-left text-sm leading-relaxed text-slate-700">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-700">Important disclosure</p>
+            <p className="mb-4"><strong>Affiliate disclosure:</strong> We may receive compensation for clicks on or purchases of products featured on this site. This comes at no additional cost to you.</p>
+            <p className="mb-4"><strong>Individual results:</strong> Experiences with skincare devices vary. Product information and examples do not guarantee a particular result.</p>
+            <p><strong>Medical disclaimer:</strong> This website provides general information and is not a substitute for professional medical advice, diagnosis or treatment.</p>
+            {market.key === "ca" && (
+              <p className="mt-4"><strong>Regulatory Note:</strong> Reference to Health Canada approval or other certifications does not imply an endorsement of product efficacy for specific individual conditions.</p>
+            )}
+          </div>
+        </div>
+      </footer>
+
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-3 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-50 md:hidden flex items-center justify-center">
         <OutboundButton
@@ -1375,7 +1487,7 @@ export default function Home({
           ariaLabel="Take me to the winning LED Mask"
           className="w-full text-center bg-emerald-500 text-white px-2 py-3.5 rounded-full font-bold text-[13px] sm:text-base shadow-lg shadow-emerald-500/30 whitespace-nowrap relative overflow-hidden group"
         >
-          <span className="relative z-10">Take me to the winning LED Mask</span>
+          <span className="relative z-10">{market.key === "ca" ? "View Our Top Pick" : "Take me to the winning LED Mask"}</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
         </OutboundButton>
       </div>
