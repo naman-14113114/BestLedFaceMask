@@ -33,12 +33,20 @@ export type AdvertorialMarket = {
   priceRange: string;
   currencyCode: "USD" | "GBP" | "AUD" | "CAD";
   buudyUrl: string;
+  muuhuUrl?: string;
   productPrices: Record<ProductPriceKey, MarketProductPrice>;
+  hairProductPrices?: Record<string, MarketProductPrice>;
   giftValues: {
     total: string;
     travelBox: string;
     ledTorch: string;
     skincareGuide: string;
+    hair?: {
+      packaging: string;
+      comb: string;
+      ebook: string;
+      total: string;
+    };
   };
   popupOffer: string;
 };
@@ -117,6 +125,7 @@ export const advertorialMarkets: Record<
     priceRange: `${legacyPound}100 to ${legacyPound}600+`,
     currencyCode: "GBP",
     buudyUrl: "https://www.buudy.co.uk/products/buudy-led-mask",
+    muuhuUrl: "#",
     productPrices: {
       buudy: {
         price: `${legacyPound}179`,
@@ -142,11 +151,24 @@ export const advertorialMarkets: Record<
         premiumPriceLabel: `nearly ${legacyPound}500`,
       },
     },
+    hairProductPrices: {
+      muuhu: { price: `${legacyPound}149`, originalPrice: `${legacyPound}299`, schemaPrice: "149.00" },
+      dyson: { price: `${legacyPound}399.99`, schemaPrice: "399.99" },
+      shark: { price: `${legacyPound}199`, schemaPrice: "199.00" },
+      ghd: { price: `${legacyPound}189`, schemaPrice: "189.00" },
+      loreal: { price: `${legacyPound}350`, schemaPrice: "350.00" },
+    },
     giftValues: {
       total: `${legacyPound}128`,
       travelBox: `${legacyPound}39`,
       ledTorch: `${legacyPound}70`,
       skincareGuide: `${legacyPound}19`,
+      hair: {
+        packaging: `${legacyPound}19`,
+        comb: `${legacyPound}79`,
+        ebook: `${legacyPound}29`,
+        total: `${legacyPound}127`,
+      },
     },
     popupOffer: "GBP 179 instead of GBP 449",
   },

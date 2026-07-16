@@ -482,3 +482,248 @@ export function AdvertorialStructuredData({
 }) {
   return <JsonLd data={createAdvertorialSchema(market)} />;
 }
+
+const hairAdvertorialSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.bestledfacemask.org/#organization",
+      name: SITE_NAME,
+      url: "https://www.bestledfacemask.org/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://img.thesitebase.net/10677/10677322/themes/17688355473bc9b44aac.png",
+      },
+      description: `${SITE_NAME} publishes independent hair dryer and styling-tool comparisons and buyer guides.`,
+      areaServed: "Worldwide",
+      knowsAbout: [
+        "hair dryers",
+        "high-speed hair dryers",
+        "Coanda auto-wrap stylers",
+        "ionic hair care",
+        "salon-grade styling tools",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.bestledfacemask.org/#website",
+      name: SITE_NAME,
+      url: "https://www.bestledfacemask.org/",
+      publisher: {
+        "@id": "https://www.bestledfacemask.org/#organization",
+      },
+      inLanguage: "en-GB",
+    },
+    {
+      "@type": "WebPage",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#webpage",
+      url: "https://www.bestledfacemask.org/best-hair-dryer-uk-2026",
+      name: "Best Hair Dryer UK (2026)",
+      isPartOf: {
+        "@id": "https://www.bestledfacemask.org/#website",
+      },
+      about: [
+        "best hair dryer UK",
+        "Coanda hair dryer",
+        "7-in-1 hair dryer",
+        "high-speed hair dryer",
+        "ionic hair care",
+      ],
+      inLanguage: "en-GB",
+      dateModified: "2026-06-13",
+    },
+    {
+      "@type": "Article",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#article",
+      mainEntityOfPage: {
+        "@id":
+          "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#webpage",
+      },
+      headline:
+        "Best Hair Dryer UK (2026) | Independent Comparison",
+      description:
+        "An independent UK comparison covering hair dryer motor speed, ionic care, intelligent heat control, attachments, Coanda auto-wrap styling, price, and warranty.",
+      image: "https://www.bestledfacemask.org/img/57-w.webp",
+      datePublished: "2026-06-12",
+      dateModified: "2026-06-13",
+      author: {
+        "@id": "https://www.bestledfacemask.org/#organization",
+      },
+      publisher: {
+        "@id": "https://www.bestledfacemask.org/#organization",
+      },
+      keywords: [
+        "best hair dryer",
+        "best hair dryer uk",
+        "7-in-1 hair dryer",
+        "coanda hair dryer",
+        "best coanda hair dryer 2026",
+        "hair dryer £149",
+        "best hair dryer 2026",
+      ],
+      hasPart: [
+        {
+          "@id":
+            "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#itemlist",
+        },
+        {
+          "@id":
+            "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#faq",
+        },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#itemlist",
+      name: "Best Hair Dryers UK 2026 Ranking",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: 5,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Muuhu 7-in-1 High-Speed Hair Dryer & Styler",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Dyson Airwrap",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Shark FlexStyle",
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "ghd Helios",
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "L'Oréal Professionnel AirLight Pro",
+        },
+      ],
+    },
+    {
+      "@type": "Product",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#muuhu-product",
+      name: "Muuhu 7-in-1 High-Speed Hair Dryer & Styler",
+      description:
+        "A 7-in-1 high-speed hair dryer and styler with a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and a 90-day money-back guarantee.",
+      image: "https://www.bestledfacemask.org/img/hair/muuhu.webp",
+      brand: {
+        "@type": "Brand",
+        name: "Muuhu",
+      },
+      category: "High-speed hair dryer and styler",
+      offers: {
+        "@type": "Offer",
+        url: "https://uk.muuhu.com/products/muuhu-hair-dryer",
+        price: "149.00",
+        priceCurrency: "GBP",
+        availability: "https://schema.org/InStock",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "16000",
+      },
+      additionalProperty: [
+        {
+          "@type": "PropertyValue",
+          name: "Motor",
+          value: "110,000 RPM brushless",
+        },
+        {
+          "@type": "PropertyValue",
+          name: "Attachments",
+          value: "7 (two Coanda auto-wrap curlers, smoothing brush, round volumising brush, concentrator, diffuser)",
+        },
+        {
+          "@type": "PropertyValue",
+          name: "Technology",
+          value: "Ionic + intelligent heat control",
+        },
+        {
+          "@type": "PropertyValue",
+          name: "Warranty",
+          value: "2-year warranty and 90-day money-back guarantee",
+        },
+      ],
+    },
+    {
+      "@type": "VideoObject",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#hair-video",
+      name: "Walkthrough of the Muuhu 7-in-1 Hair Dryer & Styler",
+      description:
+        "A short product walkthrough showing the attachments, Coanda auto-wrap curling, and the full styling system.",
+      thumbnailUrl:
+        "https://www.bestledfacemask.org/img/hair/verdict-poster.webp",
+      contentUrl:
+        "https://www.bestledfacemask.org/img/hair/verdict.mp4",
+      uploadDate: "2026-06-12",
+      duration: "PT2M6S",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is the best hair dryer in the UK for value?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The guide ranks the Muuhu 7-in-1 High-Speed Hair Dryer & Styler as the strongest value pick because it combines a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and a 90-day guarantee at £149.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do more expensive hair dryers always perform better?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. The comparison found that higher price did not always mean better results. Motor speed, attachment completeness, ionic care, heat control, and overall value mattered more than brand prestige.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Which hair dryer offers the most styling versatility?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The Muuhu 7-in-1 includes seven attachments and two Coanda auto-wrap curlers for curls, waves, smoothing, and volume, covering more styles out of the box than single-function dryers such as the ghd Helios.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id":
+        "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.bestledfacemask.org/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Best Hair Dryer UK 2026",
+          item: "https://www.bestledfacemask.org/best-hair-dryer-uk-2026",
+        },
+      ],
+    },
+  ],
+};
+
+export function HairDryerStructuredData() {
+  return <JsonLd data={hairAdvertorialSchema} />;
+}
