@@ -3,6 +3,7 @@
 
 User-agent: Googlebot
 Allow: /
+Allow: /best-hair-dryer-uk-2026
 
 User-agent: Bingbot
 Allow: /

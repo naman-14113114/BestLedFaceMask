@@ -24,6 +24,12 @@ const advertorialLanguages = {
   "en-CA": `${siteUrl}/best-led-face-mask-ca-2026`
 };
 
+const hairDryerLanguages = {
+  "x-default": `${siteUrl}/best-hair-dryer-uk-2026`,
+  en: `${siteUrl}/best-hair-dryer-uk-2026`,
+  "en-GB": `${siteUrl}/best-hair-dryer-uk-2026`
+};
+
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons,
@@ -66,7 +72,46 @@ export const defaultAdvertorialMetadata: Metadata = {
   }
 };
 
+export const defaultHairDryerUKMetadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "Best Hair Dryer 2026 (UK)",
+  description:
+    "Looking for the best hair dryer in the UK? Compare the 7-in-1 Coanda hair dryer at just £149 — premium styling, fast drying, and salon-grade results at home.",
+  authors: [{ name: `${SITE_NAME} editorial team` }],
+  keywords:
+    "best hair dryer, best hair dryer uk, 7-in-1 hair dryer, coanda hair dryer, best coanda hair dryer 2026, hair dryer £149, best hair dryer 2026",
+  icons,
+  alternates: {
+    canonical: "/best-hair-dryer-uk-2026",
+    languages: {
+      "en-GB": "/best-hair-dryer-uk-2026",
+      "x-default": "/best-hair-dryer-uk-2026"
+    }
+  },
+  robots,
+  openGraph: {
+    title: "Best Hair Dryer 2026 (UK)",
+    description:
+      "Compare the 7-in-1 Coanda hair dryer in the UK at £149 — fast drying, premium styling and salon-grade results at home.",
+    type: "article",
+    url: `${siteUrl}/best-hair-dryer-uk-2026`,
+    siteName: SITE_NAME,
+    images: [ogImage],
+    publishedTime: "2026-06-12T00:00:00+01:00",
+    modifiedTime: "2026-06-13T00:00:00+01:00"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Hair Dryer 2026 (UK)",
+    description: "Compare the 7-in-1 Coanda hair dryer in the UK at £149 — fast drying and salon-grade results at home.",
+    images: [ogImage]
+  }
+};
+
 export function advertorialMetadata(pathname: string, marketKey: AdvertorialMarketKey = "global"): Metadata {
+  if (pathname.includes("hair-dryer")) {
+    return defaultHairDryerUKMetadata;
+  }
   const market = advertorialMarkets[marketKey];
   const region = {
     global: "",

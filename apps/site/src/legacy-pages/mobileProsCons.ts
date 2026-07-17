@@ -129,19 +129,18 @@ export const mobileProsCons: MobileProsConsMap = {
     // #1 Buudy 7 Colour LED Mask (CA)
     1: {
       pros: [
-        "<b>7 colour routine</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
-        "<b>Covers both the face and neck area</b>, including the neck and jawline in the same session",
-        "Built with <b>flexible, skin-friendly materials</b> and even light placement",
-        "Built-in <b>eye protection</b> with a gentle, <b>pain-free</b> experience suitable for all skin types",
-        "<b>Strong customer feedback</b> on comfort and ease of use",
+        "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
+        "<b>Covers both the face and neck area</b>, helping target sagging skin and \"turkey neck\"",
+        "Certified to <b>CE, FCC & RoHS standards</b>",
+        "Built-in <b>eye protection</b> with safe, <b>pain-free</b> treatment suitable for all skin types",
+        "<b>4.9★ rating</b> from over 4,000 customers",
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
-        "Designed for short, regular sessions you can keep up with at home",
-        "Currently <b>$299</b> (60% off the regular $649 price)",
-        "<b>90-day money-back policy</b> for added peace of mind",
+        "Built for easy daily routines with <b>automatic session timing</b>",
+        "Currently <b>$299</b>",
+        "<b>90-day money-back guarantee</b> for added peace of mind",
       ],
       cons: [
         "Available online only in <b>Canada</b>",
-        "Sold through the official Buudy website rather than retail stores",
         "Tap controls can take a session or two to learn, though most users <b>adapt quickly</b>",
       ],
     },
@@ -149,9 +148,9 @@ export const mobileProsCons: MobileProsConsMap = {
     // #2 CurrentBody LED Mask (CA)
     2: {
       pros: [
-        "<b>Widely featured in the media</b> alongside celebrity and beauty-editor coverage",
-        "<b>High average rating</b> across a large number of customer reviews",
-        "Brand markets the device around the <b>appearance of fine lines and skin texture</b>",
+        "<b>Endorsed by celebrities and dermatologists</b>, with multiple beauty awards",
+        "<b>4.7★ rating</b> from 2,860 customer reviews",
+        "Reported to help support anti-aging routines",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
       ],
       cons: [
@@ -159,8 +158,8 @@ export const mobileProsCons: MobileProsConsMap = {
         "Premium-priced device compared with many alternatives",
         "<b>Limited to anti-ageing</b> with 3 Red/NIR wavelengths only",
         "<b>No Blue, Green or Yellow</b> light modes for broader skin concerns",
-        "60-day return policy includes a <b>10% restocking fee</b> on returns",
-        "Some users <b>report minimal feedback</b> after extended use",
+        "60-day guarantee includes a <b>10% restocking fee</b> on returns",
+        "Some users <b>report mixed feedback</b> after extended use",
         "Some reviewers mention <b>fit and slipping issues</b>",
         "Flexible silicone design may <b>require extra care</b> for hygiene and maintenance",
       ],
@@ -169,8 +168,8 @@ export const mobileProsCons: MobileProsConsMap = {
     // #3 Kala Red Light Face Mask (CA only)
     3: {
       pros: [
-        "Red, Near-Infrared and Blue LED light modes",
-        "<b>Dermatologist-tested</b> positioning highlighted by the brand",
+        "Red, Near-Infrared and Blue LED light treatment",
+        "Dermatologist-recommended",
         "Lightweight <b>348g</b> silicone design for comfortable wear",
         "<b>2-year warranty</b> provides added peace of mind",
       ],
@@ -192,7 +191,7 @@ export const mobileProsCons: MobileProsConsMap = {
         "Backed by Therabody, a <b>major wellness tech name</b>.",
       ],
       cons: [
-        "At <b>$799.99</b>, it is the most expensive product in this comparison",
+        "At <b>$799.99</b>, it is a premium-priced product",
         "<b>Face only</b>; ignores neck and chest area",
         "Hard-shell construction may not sit evenly on all face shapes",
         "<b>Missing Green, Cyan, Purple, and White</b> light modes",
@@ -205,8 +204,8 @@ export const mobileProsCons: MobileProsConsMap = {
     5: {
       pros: [
         "<b>336 LEDs</b> provide dense and even facial light coverage",
-        "<b>Six light modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
-        "Lists <b>multiple safety certifications</b>",
+        "<b>Six treatment modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
+        "Certified with <b>CE, FCC and RoHS certifications</b>",
         "Backed by a <b>2-year warranty</b> for added assurance",
       ],
       cons: [

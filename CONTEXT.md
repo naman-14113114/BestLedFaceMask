@@ -283,6 +283,8 @@ Test end-to-end on every relevant change:
 - **Buudy PlusBase export parity** (~June) — 14 section HTML files; compat layer for injected Didot/underlines/button-animations scoped to `[id^="buudy-pb-"]`; CTA cream→blush wipe must keep `::before` (compat layer initially suppressed it); remove PlusBase `::after` on buttons/links without breaking the wipe; native review widget targeted by block-ID (`cbEeVZ`) + `product_reviews` component attr, not generic review classnames.
 - **Vite non-blocking warning** — old malformed attr `width="1936"alt=""`; Vercel static deploy still succeeds; fix if editing that page, don't block media uploads.
 - **Secrets-in-CONTEXT.md (2026-06-27)** — see Section 11 ⚠️.
+- **Removing the muuhu.com PlusBase default footer (2026-06-27).** Goal: REMOVE (not hide) the native PlusBase footer store-wide. Theme-API route is **blocked**: even with Themes read/write granted, `GET /admin/themes.json` → `460 invalid scope` and `themes/{id}/assets.json`, `sections.json`, `online_store/themes`, `website_builder/*` all → `404 no route found / no service available`. Working creds confirmed (`shop.json` 200, `active_theme_id 2162801`); `script_tags.json` IS in scope (could inject site-wide JS via API); `pages.json` in scope; `blogs/themes` not. **Delivered fallback:** a global custom-JS snippet using `removeChild` (true removal) targeting `footer.block-footer` only (keeps custom `footer[role="contentinfo"]`), idempotent, re-runs on load/pageshow/`rsc:plusbase:hydrate`/`plusbase:custom-html:ready` + SPA nav (history patch) + debounced MutationObserver for re-injection. Saved at `…\trustpilot-led-mask-replica\muuhu-remove-default-footer.global.js`. **Verification caveat:** runtime JS removal does NOT change server HTML, so `curl` re-scrape still shows 2; confirm in a real browser / DevTools (no headless tool available in this env). Selector verified consistent on homepage + `/pages/led-mask-pro` (each: 1 `footer.block-footer` native + 1 `footer[role=contentinfo]` custom).
+- **muuhu.com has 2 (nested) footers (verified 2026-06-27, live page source, HTTP 200, ~564 KB).** Structure: outer `<footer role="contentinfo">` = the custom Website-Builder footer ("Business Information" block); **nested inside it** `<footer class="p3 overflow-hidden block-footer">` = the **PlusBase native/default platform footer**, still showing **placeholder content** — `548 Market St #14148, San Francisco, CA 94104 USA`, `support@shops-support.net`, default Support/Contact us/Order tracking/FAQs/DMCA menu, payment icons, country switcher, copyright. This is the PlusBase native-footer-injection problem (see "Footer hiding" above): the native footer was never hidden, so visitors see two stacked footers with un-branded placeholder details. **Fix when asked:** narrowly hide the native `block-footer` (exclude the custom footer root); do NOT use a broad `[class*="footer"]` sweep. Admin/API creds were NOT needed — found in public page source.
 
 ---
 
@@ -332,11 +334,8 @@ From the dossier's Full Source Coverage Manifest (59 readable Codex sessions, 20
 - **2026-06-23/24/25** (`Muuhu-Vercel`, `muuhu`, `Buudy-Vercel`) — Muuhu monorepo finalization (216-LED Mask Pro, Juujo design system, retire 192-LED mask), brand-free assets, before/after carousel.
 - **2026-06-25** — Generated `agent.md` (dossier+archive) and `agent-secrets.local.md` (`2026-06-25T08:51:00+05:30`). juujo.com noted as competitor/reference.
 - **2026-06-27** — **This CONTEXT.md established.** Read all six handoff files in full; dispatched 3 agents over the 437k-line archive (mostly infra/redacted tool output; archive-only nuggets folded into Sections 3.1 & 13). Discovered a **pre-existing 24 MB `CONTEXT.md`** (thin header + verbatim concatenation of all sources incl. **raw secrets** in a non-ignored repo file). Action: preserved it as gitignored `CONTEXT.prev-full-archive.local.md`, added `*.local.md` to `.gitignore`, folded its unique facts (owners, marketing channels incl. "No Facebook", Muuhu "Ultra Pro" alias, Muuhu Massage Kit / Gua Sha free-gift $79, no-bulk-script + dual-log rules) into this clean rewrite, and flagged the embedded keys for rotation. No production change this session.
-- **2026-06-28** — **Google-Ads compliance pass (priority: CA advertorial `bestledfacemask.org/best-led-face-mask-ca-2026`).** Before running Google Search Ads, audited the whole `trustpilot-led-mask-replica` site against Google Ads policy (Misrepresentation, Unreliable claims, Healthcare, Trademark, bridge-page). Owner-confirmed ground truth: **no documented proof** for any regulatory/medical claim; **"Dr. Megan Vincze" is not a verifiable dermatologist**; review counts/aggregate ratings **not provable**; **discount/strikethrough pricing WAS genuinely charged → kept**. Changes (local only; owner pushes manually; **no restore file kept — revert via git from baseline commit `f1ee34d`**):
-  - **Removed/neutralized sitewide:** fake **"Trustpilot"** rating badges (trademark + fake review source); **"Health Canada Approved" / "FDA-cleared" / "CE,FCC,ROHS" / "medical-grade" / "Dermatologist Proven" / "clinically proven"** claims (on Buudy **and** competitors); fabricated experts — **`EXPERT_PROFILE` "Dr. Megan Vincze / Certified Dermatologist" → "Best LED Face Mask Editorial Team / Research & Editorial Team"** (`lib/expertProfile.ts`), and deleted invented doctors on the warning pages (Sarah Mitchell, James Chen, Priya Sharma, Elena Rostova, David Lin, Sarah Jenkins, Michael Thorne); inflated/contradictory stats ("16,000+ customers", "over 4,000/1,000 reviews", "500,000 users/97%", "5/5 and 4.9"); disease/guarantee claims ("treats acne/inflammation", "turkey neck", "reduce wrinkles 24%", "full results in under 10 uses") → appearance-based hedged wording; false scarcity ("Limited Stock", "Only 23 left"); the in-advertorial link to `/silicone-led-mask-dangers`.
-  - **Added:** a visible **advertising/affiliate + "results vary" + medical disclaimer banner** at the top of `NewAdvertorial.tsx` (the advertorial renders no Layout footer). Changed schema/metadata/noscript **"independent" → "editorial"** (site funnels to owner's own store).
-  - **Neutralized the 5 attack pages** (`silicone-led-mask-dangers`, `floating-head-warning`, `led-density-scam`, `missing-colors-expose`, `brand-name-premium`): "scam/danger/exposé/health alert" titles & badges → neutral "Buyer's Guide" framing; health-scare claims (staph infections, chemical burns, thermal damage, "placebo") softened to comfort/versatility trade-offs.
-  - **Files touched** (`apps/site/src`): `legacy-pages/NewAdvertorial.tsx`, `NewAdvertorial2.tsx`, `mobileProsCons.ts`, the 4 `*Comparison.tsx`, the 5 warning pages; `components/seo/StructuredData.tsx`, `NoscriptContent.tsx`; `lib/expertProfile.ts`, `lib/metadata.ts`. **Kept unchanged:** prices/discounts (`advertorialMarkets.ts`), media/layout/animations, revenue path → `ca.buudy.com`. **Verified:** `pnpm --filter @bestledfacemask/site build` ✓ (TS clean, 30/30 routes), grep gates clean (only HTML comments + one educational FDA mention in `data/articles.ts` remain). Pre-existing non-blocking lint warnings (`Award`, `EXPERT_PROFILE_BIO` unused) left as-is.
+- **2026-06-27 (later)** — Confirmed possession of the **Muuhu store** PlusBase/ShopBase creds (API key/password/shared-secret + login email/password) in `agent-secrets.local.md` (Muuhu store `muuhu.onshopbase.com`; distinct from the Buudy store creds in `SECRETS.local.md`). Scraped live `muuhu.com` public page source (no creds needed) and confirmed **2 nested footers** — custom Website-Builder footer wrapping the un-hidden PlusBase native `block-footer` (placeholder SF address + `support@shops-support.net`). Logged under §13.
+- **2026-07-03 — NEW PROJECT: Juujo-Vercel rebrand (Buudy LED mask → Juujo premium bedding).** New repo `E:\1st YEAR DTU\New folder\Juujo-Vercel` (a copy of the Buudy country-store monorepo — 4 Next.js apps us/uk/ca/au + shared packages, pnpm/Turborepo; NOT a git repo). Task: fully rebrand + redesign into a luxury **bedding** brand **Juujo** (categories: Grounding Sheets, Weighted Blankets, Cooling Bed Sheets, Pillows), reuse structure, remove ALL Buudy/LED/skincare/wavelength traces, make product template flexible (colors + sizes + variant IDs, dynamic pricing), **remove free gifts and add a Buy 1 / Buy 2 (−10%) / Buy 3 (−20%, recommended) quantity selector**. User decisions: placeholder products+media, domains `us./uk./ca./au.juujo.com`, all 4 apps (UK first as reference). Standards: follow `impeccable` + `emil-design-eng` from `C:\Users\sahil\.codex\skills\` (OKLCH, no em dashes, motion rules; authored `PRODUCT.md`+`DESIGN.md`). **Progress: Phases 0–3 DONE for UK** (PRODUCT.md/DESIGN.md, globals.css bedding OKLCH tokens with legacy aliases, market/site/checkout/media libs, new `products.ts` data model + 4 placeholder products, `cart.ts` gift-free variant-aware); **Phase 4 (product template) in progress**, UK not yet compiling (expected mid-migration). **Full un-summarized handoff + exact changes + remaining breakage list + continuation plan is in `E:\1st YEAR DTU\New folder\Juujo-Vercel\JUUJO-REBRAND-HANDOFF.md`** — read that to continue. Implementation was paused here at user request (continuing on Claude Desktop).
 
 ---
 
@@ -347,6 +346,249 @@ From the dossier's Full Source Coverage Manifest (59 readable Codex sessions, 20
 - Some session CWDs are temp/connection-test folders with no business content; large archive sections are redacted tool outputs.
 - **Verify before relying:** IPL pricing ($129 vs $199 drafts); free gift (Massage Kit/Gua Sha $79 vs Red Torch $69); Buudy live spec vs redesign concept; Muuhu checkout env vars (not yet configured); owner-name disambiguation.
 
+- **2026-07-06 — Juujo-Vercel: Added Grounding Flat Sheet and Grounding Mat.** (Task #16 from handoff). Created `groundingFlatSheet` and `groundingMat` products. Set up free gift auto-add logic in `cart.ts` using `deriveGiftLines` so purchasing a fitted or flat sheet automatically includes a £0 mat in the cart (non-persisted, derived dynamically). Redesigned `Header.tsx` and `navigation.ts` to include a dropdown structure for Grounding products and commented out weighted blankets, cooling sheets, and pillows from the exported `products` array and site-wide components (`home.ts`, `footer.ts`, `sitemap.ts`, etc.). Created `GroundingMatWhatIsItSection` and `GroundingMatBenefitsSection` using the classified mat videos/images. Copied all changes from `uk` to `us`, `ca`, and `au`. Verified `tsc --noEmit` across all apps to be perfectly clean with 0 errors.
+
+- **2026-07-07 — Juujo-Vercel: fitted grounding sheet BUNDLE + real variant ids + ACTIVE checkout (US app ONLY).** On `apps/us` `/products/grounding-sheets`, replaced the buy box with a **Buy 1 / Buy 2 Get 1 Free** bundle card (reference: thegrounding.co/terra-grounding-bed-sheet). Reference pricing exact: $159.95/sheet, compare $319.90; bundle = $319.90 for 3 sheets (2 paid + 3rd free), save $639.80, $106.63/sheet. Wired **real ShopBase product/variant ids** from `C:\Users\sahil\Downloads\Fitted Grounding Sheets.docx` into `data/products.ts` (colours White/Grey/Green x 7 sizes Single..Cali King; ShopBase product_id varies per size within a colour; Green Twin XL out of stock). Free mat real ids productId `1000000669152669`/variantId `1000020491331605`. Refactored cart (`lib/cart.ts` + `CartProvider`) to hold **one line per selected sheet** (bundle can mix 3 different colours/sizes; 3rd free) + derived free mat; added `setSheetBundle`/`removeLine` and `checkoutProductId`/`bundle`/`free` on `CartLine`. **Activated checkout**: `api/checkout/prepare/route.ts` now builds a real PlusBase cart by looping the selected line ids (was hardcoded mask+torch); `CheckoutForm` posts `items[]` from `getDisplayLines`. Per **user decision, all items (incl. free sheet + mat) are sent at FULL price** — the "get 1 free"/free-mat discounts must be configured on PlusBase; until then checkout overcharges. Verified live in browser: 3 distinct sheet lines with correct docx variant ids (White/Queen `...757983`, Grey/King `...759921`, Green/Full `...760740` free) + free mat, subtotal $319.90, total discount -$709.75, 0 TS errors. Full detail + limitations in `JUUJO-REBRAND-HANDOFF.md` §16B. **Still to do:** flat sheet real ids, uk/ca/au replication, PlusBase automatic discount setup.
+
 ---
 
 *End of CONTEXT.md baseline (2026-06-27). Append below this line in future sessions — never delete. Full verbatim source archive preserved in `CONTEXT.prev-full-archive.local.md` (gitignored) and `agent.md`.*
+
+- **2026-07-07 � Juujo-Vercel: Minor UI fixes (Gallery & Accordion), Delivery Timer Extraction, and Bulk Gallery Media addition.** 
+  - **Gallery Media Update:** Replaced the wall adapter image ( qcyc9g29pcuna5ga3lcebiskkyv.jpg) with a new video asset (Video_Project_34.mp4) in products.ts. Set it to autoplay (nimated: true) inside the gallery across all 4 apps.
+  - **Bulk Image Addition:** Added 19 new high-quality images and infographics to the gallery array for groundingSheets (and groundingFlatSheet by extension) across all four applications. Skipped duplicates and fully populated the local images/ directory in each app.
+  - **Product Details Accordion:** Added a new GroundingAccordions.tsx component below the BuyBox to replicate the structure from groundingessentials.com. Extracted "Product Details" (with 90% cotton / 10% silver override), "What's included", and "How it works" text accurately, and integrated it into GroundingBuyBox.tsx for all apps.
+  - **Delivery Timer Container:** The user requested to restore the "FREE DELIVERY" / "ORDER WITHIN" timer box shown on the old Buudy store. Created DeliveryTimerBox.tsx exactly mimicking the Buudy-Vercel source code (15-minute countdown, dynamic +3 days delivery date, exact background and border styling, and Lottie truck animation). Inserted directly above the #hero-cta Add to Cart button in both GroundingBuyBox.tsx and ProductBuyBox.tsx globally.
+  - **All code changes type-checked and pushed to GitHub.** (Note: The timer changes were kept local for a period of time before pushing).
+
+---
+
+## 17. JUUJO-VERCEL PROJECT (Premium Bedding Brand - Full Detail)
+
+> **Canonical handoff file:** `E:\1st YEAR DTU\New folder\Juujo-Vercel\JUUJO-REBRAND-HANDOFF.md` - always read this FIRST when working on Juujo. It is the latest continuation log and overrides older planning docs if there are conflicts.
+
+### 17.1 What Juujo IS
+
+The `Juujo-Vercel` folder (`E:\1st YEAR DTU\New folder\Juujo-Vercel`) is a **copy** of the existing Buudy country-store monorepo (pnpm/Turborepo, 4 independent Next.js apps: `apps/us`, `apps/uk`, `apps/ca`, `apps/au`, plus `packages/{shared,ui,eslint-config,tsconfig}`). Despite the folder name, it started as 100% Buudy-branded (LED mask/skincare).
+
+**Goal:** Completely rebrand + redesign it from an LED mask/skincare brand into a **premium, luxury, trustworthy bedding brand called Juujo**, focused on comfort and better sleep. Do NOT rebuild from scratch - reuse the existing theme, code structure, layouts, routing, cart/checkout plumbing, functionality wherever possible. Reskin + replace all content.
+
+**This is NOT a git repo** (no `.git` directory). No version-control safety net - make reversible edits.
+
+### 17.2 Juujo Brand Identity
+
+- **Brand name:** Juujo
+- **Personality:** Calm, premium, trustworthy. Quiet luxury home brand: warm, tactile, reassuring. Never clinical or loud. Confident and plain-spoken tone, never hypey.
+- **Target audience:** People shopping for premium bedding wanting better sleep and everyday comfort across US, UK, CA, AU.
+- **Domains:** `us.juujo.com`, `uk.juujo.com`, `ca.juujo.com`, `au.juujo.com`
+- **Support email:** `support@juujo.com`
+- **Payment gateway:** PlusBase on `juujo.com` (same architecture as Buudy: regional storefronts own browsing/cart/UX, PlusBase handles payment)
+
+### 17.3 Product Categories
+
+1. **Grounding Sheets** (ACTIVE - fully built)
+   - **Grounding Fitted Sheet** - slug `/products/grounding-sheets` (original URL preserved), relabeled to "Grounding Fitted Sheet"
+   - **Grounding Flat Sheet** - slug `/products/grounding-flat-sheet`
+   - **Grounding Mat** - slug `/products/grounding-mat`, SOLD STANDALONE (own price + working Add to Cart) AND given FREE as a gift (auto-added at 0, worth ~69.95 struck through) with BOTH fitted and flat sheets
+2. **Weighted Blankets** - COMMENTED OUT (hidden from site, not deleted, can return later)
+3. **Cooling Bed Sheets** - COMMENTED OUT
+4. **Pillows** - COMMENTED OUT
+
+### 17.4 Design System (OKLCH Palette)
+
+Scene: tired buyer at home in the evening, warm lamp light. Store feels like a calm, warm, premium bedroom at dusk.
+
+`css
+--night:      oklch(26% 0.038 274);  /* deep restful indigo, dark bands + footer (NOT black) */
+--night-soft: oklch(38% 0.045 278);
+--ink:        oklch(24% 0.02 280);   /* primary text */
+--muted:      oklch(50% 0.02 285);   /* secondary text */
+--paper:      oklch(96.5% 0.011 84); /* page bg warm near-white */
+--sand:       oklch(93% 0.02 82);    /* raised surface */
+--linen:      oklch(90% 0.026 78);   /* warmer panel */
+--clay:       oklch(63% 0.093 52);   /* PRIMARY ACCENT: CTAs, price, recommended tier */
+--clay-deep:  oklch(55% 0.098 46);   /* accent hover/active */
+--border:     oklch(86% 0.014 80);
+--success:    oklch(60% 0.11 150);
+`
+
+Legacy aliases kept for backward compat: `--plum` -> night, `--gold` -> clay, `--cream` -> paper, `--blush` -> linen.
+
+**Typography:** Fraunces (display/headings), Inter (body/UI). JetBrains Mono for `.juujo-mono` eyebrows. Body line length 65-75ch. Step ratio at least 1.25. Headlines tight-tracked.
+
+**Motion (emil-design-eng):** Animate only transform + opacity. UI motion <300ms. `scale(0.97)` on `:active`. Respect `prefers-reduced-motion`. Custom curves: `--ease-out: cubic-bezier(0.23, 1, 0.32, 1)`, `--dur-press: 140ms`, `--dur-ui: 200ms`, `--dur-panel: 260ms`.
+
+**Design bans:** Em dashes in copy (no `--`), gradient text, default glassmorphism, side-stripe accent borders, hero-metric template, identical icon-heading-text card grids, modal-first patterns, invented certifications, plain beige linen on white cliche.
+
+### 17.5 Product Architecture
+
+**Product type** (`products.ts`): `ProductCategory` (`grounding-sheets|grounding-mat|weighted-blankets|cooling-sheets|pillows`), `ProductColor{id,name,hex,image?}`, `ProductSize{id,name,dimensions?}`, `ProductVariant{colorId,sizeId,productId,variantId,sku,priceCents,compareAtCents,inStock}`, `QuantityTier{quantity,label,discountPct,badge?,recommended?}`.
+
+**Grounding Sheets pricing (US):**
+- Base: `.95` (compare `.90`)
+- Buy 1 = `.95`
+- Buy 2 Get 1 Free = `.90` total for 3 sheets (2 paid + 1 free), per-sheet `.63`, compare `.70`, save `.80`
+- Colors: White, Grey, Green
+- Sizes: Single, Twin, Twin XL, Full, Queen, King, Cali King
+- Green Twin XL = OUT OF STOCK (variantId null)
+
+**Grounding Mat pricing (US):**
+- Standalone price: ~`.95` (compare `.95`)
+- Sizes: Desk 10x27 in, Couch 16x32 in, Floor 24x36 in
+- Real ShopBase ids: productId `1000000669152669`, variantId `1000020491331605`
+- Ships with grounding cord + international plug adapter
+
+### 17.6 Real ShopBase Variant IDs (US ONLY - from Fitted Grounding Sheets.docx)
+
+The ShopBase PRODUCT_ID varies per size within a colour (not one per product). Each variant carries its own `productId` + `variantId`. Stored in `groundingSheetIds` map in `apps/us/src/data/products.ts`. Built by `buildGroundingVariants()`.
+
+- **Fitted sheet:** Real ids wired for US app ONLY
+- **Flat sheet:** Still PLACEHOLDER ids via `buildVariants("GROUNDING-FLAT",...)` - checkout NOT wired
+- **uk/ca/au:** All still have OLD buy box + placeholder ids - replicate when user provides per-country ids
+
+### 17.7 Cart and Checkout Architecture
+
+- **Bundle lines:** Cart now holds ONE line per selected sheet (a Buy 2 Get 1 Free with 3 different variants = 3 separate lines). `CartLine` has `checkoutProductId`, `bundle`, `free` fields.
+- `buildSheetBundleLines(selections, freeCount)` -> one line per sheet, last `freeCount` are `unitPriceCents:0` + `free:true`
+- `deriveGiftLines(lines)` -> if any product line has `freeGiftId === "grounding-mat"`, append ONE locked mat gift line at 0
+- **Gift lines are DERIVED, not persisted** (`normalizeCartLines` strips non-product lines on reload; gifts re-derive dynamically)
+- `CartProvider`: `setSheetBundle(selections, freeCount)` + `removeLine(lineId)`
+- **Checkout ACTIVE (US only):** `api/checkout/prepare/route.ts` builds real PlusBase cart by looping selected line ids. `CheckoutForm` posts `items[]` from `getDisplayLines`.
+- **IMPORTANT:** All items (incl. free 3rd sheet + free mat) sent at FULL price to PlusBase. User must configure automatic discounts on PlusBase. Until then checkout OVERCHARGES. This is user's explicit choice.
+
+### 17.8 Page Composition (Product Page)
+
+For grounding-sheets category: `ProductHero` (gallery + `GroundingBuyBox`) -> `TrustBadges` -> `GroundingHowItWorksSection` -> `GroundingBenefitsVideoSection` -> `GroundingScienceSection` -> `GroundingComparisonSection` -> `GroundingTimelineSection` -> `GroundingWhatIsItSection` -> `ProductReviewsSection` -> `FAQSection` -> `GuaranteeSection` -> `StickyAddToCart`
+
+For grounding-mat category: `ProductHero` -> `TrustBadges` -> `GroundingMatWhatIsItSection` -> `GroundingMatBenefitsSection` -> `ProductReviewsSection` -> `FAQSection` -> `GuaranteeSection` -> `StickyAddToCart`
+
+`GroundingBuyBox.tsx`: colour swatches -> size rows -> Buy 1 / Buy 2 Get 1 Free tier cards -> per-sheet colour/size selectors when bundle selected -> free mat panel -> delivery timer -> Add to Cart -> `/cart`
+
+### 17.9 Header Structure
+
+Dropdown for "Grounding Sheets" with sub-items: Fitted Sheet (`/products/grounding-sheets`) + Flat Sheet (`/products/grounding-flat-sheet`). Top-level "Grounding Mat" link (`/products/grounding-mat`). Weighted/Cooling/Pillows hidden.
+
+### 17.10 Reviews
+
+- `grounding-sheets-reviews.json`: 4,274 entries, original grounding-sheet wording (not LED), built by `scripts/build-grounding-reviews.cjs`
+- Handles registered in `data/reviews.ts`: `grounding-sheets`, `grounding-flat-sheet`, `grounding-mat`
+- Other product review files (`buudy-led-mask`, `buudy-red-torch`) still exist as placeholders - rename when adding real bedding media/reviews
+
+### 17.11 Media Assets
+
+**Source folder (user's media, outside the repo):** `E:\1st YEAR DTU\New folder\Bedsheets\Grounding Sheets`
+
+**Mat-only assets (verified):**
+- `TGC-mat1.png` - 3-layer cross-section infographic
+- `Frame1707480222_1.png` - mat size guide (Small/Medium/Large)
+- `71QzTmxycZL._AC_SL1407_43b95b99-...jpg` - mat on desk under laptop
+- `Gemini_Generated_Image_2zycqj2zycqj2zyc.png` - person standing barefoot on mat (hero/lifestyle)
+
+**Sheet assets:** Under `public/media/products/grounding-sheets/images/` and `public/videos/grounding-sheets/`
+
+**In-repo target:** `apps/<cc>/public/media/products/grounding-mat/{images,videos}/`
+
+### 17.12 Phase Status (as of 2026-07-07)
+
+| Phase | Description | Status |
+|-------|-------------|--------|
+| P0 | Design foundation (PRODUCT.md, DESIGN.md, OKLCH tokens) | DONE all apps |
+| P1 | Config/branding libs (market, site, checkout, media) | DONE all apps |
+| P2 | Product data model (4 placeholder products) | DONE all apps |
+| P3 | Cart + quantity discount | DONE all apps |
+| P4 | Product template (BuyBox, retire LED components) | DONE all apps |
+| P5 | Home + nav + footer + layout | DONE (nav restructured, home data bedding) |
+| P6 | SEO/GEO (seo.ts, sitemap, robots, llms.txt) | DONE UK, replicated |
+| P7 | Content + legal + reviews | Partially done (about.ts, grounding reviews done; other product copy still LED) |
+| P8 | De-brand workspace (@buudy->@juujo, .buudy->juujo CSS, storage keys) | DONE all apps |
+| P9 | Replicate UK to us/ca/au | DONE (type-check clean all 4 apps) |
+| #16 | Grounding Flat Sheet + Mat + Header restructure | DONE all apps |
+| #16B | Real ShopBase ids + Bundle UI + Active checkout | DONE US only |
+| #16.8 | Gallery, Accordion, Delivery Timer | DONE all apps |
+
+### 17.13 Known Remaining Work
+
+1. **Flat sheet real ids** - `/products/grounding-flat-sheet` still has PLACEHOLDER variant ids. Checkout not wired. Wire when user provides real flat-sheet ids.
+2. **uk/ca/au replication of bundle + real ids** - US app has real ShopBase ids + bundle buy box. uk/ca/au still have the OLD buy box + placeholder ids. Replicate when user provides per-country ids.
+3. **PlusBase automatic discount setup** - "Buy 2 Get 1 Free" + free mat discounts need to be configured on PlusBase. Until then, checkout charges full price for all items.
+4. **LED-worded copy in non-grounding components** - `data/productSections.ts` (features/comparison/wavelengths still LED), `data/faqs.ts`, `data/seoFaqs.ts`, `data/freeGifts.ts`, and components `FeatureGrid/ResultsMarquee/SEOGuideSection/ComparisonTable/VideoReviews/TrustBadges/GuaranteeSection/ProductReviewsGrid`. Rewrite to bedding or delete unused ones.
+5. **Placeholder bedding media** - `public/images/{home,products/<category>}` + `juujo-logo.png` + favicon needed for visual completeness.
+6. **Per-app layout locale** - all apps have UK's `layout.tsx` (`lang="en-GB"`). Set per country (en-US/en-CA/en-AU).
+7. **Analytics IDs** - Clarity/Tawk/UET IDs still present in integration components. Null/clear to env placeholders.
+8. **Home visual redesign** - `HomePage.tsx` needs premium bedding visual design (data is already bedding).
+9. **Full Next build** - `pnpm install` (resolve modules-purge: `CI=true`) then `pnpm --filter @juujo/<cc> build` per app, then grep zero buudy/led/wavelength/skincare/light-therapy.
+10. **FreeGiftsPanel.tsx** still imported in `CartPageContent.tsx` but renders nothing. Remove for cleanliness.
+11. **Quiz routes + skincare quiz** - already deleted from UK but verify all apps.
+12. **api/reviews/[productHandle]/route.ts:337** - still has `revalidatePath("/products/buudy-led-mask-2")`.
+
+### 17.14 Juujo Build/Verify Commands
+
+`
+cd "E:\1st YEAR DTU\New folder\Juujo-Vercel"
+
+# Type-check (workaround for pnpm TTY/install issues):
+cd apps/uk && node ../../node_modules/typescript/lib/tsc.js --noEmit -p tsconfig.json
+
+# Full build (resolve modules-purge prompt first):
+set CI=true
+pnpm install
+pnpm --filter @juujo/uk build
+pnpm --filter @juujo/us build
+pnpm --filter @juujo/ca build
+pnpm --filter @juujo/au build
+`
+
+### 17.15 Juujo Rules of Engagement
+
+- Reuse structure; reskin + replace content; don't rebuild
+- No em dashes (no `--`) in any copy
+- OKLCH color tokens only
+- Follow `impeccable` bans + `emil` motion rules
+- No bulk-edit scripts (targeted reviewable edits only - standing user rule)
+- Preserve cart/checkout plumbing + revenue path
+- All 4 apps identical structure, per-country market data; UK source of truth
+- Placeholder IDs/prices/media are intentional, drop-in real data later
+- No git repo - careful reversible edits
+- Reference `JUUJO-REBRAND-HANDOFF.md` is always the latest status; read it fully before any Juujo work
+
+### 17.16 Key Files Map (Juujo-Vercel)
+
+| File | Purpose |
+|------|---------|
+| `JUUJO-REBRAND-HANDOFF.md` | Full continuation log, latest status, execution specs |
+| `PRODUCT.md` | Brand register, personality, anti-references, principles |
+| `DESIGN.md` | OKLCH palette, typography, motion, component specs, bans |
+| `apps/<cc>/src/data/products.ts` | Product definitions, variants, pricing, ShopBase ids |
+| `apps/<cc>/src/lib/cart.ts` | Cart logic, bundle lines, gift derivation |
+| `apps/<cc>/src/lib/market.ts` | Per-country config (currency, domain, locale, brand) |
+| `apps/<cc>/src/lib/site.ts` | PlusBase checkout URL builder |
+| `apps/<cc>/src/lib/seo.ts` | JSON-LD, org data, brand SEO |
+| `apps/<cc>/src/components/product/GroundingBuyBox.tsx` | Buy box with bundle tiers, gift panel, delivery timer |
+| `apps/<cc>/src/components/product/ProductBuyBox.tsx` | Generic buy box (non-grounding products) |
+| `apps/<cc>/src/components/product/ProductPage.tsx` | Category-agnostic page composition |
+| `apps/<cc>/src/data/navigation.ts` | Header nav structure (dropdown for grounding) |
+| `apps/<cc>/src/data/reviews.ts` | Review handle registration |
+| `apps/<cc>/src/app/api/checkout/prepare/route.ts` | PlusBase checkout integration |
+| `scripts/build-grounding-reviews.cjs` | Review generator for grounding products |
+
+---
+
+## 18. JUUJO GROUNDING SHEETS - REAL SHOPBASE IDS (US Store)
+
+> Source: `C:\Users\sahil\Downloads\Fitted Grounding Sheets.docx`
+
+The ShopBase product_id varies PER SIZE within a colour (not one product_id for the whole product). The `groundingSheetIds` map in `apps/us/src/data/products.ts` is keyed `"{color}-{size}"`.
+
+**Prices:** `GROUNDING_SHEET_PRICE_CENTS = 15995` (`.95`), `GROUNDING_SHEET_COMPARE_CENTS = 31990` (`.90`). Applied to every size of the fitted sheet.
+
+**Free mat ids:** productId `1000000669152669`, variantId `1000020491331605`
+
+**Out of stock:** Green Twin XL (`variantId: null` -> `inStock: false`, buy box disables + blocks checkout)
+
+**Colour swatches:** `whitelinen3_jpg-min.jpg` / `graylinen3_png-min.png` / `greenlinen3_png-min.png` (under `public/media/products/grounding-sheets/images`)
+
+---
+
+- **2026-07-07 (current session) - CONTEXT.md comprehensive update for Juujo-Vercel project.** Read all 7 mandatory handoff files + the full `JUUJO-REBRAND-HANDOFF.md` (464 lines, 63KB) + `DESIGN.md` + `PRODUCT.md` + `README.md` from the Juujo-Vercel workspace. Added Section 17 (Juujo-Vercel full detail: brand identity, product categories, OKLCH design system, product architecture, real ShopBase ids, cart/checkout mechanics, page composition, header structure, reviews, media assets, phase status, remaining work, build commands, rules of engagement, key files map) and Section 18 (real ShopBase ids detail) to CONTEXT.md. This makes CONTEXT.md the single complete memory for BOTH the Buudy/Muuhu beauty-device business AND the Juujo bedding rebrand, with no need to re-read the full handoff files from scratch on every chat.
+
+- **2026-07-07 (later) - Juujo-Vercel: Luxury Green Palette Update.** Replaced the dark blue/indigo --night accent color across all 4 apps (uk, us, ca, au) with a luxury premium forest/teal green (oklch(28% 0.04 155)) to match the user's reference (Grounding Essentials). Also shifted --ink (primary text) and --muted (secondary text) to a hue of 155 but with very low chroma (0.015 and 0.02) so they remain effectively near-black and grey for readability while harmonizing with the green. The update was purely done by changing the 4 CSS variables in globals.css of each app, leveraging the existing alias system to reskin the entire site instantly without altering a single component or layout file. Updated DESIGN.md.
