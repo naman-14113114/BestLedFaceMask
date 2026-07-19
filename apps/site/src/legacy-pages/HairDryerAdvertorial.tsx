@@ -148,7 +148,7 @@ const baseProducts: Product[] = [
     id: 1,
     rank: "#1",
     name: "Muuhu 7-in-1 High-Speed Hair Dryer & Styler",
-    image: "/img/hair/muuhu.webp",
+    image: "/img/hair/muuhu_product_1x1.webp",
     price: "£149",
     originalPrice: "£299",
     rating: "4.9 / 5",
@@ -284,7 +284,7 @@ const baseProducts: Product[] = [
     id: 5,
     rank: "#5",
     name: "L'Oréal AirLight Pro",
-    image: "/img/hair/loreal.webp",
+    image: "/img/hair/loreal_new.webp",
     price: "£350",
     rating: "4.3 / 5",
     link: "#",
@@ -1027,59 +1027,27 @@ export default function HairDryerAdvertorial({
 
         {/* Bottom Verdict Section - Elegant Design */}
         <div className="mt-20 md:mt-24 mb-10 md:mb-12 relative max-w-sm md:max-w-5xl mx-auto">
-          <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
+          <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-5 pb-6 md:p-12 md:pb-8 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
             <h2 className="text-2xl md:text-4xl font-bold text-center text-[#8b1528] mb-6 md:mb-10 font-serif tracking-wide">
               {market.key === "ca" ? "Editor's Pick" : "Editor's Verdict"}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
-              {/* Left Video Area */}
-              <div className="relative">
-                <div className="relative mx-auto max-w-[190px] min-[380px]:max-w-[210px] sm:max-w-[240px] md:max-w-[300px] overflow-hidden rounded-[1.35rem] md:rounded-[1.75rem] border border-[#dfd1bd] bg-black shadow-xl">
-                  <video
-                    ref={verdictVideoRef}
-                    className="block w-full"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster="/img/hair/verdict-poster.webp"
-                    aria-label="Walkthrough of the Muuhu 7-in-1 Hair Dryer & Styler"
-                    onPlay={() => setIsVerdictVideoPlaying(true)}
-                    onPause={() => setIsVerdictVideoPlaying(false)}
-                    onEnded={() => setIsVerdictVideoPlaying(false)}
-                  >
-                    <source
-                      src="/img/hair/verdict.mp4"
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                  <button
-                    type="button"
-                    aria-label="Play product walkthrough video"
-                    onClick={playVerdictVideo}
-                    className={`absolute left-1/2 top-1/2 z-20 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#136b3a] text-white shadow-[0_14px_34px_rgba(19,107,58,0.35)] ring-8 ring-white/60 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-[#d4af37]/70 ${
-                      isVerdictVideoPlaying
-                        ? "pointer-events-none opacity-0 scale-90"
-                        : "opacity-100 scale-100"
-                    }`}
-                  >
-                    <Play size={30} fill="currentColor" className="ml-1" />
-                  </button>
-                  <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#8b1528] shadow-sm">
-                    2 min demo
-                  </div>
-                </div>
-                <p className="mt-4 text-center text-xs md:text-sm font-medium text-gray-600 leading-snug max-w-[240px] md:max-w-none mx-auto">
-                  See the attachments, Coanda auto-wrap curling, and full
-                  styling system in a real product walkthrough.
-                </p>
+              {/* Left Image Area */}
+              <div className="relative flex justify-center">
+                <img
+                  src="/img/hair/about-trust-hair-dryer.webp"
+                  alt="Muuhu Hair Dryer Overview"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full max-w-[280px] md:max-w-[340px] h-auto object-contain drop-shadow-xl mx-auto rounded-2xl"
+                />
               </div>
 
               {/* Right Content Area */}
               <div className="flex flex-col justify-center text-center">
                 <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-black mb-3 md:mb-4 font-serif tracking-tight">
-                  <b>Muuhu 7-in-1</b> Hair Dryer & Styler
+                  <b>Muuhu 7-in-1</b> Hair Dryer
                 </h3>
 
                 <div className="w-28 md:w-32 h-[1px] bg-[#d4af37] mx-auto mb-5 md:mb-6"></div>
