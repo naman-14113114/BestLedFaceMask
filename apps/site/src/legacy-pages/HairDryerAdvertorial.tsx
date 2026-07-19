@@ -926,15 +926,15 @@ export default function HairDryerAdvertorial({
                                 Normally £19
                               </span>
                               <img
-                                src="/img/hair/gift-packaging.webp"
-                                alt="Premium Packaging"
+                                src="/img/hair/muuhu-luxury-case.webp"
+                                alt="Luxury Case"
                                 loading="lazy"
                                 decoding="async"
-                                className="w-full aspect-square object-cover"
+                                className="w-full aspect-square object-cover rounded-lg sm:rounded-xl"
                               />
                             </div>
                             <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
-                              Premium Packaging
+                              Luxury Case
                             </p>
                           </div>
 
@@ -951,11 +951,11 @@ export default function HairDryerAdvertorial({
                                 Normally £79
                               </span>
                               <img
-                                src="/img/hair/gift-comb.webp"
+                                src="/img/hair/muuhu-comb.webp"
                                 alt="Muuhu Comb"
                                 loading="lazy"
                                 decoding="async"
-                                className="w-full aspect-square object-cover"
+                                className="w-full aspect-square object-cover rounded-lg sm:rounded-xl"
                               />
                             </div>
                             <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
@@ -976,15 +976,15 @@ export default function HairDryerAdvertorial({
                                 Normally £29
                               </span>
                               <img
-                                src="/img/hair/gift-ebook.webp"
+                                src="/img/hair/muuhu-expert-hair-ebook.webp"
                                 alt="Expert Hair E-Book"
                                 loading="lazy"
                                 decoding="async"
-                                className="w-full aspect-square object-cover"
+                                className="w-full aspect-square object-cover rounded-lg sm:rounded-xl"
                               />
                             </div>
                             <p className="font-extrabold text-gray-900 text-[10px] sm:text-lg leading-tight">
-                              Expert Hair E-Book
+                              Haircare E-Book
                             </p>
                           </div>
                         </div>
