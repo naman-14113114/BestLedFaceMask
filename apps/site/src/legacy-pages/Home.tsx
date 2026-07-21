@@ -2,6 +2,7 @@
 
 import { ArrowRight, BookOpen, Globe2, ShieldCheck, Waves } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { hairGuideGroups, hairGuides } from '../data/hairGuides';
 import { articles } from '../data/articles';
 import type { MarketContextProps } from '@/lib/marketContext';
 
@@ -120,6 +121,44 @@ export default function Home({ context }: MarketContextProps) {
                   View ranking <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-9 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase text-emerald-700">Hair dryer buying guides</p>
+            <h2 className="font-serif text-3xl font-bold text-slate-950 md:text-4xl">UK hair dryer pages by hair type and brand comparison</h2>
+            <p className="mt-4 leading-relaxed text-slate-600">Compare Muuhu against the biggest UK styling-tool searches, including Dyson, Shark and ghd, plus focused guides for curly, fine, thick, frizzy, straight and damaged hair.</p>
+          </div>
+          <div className="space-y-10">
+            {hairGuideGroups.map((group) => (
+              <div key={group.title}>
+                <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <h3 className="text-xl font-extrabold text-slate-950">{group.title}</h3>
+                    <p className="text-sm leading-relaxed text-slate-600">{group.description}</p>
+                  </div>
+                </div>
+                <div className="grid gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-3">
+                  {group.guides.map((slug) => {
+                    const guide = hairGuides[slug];
+
+                    return (
+                      <Link key={slug} to={`/${slug}`} className="group flex min-h-56 flex-col bg-white p-6 transition-colors hover:bg-emerald-50">
+                        <span className="text-xs font-extrabold uppercase text-emerald-700">{guide.cardCode}</span>
+                        <h4 className="mt-4 text-xl font-bold leading-tight text-slate-950">{guide.cardTitle}</h4>
+                        <p className="mt-3 text-sm leading-relaxed text-slate-600">{guide.cardDescription}</p>
+                        <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-bold text-emerald-700">
+                          View guide <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             ))}
           </div>
         </div>

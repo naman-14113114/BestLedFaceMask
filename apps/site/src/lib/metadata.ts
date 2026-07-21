@@ -24,12 +24,6 @@ const advertorialLanguages = {
   "en-CA": `${siteUrl}/best-led-face-mask-ca-2026`
 };
 
-const hairDryerLanguages = {
-  "x-default": `${siteUrl}/best-hair-dryer-uk-2026`,
-  en: `${siteUrl}/best-hair-dryer-uk-2026`,
-  "en-GB": `${siteUrl}/best-hair-dryer-uk-2026`
-};
-
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons,
