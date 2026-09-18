@@ -116,8 +116,8 @@ export function advertorialMetadata(pathname: string, marketKey: AdvertorialMark
   }[marketKey];
   const title = `Best LED Face Mask${region} (2026) | Expert Comparison`;
   const description = marketKey === "global"
-    ? "Compare the best LED face masks of 2026 by wavelengths, coverage, comfort, safety signals, return policies and value, with country-specific buying links."
-    : `Compare the best LED face masks in ${market.countryName} for wavelengths, face and neck coverage, comfort, safety signals, return policies and overall value.`;
+    ? "Compare the best LED face masks of 2026 by wavelengths, coverage, comfort, safety signals and value, with country-specific buying links."
+    : `Compare the best LED face masks in ${market.countryName} for wavelengths, face and neck coverage, comfort, safety signals and overall value.`;
   return {
     ...defaultAdvertorialMetadata,
     title,
@@ -146,7 +146,7 @@ export const homeMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
   description:
-    "LED face mask reviews and country-specific buyer guides covering wavelengths, safety signals, face and neck coverage, return policies, and value.",
+    "LED face mask reviews and country-specific buyer guides covering wavelengths, safety signals, face and neck coverage, and value.",
   authors: [{ name: `${SITE_NAME} editorial team` }],
   keywords:
     "led face mask reviews, best led face mask, red light therapy mask, led mask buyer guide, led mask with neck coverage",
@@ -158,7 +158,7 @@ export const homeMetadata: Metadata = {
   openGraph: {
     title: `${SITE_NAME} | LED Face Mask Reviews & Buyer Guides`,
     description:
-      "Compare LED face masks, red light devices, face and neck coverage, wavelengths, safety signals, return policies, and value by market.",
+      "Compare LED face masks, red light devices, face and neck coverage, wavelengths, safety signals, and value by market.",
     type: "website",
     url: `${siteUrl}/`,
     siteName: SITE_NAME,

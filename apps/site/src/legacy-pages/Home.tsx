@@ -10,7 +10,7 @@ const marketGuides = [
   {
     label: 'Global guide',
     title: 'Best LED Face Masks of 2026',
-    description: 'Our worldwide comparison of wavelengths, coverage, comfort, return policys and value.',
+    description: 'Our worldwide comparison of wavelengths, coverage, comfort and value.',
     href: '/best-led-face-mask-2026',
     code: 'INTL'
   },
@@ -24,7 +24,7 @@ const marketGuides = [
   {
     label: 'United Kingdom',
     title: 'Best LED Face Masks in the UK',
-    description: 'UK pricing, return policys and buying options compared in pounds.',
+    description: 'UK pricing and buying options compared in pounds.',
     href: '/best-led-face-mask-uk-2026',
     code: 'UK'
   },
@@ -70,7 +70,7 @@ export default function Home({ context }: MarketContextProps) {
               Find the best LED face mask for your skin, budget and country
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Compare wavelengths, face and neck coverage, routine comfort, safety features, return policys and current pricing without relying on brand hype alone.
+              Compare wavelengths, face and neck coverage, routine comfort, safety features and current pricing without relying on brand hype alone.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

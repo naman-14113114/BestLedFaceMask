@@ -69,12 +69,12 @@ assert(
   "shared price and outbound-link localization helpers must remain enabled"
 );
 assert(
-  expertProfile.includes('name: "Dr. Megan Vincze"') &&
-    expertProfile.includes('title: "Certified Dermatologist"') &&
-    expertProfile.includes('image: "/img/dr-megan-vincze.png"') &&
+  expertProfile.includes('name: "Best LED Face Mask Editorial Team"') &&
+    expertProfile.includes('title: "Research & Editorial Team"') &&
+    expertProfile.includes('image: "/icon-192.png"') &&
     expertProfile.includes("masksReviewed: 18") &&
     expertProfile.includes('testingHours: "200+"'),
-  "shared expert profile must preserve the approved Dr. Megan identity"
+  "shared expert profile must use the neutral editorial-team identity"
 );
 assert(
   rootLayout.includes(

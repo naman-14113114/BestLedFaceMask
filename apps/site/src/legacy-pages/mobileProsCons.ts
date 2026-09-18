@@ -57,7 +57,6 @@ export const mobileProsCons: MobileProsConsMap = {
         "Premium-priced device — significantly more expensive than Buudy (£179)",
         "<b>Limited to anti-ageing</b> with 3 Red/NIR wavelengths only",
         "<b>No Blue, Green or Yellow</b> light modes for broader skin concerns",
-        "Return policy includes a <b>10% restocking fee</b> on returns (~£40)",
         "Some users <b>report minimal feedback</b> after extended use",
         "Some reviewers mention <b>fit and slipping issues</b>",
         "Flexible silicone design may <b>require extra care</b> for hygiene and maintenance",
@@ -68,7 +67,6 @@ export const mobileProsCons: MobileProsConsMap = {
     3: {
       pros: [
         "<b>Long-established LED skincare brand</b> with a strong reputation",
-        "<b>Clear return policy</b> for peace of mind",
         "<b>Trusted brand</b> from the professional skin care market",
         "Flexible and portable with <b>rechargeable controller</b> and carry bag",
       ],
@@ -131,7 +129,6 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>7 colour treatment</b> (Red, Blue, Green, Yellow, Purple, Cyan & White) plus <b>830nm Near-Infrared</b> light",
         "<b>Covers both the face and neck area</b>, helping target sagging skin and \"turkey neck\"",
-        "Certified to <b>CE, FCC & RoHS standards</b>",
         "Built-in <b>eye protection</b> with safe, <b>pain-free</b> treatment suitable for all skin types",
         "<b>4.9★ rating</b> from over 4,000 customers",
         "<b>Cordless and rechargeable</b> with Tap Technology and <b>Buudy AI</b> guided sessions",
@@ -148,7 +145,6 @@ export const mobileProsCons: MobileProsConsMap = {
     // #2 CurrentBody LED Mask (CA)
     2: {
       pros: [
-        "<b>Endorsed by celebrities and dermatologists</b>, with multiple beauty awards",
         "<b>4.7★ rating</b> from 2,860 customer reviews",
         "Reported to help support anti-aging routines",
         "Flexible <b>silicone design</b> with portable controller and optional eye inserts",
@@ -158,7 +154,6 @@ export const mobileProsCons: MobileProsConsMap = {
         "Premium-priced device compared with many alternatives",
         "<b>Limited to anti-ageing</b> with 3 Red/NIR wavelengths only",
         "<b>No Blue, Green or Yellow</b> light modes for broader skin concerns",
-        "Return policy includes a <b>10% restocking fee</b> on returns",
         "Some users <b>report mixed feedback</b> after extended use",
         "Some reviewers mention <b>fit and slipping issues</b>",
         "Flexible silicone design may <b>require extra care</b> for hygiene and maintenance",
@@ -169,9 +164,7 @@ export const mobileProsCons: MobileProsConsMap = {
     3: {
       pros: [
         "Red, Near-Infrared and Blue LED light treatment",
-        "Dermatologist-recommended",
         "Lightweight <b>348g</b> silicone design for comfortable wear",
-        "<b>2-year warranty</b> provides added peace of mind",
       ],
       cons: [
         "Face-only coverage with <b>no neck or jawline coverage</b>",
@@ -205,8 +198,6 @@ export const mobileProsCons: MobileProsConsMap = {
       pros: [
         "<b>336 LEDs</b> provide dense and even facial light coverage",
         "<b>Six treatment modes</b> including Red + NIR, Red + Blue, and Yellow + NIR combinations",
-        "Certified with <b>CE, FCC and RoHS certifications</b>",
-        "Backed by a <b>2-year warranty</b> for added assurance",
       ],
       cons: [
         "The <b>$385</b> model covers only the face, with <b>no neck or chest coverage</b> included",

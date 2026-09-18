@@ -76,7 +76,7 @@ const advertorialSchema = {
         "blue light therapy for blemish-prone skin",
         "near-infrared light therapy",
         "at-home skincare devices",
-        "LED mask safety and certifications",
+        "LED mask safety and materials",
       ],
     },
     {
@@ -195,7 +195,7 @@ const advertorialSchema = {
         "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
       description:
-        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and an easy return and refund policy.",
+        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, and Buudy AI guided sessions.",
       image: "https://www.bestledfacemask.org/img/57-w.webp",
       brand: {
         "@type": "Brand",
@@ -220,18 +220,13 @@ const advertorialSchema = {
           name: "Near-infrared wavelength",
           value: "830nm",
         },
-        {
-          "@type": "PropertyValue",
-          name: "Return policy",
-          value: "Easy return and refund policy",
-        },
       ],
     },
     {
       "@type": "VideoObject",
       "@id":
-        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#dermatologist-video",
-      name: "Dermatologist walkthrough of the Buudy 7 Colour LED Mask",
+        "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#product-video",
+      name: "Product walkthrough of the Buudy 7 Colour LED Mask",
       description:
         "A short product walkthrough showing the Buudy LED mask fit, light modes, eye area, and full-face coverage.",
       thumbnailUrl:
@@ -250,7 +245,7 @@ const advertorialSchema = {
           name: "What is the best LED face mask in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and easy returns at £179.",
+            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and cordless use at £179.",
           },
         },
         {
@@ -374,7 +369,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
     article.headline = market.key === "global"
       ? "Best LED Face Mask (2026) | Independent Comparison"
       : `Best LED Face Mask ${market.countryName} (2026) | Independent Comparison`;
-    article.description = `An independent ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, guarantees, and overall value.`;
+    article.description = `An independent ${market.marketLabel} comparison covering LED face mask wavelengths, at-home use, face and neck coverage, comfort, and overall value.`;
     article.keywords = [
       "best led face mask",
       `best led face mask ${countryLower}`,
@@ -419,7 +414,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
 
   const video = graph.find((node) => node["@type"] === "VideoObject");
   if (video) {
-    video["@id"] = `${routeUrl}#dermatologist-video`;
+    video["@id"] = `${routeUrl}#product-video`;
     if (market.key === "ca") {
       video.name = "Editor walkthrough of the Buudy 7 Colour LED Mask";
     }
@@ -439,7 +434,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       const answer = question.acceptedAnswer;
       if (answer && typeof answer === "object" && !Array.isArray(answer)) {
         (answer as SchemaNode).text =
-          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and easy returns at ${market.productPrices.buudy.price}.`;
+          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and cordless use at ${market.productPrices.buudy.price}.`;
       }
     }
   }
