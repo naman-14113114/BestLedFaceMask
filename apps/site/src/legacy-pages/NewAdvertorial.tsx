@@ -163,7 +163,7 @@ const baseProducts: Product[] = [
     description: [
       "Our top pick is the <b>Buudy 7 Colour</b> LED Mask, an at-home device that stands out with a 7-colour spectrum plus <b>830nm near-infrared</b>. While most brands focus mainly on red light, Buudy combines multiple wavelengths commonly associated with the appearance of fine lines, blemish-prone skin, uneven tone, and overall skin radiance. It is designed for comfortable, consistent cosmetic use at home.",
       'A major advantage is the built-in <b>neck coverage</b>, a feature often missing from more expensive models. This means the neck and jawline can be included in the same session, not just the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.',
-      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a lower-risk trial.",
+      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a cordless design intended for consistent at-home use.",
     ],
     pros: [
       "Strong Customer Feedback: Reviewers consistently highlight comfort, ease of use, and the look of brighter, smoother skin over time.",
@@ -174,7 +174,6 @@ const baseProducts: Product[] = [
       'Cordless, Portable & Guided: A hands-free, rechargeable design with <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b> that help match each routine to your skin goals.',
       "Comfortable for All Skin Types: A gentle, painless experience with integrated <b>eye protection</b>.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "Easy Return Policy: Buudy offers a clear return and refund policy, subject to the terms shown on the official website.",
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
@@ -215,7 +214,6 @@ const baseProducts: Product[] = [
       'No Neck Coverage: The standard £400 mask is for the face only. You must purchase the "Face & Neck Kit" for £679.99 to get <b>neck coverage</b>, which comes standard with the Buudy mask.',
       "Fewer Light Modes: It focuses on red and near-infrared light and does not include the blue, green, or yellow light modes found on multi-colour masks like Buudy.",
       "Single-Concern Focus: Because it centres on the appearance of ageing, it is less versatile than a multi-colour mask for a broader range of skin goals.",
-      "Return Fee: The return policy includes a 10% restocking fee, which would be £40 on a £400 mask.",
       "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
       'Fit Issues: Some users note that the fit isn\'t perfect and that the mask can "slide down," even with the new straps.',
     ],
@@ -245,7 +243,6 @@ const baseProducts: Product[] = [
     ],
     pros: [
       "Established Brand Heritage: Omnilux is a long-established LED skincare brand with a strong reputation among skincare enthusiasts.",
-      "Good Return Policy: Offers a clear return policy, which is more straightforward than some competitors.",
       "High-Quality Brand: Omnilux is a well-known, trusted brand that originated in the professional skincare market.",
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag.",
     ],
@@ -318,7 +315,6 @@ const baseProducts: Product[] = [
     ],
     pros: [
       "Fastest Session Time: Completes a full session in just 3 minutes, ideal for those in a rush.",
-      "Dermatologist-Created Brand: Created by Dr. Dennis Gross, adding strong brand authority.",
       "Blue Light Mode: Includes a 415nm blue light mode, a wavelength commonly associated with blemish-prone skin.",
       "Cordless Usability: Internal battery allows for wire-free usage during the short session window.",
     ],
@@ -355,14 +351,13 @@ const canadaCompetitorProducts: Product[] = [
     siliconWarning: true,
     description: [
       "Kala Red Light Face Mask earns the third spot in the Canada ranking because it brings a credible, skin-focused LED setup at a <b>mid-premium price</b>. The device combines <b>red, near-infrared, and blue light</b> in a lightweight silicone mask, giving Canadian buyers a practical option for the look of ageing signs, blemish-prone skin, and general tone improvement.",
-      "Its official specifications list <b>198 LED lights</b>, 630nm red light, <b>830nm near-infrared</b> light, 465nm blue light, <b>10-20 minute sessions</b>, USB-C charging, a 348g weight, and a <b>2-year warranty</b>. Those published specifications make it easier to compare against generic marketplace masks.",
+      "Its published specifications list <b>198 LED lights</b>, 630nm red light, <b>830nm near-infrared</b> light, 465nm blue light, <b>10-20 minute sessions</b>, USB-C charging, and a 348g weight. Those details make it easier to compare against generic marketplace masks.",
       "The reason it does not rank higher is coverage and versatility. At <b>$382.49</b>, Kala is still a <b>face-only mask</b> with a narrower three-wavelength setup, so it does not cover the neck or offer the broader colour range included with our top pick.",
     ],
     pros: [
       "Triple-Wavelength Coverage: Uses red, near-infrared, and blue LED light, giving it a more rounded routine than red-only masks.",
-      "Trust Signals: The product page highlights clear specifications and a multi-year warranty.",
+      "Published Specifications: The product page lists its LED count, wavelengths, session time, charging format, and weight.",
       "Lightweight Silicone Fit: At 348g, it is lighter than rigid premium masks and easier to fit into a regular skincare routine.",
-      "2-Year Warranty: A longer warranty helps reduce purchase anxiety at this price point.",
     ],
     cons: [
       "No Neck Coverage: It covers the face only, leaving the neck and jawline out unless a separate device is used.",
@@ -427,14 +422,13 @@ const canadaCompetitorProducts: Product[] = [
     siliconWarning: true,
     description: [
       "Equinox LED Mask rounds out the Canada top five as a technically interesting silicone option with strong spec-sheet appeal. The face-only version lists <b>336 LEDs</b>, while the full face, neck, and chest kit increases the total LED count when purchased as a larger bundle.",
-      "Its Glow Core-style setup uses <b>six light modes</b> built around Red, Blue, Yellow, and Near-Infrared wavelengths, including 633nm red, 415nm blue, 590nm yellow, and <b>830nm near-infrared</b>. The official product information also highlights multiple safety certifications and a <b>2-year warranty</b>.",
+      "Its Glow Core-style setup uses <b>six light modes</b> built around Red, Blue, Yellow, and Near-Infrared wavelengths, including 633nm red, 415nm blue, 590nm yellow, and <b>830nm near-infrared</b>.",
       "It ranks fifth because the <b>$385</b> face-only model still <b>leaves out <b>neck coverage</b>, has fewer colour options than the top pick, and asks users to manage a more complex controller setup. It is credible, but the <b>overall value is weaker</b> for Canadian buyers focused on face and neck coverage.",
     ],
     pros: [
       "High Face LED Count: The <b>face-only mask</b> lists <b>336 LEDs</b> for dense facial coverage.",
       "Six Light Modes: Includes combinations such as Red + NIR, Red + Blue, and Yellow + NIR.",
       "Ultra-Thin Comfort: The product positioning highlights a thinner silicone fit than many standard masks.",
-      "Certification and Warranty Signals: Lists multiple safety certifications and a <b>2-year warranty</b>.",
     ],
     cons: [
       "Face-Only at This Price: The <b>$385</b> model does not include neck and chest coverage.",
@@ -519,20 +513,14 @@ function localizeProductCopy(
 
   if (market.key === "ca") {
     if (productKey === "buudy") {
-      if (text.startsWith("Our top pick is the <b>Buudy 7 Colour</b> LED Mask, a medical-grade device")) {
-        return `Our top pick is the <b>Buudy 7 Colour</b> LED Mask, a multi-wavelength LED device that outperforms the competition with a 7-colour spectrum plus <b>830nm near-infrared</b>. While most brands focus only on basic red light, Buudy uses targeted wavelengths designed to address multiple skin appearance concerns, including uneven tone and overall skin recovery. This CE, FCC, and ROHS certified technology is designed for a range of skin types.`;
-      }
       if (text.startsWith("A major advantage is the built-in <b>neck coverage</b>")) {
         return `A major advantage is the built-in <b>neck coverage</b>, a vital feature often missing from more expensive models. This allows you to cover the neck area alongside the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.`;
       }
       if (text.startsWith("Trusted by over 16,000 customers")) {
-        return `Trusted by over 16,000 customers with a 4.9-star rating, this mask is designed for consistent at-home use. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a safer, lower-risk trial.`;
+        return `Trusted by over 16,000 customers with a 4.9-star rating, this mask is designed for consistent at-home use. Currently priced at ${prices.buudy.price}, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a cordless design intended for regular at-home use.`;
       }
       if (text.startsWith("Proven Results: Has an outstanding rating")) {
         return `Strong Reviews: 4.9-star rating from over 4,000 customers.`;
-      }
-      if (text.startsWith("Dermatologist Proven: Health Canada Approved")) {
-        return `Certified: Holds CE, FCC, and ROHS certifications.`;
       }
       if (text.startsWith("Fast Results: Claims noticeable skin improvement")) {
         return `Consistent Use Design: Built for easy daily routines with automatic session timing.`;
@@ -561,9 +549,6 @@ function localizeProductCopy(
       if (text.startsWith("Extremely High Price:")) {
         return `Higher Price Point: At ${prices.currentbody.price}, it is priced higher than the Buudy mask (which is ${prices.buudy.price}).`;
       }
-      if (text.startsWith("Costly Money-Back Guarantee:") || text.startsWith("Return Policy Note:") || text.startsWith("Return Fee:")) {
-        return `Return Policy Note: The return policy includes a 10% restocking fee to return it.`;
-      }
       if (text.startsWith("Mixed User Results:")) {
         return `Mixed Feedback: Despite the high rating, some verified reviewers report mixed feedback after extended use.`;
       }
@@ -575,7 +560,7 @@ function localizeProductCopy(
 
   if (productKey === "buudy") {
     if (text.startsWith("With a strong base of repeat customers")) {
-      return `With a strong base of repeat customers, this mask is built around everyday value. Currently priced at ${prices.buudy.price}, it combines full-face and neck coverage, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a lower-risk trial.`;
+      return `With a strong base of repeat customers, this mask is built around everyday value. Currently priced at ${prices.buudy.price}, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a cordless design intended for consistent at-home use.`;
     }
 
     if (text.startsWith("Cost-effective:")) {
@@ -596,9 +581,6 @@ function localizeProductCopy(
       return 'No Neck Coverage: The standard mask is for the face only. You must purchase the "Face & Neck Kit" for <b>neck coverage</b>, which comes standard with the Buudy mask.';
     }
 
-    if (text.startsWith("Return Fee:")) {
-      return `Return Fee: The return policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be about ${prices.currentbody.restockingFee} on a ${prices.currentbody.roundedPrice} mask.`;
-    }
   }
 
   if (productKey === "omnilux") {
@@ -867,7 +849,7 @@ export default function Home({
               <div className="text-sm md:text-base text-slate-700 leading-relaxed mb-6">
                 {market.key === "ca" ? (
                   <p>
-                    Our editorial team compared 5 popular LED face masks available in Canada, evaluating them based on published specifications, verified user feedback, and editorial criteria including wavelengths, light coverage, comfort, eye safety, neck treatment, usability, price, and guarantees. Our biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-<b>neck coverage</b>, and were easy enough to use consistently at home.
+                    Our editorial team compared 5 popular LED face masks available in Canada, evaluating them based on published specifications, user feedback, and editorial criteria including wavelengths, light coverage, comfort, eye safety, neck treatment, usability, price, and customer support. Our biggest finding was simple: the most expensive mask was not always the best choice. The strongest options used the right wavelengths, gave even face-and-<b>neck coverage</b>, and were easy enough to use consistently at home.
                   </p>
                 ) : (
                   <p>
@@ -876,12 +858,11 @@ export default function Home({
                     <strong className="text-slate-900">
                       {expertProfile.name}
                     </strong>{" "}
-                    is a certified dermatologist and beauty technology expert. She
-                    reviewed {expertProfile.masksReviewed} popular{" "}
+                    leads our research and editorial team. The team reviewed {expertProfile.masksReviewed} popular{" "}
                     {market.headingCountry} LED face mask options over{" "}
                     {expertProfile.testingHours} hours, comparing wavelengths,
                     light coverage, comfort, eye safety, neck treatment,
-                    usability, reviews, price, and guarantees. Her biggest finding
+                    usability, reviews, price, and customer support. Their biggest finding
                     was simple: the most expensive mask was not always the best
                     choice. The strongest options used the right wavelengths, gave
                     even face-and-<b>neck coverage</b>, and were easy enough to use
@@ -916,14 +897,14 @@ export default function Home({
             <p>
               We compared <strong>5 popular LED masks</strong> available in Canada, 
               evaluating wavelengths, light coverage, comfort, eye safety, neck treatment, 
-              ease of use, reviews, price, and guarantees.
+              ease of use, reviews, price, and customer support.
             </p>
           ) : (
             <p>
               So we tested <strong>18 of the most popular LED masks</strong> over{" "}
               <strong>200+ hours</strong>, comparing wavelengths, light coverage,
               comfort, eye safety, neck treatment, ease of use, reviews, price,
-              and guarantees.
+              and customer support.
             </p>
           )}
           <p>
@@ -963,7 +944,7 @@ export default function Home({
                 Over the past three months, we have thoroughly tested{" "}
                 <strong>18 different LED face masks</strong>. Based on{" "}
                 <strong>hands-on evaluations</strong>, insights from{" "}
-                <strong>board-certified dermatologists</strong>, and{" "}
+                skincare professionals, and{" "}
                 <strong>thousands of consumer reviews</strong>, the following five
                 models stood out as the best in terms of{" "}
                 <strong>performance, comfort, safety, and affordability</strong>.
@@ -1388,7 +1369,7 @@ export default function Home({
         <div className="mt-20 md:mt-24 mb-10 md:mb-12 relative max-w-sm md:max-w-5xl mx-auto">
           <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
             <h2 className="text-2xl md:text-4xl font-bold text-center text-[#8b1528] mb-6 md:mb-10 font-serif tracking-wide">
-              {market.key === "ca" ? "Editor's Pick" : "Dermatologist's Verdict"}
+              Editor&apos;s Verdict
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -1481,11 +1462,8 @@ export default function Home({
           <div className="mx-auto mb-6 max-w-3xl rounded-lg border border-amber-200 bg-amber-50 p-7 text-left text-sm leading-relaxed text-slate-700">
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-700">Important disclosure</p>
             <p className="mb-4"><strong>Affiliate disclosure:</strong> We may receive compensation for clicks on or purchases of products featured on this site. This comes at no additional cost to you.</p>
-            <p className="mb-4"><strong>Individual results:</strong> Experiences with skincare devices vary. Product information and examples do not guarantee a particular result.</p>
+            <p className="mb-4"><strong>Individual results:</strong> Experiences with skincare devices vary, and results differ from person to person.</p>
             <p><strong>Medical disclaimer:</strong> This website provides general information and is not a substitute for professional medical advice, diagnosis or treatment.</p>
-            {market.key === "ca" && (
-              <p className="mt-4"><strong>Regulatory Note:</strong> Reference to Health Canada approval or other certifications does not imply an endorsement of product efficacy for specific individual conditions.</p>
-            )}
           </div>
         </div>
       </footer>
