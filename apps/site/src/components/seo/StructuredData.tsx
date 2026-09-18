@@ -195,7 +195,7 @@ const advertorialSchema = {
         "https://www.bestledfacemask.org/best-led-face-mask-uk-2026#buudy-product",
       name: "Buudy 7 Colour LED Mask",
       description:
-        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back guarantee.",
+        "A 7 colour LED face mask with 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and an easy return and refund policy.",
       image: "https://www.bestledfacemask.org/img/57-w.webp",
       brand: {
         "@type": "Brand",
@@ -222,8 +222,8 @@ const advertorialSchema = {
         },
         {
           "@type": "PropertyValue",
-          name: "Guarantee",
-          value: "90-day money-back guarantee",
+          name: "Return policy",
+          value: "Easy return and refund policy",
         },
       ],
     },
@@ -250,7 +250,7 @@ const advertorialSchema = {
           name: "What is the best LED face mask in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at £179.",
+            text: "The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and easy returns at £179.",
           },
         },
         {
@@ -439,7 +439,7 @@ function createAdvertorialSchema(marketKey: AdvertorialMarketKey) {
       const answer = question.acceptedAnswer;
       if (answer && typeof answer === "object" && !Array.isArray(answer)) {
         (answer as SchemaNode).text =
-          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and a 90-day guarantee at ${market.productPrices.buudy.price}.`;
+          `The guide ranks the Buudy 7 Colour LED Mask as the strongest value pick because it combines 7 visible colour modes, 830nm near-infrared support, face and neck coverage, eye protection, and easy returns at ${market.productPrices.buudy.price}.`;
       }
     }
   }
@@ -616,7 +616,7 @@ const hairAdvertorialSchema = {
         "https://www.bestledfacemask.org/best-hair-dryer-uk-2026#muuhu-product",
       name: "Muuhu 7-in-1 High-Speed Hair Dryer & Styler",
       description:
-        "A 7-in-1 high-speed hair dryer and styler with a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and a 90-day money-back guarantee.",
+        "A 7-in-1 high-speed hair dryer and styler with a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and an easy return and refund policy.",
       image: "https://www.bestledfacemask.org/img/hair/muuhu.webp",
       brand: {
         "@type": "Brand",
@@ -654,7 +654,7 @@ const hairAdvertorialSchema = {
         {
           "@type": "PropertyValue",
           name: "Warranty",
-          value: "2-year warranty and 90-day money-back guarantee",
+          value: "2-year warranty and easy return policy",
         },
       ],
     },
@@ -681,7 +681,7 @@ const hairAdvertorialSchema = {
           name: "What is the best hair dryer in the UK for value?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The guide ranks the Muuhu 7-in-1 High-Speed Hair Dryer & Styler as the strongest value pick because it combines a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and a 90-day guarantee at £149.",
+            text: "The guide ranks the Muuhu 7-in-1 High-Speed Hair Dryer & Styler as the strongest value pick because it combines a 110,000 RPM brushless motor, seven attachments including two Coanda auto-wrap curlers, ionic care, intelligent heat control, a 2-year warranty, and easy returns at £149.",
           },
         },
         {

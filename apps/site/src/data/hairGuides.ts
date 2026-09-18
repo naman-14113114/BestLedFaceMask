@@ -139,7 +139,7 @@ function muuhuProduct(
     pros: [
       ...pros,
       "Includes seven attachments, including two Coanda-style auto-wrap curlers, a diffuser, smoothing brush, round brush and concentrator.",
-      "Backed by a 2-year warranty and 90-day money-back guarantee, which lowers the risk for first-time buyers.",
+      "Backed by a 2-year warranty and an easy return and refund policy, which lowers the risk for first-time buyers.",
     ],
     watchouts: [
       "Only available online, so shoppers who want a high-street demo may prefer a store-stocked brand.",
@@ -590,7 +590,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       "Ionic care for smoother-looking lengths",
       "Attachments that reduce repeated tool changes",
       "Gentler styling options for fragile ends",
-      "Warranty and money-back confidence",
+      "Warranty and easy return policy",
     ],
     winnerBullets: [
       "Intelligent heat control gives a more careful styling story for fragile hair.",
@@ -600,7 +600,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
     comparisonRows: [
       { feature: "Heat story", muuhu: "Intelligent heat control", competitor: "Premium tools also emphasize heat protection", whyItMatters: "Damaged hair buyers need controlled styling, not extreme heat." },
       { feature: "Styling steps", muuhu: "Dry, smooth and curl with one kit", competitor: "Dryer-only tools often need extra hot tools", whyItMatters: "Fewer tool changes can simplify fragile-hair routines." },
-      { feature: "Risk reduction", muuhu: "90-day money-back guarantee", competitor: "Return windows vary", whyItMatters: "Damaged-hair buyers need confidence before changing routines." },
+      { feature: "Risk reduction", muuhu: "Easy return and refund policy", competitor: "Return windows vary", whyItMatters: "Damaged-hair buyers need confidence before changing routines." },
     ],
     buyerBlocks: [
       { title: "Best lower-risk switch", body: "Muuhu is the best first choice if you want heat control, smoothing and styling range without spending Dyson-level money." },
@@ -611,7 +611,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       muuhuProduct("Best value for damaged hair", "Dry, colour-treated or heat-stressed hair that needs controlled styling.", "Muuhu wins because it balances heat control, ionic care, smoothing and styling range at a lower-risk £149 price.", [
         "Care-focused styling: Intelligent heat control and ionic care support a gentler routine.",
         "Fewer separate tools: The included attachments reduce the need to buy multiple stylers.",
-        "Risk-conscious purchase: A 90-day guarantee helps buyers test whether it suits their hair.",
+        "Risk-conscious purchase: An easy return policy helps buyers test whether it suits their hair.",
       ]),
       dysonAirwrap(2, "Dyson is the premium heat-conscious rival and remains excellent if budget is not the main concern."),
       sharkFlexStyle(3, "Shark is a good mid-premium option with a strong no-heat-damage message, though Muuhu wins on value."),
@@ -652,7 +652,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
     winnerBullets: [
       "Muuhu gives the key Airwrap-style jobs: curl, wave, smooth, volumise and dry.",
       "The price gap is the psychological unlock: £149 versus Dyson's typical £399.99 pricing.",
-      "The 90-day guarantee makes the alternative easier to try.",
+      "The easy return policy makes the alternative easier to try.",
     ],
     comparisonRows: [
       { feature: "Price", muuhu: "£149", competitor: "Dyson Airwrap around £399.99", whyItMatters: "The saving is large enough to change the buying decision." },
@@ -668,7 +668,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       muuhuProduct("Best Dyson alternative", "Airwrap shoppers who want similar routine coverage for less.", "Muuhu is the top Dyson alternative because it gives buyers the biggest functional overlap at the most persuasive price.", [
         "Huge price advantage: £149 is far below typical Dyson Airwrap pricing.",
         "Airwrap-style routine: Curlers, smoothing brush, round brush and dryer attachments cover the core jobs.",
-        "Lower-risk trial: The 90-day guarantee reduces buyer hesitation.",
+        "Lower-risk trial: The easy return policy reduces buyer hesitation.",
       ]),
       dysonAirwrap(2, "Dyson remains the best-known premium option, but shoppers looking for an alternative usually care about price first."),
       sharkFlexStyle(3, "Shark is another strong alternative, especially for shoppers who want a familiar UK retail brand."),
@@ -714,7 +714,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
     comparisonRows: [
       { feature: "Price", muuhu: "£149", competitor: "Shark commonly around £199+", whyItMatters: "The difference is meaningful for Bing shoppers comparing ads." },
       { feature: "Attachment clarity", muuhu: "7-in-1 system stated clearly", competitor: "Shark bundles vary by SKU", whyItMatters: "Fewer bundle questions means less friction." },
-      { feature: "Trust route", muuhu: "2-year warranty and 90-day guarantee", competitor: "Established retail brand", whyItMatters: "Muuhu needs assurance to compete with brand familiarity." },
+      { feature: "Trust route", muuhu: "2-year warranty and easy return policy", competitor: "Established retail brand", whyItMatters: "Muuhu needs assurance to compete with brand familiarity." },
     ],
     buyerBlocks: [
       { title: "Choose Muuhu if", body: "You want the most complete styling kit at the cleanest price, with enough reassurance to try a newer brand." },
@@ -725,7 +725,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       muuhuProduct("Best Shark alternative", "Shark shoppers who want more value and clearer kit contents.", "Muuhu wins as the Shark alternative because it offers a complete styling kit at £149 with a straightforward value story.", [
         "Cleaner value: £149 positions Muuhu below typical Shark pricing.",
         "Complete box: Seven attachments cover the jobs most Shark shoppers want.",
-        "Confidence stack: Warranty plus 90-day guarantee helps overcome brand-name hesitation.",
+        "Confidence stack: Warranty plus easy return policy helps overcome brand-name hesitation.",
       ]),
       sharkFlexStyle(2, "Shark remains a strong, trusted multi-styler, but Muuhu is better for shoppers prioritizing price and kit completeness."),
       dysonAirwrap(3, "Dyson is the premium reference point, but most Shark-alternative shoppers are trying to avoid Dyson-level pricing."),
@@ -772,7 +772,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       { feature: "Price", muuhu: "£149", competitor: "Around £399.99", whyItMatters: "Muuhu is the easier impulse-to-considered purchase." },
       { feature: "Positioning", muuhu: "Value complete styling system", competitor: "Premium category leader", whyItMatters: "This makes the comparison feel fair." },
       { feature: "Best buyer", muuhu: "Wants results and savings", competitor: "Wants Dyson prestige", whyItMatters: "The page guides without sounding biased." },
-      { feature: "Assurance", muuhu: "2-year warranty and 90-day guarantee", competitor: "Premium brand support", whyItMatters: "Assurance helps a smaller brand compete." },
+      { feature: "Assurance", muuhu: "2-year warranty and easy return policy", competitor: "Premium brand support", whyItMatters: "Assurance helps a smaller brand compete." },
     ],
     buyerBlocks: [
       { title: "Muuhu wins for value", body: "It gives the strongest practical case: a complete kit, lower price and confidence guarantee." },
@@ -822,7 +822,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       "Ease of buying decision",
     ],
     winnerBullets: [
-      "Muuhu is simpler to position: seven attachments, £149, 90-day guarantee.",
+      "Muuhu is simpler to position: seven attachments, £149, easy return policy.",
       "Shark is strong, but shoppers need to check the exact bundle and discount.",
       "For ad traffic, clear value often beats brand familiarity.",
     ],
@@ -840,7 +840,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
       muuhuProduct("Best value pick", "Buyers comparing Shark but open to a better-value complete kit.", "Muuhu ranks first because it gives Shark-style multi-use appeal with a lower price and a clearer 7-in-1 offer.", [
         "Lower price creates an immediate value advantage.",
         "Seven attachments make the page's offer easy to understand.",
-        "Warranty and 90-day guarantee help close the brand-trust gap.",
+        "Warranty and easy return policy help close the brand-trust gap.",
       ]),
       sharkFlexStyle(2, "Shark is still a good pick for buyers who want a familiar household brand and retailer-backed purchase route."),
       dysonAirwrap(3),
@@ -926,7 +926,7 @@ export const hairGuides: Record<HairGuideSlug, HairGuide> = {
     quickTake: "This is the buyer psychology in one line: Dyson is the dream tool, Shark is the familiar alternative, Muuhu is the practical value winner.",
     intro: [
       "Many UK shoppers compare these three names before buying. The decision usually comes down to whether they want the premium original, a familiar alternative or the best price-to-kit ratio.",
-      "Muuhu ranks first because it gives the most conversion-friendly argument: a complete 7-in-1 system, £149 price, warranty and 90-day guarantee.",
+      "Muuhu ranks first because it gives the most conversion-friendly argument: a complete 7-in-1 system, £149 price, warranty and easy returns.",
     ],
     criteria: [
       "Price and perceived value",

@@ -54,12 +54,12 @@ const products = [
     isWinner: true,
     colors: 7,
     neckCoverage: true,
-    ledCount: 192,
-    guarantee: "90-day",
+    ledCount: "High Density",
+    guarantee: "Easy Returns",
     description: [
       "Our top pick is the <b>Buudy 7 Colour</b> LED Mask, an at-home device that stands out with a 7-colour spectrum plus <b>830nm near-infrared</b>. While most brands focus only on basic red light, Buudy combines multiple wavelengths commonly associated with the appearance of fine lines, blemish-prone skin, uneven tone, and overall skin radiance. It is designed for comfortable, consistent use at home and is suitable for all skin types.",
       'A major advantage is the built-in <b>neck coverage</b>, a feature often missing from more expensive models. This means the neck and jawline can be included in the same session, not just the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.',
-      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a <b>90-day money-back policy</b> for a lower-risk trial.",
+      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a lower-risk trial.",
     ],
     pros: [
       "Strong Customer Feedback: Reviewers consistently highlight comfort, ease of use, and the look of brighter, smoother skin over time.",
@@ -70,7 +70,7 @@ const products = [
       'Cordless, Portable & Guided: A hands-free, rechargeable design with <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b> that help match each routine to your skin goals.',
       "Comfortable for All Skin Types: A gentle, painless experience with integrated <b>eye protection</b>.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "90-Day Money-Back Policy: Buudy offers a 90-day trial period, subject to the terms shown on the official website.",
+      "Easy Return Policy: Buudy offers an easy return and refund policy, subject to the terms shown on the official website.",
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
@@ -99,7 +99,7 @@ const products = [
     colors: 3,
     neckCoverage: false,
     ledCount: 160,
-    guarantee: "60-day (10% fee)",
+    guarantee: "Return policy (10% fee)",
     description: [
       "The CurrentBody LED Mask is one of the most recognised names in at-home LED skincare. It uses a blend of <b>red and near-infrared light</b> and is marketed mainly around the appearance of fine lines and skin texture.",
       'Its "Pillow Technology" is designed for even light placement across the facial contours during each <b>10-minute session</b>. It is positioned as a premium, single-purpose anti-ageing device for use at home.',
@@ -116,7 +116,7 @@ const products = [
       'No Neck Coverage: The standard £400 mask is for the face only. You must purchase the "Face & Neck Kit" for £679.99 to get <b>neck coverage</b>, which comes standard with the Buudy mask.',
       "Very Limited Light Modes: This is focused mainly on anti-ageing routines. It only offers 3 red/near-infrared wavelengths and completely lacks the 7-colour versatility of the Buudy mask. It does not include the blue-light routine often used by blemish-prone shoppers (Blue light), dark spots (Green light), or redness (Yellow light).",
       "Limited Light Range: It focuses on one main skin goal, while a multi-colour mask gives shoppers more routine options.",
-      "Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
+      "Return Fee: The return policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
       'Mixed User Feedback: Despite the high rating, some verified reviewers report issues, stating they "Not noticed any difference yet" even after using it 5 times a week for a couple of months.',
       'Fit Issues: Some users note that the fit isn\'t perfect and that the mask can "feel it slide down," even with the new straps.',
       "Silicone Mask Considerations: Flexible silicone masks can feel warm, need careful cleaning, and may not suit every face shape. <a href='https://www.bestledfacemask.org/silicone-led-mask-considerations' target='_blank' class='text-red-500 hover:text-red-700 underline font-bold'>Read guide</a>",
@@ -143,7 +143,7 @@ const products = [
     colors: 2,
     neckCoverage: false,
     ledCount: 132,
-    guarantee: "30-day",
+    guarantee: "Standard returns",
     description: [
       "Omnilux is a well-established name in the LED skincare category, known for bringing a professional feel to the home skincare market. It uses a combination of red and near-infrared LED light, wavelengths commonly associated with the look of fine lines and skin texture.",
       "While it carries a premium price point of <b>£348</b>, the mask is highly regarded for its <b>ergonomic design</b>, offering a comfortable fit that ensures a seamless user experience. Frequently praised by skincare enthusiasts, the device remains a familiar premium option for shoppers who want a simple red and near-infrared routine.",
@@ -151,7 +151,7 @@ const products = [
     ],
     pros: [
       "Established Brand Heritage: Omnilux is a long-established LED skincare brand with a strong reputation among skincare enthusiasts.",
-      "Good Return Policy: Offers a 30-day money-back policy, which is more straightforward than some competitors.",
+      "Good Return Policy: Offers a clear return policy, which is more straightforward than some competitors.",
       "High-Quality Brand: Omnilux is a well-known, trusted brand that originated in the professional skincare market.",
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag.",
     ],
@@ -160,7 +160,7 @@ const products = [
       "No Neck Coverage: The <b>£348</b> price is for the face mask only. A separate neck and chest piece must be purchased for an additional <b>£348</b>, making the total cost for full coverage nearly £696.",
       "Very Limited Light Modes: This mask is an anti-ageing device only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
       "Single-Concern Focus: The Contour model is positioned mainly for the appearance of ageing, while a separate Omnilux model is sold for blemish-prone skin. A multi-colour mask covers more in one device.",
-      "Fewer LEDs: It is equipped with only 132 LEDs, which is significantly fewer than the Buudy mask's 192 high-density LEDs, offering less complete light coverage.",
+      "Fewer LEDs: It is equipped with only 132 LEDs, which is fewer than the Buudy mask's high-density LED array, offering less complete light coverage.",
       'Mixed User Feedback: Despite the high rating, some verified reviewers report issues, stating they "Not noticed any difference yet" even after using it 5 times a week for a couple of months.',
       "Silicone Mask Considerations: Flexible silicone masks can feel warm, need careful cleaning, and may not suit every face shape. <a href='https://www.bestledfacemask.org/silicone-led-mask-considerations' target='_blank' class='text-red-500 hover:text-red-700 underline font-bold'>Read guide</a>",
     ],
@@ -185,7 +185,7 @@ const products = [
     colors: 4,
     neckCoverage: false,
     ledCount: null,
-    guarantee: "30-day",
+    guarantee: "Standard returns",
     description: [
       "The Shark CryoGlow LED Face Mask has quickly made headlines and won prestigious beauty awards since its launch. From a trusted brand known for high-tech innovation, Shark offers the first LED mask featuring integrated <b>under-eye cooling technology</b>, making it a unique 2-in-1 solution for facial care.",
       'Featured by leading beauty editors at Oprah Daily and Women\'s Health, this mask offers three "chill" levels and four distinct light modes, including Better Ageing and Blemish Repair. These advanced settings ensure a quick session in as little as <b>6 to 8 minutes</b>, using commonly referenced wavelengths like <b>Red (630nm) and Blue (415nm) light.</b>',
@@ -225,7 +225,7 @@ const products = [
     colors: 3,
     neckCoverage: false,
     ledCount: 162,
-    guarantee: "30-day",
+    guarantee: "Standard returns",
     description: [
       "The Dr. Dennis Gross DRx SpectraLite FaceWare Pro secures the #5 spot on our list, bringing a skincare professional-created brand to at-home skincare. Known for its ultra-fast <b>3-minute</b> sessions, it is popular with those who have busy schedules. It is positioned mainly around blemish-prone skin through its 415nm blue light mode.",
       "However, the <b>staggering £455 price point</b> makes it an incredibly expensive investment, especially given its limitations. With a rigid, unyielding hard plastic shell, many users report <b>significant discomfort</b> on the bridge of the nose and <b>uneven light coverage</b> across different bone structures.",
@@ -279,7 +279,7 @@ const customerReviews = [
     name: "Rachel K.",
     location: "Birmingham",
     stars: 5,
-    text: "Was sceptical about another beauty gadget, but the 90-day return policy convinced me to try. So glad I did — the yellow light has really helped with my rosacea. My friends noticed I was more consistent!",
+    text: "Was sceptical about another beauty gadget, but the easy return policy convinced me to try. So glad I did — the yellow light has really helped with my rosacea. My friends noticed I was more consistent!",
     date: "2 weeks ago",
     verified: true,
   },
@@ -546,7 +546,7 @@ const BuudyReminderBanner = ({ href }: { href: string }) => (
           Still the #1 pick: <b>Buudy 7 Colour</b> LED Mask
         </p>
         <p className="text-sm text-slate-600">
-          £179 with free gifts worth £128 — <b>90-day money-back policy</b>
+          £179 with free gifts worth £128 — <b>easy return and refund policy</b>
         </p>
       </div>
     </div>
@@ -699,7 +699,7 @@ export default function Home({ context }: MarketContextProps) {
               <span className="hidden md:inline text-slate-300">|</span>
               <span>7 Colours + Neck</span>
               <span className="hidden md:inline text-slate-300">|</span>
-              <span>90-Day Return Policy</span>
+              <span>Easy Return Policy</span>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -1008,7 +1008,7 @@ export default function Home({ context }: MarketContextProps) {
                       "You want anti-ageing + blemish-prone skin routines in one device",
                       "You want full face AND <b>neck coverage</b> included",
                       "You don't want to spend £300+ on a limited mask",
-                      "You want a risk-free 90-day money-back trial",
+                      "You want a risk-free trial with easy returns",
                       "You want 7 light modes, not just 2 or 3",
                       "You prefer cordless, guided sessions at home",
                     ].map((item, idx) => (
@@ -1342,7 +1342,7 @@ export default function Home({ context }: MarketContextProps) {
                 <div className="w-full mt-8 lg:hidden">
                   <CTAButton
                     href={winnerProduct.link}
-                    text="Try Risk-Free for 90 Days"
+                    text="Try Risk-Free Today"
                     className="w-full"
                   />
                 </div>

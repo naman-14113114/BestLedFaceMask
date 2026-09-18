@@ -247,7 +247,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Colour LED Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
                   <p>Buudy was founded on a simple principle: <strong> make well-specced skincare easier to access.</strong> By refusing to pay millions to celebrities for endorsements, Buudy is able to pour 100% of its budget directly into the hardware.</p>
-                  <p>That means at £179, you are getting 7 distinct wavelengths, 192 high-density LEDs, and a built-in neck adapter. You are paying for the electronics and the design—not a celebrity marketing budget.</p>
+                  <p>That means at £179, you are getting 7 distinct wavelengths, high-density LEDs, and a built-in neck adapter. You are paying for the electronics and the design—not a celebrity marketing budget.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -257,7 +257,7 @@ export default function BrandNamePremium({ context }: MarketContextProps) {
                   <ul className="space-y-4">
                     {[
                       "Zero Celebrity Markup: We don't pay influencers, we pass the savings to you.",
-                      "Capable Hardware: 192 dense LEDs across 7 light modes.",
+                      "Capable Hardware: High-density LEDs across 7 light modes.",
                       "Transparent Pricing: £179 includes the face mask, neck adapter, and all accessories.",
                       "Strong Customer Feedback: A large base of organic, un-paid customer reviews in the UK."
                     ].map((pro, idx) => {

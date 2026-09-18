@@ -163,7 +163,7 @@ const baseProducts: Product[] = [
     description: [
       "Our top pick is the <b>Buudy 7 Colour</b> LED Mask, an at-home device that stands out with a 7-colour spectrum plus <b>830nm near-infrared</b>. While most brands focus mainly on red light, Buudy combines multiple wavelengths commonly associated with the appearance of fine lines, blemish-prone skin, uneven tone, and overall skin radiance. It is designed for comfortable, consistent cosmetic use at home.",
       'A major advantage is the built-in <b>neck coverage</b>, a feature often missing from more expensive models. This means the neck and jawline can be included in the same session, not just the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.',
-      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a <b>90-day money-back policy</b> for a lower-risk trial.",
+      "With a strong base of repeat customers, this mask is built around everyday value. Currently priced at £179, it combines full-face and neck coverage, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a lower-risk trial.",
     ],
     pros: [
       "Strong Customer Feedback: Reviewers consistently highlight comfort, ease of use, and the look of brighter, smoother skin over time.",
@@ -174,7 +174,7 @@ const baseProducts: Product[] = [
       'Cordless, Portable & Guided: A hands-free, rechargeable design with <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b> that help match each routine to your skin goals.',
       "Comfortable for All Skin Types: A gentle, painless experience with integrated <b>eye protection</b>.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "90-Day Money-Back Policy: Buudy offers a 90-day trial period, subject to the terms shown on the official website.",
+      "Easy Return Policy: Buudy offers a clear return and refund policy, subject to the terms shown on the official website.",
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
@@ -215,7 +215,7 @@ const baseProducts: Product[] = [
       'No Neck Coverage: The standard £400 mask is for the face only. You must purchase the "Face & Neck Kit" for £679.99 to get <b>neck coverage</b>, which comes standard with the Buudy mask.',
       "Fewer Light Modes: It focuses on red and near-infrared light and does not include the blue, green, or yellow light modes found on multi-colour masks like Buudy.",
       "Single-Concern Focus: Because it centres on the appearance of ageing, it is less versatile than a multi-colour mask for a broader range of skin goals.",
-      "Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be £40 on a £400 mask.",
+      "Return Fee: The return policy includes a 10% restocking fee, which would be £40 on a £400 mask.",
       "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
       'Fit Issues: Some users note that the fit isn\'t perfect and that the mask can "slide down," even with the new straps.',
     ],
@@ -245,7 +245,7 @@ const baseProducts: Product[] = [
     ],
     pros: [
       "Established Brand Heritage: Omnilux is a long-established LED skincare brand with a strong reputation among skincare enthusiasts.",
-      "Good Return Policy: Offers a 30-day money-back policy, which is more straightforward than some competitors.",
+      "Good Return Policy: Offers a clear return policy, which is more straightforward than some competitors.",
       "High-Quality Brand: Omnilux is a well-known, trusted brand that originated in the professional skincare market.",
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag.",
     ],
@@ -254,7 +254,7 @@ const baseProducts: Product[] = [
       "No Neck Coverage: The <b>£348</b> price is for the face mask only. A separate neck and chest piece must be purchased for an additional <b>£348</b>, making the total cost for full coverage nearly £696.",
       "Very Limited Light Modes: This mask is focused on ageing-related routines only. It is limited to just 2 light wavelengths (Red and NIR) and is missing the 5 other modes (like Blue, Green, and Yellow) that come standard with the Buudy mask.",
       "Single-Concern Focus: The Contour model is positioned mainly for the appearance of ageing, while a separate Omnilux model is sold for blemish-prone skin. A multi-colour mask covers more in one device.",
-      "Fewer LEDs: It is equipped with only 132 LEDs, fewer than the Buudy mask's 192 LEDs, offering less dense light coverage.",
+      "Fewer LEDs: It is equipped with only 132 LEDs, fewer than the Buudy mask's high-density array, offering less dense light coverage.",
       "Mixed User Feedback: As with any at-home device, some reviewers report slower or less noticeable changes than they expected.",
     ],
     metrics: [
@@ -290,7 +290,7 @@ const baseProducts: Product[] = [
       "Extremely High Price: At £269.99, it is more than double the price of the Buudy mask (£179) for what is arguably less technology.",
       "No Neck Coverage: The device is for the face only and does not include neck coverage, a key comparison point where Buudy includes more area.",
       "Fewer Light Modes: The mask is focused on its cooling feature and offers very few light options. It does not include 5 of the 7 colour modes (Green, Yellow, Cyan, Purple, White) that come with the Buudy mask.",
-      "Unspecified LED Count: The product page does not state the number of LEDs. A lower LED count (compared to Buudy's 192 LEDs) can mean less even light coverage.",
+      "Unspecified LED Count: The product page does not state the number of LEDs. A lower LED count (compared to Buudy's high-density array) can mean less even light coverage.",
       "Very Heavy & Rigid: At 675g, this mask is on the heavy side. This, combined with a rigid (non-silicone) design, can make it less comfortable to wear and may not fit all face shapes well.",
       "Fewer Colour Options: It is a 2-in-1 device focused on cooling, so shoppers who want the broader range of colour modes found on a multi-colour mask get fewer options here.",
     ],
@@ -526,7 +526,7 @@ function localizeProductCopy(
         return `A major advantage is the built-in <b>neck coverage</b>, a vital feature often missing from more expensive models. This allows you to cover the neck area alongside the face. The cordless, rechargeable design features <b>"Tap Technology"</b> and <b>Buudy AI guided sessions</b>, making it simple to choose the right routine for your skin goals.`;
       }
       if (text.startsWith("Trusted by over 16,000 customers")) {
-        return `Trusted by over 16,000 customers with a 4.9-star rating, this mask is designed for consistent at-home use. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced <b>eye protection</b>, and a <b>90-day money-back guarantee</b> for a safer, lower-risk trial.`;
+        return `Trusted by over 16,000 customers with a 4.9-star rating, this mask is designed for consistent at-home use. Currently priced at ${prices.buudy.price}, it offers the best value on the market, combining full-face and neck rejuvenation, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a safer, lower-risk trial.`;
       }
       if (text.startsWith("Proven Results: Has an outstanding rating")) {
         return `Strong Reviews: 4.9-star rating from over 4,000 customers.`;
@@ -561,8 +561,8 @@ function localizeProductCopy(
       if (text.startsWith("Extremely High Price:")) {
         return `Higher Price Point: At ${prices.currentbody.price}, it is priced higher than the Buudy mask (which is ${prices.buudy.price}).`;
       }
-      if (text.startsWith("Costly Money-Back Guarantee:")) {
-        return `Return Policy Note: The 60-day money-back guarantee includes a 10% restocking fee to return it.`;
+      if (text.startsWith("Costly Money-Back Guarantee:") || text.startsWith("Return Policy Note:") || text.startsWith("Return Fee:")) {
+        return `Return Policy Note: The return policy includes a 10% restocking fee to return it.`;
       }
       if (text.startsWith("Mixed User Results:")) {
         return `Mixed Feedback: Despite the high rating, some verified reviewers report mixed feedback after extended use.`;
@@ -575,7 +575,7 @@ function localizeProductCopy(
 
   if (productKey === "buudy") {
     if (text.startsWith("With a strong base of repeat customers")) {
-      return `With a strong base of repeat customers, this mask is built around everyday value. Currently priced at ${prices.buudy.price}, it combines full-face and neck coverage, advanced <b>eye protection</b>, and a <b>90-day money-back policy</b> for a lower-risk trial.`;
+      return `With a strong base of repeat customers, this mask is built around everyday value. Currently priced at ${prices.buudy.price}, it combines full-face and neck coverage, advanced <b>eye protection</b>, and an <b>easy return and refund policy</b> for a lower-risk trial.`;
     }
 
     if (text.startsWith("Cost-effective:")) {
@@ -597,7 +597,7 @@ function localizeProductCopy(
     }
 
     if (text.startsWith("Return Fee:")) {
-      return `Return Fee: The 60-day money-back policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be about ${prices.currentbody.restockingFee} on a ${prices.currentbody.roundedPrice} mask.`;
+      return `Return Fee: The return policy is not 100% free. Customers are charged a 10% restocking fee to return it, which would be about ${prices.currentbody.restockingFee} on a ${prices.currentbody.roundedPrice} mask.`;
     }
   }
 

@@ -13,7 +13,7 @@ const criteria = [
   "Face, jaw and neck coverage",
   "Fit, comfort and eye protection",
   "Treatment length and ease of consistent use",
-  "Warranty, returns and money-back terms",
+  "Warranty, returns and refund terms",
   "Price, included accessories and local availability"
 ];
 

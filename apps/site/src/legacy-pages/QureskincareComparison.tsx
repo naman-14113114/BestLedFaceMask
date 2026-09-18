@@ -47,7 +47,7 @@ const products = [
       "Cordless & Portable: A hands-free, rechargeable design with \"Tap Technology\" that lets you multitask while you rejuvenate.",
       "Comfortable Routine: A painless session design with integrated <b>eye protection</b> for added comfort.",
       "Cost-effective: Currently priced at £179, which is a 60% discount from its regular price of £449.",
-      "90-Day Money-Back Policy: Offers a trial period, subject to the terms shown on the official website."
+      "Easy Return Policy: Clear return and refund terms, subject to the terms shown on the official website."
     ],
     cons: [
       "Limited Availability: Available for purchase online only and exclusively in the United Kingdom.",
@@ -123,7 +123,7 @@ const products = [
       "No Neck Coverage: The standard mask does not cover the neck. To achieve <b>neck coverage</b>, you must purchase an additional kit, raising the total cost to nearly £680.",
       "Very Limited Light Modes: It exclusively utilizes <b>red and near-infrared light</b>. It cannot be used to support blemish-prone skin routines (which requires blue light) or balance skin tone (which utilizes green/yellow light).",
       "Limited Light Range: It focuses on one main skin goal, while a multi-colour mask gives shoppers more routine options.",
-      "Return Fee: The money-back policy includes a 10% restocking fee."
+      "Return Fee: The return policy includes a 10% restocking fee."
     ],
     metrics: [
       { label: "Light Coverage", value: 82 },
@@ -148,7 +148,7 @@ const products = [
       "For those prioritizing long-term skin health and brand history and routine simplicity, the Omnilux mask represents a sophisticated and reliable investment in modern beauty technology. It remains a top-tier choice for consumers seeking a durable, premium at-home skincare device."
     ],
     pros: [
-      "Good Return Policy: Offers a 30-day money-back policy, which is more straightforward than some competitors.",
+      "Good Return Policy: Offers a clear return policy, which is more straightforward than some competitors.",
       "High-Quality Brand: Omnilux is a well-known, trusted brand that originated in the professional medical device market.",
       "Portable Design: The mask is flexible, portable, and comes with a rechargeable controller and carry bag."
     ],

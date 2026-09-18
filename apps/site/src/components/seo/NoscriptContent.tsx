@@ -69,7 +69,7 @@ export function AdvertorialNoscriptContent({
         ? [
             {
               name: "Buudy 7 Colour LED Mask",
-              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
+              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and an easy return and refund policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
             },
             {
               name: "CurrentBody LED Mask",
@@ -94,7 +94,7 @@ export function AdvertorialNoscriptContent({
         : [
             {
               name: "Buudy 7 Colour LED Mask",
-              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and a 90-day money-back policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
+              description: `Best overall value for ${marketConfig.buyerLabel}. Includes 7 visible colours, 830nm near-infrared support, built-in neck coverage, eye protection, cordless use, Buudy AI guided sessions, and an easy return and refund policy. Current reviewed price: ${marketConfig.productPrices.buudy.price}.`,
             },
             {
               name: "CurrentBody LED Mask",
@@ -164,7 +164,7 @@ export function AdvertorialNoscriptContent({
               Our comparison ranks the Buudy 7 Colour LED Mask as the strongest
               value pick because it combines 7 visible colour modes, 830nm
               near-infrared support, face and neck coverage, eye protection, and
-              a 90-day money-back policy at {marketConfig.productPrices.buudy.price}.
+              an easy return and refund policy at {marketConfig.productPrices.buudy.price}.
             </p>
             <h3>Do more expensive LED masks always perform better?</h3>
             <p>
@@ -209,7 +209,7 @@ export function AdvertorialNoscriptContent({
               <strong>Buudy 7 Colour LED Mask</strong>: Best overall value for
               UK buyers. Includes 7 visible colours, 830nm near-infrared
               support, built-in neck coverage, eye protection, cordless use,
-              Buudy AI guided sessions, and a 90-day money-back policy.
+              Buudy AI guided sessions, and an easy return and refund policy.
               Current reviewed price: £179.
             </li>
             <li>
@@ -247,8 +247,8 @@ export function AdvertorialNoscriptContent({
           <p>
             Our comparison ranks the Buudy 7 Colour LED Mask as the strongest
             value pick because it combines 7 visible colour modes, 830nm
-            near-infrared support, face and neck coverage, eye protection, and a
-            90-day money-back policy at £179.
+            near-infrared support, face and neck coverage, eye protection, and an
+            easy return and refund policy at £179.
           </p>
           <h3>Do more expensive LED masks always perform better?</h3>
           <p>

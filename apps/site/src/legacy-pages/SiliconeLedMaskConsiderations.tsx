@@ -322,7 +322,7 @@ export default function SiliconeLedMaskConsiderations({ context }: MarketContext
                         "7 Colour Range: Multiple light modes for the appearance of blemish-prone skin, fine lines, dark spots and more—all in one device.",
                         "Built-in Neck Coverage: Full face and neck coverage included at no extra cost.",
                         "Gentle on Skin: Designed to be comfortable for all skin types, including sensitive and blemish-prone skin.",
-                        "90-Day Money-Back Policy: Return policy for added peace of mind."
+                        "Easy Return Policy: Clear return terms for added peace of mind."
                       ].map((pro, idx) => {
                         const [bold, ...rest] = pro.split(':');
                         return (

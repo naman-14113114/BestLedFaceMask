@@ -35,7 +35,7 @@ const dangerPoints = [
 ];
 
 const comparisonPoints = [
-  { feature: "Total LED Bulb Count", silicone: "Often hidden (typically 60-100)", buudy: "192 High-Density LEDs" },
+  { feature: "Total LED Bulb Count", silicone: "Often hidden (typically 60-100)", buudy: "High-Density LED Array" },
   { feature: "Coverage Area Gaps", silicone: "Large 'dead zones' between bulbs", buudy: "Seamless edge-to-edge coverage" },
   { feature: "Irradiance Output", silicone: "Often drops across sparse areas", buudy: "Consistent light output" },
   { feature: "Transparency", silicone: "Vague specifications", buudy: "Full spec disclosure" },
@@ -203,7 +203,7 @@ export default function LedDensityGuide({ context }: MarketContextProps) {
         {/* The Safe Alternative Section */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center font-serif">
-            The Solution: 192 LED High-Density Array
+            The Solution: High-Density LED Array
           </h2>
           
           <div className="relative bg-white rounded-3xl shadow-sm border border-emerald-500 ring-4 ring-emerald-50 p-6 md:p-10 pt-10">
@@ -235,8 +235,8 @@ export default function LedDensityGuide({ context }: MarketContextProps) {
               <div className="lg:col-span-8">
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 font-serif">Buudy 7 Colour LED Mask</h3>
                 <div className="prose prose-slate prose-lg max-w-none mb-8">
-                  <p>Buudy refuses to hide its technical specifications. The Buudy mask contains a massive <strong>192 high-density LED array</strong>, ensuring that every square centimeter of your face and neck receives high, even light coverage.</p>
-                  <p>By packing the LEDs tightly together, Buudy actively eliminates 'dead zones'. This return policys more even light coverage, resulting in a more consistent face and neck routine.</p>
+                  <p>Buudy refuses to hide its technical specifications. The Buudy mask contains a high-density LED array, ensuring that every square centimeter of your face and neck receives high, even light coverage.</p>
+                  <p>By packing the LEDs tightly together, Buudy actively eliminates 'dead zones'. This ensures more even light coverage, resulting in a more consistent face and neck routine.</p>
                 </div>
 
                 <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 mb-8">
@@ -245,7 +245,7 @@ export default function LedDensityGuide({ context }: MarketContextProps) {
                   </h4>
                   <ul className="space-y-4">
                     {[
-                      "192 Total Bulbs: One of the highest density arrays on the consumer market.",
+                      "High-Density Array: One of the highest density arrays on the consumer market.",
                       "Zero Dead Zones: Seamless light coverage from forehead to neckline.",
                       "Even Light Coverage: Penetrates deeper into the dermis for a consistent skincare routine.",
                       "Transparent Specs: We proudly publish our bulb count because we exceed the standard."

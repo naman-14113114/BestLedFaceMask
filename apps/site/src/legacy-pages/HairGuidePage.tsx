@@ -281,9 +281,9 @@ export default function HairGuidePage({ guide }: { guide: HairGuide }) {
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-2xl font-black text-slate-950">90 days</p>
+                <p className="text-2xl font-black text-slate-950">2 Years</p>
                 <p className="mt-1 text-sm font-semibold text-slate-600">
-                  Money-back guarantee
+                  Warranty & easy returns
                 </p>
               </div>
             </div>
@@ -525,7 +525,7 @@ export default function HairGuidePage({ guide }: { guide: HairGuide }) {
               <p className="mx-auto mt-4 max-w-xl text-lg font-semibold leading-relaxed text-slate-700">
                 For this search intent, Muuhu gives the most persuasive buying
                 argument: complete styling range, strong heat-control story,
-                £149 price, 2-year warranty and a 90-day guarantee.
+                £149 price, 2-year warranty and an easy return policy.
               </p>
               <div className="mx-auto mt-6 inline-block rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm">
                 <div className="flex items-center justify-center gap-2">

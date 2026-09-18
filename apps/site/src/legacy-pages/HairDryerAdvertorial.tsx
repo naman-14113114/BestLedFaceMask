@@ -157,7 +157,7 @@ const baseProducts: Product[] = [
     description: [
       "Our top pick is the Muuhu 7-in-1 High-Speed Hair Dryer & Styler, a salon-grade device that outperforms far more expensive rivals with a 110,000 RPM brushless motor and seven professional attachments, including two Coanda auto-wrap curlers for effortless curls and waves.",
       "A major advantage is the complete styling system: a dedicated L-shaped base, left and right auto-wrap Coanda curlers, a smoothing brush, a round volumising brush, a concentrator nozzle, and a diffuser. Intelligent heat control and negative-ion technology dry hair fast while helping protect against heat damage, all from a UK 3-pin 220-240V plug.",
-      "Trusted by over 16,000 customers with a 4.9-star rating, this styler delivers salon results at home. Currently priced at £149, it offers the best value on the market, combining a 110,000 RPM motor, seven attachments, ionic care, a 2-year warranty, and a 90-day money-back guarantee.",
+      "Trusted by over 16,000 customers with a 4.9-star rating, this styler delivers salon results at home. Currently priced at £149, it offers the best value on the market, combining a 110,000 RPM motor, seven attachments, ionic care, a 2-year warranty, and an easy return and refund policy.",
     ],
     pros: [
       "Class-Leading Motor: 110,000 RPM brushless motor for fast, high-airflow drying that rivals devices costing three times as much.",
@@ -165,7 +165,7 @@ const baseProducts: Product[] = [
       "Coanda Auto-Wrap: Left and right auto-wrap curlers draw hair in for salon-style curls and waves with no manual winding.",
       "Ionic + Intelligent Heat Control: Negative ions help reduce frizz while smart heat regulation helps protect hair from extreme heat damage.",
       "Outstanding Value: At £149 (was £299), it undercuts premium stylers by £200-£350 while including more attachments.",
-      "Strong Assurance: Backed by a 2-year warranty and a 90-day money-back guarantee for a lower-risk trial.",
+      "Strong Assurance: Backed by a 2-year warranty and an easy return and refund policy.",
       "UK Ready: Supplied for UK 220-240V with a standard 3-pin plug, no travel adapter needed.",
     ],
     cons: [
@@ -204,7 +204,7 @@ const baseProducts: Product[] = [
       "Very High Price: At £399.99 it is dramatically more expensive than the £149 top pick for comparable core styling.",
       "Fewer Attachments: Standard bundles include fewer total attachments than the seven-piece system in our top pick.",
       "No Free Gift Bundle: Does not include the complimentary accessory and guide bundle offered with our top pick.",
-      "Shorter Assurance: Warranty and trial terms are narrower than the 2-year warranty and 90-day guarantee on our top pick.",
+      "Shorter Assurance: Warranty and trial terms are narrower than the 2-year warranty and easy return policy on our top pick.",
     ],
     metrics: [
       { label: "Drying Speed", value: 92 },
@@ -237,7 +237,7 @@ const baseProducts: Product[] = [
       "Higher Price: At £199 it costs more than our £149 top pick while including fewer attachments.",
       "No Auto-Wrap Curlers: Lacks the pair of Coanda auto-wrap curlers in our top pick.",
       "Smaller Attachment Set: Does not match the seven-piece completeness of our top pick.",
-      "Weaker Assurance: Trial and warranty terms are narrower than the 2-year warranty and 90-day guarantee on our top pick.",
+      "Weaker Assurance: Trial and warranty terms are narrower than the 2-year warranty and easy return policy on our top pick.",
     ],
     metrics: [
       { label: "Drying Speed", value: 88 },
